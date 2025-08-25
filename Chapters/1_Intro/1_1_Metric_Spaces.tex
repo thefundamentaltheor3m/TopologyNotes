@@ -1,0 +1,89 @@
+\section{A Word on Metric Spaces}
+
+Recall the definition of a metric space.
+
+\begin{boxdefinition}[Metric Spaces]
+    A \textbf{metric space} is a pair $\parenth{X, d}$ consisting of a set $X$ and a function $d : X \times X \to \R$ such that
+    \begin{enumerate}
+        \item for all $x, y \in X$, $d(x, y) \geq 0$ for all $x, y \in X$
+        \item for all $x, y \in X$, $d(x, y) = 0$ if and only if $x = y$
+        \item for all $x, y \in X$, $d(x, y) = d(y, x)$
+        \item for all $x, y, z \in X$,
+        \begin{align*}
+            d\of{x, z} \leq d\of{x, y} + d\of{y, z}
+        \end{align*}
+    \end{enumerate}
+    We call the function $d$ a \textbf{metric on $X$}.
+\end{boxdefinition}
+
+We give several familiar examples.
+
+\begin{boxexample}[Some Familiar Metric Spaces] \hfill
+    \begin{enumerate}
+        \item $\R^n$ under the Euclidean metric
+        \begin{align*}
+            d\of{x, y} = \sqrt{\sum_{i=1}^{n} \parenth{x_i - y_i}^2}
+        \end{align*}
+        for all $x = \parenth{x_1, \ldots, x_n}, y = \parenth{y_1, \ldots, y_n} \in \R^n$
+
+        \item Any set $X$ under the equality metric
+        \begin{align*}
+            d(x, y) =
+            \begin{cases}
+                0 & \text{ if } x = y \\
+                1 & \text{ if } x \neq y 
+            \end{cases}
+        \end{align*}
+        for all $x, y \in X$
+
+        \item Any subset $Y \subseteq X$ of a metric space $\parenth{X, d}$ under the restriction of $d$ to $Y \times Y \subseteq X \times X$.
+
+        \item Given two metric spaces $\parenth{X_1, d_1}$ and $\parenth{X_2, d_2}$, there are numerous viable metrics we can define on $X_1 \times X_2$. One of them would be taking the \textit{maximum} of $d_1$ and $d_2$; another would be the \textit{sum}; a third would be
+        \begin{align*}
+            d\of{\parenth{x_1, y_1} , \parenth{x_2, y_2}} := \sqrt{d\of{x_1, y_1}^2 + d\of{x_2, y_2}^2}
+        \end{align*}
+        for all $\parenth{x_1, y_1} \in X_1$ and $\parenth{x_2, y_2} \in Y_2$. We define this third metric space to be the \textbf{product metric}, and it is easily seen that the product of Euclidean spaces (under the Euclidean metric) is indeed a Euclidean space (under the Euclidean metric).
+
+        \item The set $C^0\of{\brac{0, 1}}$ of continuous functions from $[0, 1]$ to $\R$ under the supremum metric
+        \begin{align*}
+            d(f, g) = \norm{f - g}_{\infty} = \sup_{x \in \brac{0, 1}} \abs{f(x) - g(x)}
+        \end{align*}
+        for all $f, g \in C^{0}\of{\brac{0, 1}}$. More generally, any compact set works (not just $\brac{0, 1}$).
+
+        \item The set $C^0\of{\brac{0, 1}}$ under the metric
+        \begin{align*}
+            d(f, g) = \sqrt{\int_{0}^{1} \parenth{f(x) - g(x)}^2 \, \dx}
+        \end{align*}
+        for all $f, g \in C^0\of{\brac{0, 1}}$, which we know is positive-definite because continuous functions that are zero almost everywhere are zero (and nonnegative functions whose integral is zero are zero almost everywhere).
+
+        \item Consider the set
+        \begin{align*}
+            l^2\of{\R} = \setst{\parenth{x_n}_{n \in \N}}{x_n \in \R \text{ and } \sum_{n=0}^{\infty} x_n^2 < \infty}
+        \end{align*}
+        We can define the $l^2$ metric on this set by
+        \begin{align*}
+            d(x, y) := \sqrt{\sum_{n=0}^{\infty} \parenth{x_i - y_i}^2}
+        \end{align*}
+        for all $x, y \in l^2\of{\R}$. More than showing that this satisfies the properties of a metric, what is tricky here is showing that this metric is well-defined. But this is doable, and we will end the discussion of this example on that note.
+    \end{enumerate}
+\end{boxexample}
+
+After this barrage of examples of metric spaces, we are finally ready to move onto more interesting definitions. We begin by discussing the notion of continuity of functions between metric spaces.
+
+\begin{boxdefinition}[Continuity of Functions]
+    Let $\parenth{X, d}$ and $\parenth{X', d'}$ be metric spaces. We say that a function $f : X \to X'$ is \textbf{continuous at a point $x_0 \in X$} if for all $\eps > 0$, there exists a $\delta > 0$ such that for all $x \in X$, if $d\of{x, x_0} < \delta$, then $d'\of{f\of{x}, f\of{x_0}} < \eps$. We say that $f$ is \textbf{continuous} if $f$ is continuous at every point $x_0 \in X$.
+\end{boxdefinition}
+
+We mention two interesting facts that we do not bother to prove.
+
+\begin{boxexercise}[Argument-Wise Continuity of Metrics]
+    If $\parenth{X, d}$ is a metric space, for all $a \in X$, the function
+    \begin{align*}
+        x \mapsto d\of{a, x} : X \to \R
+    \end{align*}
+    is continuous.
+\end{boxexercise}
+
+\begin{boxexercise}[Composition of Continuous Functions]
+    A composition of continuous functions is continuous.
+\end{boxexercise}
