@@ -1,7 +1,23 @@
 \chapter{An Introduction to Topology} \label{Ch1:CH}
 \thispagestyle{empty}
 
-We begin by recalling basic notions about metric spaces.
+We begin by making a few slightly non-standard notational choices.
+
+\begin{boxnotation}
+    Given a function $f : X \to Y$ and a subset $A \subseteq X$, we write
+    \begin{align*}
+        f[A] := \setst{f(x) \in Y}{x \in A}
+    \end{align*}
+    In similar fashion, given $B \subseteq Y$, we write
+    \begin{align*}
+        f\inv[B] := \setst{x \in X}{f(x) \in B}
+    \end{align*}
+\end{boxnotation}
+
+The reason it is important to distinguish between the notations $f(A)$ and $f[A]$ is that there might be a situation in which $A \in X$ \textit{and} $A \subseteq X$. % This is as clear an indication as any that the lecturer is a set theorist.
+We will not make any more notational choices at this stage that differ from standard mathematical conventions. As and when we do, we will introduce them.
+
+We now recall basic facts about metric spaces.
 
 \input{Chapters/1_Intro/1_1_Metric_Spaces.tex}
-\input{Chapters/1_Intro/1_2_Another_Section.tex}
+\input{Chapters/1_Intro/1_2_Topological_Spaces.tex}
