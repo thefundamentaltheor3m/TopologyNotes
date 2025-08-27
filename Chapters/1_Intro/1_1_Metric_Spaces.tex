@@ -87,3 +87,68 @@ We mention two interesting facts that we do not bother to prove.
 \begin{boxexercise}[Composition of Continuous Functions]
     A composition of continuous functions is continuous.
 \end{boxexercise}
+
+% Lecture 2
+
+% Notational conventions: added to start of chapter.
+
+We recall what it means for a sequence to converge in a metric space.
+
+\begin{boxdefinition}[Convergence of a Sequence]
+    Let $\parenth{X, d}$ be a metric space, and let $\parenth{x_n}_{n \in \N} \subseteq X$ be a sequence in $X$. Given some $x \in X$, we say that \textbf{$x_n$ converges to $x$}, denoted $x_n \to x$, if $\forall \eps > 0$, $\exists N \in \N$ such that $\forall n \geq N$, $d\of{x_n, x} < \eps$. We say \textbf{$x$ is the limit of $x_n$ as $n \to \infty$}.
+\end{boxdefinition}
+
+We can show that limits in a metric space are unique.
+
+\begin{boxproposition}
+    Let $\parenth{X, d}$ be a metric space and let $\parenth{x_n}_{n \in \N} \subseteq X$ be a sequence in $X$. There is at most one $x$ such that $x_n  \to x$.
+\end{boxproposition}
+\begin{proof}
+    Suppose, for contradiction, that there exist distinct points $x, x' \in X$ such that $x_n \to x$ and $x_n \to x'$. Pick $\eps := d\of{x, x'} / 2$. For this $\eps$, we know there is some $N \in \N$ such that for $n \geq N$, $d\of{x_n, x} < \eps$. Similarly, we know there is some $N' \in \N$ such that for $n \geq N'$, $d\of{x_n, x'} < \eps$. Pick $M := \max\of{N, N'} + 1$. Then, applying the fact that $d\of{x_M, x} = d\of{x, x_M}$,
+    \begin{align*}
+        d\of{x, x'} \leq d\of{x, x_M} + d\of{x_M, x'} < \eps + \eps = d\of{x, x'}
+    \end{align*}
+    which clearly is a contradiction. So, $x$ and $x'$ cannot be distinct.
+\end{proof}
+
+\begin{boxwarning}
+    In this course, we will encounter spaces where a sequence can have more than one limit. Proceed with caution!
+\end{boxwarning}
+
+We recall the definition of an open ball.
+
+\begin{boxdefinition}[Open Ball]
+    Let $\parenth{X, d}$ be a metric space. Fix $a \in X$ and $\eps > 0$. We define the \textbf{open ball of radius $\eps$ centred at $a$} to be
+    \begin{align*}
+        B_{\eps}\of{a} := \setst{b \in X}{d\of{a, b} < \eps}
+    \end{align*}
+\end{boxdefinition}
+
+The reason for the term `open' in the above definition is the following definition.
+
+\begin{boxdefinition}[Open Sets]\label{Ch1:Def:Open_Sets_Metric_Spaces}
+    Let $\parenth{X, d}$ be a metric space. We say that $U \subseteq X$ is \textbf{open} if for all $a \in U$, there exists some $\eps > 0$ such that $B_{\eps}\of{a} \subseteq U$.
+\end{boxdefinition}
+
+It is easy to see that an open ball is indeed an open set.
+
+We can also define a dual notion.
+
+\begin{boxdefinition}[Closed Sets]
+    Let $\parenth{X, d}$ be a metric space. We say that $U \subseteq X$ is \textbf{closed} if its complement $X \setminus U$ is open.
+\end{boxdefinition}
+
+We recall basic properties of open and closed sets.
+
+\begin{boxproposition}\label{Ch1:Prop:Properties_of_Open_Sets}
+    Let $\parenth{X, d}$ be a metric space.
+    \begin{enumerate}
+        \item Both $\emptyset$ and $X$ are both open and closed.
+        \item An arbitrary union of open sets is open.
+        \item A finite intersection of open sets is open.
+    \end{enumerate}
+\end{boxproposition}
+
+We omit the proof, because it is easy and basic.
+
+We are now ready to venture into more general waters.

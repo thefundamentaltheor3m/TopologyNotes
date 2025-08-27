@@ -1,0 +1,17 @@
+\section{Topological Spaces}
+
+A topological space, broadly speaking, is one in which we wish to be able to discuss the notion of convergence without depending on the notion of distance. The definition of convergence in metric spaces really only relies on the openness of open balls. We can generalise it merely by generalising the definition of open sets.
+
+We begin by defining the notion of a \textbf{topological space}.
+
+\begin{boxdefinition}[Topological Space]
+    Let $X$ be a set. A \textbf{topology} on $X$ is a family $\tau$ of subsets of $X$ such that
+    \begin{enumerate}
+        \item $\emptyset, X \in \tau$
+        \item $\tau$ is closed under arbitrary unions
+        \item $\tau$ is closed under finite intersections
+    \end{enumerate}
+    We say a subset of $X$ is \textbf{open} with respect to a topology $\tau$ if it lies in $\tau$. We call the pair $\parenth{X, \tau}$ a \textbf{topological space}.
+\end{boxdefinition}
+
+The terminology for open sets is visibly consistent with the terminology used in metric spaces. In fact, this is exactly what \Cref{Ch1:Prop:Properties_of_Open_Sets} demonstrates: that the open sets of a metric space, defined as in \Cref{Ch1:Def:Open_Sets_Metric_Spaces}, do indeed define a topology on it. Every metric space is thus also a topological space.
