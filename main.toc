@@ -1,8 +1,8 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}An Introduction to Topology}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}A Word on Metric Spaces}{2}{section.1.1}%
+\contentsline {chapter}{\numberline {1}A Recap of Undergraduate Topology}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Metric Spaces}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Topological Spaces}{6}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Another Chapter}{8}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducing the Main Object of Study in this Chapter}{8}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Another Section}{8}{section.2.2}%
-\contentsline {chapter}{Bibliography}{9}{section.2.2}%
+\contentsline {chapter}{\numberline {2}Another Chapter}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducing the Main Object of Study in this Chapter}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Another Section}{11}{section.2.2}%
+\contentsline {chapter}{Bibliography}{12}{section.2.2}%
