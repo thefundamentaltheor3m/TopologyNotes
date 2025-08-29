@@ -15,3 +15,95 @@ We begin by defining the notion of a \textbf{topological space}.
 \end{boxdefinition}
 
 The terminology for open sets is visibly consistent with the terminology used in metric spaces. In fact, this is exactly what \Cref{Ch1:Prop:Properties_of_Open_Sets} demonstrates: that the open sets of a metric space, defined as in \Cref{Ch1:Def:Open_Sets_Metric_Spaces}, do indeed define a topology on it. Every metric space is thus also a topological space.
+
+The reason why we introduced topological spaces to begin with is because we wanted a more general setting in which to talk about convergence. The question is, what is the best way of talking about convergence in arbitrary topological spaces?
+
+Since every metric space is a topological space, and seeing as we already have a notion of convergence in metric spaces, we would want to define the notion of convergence in a topological space to be a \textit{generalisation}. To that end, we restate the definition of convergence in metric spaces using only the language of open sets.
+
+\begin{boxproposition}\label{Ch1:Prop:Convergence_Metric_Topological}
+    Let $\parenth{X, d}$ be a metric space. For every sequence $\parenth{x_n}_{n \in \N} \subseteq X$, the following are equivalent:
+    \begin{enumerate}[label = \normalfont \arabic*.]
+        \item $x_n$ converges to $x$ as in \Cref{Ch1:Def:Convergence_Metric}
+        \item For every open set $U \subseteq X$ such that $x \in U$, there is an $N \in \N$ such that for all $n \geq N$, $x_n \in U$.
+    \end{enumerate}
+\end{boxproposition}
+
+We do not prove this proposition here, but note that it is not difficult to prove.
+
+Since the second statement in \Cref{Ch1:Prop:Convergence_Metric_Topological} does not actually mention any \textit{metric space} properties of $X$, it is a viable definition for convergence in topological spaces.
+
+\begin{boxdefinition}[Convergence of a Sequence in a Topological Space]\label{Ch1:Def:Convergence_Topological}
+    Let $\parenth{X, \tau}$ be a topological space, and let $\parenth{x_n}_{n \in \N} \subseteq X$ be a sequence in $X$. Given some $x \in X$, we say that \textbf{$x_n$ converges to $x$}, denoted $x_n \to x$, if for every open set $U \subseteq X$ such that $x \in U$, there is an $N \in \N$ such that for all $n \geq N$, $x_n \in U$.
+\end{boxdefinition}
+
+\Cref{Ch1:Prop:Convergence_Metric_Topological} essentially tells us that if $\parenth{X, d}$ is a metric space, then \Cref{Ch1:Def:Convergence_Metric,Ch1:Def:Convergence_Topological} are equivalent, where we apply \Cref{Ch1:Def:Convergence_Topological} to the topological space structure induced by the metric space structure.
+
+\begin{boxexample}[Convergence in the Indiscrete Topology]\label{Ch1:Eg:Indiscrete_Top_not_Hausdorff}
+    Consider a set $X$ along with the indiscrete topology (ie, view it as the topological space $\parenth{X, \set{\emptyset, X}}$). Then, \textit{every sequence converges to every point}.
+\end{boxexample}
+
+\Cref{Ch1:Eg:Indiscrete_Top_not_Hausdorff} demonstrates that the uniqueness of limits seen in \Cref{Ch1:Prop:Uniqueness_of_Limits_Metric} does not always hold in topological spaces. See \Cref{Ch1:Def:Hausdorff} for more.
+
+Note that going forward, we often omit the topology when talking about topological spaces, unless it has specific properties that are essential for our purposes.
+
+Just as we generalised the notion of convergence from metric spaces to topological spaces, so too can we generalise the notion of continuity.
+
+\begin{boxdefinition}[Continuity]\label{Ch1:Def:Continuity_Topological}
+    Let $X$ and $Y$ be topological spaces, and let $f : X \to Y$ be a function. We say $f$ is \textbf{continuous} if for every $U \subseteq Y$ open in $Y$, the pre-image $f\inv\!\brac{U}$ is open in $X$.
+\end{boxdefinition}
+
+It is easy to show that \Cref{Ch1:Def:Continuity_Topological} is equivalent to \Cref{Ch1:Def:Continuity_Metric}. We do not do this here.
+
+There are many examples of continuous functions, some familiar and some slightly pathological.
+
+\begin{boxexample}[Weird Topologies lead to Weird Notions of Continuity]
+    Let $X$ and $Y$ be topological spaces.
+    \begin{enumerate}
+        \item If $X$ and $Y$ both have the \textit{discrete} topology on them, then \textit{any} function $f : X \to Y$ is continuous, because all subsets of $X$ and $Y$ are open.
+
+        \item If $X$ and $Y$ both have the \textit{indiscrete} topology on them, then \sorry
+    \end{enumerate}
+\end{boxexample}
+
+Recall that limits in a metric space are unique (\Cref{Ch1:Prop:Uniqueness_of_Limits_Metric}). We noted that this is not always true, but we are interested enough in distinguishing spaces where this is true from spaces where this is not true that we have a name for such spaces.
+
+\begin{boxdefinition}[Hausdorff/$T_2$ Spaces]\label{Ch1:Def:Hausdorff}
+    Let $\parenth{X, \tau}$ be a topological space. We say $\parenth{X, \tau}$ is \textbf{Hausdorff}, or $T_2$, if for all $a, b \in X$ with $a \neq b$, there exist $U, V \in \tau$ such that $a \in U$, $b \in V$ and $U \cap V = \emptyset$.
+\end{boxdefinition}
+
+The Hausdorff/$T_2$ property is an instance of a \textit{separation property}. There are many more such properties, including $T_1$, $T_3$, $T_{3 \frac{1}{2}}$, and $T_4$, and it is highly non-trivial to prove facts like $T_4 \implies T_{3 \frac{1}{2}}$. We will see such things as the course progresses.
+
+Note that \Cref{Ch1:Prop:Uniqueness_of_Limits_Metric} tells us precisely that Metric Spaces are Hausdorff/$T_2$. Indeed, this tells us that Hausdorffitude is a \textit{necessary} condition for a topology on a space to be \textbf{metrisable}---that is, for it to be induced by a metric. In particular, \Cref{Ch1:Eg:Indiscrete_Top_not_Hausdorff} tells us that the indiscrete topology is non-metrisable. There is the more interesting question of what conditions might be \textit{sufficient} for a topology to be metrisable. Metrisability is, indeed, highly non-trivial property, and we will see some metrisation theorems in this course.
+
+It is interesting to talk about whether a topology can be \textit{generated} by a family of subsets by taking unions. In the case of metric spaces, it is not difficult to show that this is true.
+
+\begin{boxproposition}[Metric Space Topologies are Generated by Open Balls]\label{Ch1:Prop:Met_Top_gen_by_open_balls}
+    Let $\parenth{X, d}$ be a metric space. Any $U \subseteq X$ is open if and only if $U$ is an open of open balls.
+\end{boxproposition}
+\begin{proof}
+    \Cref{Ch1:Prop:Properties_of_Open_Sets} tells us that if $U$ is a union of open sets, then it is open. Conversely, for all $x \in U$, there is some $\eps_x$ such that $B_{\eps_x}(x) \subseteq U$. Then, it is easily seen that
+    \begin{align*}
+        U = \bigcup_{x \in U} B_{\eps_x}(x)
+    \end{align*}
+    showing that $U$ is a union of open sets.
+\end{proof}
+
+We have a special term for families of open sets that `generate' a topology.
+
+\begin{boxdefinition}[Basis of a Topology]
+    Let $\parenth{X, \tau}$ be a topological space. A \textbf{basis for $\tau$} is a subset $B \subseteq \tau$ such that every $U \in \tau$ is a union of sets in $B$.
+\end{boxdefinition}
+
+\Cref{Ch1:Prop:Met_Top_gen_by_open_balls} tells us precisely that the open balls in a metric space form a \textit{basis} for the topology induced by the metric.
+
+We now discuss how to ``make subsets of a topological space open or closed''. We do this by defining interiors and closures.
+
+\begin{boxdefinition}[The Interior of a Set]
+    Let $X$ be a topological space and let $A \subseteq X$. We define the \textbf{interior} of $A$, denoted $\interior{A}$ or $A^{\circ}$, to be the union of all open subsets of $A$.
+\end{boxdefinition}
+
+Note that $\interior{A}$ is open. Moreover, it is the largest (with respect to inclusion) open subset of $A$. Finally, note that the sets that are equal to their interiors are precisely the open sets.
+
+We have a `dual' notion of interiors that capture closure properties.
+
+% Closure is the intersection of all closed subsets.

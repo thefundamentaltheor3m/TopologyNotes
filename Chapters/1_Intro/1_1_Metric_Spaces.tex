@@ -1,4 +1,4 @@
-\section{A Word on Metric Spaces}
+\section{Metric Spaces}
 
 Recall the definition of a metric space.
 
@@ -70,7 +70,7 @@ We give several familiar examples.
 
 After this barrage of examples of metric spaces, we are finally ready to move onto more interesting definitions. We begin by discussing the notion of continuity of functions between metric spaces.
 
-\begin{boxdefinition}[Continuity of Functions]
+\begin{boxdefinition}[Continuity]\label{Ch1:Def:Continuity_Metric}
     Let $\parenth{X, d}$ and $\parenth{X', d'}$ be metric spaces. We say that a function $f : X \to X'$ is \textbf{continuous at a point $x_0 \in X$} if for all $\eps > 0$, there exists a $\delta > 0$ such that for all $x \in X$, if $d\of{x, x_0} < \delta$, then $d'\of{f\of{x}, f\of{x_0}} < \eps$. We say that $f$ is \textbf{continuous} if $f$ is continuous at every point $x_0 \in X$.
 \end{boxdefinition}
 
@@ -94,13 +94,13 @@ We mention two interesting facts that we do not bother to prove.
 
 We recall what it means for a sequence to converge in a metric space.
 
-\begin{boxdefinition}[Convergence of a Sequence]
+\begin{boxdefinition}[Convergence of a Sequence in a Metric Space]\label{Ch1:Def:Convergence_Metric}
     Let $\parenth{X, d}$ be a metric space, and let $\parenth{x_n}_{n \in \N} \subseteq X$ be a sequence in $X$. Given some $x \in X$, we say that \textbf{$x_n$ converges to $x$}, denoted $x_n \to x$, if $\forall \eps > 0$, $\exists N \in \N$ such that $\forall n \geq N$, $d\of{x_n, x} < \eps$. We say \textbf{$x$ is the limit of $x_n$ as $n \to \infty$}.
 \end{boxdefinition}
 
 We can show that limits in a metric space are unique.
 
-\begin{boxproposition}
+\begin{boxproposition}\label{Ch1:Prop:Uniqueness_of_Limits_Metric}
     Let $\parenth{X, d}$ be a metric space and let $\parenth{x_n}_{n \in \N} \subseteq X$ be a sequence in $X$. There is at most one $x$ such that $x_n  \to x$.
 \end{boxproposition}
 \begin{proof}
