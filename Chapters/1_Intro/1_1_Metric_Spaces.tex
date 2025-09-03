@@ -68,7 +68,11 @@ We give several familiar examples.
     \end{enumerate}
 \end{boxexample}
 
-After this barrage of examples of metric spaces, we are finally ready to move onto more interesting definitions. We begin by discussing the notion of continuity of functions between metric spaces.
+After this barrage of examples of metric spaces, we are finally ready to move onto more interesting definitions.
+
+\subsection{Continuity of Functions}
+
+We begin by discussing the notion of continuity of functions between metric spaces.
 
 \begin{boxdefinition}[Continuity]\label{Ch1:Def:Continuity_Metric}
     Let $\parenth{X, d}$ and $\parenth{X', d'}$ be metric spaces. We say that a function $f : X \to X'$ is \textbf{continuous at a point $x_0 \in X$} if for all $\eps > 0$, there exists a $\delta > 0$ such that for all $x \in X$, if $d\of{x, x_0} < \delta$, then $d'\of{f\of{x}, f\of{x_0}} < \eps$. We say that $f$ is \textbf{continuous} if $f$ is continuous at every point $x_0 \in X$.
@@ -89,6 +93,8 @@ We mention two interesting facts that we do not bother to prove.
 \end{boxexercise}
 
 % Lecture 2
+
+\subsection{Sequences, Convergence and Uniqueness of Limits}
 
 % Notational conventions: added to start of chapter.
 
@@ -114,6 +120,10 @@ We can show that limits in a metric space are unique.
 \begin{boxwarning}
     In this course, we will encounter spaces where a sequence can have more than one limit. Proceed with caution!
 \end{boxwarning}
+
+Finally, we discuss topological properties of subsets of topological spaces.
+
+\subsection{Open and Closed Sets}
 
 We recall the definition of an open ball.
 

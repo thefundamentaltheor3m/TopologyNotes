@@ -16,6 +16,8 @@ We begin by defining the notion of a \textbf{topological space}.
 
 The terminology for open sets is visibly consistent with the terminology used in metric spaces. In fact, this is exactly what \Cref{Ch1:Prop:Properties_of_Open_Sets} demonstrates: that the open sets of a metric space, defined as in \Cref{Ch1:Def:Open_Sets_Metric_Spaces}, do indeed define a topology on it. Every metric space is thus also a topological space.
 
+\subsection{Sequences, Convergence and Limits}
+
 The reason why we introduced topological spaces to begin with is because we wanted a more general setting in which to talk about convergence. The question is, what is the best way of talking about convergence in arbitrary topological spaces?
 
 Since every metric space is a topological space, and seeing as we already have a notion of convergence in metric spaces, we would want to define the notion of convergence in a topological space to be a \textit{generalisation}. To that end, we restate the definition of convergence in metric spaces using only the language of open sets.
@@ -46,6 +48,18 @@ Since the second statement in \Cref{Ch1:Prop:Convergence_Metric_Topological} doe
 
 Note that going forward, we often omit the topology when talking about topological spaces, unless it has specific properties that are essential for our purposes.
 
+Recall that limits in a metric space are unique (\Cref{Ch1:Prop:Uniqueness_of_Limits_Metric}). We noted that this is not always true, but we are interested enough in distinguishing spaces where this is true from spaces where this is not true that we have a name for such spaces.
+
+\begin{boxdefinition}[Hausdorff/$T_2$ Spaces]\label{Ch1:Def:Hausdorff}
+    Let $\parenth{X, \tau}$ be a topological space. We say $\parenth{X, \tau}$ is \textbf{Hausdorff}, or $T_2$, if for all $a, b \in X$ with $a \neq b$, there exist $U, V \in \tau$ such that $a \in U$, $b \in V$ and $U \cap V = \emptyset$.
+\end{boxdefinition}
+
+The Hausdorff/$T_2$ property is an instance of a \textit{separation property}. There are many more such properties, including $T_1$, $T_3$, $T_{3 \frac{1}{2}}$, and $T_4$, and it is highly non-trivial to prove facts like $T_4 \implies T_{3 \frac{1}{2}}$. We will see such things as the course progresses.
+
+Note that \Cref{Ch1:Prop:Uniqueness_of_Limits_Metric} tells us precisely that Metric Spaces are Hausdorff/$T_2$. Indeed, this tells us that Hausdorffitude is a \textit{necessary} condition for a topology on a space to be \textbf{metrisable}---that is, for it to be induced by a metric. In particular, \Cref{Ch1:Eg:Indiscrete_Top_not_Hausdorff} tells us that the indiscrete topology is non-metrisable. There is the more interesting question of what conditions might be \textit{sufficient} for a topology to be metrisable. Metrisability is, indeed, highly non-trivial property, and we will see some metrisation theorems in this course.
+
+\subsection{Continuity}
+
 Just as we generalised the notion of convergence from metric spaces to topological spaces, so too can we generalise the notion of continuity.
 
 \begin{boxdefinition}[Continuity]\label{Ch1:Def:Continuity_Topological}
@@ -65,15 +79,27 @@ There are many examples of continuous functions, some familiar and some slightly
     \end{enumerate}
 \end{boxexample}
 
-Recall that limits in a metric space are unique (\Cref{Ch1:Prop:Uniqueness_of_Limits_Metric}). We noted that this is not always true, but we are interested enough in distinguishing spaces where this is true from spaces where this is not true that we have a name for such spaces.
+\subsection{Interiors and Closures}
 
-\begin{boxdefinition}[Hausdorff/$T_2$ Spaces]\label{Ch1:Def:Hausdorff}
-    Let $\parenth{X, \tau}$ be a topological space. We say $\parenth{X, \tau}$ is \textbf{Hausdorff}, or $T_2$, if for all $a, b \in X$ with $a \neq b$, there exist $U, V \in \tau$ such that $a \in U$, $b \in V$ and $U \cap V = \emptyset$.
+We briefly discuss how to ``make subsets of a topological space open or closed''. We do this by defining interiors and closures.
+
+\begin{boxdefinition}[The Interior of a Set]
+    Let $X$ be a topological space and let $A \subseteq X$. We define the \textbf{interior} of $A$, denoted $\interior{A}$ or $A^{\circ}$, to be the union of all open subsets of $A$.
 \end{boxdefinition}
 
-The Hausdorff/$T_2$ property is an instance of a \textit{separation property}. There are many more such properties, including $T_1$, $T_3$, $T_{3 \frac{1}{2}}$, and $T_4$, and it is highly non-trivial to prove facts like $T_4 \implies T_{3 \frac{1}{2}}$. We will see such things as the course progresses.
+Note that $\interior{A}$ is always open. Moreover, it is the largest (with respect to inclusion) open subset of $A$. Finally, note that the sets that are equal to their interiors are precisely the open sets.
 
-Note that \Cref{Ch1:Prop:Uniqueness_of_Limits_Metric} tells us precisely that Metric Spaces are Hausdorff/$T_2$. Indeed, this tells us that Hausdorffitude is a \textit{necessary} condition for a topology on a space to be \textbf{metrisable}---that is, for it to be induced by a metric. In particular, \Cref{Ch1:Eg:Indiscrete_Top_not_Hausdorff} tells us that the indiscrete topology is non-metrisable. There is the more interesting question of what conditions might be \textit{sufficient} for a topology to be metrisable. Metrisability is, indeed, highly non-trivial property, and we will see some metrisation theorems in this course.
+We have a `dual' notion of interiors that capture closure properties.
+
+% Closure is the intersection of all closed subsets.
+
+\begin{boxdefinition}[Closure]
+    Let $X$ be a topological space and let $A \subseteq X$. We define the \textbf{closure} of $A$, denoted $\closure{A}$ or $\bar{A}$, to be the intersection of all closed subsets of $X$ containing $A$.
+\end{boxdefinition}
+
+Dually to the interior, $\closure{A}$ is always closed. Moreover, it is the smallest (with respect to inclusion) closed subset of $X$ containing $A$. Finally, note that the sets that are equal to their closures are precisely the closed sets.
+
+\subsection{Bases and Sub-Bases}
 
 It is interesting to talk about whether a topology can be \textit{generated} by a family of subsets by taking unions. In the case of metric spaces, it is not difficult to show that this is true.
 
@@ -96,14 +122,107 @@ We have a special term for families of open sets that `generate' a topology.
 
 \Cref{Ch1:Prop:Met_Top_gen_by_open_balls} tells us precisely that the open balls in a metric space form a \textit{basis} for the topology induced by the metric.
 
-We now discuss how to ``make subsets of a topological space open or closed''. We do this by defining interiors and closures.
+We have a nice criterion to check if a subset of a topology is a basis.
 
-\begin{boxdefinition}[The Interior of a Set]
-    Let $X$ be a topological space and let $A \subseteq X$. We define the \textbf{interior} of $A$, denoted $\interior{A}$ or $A^{\circ}$, to be the union of all open subsets of $A$.
+\begin{boxproposition}
+    Let $\parenth{X, \tau}$ be a topological space. Let $B \subseteq \tau$. TFAE:
+    \begin{enumerate}
+        \item $B$ is a basis for $\tau$.
+        \item $X$ is a union of elements of $B$. Moreover, for all $U, V \in B$, $U \cap V$ is a union of elements of $B$.
+    \end{enumerate}
+\end{boxproposition}
+
+It is immediate that the first statement implies the second. The converse is an exercise in set algebra, which we do not do here.
+
+It is also possible to define bases using `sub-bases'. To that end, we have a preliminary fact.
+
+\begin{boxlemma}
+    Let $X$ be a set and let $\Pi$ be a non-empty set of topologies on $X$. Then,
+    \begin{align*}
+        \bigcap \Pi = \setst{A \subseteq X}{\forall \tau \in \Pi, \, A \in \tau}
+    \end{align*}
+\end{boxlemma}
+
+We do not prove this here. We merely mention that the proof has the same flavour as such statements in algebra as ``an arbitrary intersection of subgroups/ideals/subfields is a subgroup/ideal/subfield''.
+
+A particular consequence of the above is that we can make the following definition.
+
+\begin{boxdefinition}[Topology Generated by a Set]
+    Let $\parenth{X}$ be a set and let $C$ be any collection of subsets of $X$. We can define a topology on $X$ by
+    \begin{align*}
+        \Pi(C) := \bigcap \setst{\tau \text{ a topology on } X}{C \subseteq \tau}
+    \end{align*}
+    We call this the \textbf{topology on $X$ generated by $C$}.
 \end{boxdefinition}
 
-Note that $\interior{A}$ is open. Moreover, it is the largest (with respect to inclusion) open subset of $A$. Finally, note that the sets that are equal to their interiors are precisely the open sets.
+Note that it is \textit{always} possible to define a topology generated by a subset, since $\Pi(C)$ is always non-empty: it always contains the discrete topology.
 
-We have a `dual' notion of interiors that capture closure properties.
+We can now define a sub-basis of a topology.
 
-% Closure is the intersection of all closed subsets.
+\begin{boxdefinition}[Sub-Basis of a Topology]
+    Let $X$ be a set and let $C \subseteq X$. If $\tau$ is the least topology of $X$ that contains $C$, then we say that \textbf{$C$ is a sub-basis of $\tau$}.
+\end{boxdefinition}
+
+Indeed, any subset is a sub-basis of \textit{some} topology, namely, the topology it generates.
+
+\subsection{New Topologies from Old Ones}
+
+There are numerous techniques to define new topologies from old ones. We begin with a topology that is defined using continuity of functions.
+
+\begin{boxdefinition}[Initial Topology]\label{Ch1:Def:Init_Top}
+    Let $X$ be a set. Given an index set $\I$, topological spaces $X_i$ and functions $f_i : X \to X_i$ for $i \in \I$, we define the \textbf{initial topology on $X$ with respect to $X_i$ and $f_i$} to be the least topology on $X$ (with respect to inclusion) such that for all $i \in \I$, $f_i$ is continuous.
+\end{boxdefinition}
+
+Note that it is always possible to do this, because at worst, we the discrete topology on $X$ renders continuous every function from $X$ to any topological space.
+
+Given the definition of continuity (\Cref{Ch1:Def:Continuity_Topological}), it is possible to be explicit about the initial topology.
+
+\begin{boxlemma}
+    Let $X, \I, X_i, f_i$ be as in \Cref{Ch1:Def:Init_Top}. The corresponding initial topology $\tau$ is given by
+    \begin{align*}
+        \tau = \setst{f_i\inv\!\brac{U} \subseteq X}{i \in \I \text{ and } U \subseteq X_i \text{ is open}}
+    \end{align*}
+\end{boxlemma}
+
+We give an important example illustrating the notion of an initial topology.
+
+\begin{boxexample}[Products]\label{Ch1:Eg:Prod_Top_as_Init_Top}
+    Let $\I$ be an index set and let $X_i$ be topologies. Consider the Cartesian product $X$ of these $X_i$, defined as follows:
+    \begin{align*}
+        X = \prod_{i \in \I} X_i = \setst{\parenth{x_i}_{i \in \I}}{\forall i \in \I\, x_i \in X_i}
+    \end{align*}
+    We know (either by the category theoretic definition of a product, of which the Cartesian product is the instance in the category of sets, or by sheer common sense) that there are projections $\pi_i : X \to X_i$ that map any $\parenth{x_j}_{j \in \I}$ to $x_i$, indexed by $i \in \I$. We can compute the initial topologies of these projections to obtain a topology on $X$.
+\end{boxexample}
+
+We can give a special name to the topology defined above, which is a key way of constructing new topologies from old ones.
+
+\begin{boxdefinition}[The Product Topology]\label{Ch1:Def:Prod_Top}
+    Let $\I, X_i, X, \pi_i$ be as in \Cref{Ch1:Eg:Prod_Top_as_Init_Top}. We call the initial topology of the $\pi_i$ the \textbf{product topology} on $X$.
+\end{boxdefinition}
+
+We can give a more explicit description of the product topology.
+
+\begin{boxproposition}
+    Let $\I, X_i, X, \pi_i$ be as in \Cref{Ch1:Eg:Prod_Top_as_Init_Top} and \Cref{Ch1:Def:Prod_Top}. Then,
+    \begin{enumerate}
+        \item A sub-basis of the product topology is given by all sets of the form
+        \begin{align*}
+            \setst{\parenth{x_j}_{j \in \I}}{x_i \in U}
+        \end{align*}
+        for $i \in \I$ and $U \subseteq X_i$ open.
+
+        \item A basis of the product topology is given by all sets of the form
+        \begin{align*}
+            \setst{\parenth{x_j}_{j \in \I}}{x_{i_1} \in U_1, \ldots, x_{i_n} \in U_n}
+        \end{align*}
+        for $n \in \N$, $i_1, \ldots, i_n \in \I$, and $U_k \subseteq X_{i_k}$ open for $1 \leq k \leq n$.
+    \end{enumerate}
+\end{boxproposition}
+
+We do not prove this here.
+
+Dually to how we defined a topology on the Cartesian product of spaces as the initial topology of the projections, we can define a topology on any subset of a space as the initial topology of the inclusion.\todo{Write this out either as an example followed by a definition or as just a definition.}
+
+Finally\footnote{Pun intended}, we define the \textit{final} topology.
+
+% Given spaces X_i and functions X_i \to X, we define the final topology to be the largest topology on X such that all the f_i are continuous. That is, it consists of all U whose pre-images in the f_i are open. Write this out in more detail!!!!

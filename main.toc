@@ -1,8 +1,16 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}A Recap of Undergraduate Topology}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Metric Spaces}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Topological Spaces}{6}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Another Chapter}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducing the Main Object of Study in this Chapter}{11}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Another Section}{11}{section.2.2}%
-\contentsline {chapter}{Bibliography}{12}{section.2.2}%
+\contentsline {subsection}{\numberline {1.1.1}Continuity of Functions}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Sequences, Convergence and Uniqueness of Limits}{5}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Open and Closed Sets}{6}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Topological Spaces}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Sequences, Convergence and Limits}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Continuity}{9}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Interiors and Closures}{10}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Bases and Sub-Bases}{10}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}New Topologies from Old Ones}{12}{subsection.1.2.5}%
+\contentsline {chapter}{\numberline {2}Another Chapter}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducing the Main Object of Study in this Chapter}{15}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Another Section}{15}{section.2.2}%
+\contentsline {chapter}{Bibliography}{16}{section.2.2}%
