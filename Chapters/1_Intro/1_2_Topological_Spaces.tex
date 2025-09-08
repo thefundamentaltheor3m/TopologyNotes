@@ -1,4 +1,4 @@
-\section{Topological Spaces}
+\section{Introduction to Topological Spaces}
 
 A topological space, broadly speaking, is one in which we wish to be able to discuss the notion of convergence without depending on the notion of distance. The definition of convergence in metric spaces really only relies on the openness of open balls. We can generalise it merely by generalising the definition of open sets.
 
@@ -11,10 +11,10 @@ We begin by defining the notion of a \textbf{topological space}.
         \item $\tau$ is closed under arbitrary unions
         \item $\tau$ is closed under finite intersections
     \end{enumerate}
-    We say a subset of $X$ is \textbf{open} with respect to a topology $\tau$ if it lies in $\tau$. We call the pair $\parenth{X, \tau}$ a \textbf{topological space}.
+    We say a subset of $X$ is \textbf{open} with respect to a topology $\tau$ if it lies in $\tau$ and \textbf{closed} if its complement lies in $\tau$. We call the pair $\parenth{X, \tau}$ a \textbf{topological space}.
 \end{boxdefinition}
 
-The terminology for open sets is visibly consistent with the terminology used in metric spaces. In fact, this is exactly what \Cref{Ch1:Prop:Properties_of_Open_Sets} demonstrates: that the open sets of a metric space, defined as in \Cref{Ch1:Def:Open_Sets_Metric_Spaces}, do indeed define a topology on it. Every metric space is thus also a topological space.
+The terminology for open sets is visibly consistent with the terminology used in metric spaces. In fact, this is exactly what \Cref{Ch1:Prop:Properties_of_Open_Sets} demonstrates: that the open sets of a metric space, defined as in \Cref{Ch1:Def:Open_Sets_Metric_Spaces}, do indeed define a topology on it. Every metric space is thus also a topological space. Note that sets can be both open and closed, such as $\emptyset$ and the entire set, just as with metric spaces. We sometimes refer to such sets as being ``clopen''.
 
 \subsection{Sequences, Convergence and Limits}
 
@@ -350,7 +350,7 @@ We can talk about neighbourhoods in a collective sense, reminiscent of \verb|Fil
 
 
 \begin{boxexample}[The Closed Ball Nbhd Basis]
-    Let $\parenth{X, d}$ be a \underline{metric} space. Fix $x \in X$. Let $\mjds$ be a set of nbhds of the form
+    Let $\parenth{X, d}$ be a \underline{metric} space. Fix $x \in X$. Let $\nhds$ be a set of nbhds of the form
     \begin{align*}
         \setst{y \in X}{d\of{x, y} \leq \eps}
     \end{align*}
@@ -365,7 +365,7 @@ We can talk about neighbourhoods in a collective sense, reminiscent of \verb|Fil
 Again, fix a topological space $X$. In this subsection, we discuss different notions of connectedness of a toplogical space.
 
 \begin{boxdefinition}[Disconnectedness]
-    We say $X$ is \textbf{disconnected} if there exist disjoint open sets $U, V \subseteq X$ with $U \cup V = X$. If $U$ and $V$ are disjoint ant cover $X$, we say that they \textbf{disconnect $X$}.
+    We say $X$ is \textbf{disconnected} if there exist disjoint open sets $U, V \subsetneq X$ with $U \cup V = X$. If $U$ and $V$ are disjoint ant cover $X$, we say that they \textbf{disconnect $X$}.
 \end{boxdefinition}
 \begin{remark}
     One must be very careful when disconnecting sets: when you have a disconnected set $X$, it is not at all obvious that the sets you use to disconnect $X$ (namely, $U$ and $V$) are actually disjoint in the rest of $X$. (Remember this for your General Topology basic exam!)
@@ -377,4 +377,84 @@ We can use this definition to define connectedness in the obvious way.
     We say $X$ is \textbf{connected} if $X$ is not disconnected, ie, if there do not exist disjoint open sets $U$ and $V$ that disconnect $X$.
 \end{boxdefinition}
 
-% Next time, path-connectedness.
+As one would expect, we define connectedness for subsets to be connectedness with respect to the subspace topology.
+
+It turns out we can use the definition of connectedness to say something about the clopen sets of a connected space.
+
+\begin{boxlemma}
+    Let $\parenth{A_i}_{i \in \I}$ be some family of subsets of $X$ indexed by some non-empty set $\I$ such that
+    \begin{enumerate}
+        \item For all $i \in \I$, $A_i$ is a connected subset of $X$
+        \item For all $i, j \in \I$, $A_i \cap A_j \neq 0$
+    \end{enumerate}
+    That is, $\parenth{A_i}$ is a family of connected, \textit{non-disjoint} sets. Then,
+    \begin{align*}
+        A := \bigcup_{i \in \I} A_i
+    \end{align*}
+    is a connected subset of $X$.
+\end{boxlemma}
+\begin{proof}
+    Suppose that $A$ is not connected. Then, there exist open subsets $U, V \subsetneq X$ such that
+    \begin{align*}
+        A = \parenth{A \cap U} \cup \parenth{A \cap V}
+    \end{align*}
+    with $\parenth{A \cap U}$ and $\parenth{A \cap V}$ being disjoint, non-empty, and proper subsets of $A$. Then, for any $i \in \I$, we have that
+    \begin{align*}
+        A_i \subseteq A = \parenth{A \cap U} \cup \parenth{A \cap V}
+    \end{align*}
+    Since the $A_i$ are all connected, we know that for all $i \in \I$, either $A_i \ssq U$ or $A_i \ssq V$. It turns out that we can do better: either every $A_i$ is contained in $U$ or every $A_i$ is contained in $V$. Indeed, if this were not the case, then there would be $i, j \in \I$ with $A_i \in U$ and $A_j \in V$. Then, we would have $A_i \cap A_j \ssq U \cap V$. Moreover, $A_i \cap A_j \ssq A$, since $A_i \ssq A$ and $A_j \ssq A$. Thus,
+    \begin{align*}
+        A_i \cap V_j \ssq A \cap \cap{U \cap V} = \parenth{A \cap U} \cap \parenth{A \cap V}
+    \end{align*}
+    Finally, we assumed, in our setup, that $A_i \cap A_j \neq \emptyset$, meaning that there is an element living in the disjoint set $A \cap U$ and $A \cap V$, which is obviously a contradiction. Hence, either every $A_i$ is contained in $U$ or every $A_i$ is contained in $V$.
+
+    Without loss of generality, say that every $A_i$ is contained in $U$. Then, $A \ssq U$ also, meaning that $A \cap U = A$. Hence, $A \cap V = \emptyset$, which contradicts the assumption that $A$ is disconnected, because disconnecting subsets must be proper.
+\end{proof}
+
+ We next use the definition of connectedness to establish a ``canonical'' decomposition of $X$.
+
+ Define the binary relation $\sim$ on $X$ such that $a \sim b\iff \exists A\subseteq X$ with $A$ connected and $a,b \in A$. We then claim that $\sim$ is an equivalence relation, and (having shown this) we let the equivalence classes of $\sim$ partition $X$ into sets $X_i$.
+ %probably don't want this as the definition, feel free to delete
+ % Isn't this what we'd want as the definition? hmm
+ %or as maximal connected components, idk - yes, as the maximal connected sets of the sapce X (anything works?)
+ % An equivalence class is always maximal in the set of things related to any representative... but if you mean the maximal connected set containing it then idk. 
+ \begin{boxdefinition}[Connected Components]
+     The \textbf{connected components} of $X$ are the equivalence classes in $\quotient{X}{\sim}$, with $\sim$ being defined as above.
+ \end{boxdefinition}
+
+Let us describe these equivalence classes. Fix $x \in X$. Denote its equivalence class in $\quotient{X}{\sim}$ by $\brac{x}$. Then, it is possible to show that
+\begin{align*}
+    \brac{x} = \setst{y \in X}{y \sim x} = \bigcup\setst{A \ssq X}{x \in A \text{ and } A \text{ is connected}}
+\end{align*}
+The $\ssq$ inclusion is clear, because $\brac{x}$ is itself connected, meaning that any $y \in \brac{x}$ clearly lies in some connected subset of $X$ containing $x$. Conversely, any element of any connected subset of $X$ containing $x$ must be connected to $x$, putting it in $\brac{x}$.
+
+\begin{boxlemma}\label{Ch1:Lemma:closure_connected_connected}
+    If $A \ssq X$ and $A$ is connected, then $\closure{A}$ is also connected.
+\end{boxlemma}
+\begin{proof} % This is actually not really a true proof by contradiction. In fact, even in the most constructive of type theories, I am quite sure that the definition you'd want to implement for connected is "not disconnected". The definition of "not P" is always "P implies False", which you can prove (constructively) by assuming P and deducing False (ie, "proof by contradiction"). A true proof by contradiction uses LEM in the way that it's set up, which this does not.
+    Suppose that $\closure{A}$ is not connected. then, there are open sets $u, V \ssq X$ such that $\closure{A} \ssq U \cup V$, $\closure{A} \cap \closure{B} = \emptyset$, and $\closure{A} \cap U, \closure{A} \cap V \neq \emptyset$.  We can see, since $A \ssq \closure{A}$, that $A = \parenth{A \cap U} \cup \parenth{A \cap V}$, with $A \cap U \cap V = \emptyset$. Since $A$ is connected, we need either $A \cap U = \emptyset$ or $A \cap V = \emptyset$. Assume it is the former. \sorry % Simply show containment in complement
+\end{proof}
+
+\begin{boxcorollary}
+    The connected components of $X$ are closed subsets of $X$.
+\end{boxcorollary}
+\begin{proof}
+    Fix $x \in X$. Then, by \Cref{Ch1:Lemma:closure_connected_connected}, the closure $\closure{\brac{x}}$ of the connected component $\brac{x}$ containing $X$ is a connected subset of $X$. Since all such connected sets are contained in $\brac{x}$, we have that $\closure{\brac{x}} \ssq \brac{x}$, meaning $\brac{x}$ is equal to its closure, making it closed.
+\end{proof}
+
+Surprisingly---or unsurprisingly---connectedness is not preserved by taking subsets.
+
+\begin{boxcexample}[A Disconnected Subset of a Connected Space]
+    We know that $\R$ is connected under the Euclidean topology. Consider $\Q \subset \R$. We can clearly see that $\parenth{-\infty, \sqrt{2}} \cap \Q$ and $\parenth{\sqrt{2}, \infty} \cap \Q$ are disjoint, open, proper subsets of $\Q$ that disconnect it.
+\end{boxcexample}
+
+However, it turns out the \textit{image} of a connected set in a continuous function \textit{is} connected.
+
+\begin{boxlemma}
+    Let $X$ and $Y$ be topological spaces. Let $A \ssq X$ be connected and let $f : X \to Y$ be continuous. Then, $f[A]$ is connected.
+\end{boxlemma}
+\begin{proof}
+    If not, let $U, V \ssq Y$ be open with $f[A]$ \sorry
+\end{proof}
+
+% TODO: Split this gigantic section into smaller subsections.
