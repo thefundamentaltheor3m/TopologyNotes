@@ -1,4 +1,4 @@
-\section{Topological Spaces}
+\section{Introduction to Topological Spaces}
 
 A topological space, broadly speaking, is one in which we wish to be able to discuss the notion of convergence without depending on the notion of distance. The definition of convergence in metric spaces really only relies on the openness of open balls. We can generalise it merely by generalising the definition of open sets.
 
@@ -11,10 +11,10 @@ We begin by defining the notion of a \textbf{topological space}.
         \item $\tau$ is closed under arbitrary unions
         \item $\tau$ is closed under finite intersections
     \end{enumerate}
-    We say a subset of $X$ is \textbf{open} with respect to a topology $\tau$ if it lies in $\tau$. We call the pair $\parenth{X, \tau}$ a \textbf{topological space}.
+    We say a subset of $X$ is \textbf{open} with respect to a topology $\tau$ if it lies in $\tau$ and \textbf{closed} if its complement lies in $\tau$. We call the pair $\parenth{X, \tau}$ a \textbf{topological space}.
 \end{boxdefinition}
 
-The terminology for open sets is visibly consistent with the terminology used in metric spaces. In fact, this is exactly what \Cref{Ch1:Prop:Properties_of_Open_Sets} demonstrates: that the open sets of a metric space, defined as in \Cref{Ch1:Def:Open_Sets_Metric_Spaces}, do indeed define a topology on it. Every metric space is thus also a topological space.
+The terminology for open sets is visibly consistent with the terminology used in metric spaces. In fact, this is exactly what \Cref{Ch1:Prop:Properties_of_Open_Sets} demonstrates: that the open sets of a metric space, defined as in \Cref{Ch1:Def:Open_Sets_Metric_Spaces}, do indeed define a topology on it. Every metric space is thus also a topological space. Note that sets can be both open and closed, such as $\emptyset$ and the entire set, just as with metric spaces. We sometimes refer to such sets as being ``clopen''.
 
 \subsection{Sequences, Convergence and Limits}
 
@@ -167,7 +167,15 @@ Indeed, any subset is a sub-basis of \textit{some} topology, namely, the topolog
 
 \subsection{New Topologies from Old Ones}
 
-There are numerous techniques to define new topologies from old ones. We begin with a topology that is defined using continuity of functions.
+There are numerous techniques to define new topologies from old ones. We begin with the most obvious definition imaginable.
+
+\begin{boxdefinition}[The Subspace Topology]
+    Let $X$ be a topological space. Any subset $Y \subseteq X$ inherits a topology from $X$, known as the \textbf{subspace topology}, the open sets of which are precisely those sets of the form $U \cap Y$ for open sets $U \subseteq X$.
+\end{boxdefinition}
+
+With that out of the way, we move onto more interesting examples.
+
+We begin with a topology that is defined using continuity of functions.
 
 \begin{boxdefinition}[Initial Topology]\label{Ch1:Def:Init_Top}
     Let $X$ be a set. Given an index set $\I$, topological spaces $X_i$ and functions $f_i : X \to X_i$ for $i \in \I$, we define the \textbf{initial topology on $X$ with respect to $X_i$ and $f_i$} to be the least topology on $X$ (with respect to inclusion) such that for all $i \in \I$, $f_i$ is continuous.
@@ -225,4 +233,228 @@ Dually to how we defined a topology on the Cartesian product of spaces as the in
 
 Finally\footnote{Pun intended}, we define the \textit{final} topology.
 
-% Given spaces X_i and functions X_i \to X, we define the final topology to be the largest topology on X such that all the f_i are continuous. That is, it consists of all U whose pre-images in the f_i are open. Write this out in more detail!!!!
+\begin{boxdefinition}[Final Topology]\label{Ch1:Def:Final_Top}
+    Let $X$ be a set. Given an index set $\I$, topological spaces $X_i$ and functions $f_i : X_i \to X$ for $i \in \I$, we define the \textbf{final topology on $X$ with respect to $X_i$ and $f_i$} to be the largest topology on $X$ (with respect to inclusion) such that for all $i \in \I$, $f_i$ is continuous.
+\end{boxdefinition}
+\begin{remark}
+    To state it explicitly, we observe that if $X$ has more open sets (i.e. the topology on $X$ is ``larger''), then it is ``harder'' for a function $f_i:X_i\to X$ to be continuous (as $f_i^{-1}(U)$ must be open in $X_i$ for all open $U\subseteq X$, which forces the topology on $X_i$ to be larger as well).
+\end{remark} % Go to shortcuts - you'll find a surprise there
+
+Note that it is always possible to construct a final topology, because at worst, we the indiscrete topology on $X$ renders continuous every function into $X$ from any topological space.
+
+Given the definition of continuity (\Cref{Ch1:Def:Continuity_Topological}), it is possible to be explicit about the initial topology.
+
+\begin{boxlemma}
+    Let $X, \I, X_i, f_i$ be as in \Cref{Ch1:Def:Final_Top}. The corresponding initial topology $\tau$ is given by
+    \begin{align*}
+        \tau = \setst{U \subseteq X}{i \in \I \text{ and } f\inv(U) \subseteq X_i \text{ is open}}
+    \end{align*}
+\end{boxlemma}
+
+There are many good examples of final topologies, some of which are likely to be familiar to the reader.
+
+\begin{boxexample}[Topologies on Quotients]\label{Ch1:Eg:Quot_Top}
+    Let $X$ be a topological space and let $\sim$ be an equivalence relation on $X$. Let $q : X \surj \quotient{X}{\sim}$ be the canonical surjection from $X$ to the quotient set. The final topology of $q$ is a topology on $\quotient{X}{\sim}$.
+\end{boxexample}
+
+We give a special name to such a topology on a quotient.
+
+\begin{boxdefinition}[Quotient Topology]
+    Let $X$, $\sim$, and $q$ be as in \eqref{Ch1:Eg:Quot_Top}. We call the final topology on $\quotient{X}{\sim}$ with respect to $X$ and $q$ the \textbf{quotient topology}.
+\end{boxdefinition}
+
+Note that the above definition really applies to \textit{all} situations where $X$ is a topological space and $Y$ is a set such that there is a surjection $q : X \surj Y$: in this case, $Y$ is essentially the quotient of $X$ by the relation $\sim$ where $x \sim y$ iff $f(x) = f(y)$.
+
+We can express the quotient topology in a more familiar way.
+
+\begin{boxproposition}
+    \sorry % State (no need to prove) that the usual def of the quotient topology is equivalent to the final topology of the quotient map
+\end{boxproposition}
+
+\subsection{Separation Properties}
+
+Throughout this subsection, let $X$ denote a topological space.
+
+We recall the definition of $T_2$ spaces from \Cref{Ch1:Def:Hausdorff}.
+% no no no uncomment it you're fine :D
+\Cref{Ch1:Def:Hausdorff} already exists btw - just link to it or smth if you want
+\begin{boxdefinition}[$T_2$ (i.e. the Hausdorff condition)]
+    We say that a topological space is \textbf{$T_2$}, or \textbf{Hausdorff}, if $\forall x\neq y$ there exist open sets $U, V$ such that $x\in U, y \in V$ that we have $U\cap V=\emptyset$
+\end{boxdefinition}
+
+There is also a (weaker) notion of separation called the $T_1$ property.
+
+\begin{boxdefinition}[$T_1$ property]
+    We say that $X$ is a \textbf{$T_1$ space} if for all \textit{distinct} $x, y \in X$, there is an open set $U \subseteq X$ with $x \in U$ and $y \notin U$.
+\end{boxdefinition} 
+
+There is a notion that is weaker still.
+
+\begin{boxdefinition}[$T_0$ property]
+    We say $X$ is a \textbf{$T_0$ space} if for all distinct $x, y \in X$, we have
+    \begin{align*}
+        \setst{U \subseteq X}{U \text{ is open and } x \in U}
+        \neq
+        \setst{V \subseteq X}{V \text{ is open and } y \in U}
+    \end{align*}
+    That is, either there is an open set $U$ with $x \in U$ and $y \notin U$ or there is an open set $V$ with $y \in V$ and $x \notin V$.
+\end{boxdefinition}
+\begin{remark}
+    We emphasise that here, we are not able to choose which of $x$ and $y$ is contained in the open set $U$ witnessing the $T_0$ property.
+\end{remark}
+
+Before we give a classic example of a $T_0$ topology, we recall the definition of a partially ordered set (also abbreviated `poset').
+
+\begin{boxdefinition}[Partial Order]
+    Let $P$ be a set. We say that a binary relation $\leq$ on $P$ is a \textbf{partial order} if it is reflexive, antisymmetric and transitive. We call the pair $\parenth{P, \leq}$ a \textbf{partially ordered set}, often abbreviated \textbf{poset}.
+\end{boxdefinition}
+
+There are many familiar examples of posets in mathematics.
+
+\begin{boxexample}[A Collection of Sets as a Poset]
+    Given any collection of sets, the collection can always be ordered by inclusion. So any time you take a family of sets and order them by inclusion, you will wind up with a poset structure.
+\end{boxexample}
+
+Given that topologies are sets of sets, in particular, topologies are \textit{also} partially ordered by inclusion. Thus, we will find the theory of posets to be quite useful throughout this course.
+
+There is also a ``converse'' relationship between posets and topology: we can define a topology on any poset by taking advantage of the properties of the partial order.
+
+\begin{boxexample}[A $T_0$ Topology on a Poset]\label{Ch1:Eg:Poset_Downward_Cone}
+    Let $\parenth{P, \leq}$ be a poset. We introduce a topology $\tau$ on $P$ as follows: we deem a set $U \subseteq P$ to be open iff for all $p \in U$,
+    \begin{align*}
+        \setst{q \in P}{q \leq P} \subseteq U
+    \end{align*}
+    That is, we define the open sets to be precisely those $U$ that contain all downward cones of elements in $U$. We can show that this is, indeed, a topology on $P$.
+\end{boxexample}
+
+The topology described in \Cref{Ch1:Eg:Poset_Downward_Cone} is the `natural' topology for \textit{forcing posets} in set theory.
+
+\subsection{Neighbourhoods and Neighbourhood Bases}
+
+Next, we introduce the notion of a neighbourhood.
+
+\begin{boxdefinition}[Nbhd]%sounds wise (thanks) % I've introduced $X$ at the start of the subsection
+    We say that a point $x\in X$ has nbhd $A\ssq X$ if there exists some open set $O\ssq X$ such that $x\in O \ssq A$.
+\end{boxdefinition}
+
+\begin{boxabbrev} 
+    Because nobody has the time to write ``neighbourhood'' more than a few times in their life, Professor Cummings will abbreviate it by ``Nbhd'' in the future. We will not, by default, assume that a neighbourhood (or nbhd) of a point is open.
+\end{boxabbrev}
+
+We can talk about neighbourhoods in a collective sense, reminiscent of \verb|Filter.nhds| in Lean...
+
+\begin{boxdefinition}[Nbhd Basis]
+    Given $x\in X$, a \textbf{nbhd basis} for $x$ is a set $\nbhds$ of nbhds of $x$ such that for every nbhd $A$ of $x$ there exists some $B \in \nbhds$ such that $B\ssq A$ - equivalently, for every open nbhd $U$ of $x$ there exists $B\in \nbhds$ such that $B\ssq U$.
+\end{boxdefinition}%wonderful - and interesting, hm % \nhds and \nbhds will now serve as shortcuts for \mathcal{N}
+% \nhds because that's what Im used to from Lean for this thing called Filter.nhds, the neighbourhood filter at a point
+
+
+\begin{boxexample}[The Closed Ball Nbhd Basis]
+    Let $\parenth{X, d}$ be a \underline{metric} space. Fix $x \in X$. Let $\nhds$ be a set of nbhds of the form
+    \begin{align*}
+        \setst{y \in X}{d\of{x, y} \leq \eps}
+    \end{align*}
+    for all $\eps > 0$. Then, this set all of closed balls at $x$ is a nbhd basis. % Wow - that was a very very quick lecture!!!!!!!!
+\end{boxexample}%indeed (and now we move on from separation, closer to more (i.e. an even greater quantity of) interesting things..) ((I love the (nested) parentheses))
+\begin{remark}
+    It is a ``trivial fact'' that if we have a neighbourhood basis at every point $x\in X$, then we can recover the topology of $X$. (See this as an exercise.)
+\end{remark}
+
+\subsection{Connectedness}
+
+Again, fix a topological space $X$. In this subsection, we discuss different notions of connectedness of a toplogical space.
+
+\begin{boxdefinition}[Disconnectedness]
+    We say $X$ is \textbf{disconnected} if there exist disjoint open sets $U, V \subsetneq X$ with $U \cup V = X$. If $U$ and $V$ are disjoint ant cover $X$, we say that they \textbf{disconnect $X$}.
+\end{boxdefinition}
+\begin{remark}
+    One must be very careful when disconnecting sets: when you have a disconnected set $X$, it is not at all obvious that the sets you use to disconnect $X$ (namely, $U$ and $V$) are actually disjoint in the rest of $X$. (Remember this for your General Topology basic exam!)
+\end{remark}
+
+We can use this definition to define connectedness in the obvious way.
+
+\begin{boxdefinition}[Connectedness]
+    We say $X$ is \textbf{connected} if $X$ is not disconnected, ie, if there do not exist disjoint open sets $U$ and $V$ that disconnect $X$.
+\end{boxdefinition}
+
+As one would expect, we define connectedness for subsets to be connectedness with respect to the subspace topology.
+
+It turns out we can use the definition of connectedness to say something about the clopen sets of a connected space.
+
+\begin{boxlemma}
+    Let $\parenth{A_i}_{i \in \I}$ be some family of subsets of $X$ indexed by some non-empty set $\I$ such that
+    \begin{enumerate}
+        \item For all $i \in \I$, $A_i$ is a connected subset of $X$
+        \item For all $i, j \in \I$, $A_i \cap A_j \neq 0$
+    \end{enumerate}
+    That is, $\parenth{A_i}$ is a family of connected, \textit{non-disjoint} sets. Then,
+    \begin{align*}
+        A := \bigcup_{i \in \I} A_i
+    \end{align*}
+    is a connected subset of $X$.
+\end{boxlemma}
+\begin{proof}
+    Suppose that $A$ is not connected. Then, there exist open subsets $U, V \subsetneq X$ such that
+    \begin{align*}
+        A = \parenth{A \cap U} \cup \parenth{A \cap V}
+    \end{align*}
+    with $\parenth{A \cap U}$ and $\parenth{A \cap V}$ being disjoint, non-empty, and proper subsets of $A$. Then, for any $i \in \I$, we have that
+    \begin{align*}
+        A_i \subseteq A = \parenth{A \cap U} \cup \parenth{A \cap V}
+    \end{align*}
+    Since the $A_i$ are all connected, we know that for all $i \in \I$, either $A_i \ssq U$ or $A_i \ssq V$. It turns out that we can do better: either every $A_i$ is contained in $U$ or every $A_i$ is contained in $V$. Indeed, if this were not the case, then there would be $i, j \in \I$ with $A_i \in U$ and $A_j \in V$. Then, we would have $A_i \cap A_j \ssq U \cap V$. Moreover, $A_i \cap A_j \ssq A$, since $A_i \ssq A$ and $A_j \ssq A$. Thus,
+    \begin{align*}
+        A_i \cap V_j \ssq A \cap \cap{U \cap V} = \parenth{A \cap U} \cap \parenth{A \cap V}
+    \end{align*}
+    Finally, we assumed, in our setup, that $A_i \cap A_j \neq \emptyset$, meaning that there is an element living in the disjoint set $A \cap U$ and $A \cap V$, which is obviously a contradiction. Hence, either every $A_i$ is contained in $U$ or every $A_i$ is contained in $V$.
+
+    Without loss of generality, say that every $A_i$ is contained in $U$. Then, $A \ssq U$ also, meaning that $A \cap U = A$. Hence, $A \cap V = \emptyset$, which contradicts the assumption that $A$ is disconnected, because disconnecting subsets must be proper.
+\end{proof}
+
+ We next use the definition of connectedness to establish a ``canonical'' decomposition of $X$.
+
+ Define the binary relation $\sim$ on $X$ such that $a \sim b\iff \exists A\subseteq X$ with $A$ connected and $a,b \in A$. We then claim that $\sim$ is an equivalence relation, and (having shown this) we let the equivalence classes of $\sim$ partition $X$ into sets $X_i$.
+ %probably don't want this as the definition, feel free to delete
+ % Isn't this what we'd want as the definition? hmm
+ %or as maximal connected components, idk - yes, as the maximal connected sets of the sapce X (anything works?)
+ % An equivalence class is always maximal in the set of things related to any representative... but if you mean the maximal connected set containing it then idk. 
+ \begin{boxdefinition}[Connected Components]
+     The \textbf{connected components} of $X$ are the equivalence classes in $\quotient{X}{\sim}$, with $\sim$ being defined as above.
+ \end{boxdefinition}
+
+Let us describe these equivalence classes. Fix $x \in X$. Denote its equivalence class in $\quotient{X}{\sim}$ by $\brac{x}$. Then, it is possible to show that
+\begin{align*}
+    \brac{x} = \setst{y \in X}{y \sim x} = \bigcup\setst{A \ssq X}{x \in A \text{ and } A \text{ is connected}}
+\end{align*}
+The $\ssq$ inclusion is clear, because $\brac{x}$ is itself connected, meaning that any $y \in \brac{x}$ clearly lies in some connected subset of $X$ containing $x$. Conversely, any element of any connected subset of $X$ containing $x$ must be connected to $x$, putting it in $\brac{x}$.
+
+\begin{boxlemma}\label{Ch1:Lemma:closure_connected_connected}
+    If $A \ssq X$ and $A$ is connected, then $\closure{A}$ is also connected.
+\end{boxlemma}
+\begin{proof} % This is actually not really a true proof by contradiction. In fact, even in the most constructive of type theories, I am quite sure that the definition you'd want to implement for connected is "not disconnected". The definition of "not P" is always "P implies False", which you can prove (constructively) by assuming P and deducing False (ie, "proof by contradiction"). A true proof by contradiction uses LEM in the way that it's set up, which this does not.
+    Suppose that $\closure{A}$ is not connected. then, there are open sets $u, V \ssq X$ such that $\closure{A} \ssq U \cup V$, $\closure{A} \cap \closure{B} = \emptyset$, and $\closure{A} \cap U, \closure{A} \cap V \neq \emptyset$.  We can see, since $A \ssq \closure{A}$, that $A = \parenth{A \cap U} \cup \parenth{A \cap V}$, with $A \cap U \cap V = \emptyset$. Since $A$ is connected, we need either $A \cap U = \emptyset$ or $A \cap V = \emptyset$. Assume it is the former. \sorry % Simply show containment in complement
+\end{proof}
+
+\begin{boxcorollary}
+    The connected components of $X$ are closed subsets of $X$.
+\end{boxcorollary}
+\begin{proof}
+    Fix $x \in X$. Then, by \Cref{Ch1:Lemma:closure_connected_connected}, the closure $\closure{\brac{x}}$ of the connected component $\brac{x}$ containing $X$ is a connected subset of $X$. Since all such connected sets are contained in $\brac{x}$, we have that $\closure{\brac{x}} \ssq \brac{x}$, meaning $\brac{x}$ is equal to its closure, making it closed.
+\end{proof}
+
+Surprisingly---or unsurprisingly---connectedness is not preserved by taking subsets.
+
+\begin{boxcexample}[A Disconnected Subset of a Connected Space]
+    We know that $\R$ is connected under the Euclidean topology. Consider $\Q \subset \R$. We can clearly see that $\parenth{-\infty, \sqrt{2}} \cap \Q$ and $\parenth{\sqrt{2}, \infty} \cap \Q$ are disjoint, open, proper subsets of $\Q$ that disconnect it.
+\end{boxcexample}
+
+However, it turns out the \textit{image} of a connected set in a continuous function \textit{is} connected.
+
+\begin{boxlemma}
+    Let $X$ and $Y$ be topological spaces. Let $A \ssq X$ be connected and let $f : X \to Y$ be continuous. Then, $f[A]$ is connected.
+\end{boxlemma}
+\begin{proof}
+    If not, let $U, V \ssq Y$ be open with $f[A]$ \sorry
+\end{proof}
+
+% TODO: Split this gigantic section into smaller subsections.
