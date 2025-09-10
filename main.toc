@@ -8,11 +8,14 @@
 \contentsline {subsection}{\numberline {1.2.1}Sequences, Convergence and Limits}{8}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Continuity}{9}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}Interiors and Closures}{10}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Bases and Sub-Bases}{10}{subsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.2.5}New Topologies from Old Ones}{12}{subsection.1.2.5}%
-\contentsline {subsection}{\numberline {1.2.6}Separation Properties}{15}{subsection.1.2.6}%
-\contentsline {subsection}{\numberline {1.2.7}Neighbourhoods and Neighbourhood Bases}{17}{subsection.1.2.7}%
-\contentsline {subsection}{\numberline {1.2.8}Connectedness}{18}{subsection.1.2.8}%
+\contentsline {section}{\numberline {1.3}A Closer Look at Topologies}{11}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Bases and Sub-Bases}{11}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}New Topologies from Old Ones}{12}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Separation Properties}{16}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Neighbourhoods and Neighbourhood Bases}{17}{subsection.1.3.4}%
+\contentsline {section}{\numberline {1.4}Connectedness}{18}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Connected Components}{20}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Preserving Connectedness}{21}{subsection.1.4.2}%
 \contentsline {chapter}{\numberline {2}Another Chapter}{22}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introducing the Main Object of Study in this Chapter}{22}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Another Section}{22}{section.2.2}%
