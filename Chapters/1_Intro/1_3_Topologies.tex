@@ -230,6 +230,8 @@ There is also a ``converse'' relationship between posets and topology: we can de
 
 The topology described in \Cref{Ch1:Eg:Poset_Downward_Cone} is the `natural' topology for \textit{forcing posets} in set theory.
 
+\section{A Closer Look at Continuity}
+
 \subsection{Neighbourhoods and Neighbourhood Bases}
 
 Next, we introduce the notion of a neighbourhood.
@@ -260,3 +262,74 @@ We can talk about neighbourhoods in a collective sense, reminiscent of \verb|Fil
 \begin{remark}
     It is a ``trivial fact'' that if we have a neighbourhood basis at every point $x\in X$, then we can recover the topology of $X$. (See this as an exercise.)
 \end{remark}
+
+Finally, we note that nbhds give us a definition of continuity that more closely resembles the definition to which we are accustomed in metric spaces.
+
+\begin{boxproposition}
+    Given topological spaces $X$ and $Y$ and a function $f : X \to Y$, TFAE:
+    \begin{enumerate}
+        \item $f$ is continuous
+        \item for all $x \in X$ and $N$ a nbhd of $f(x)$, there is a nbhd $M$ of $x$ such that $f[M] \ssq N$.
+    \end{enumerate}
+\end{boxproposition}
+
+In particular, specialising second characterisation of continuity in the above result to a single point gives us a way of talking about the continuity of a function \textit{at a single point}.
+
+\subsection{Homeomorphisms}
+
+Throughout this subsection, fix topological spaces $X$ and $Y$.
+
+We first define the notion of open and closed functions.
+
+\begin{boxdefinition}[Open and Closed Functions]
+    For any $f : X \to Y$, we say:
+    \begin{itemize}
+        \item $f$ is \textbf{open} iff for all open $U\ssq X$ we have $f(U)$ open in $Y$.
+        \item $f$ is \textbf{closed} iff for all closed $C\ssq X$ we have $f(C)$ closed in $Y$.
+    \end{itemize}
+\end{boxdefinition}
+
+Next, we define the notion of an isomorphism in the category of topological spaces.
+
+\begin{boxdefinition}[Homeomorphism]
+    We say $f : X \to Y$ is a \textbf{homeomorphism} if $f$ satisfies the following conditions:
+    \begin{enumerate}
+        \item $f$ is a bijection
+        \item For all $U \ssq X$, $U$ is open in $X$ iff $f[U]$ is open in $Y$
+    \end{enumerate}
+\end{boxdefinition}
+
+We now mention an easy result (that effectively shows that homeomorphisms \underline{are} isomorphisms in the category of topological spaces).
+
+\begin{boxlemma} % I think this is what you meant? (Unless oyu wanted to characterise the example as easy - in whcih case go for it!)
+    For any function $f : X \to Y$, the following are equivalent:
+    \begin{enumerate}
+        \item $f$ is a homeomorphism
+        \item There is $g : Y \to X$ such that
+        \begin{enumerate}
+            \item $g$ is continuous
+            \item $f \circ g = \id_Y$
+            \item $g \circ f = \id_X$
+        \end{enumerate}
+    \end{enumerate}
+\end{boxlemma}
+
+We do not prove this result here.
+
+We note that the continuity assumption on the inverse is strictly necessary:
+\begin{boxwarning}
+    A bijective continuous map need not be a homeomorphism! 
+\end{boxwarning}
+This is because continuity is in some sense ``one sided" (to take care of the other side, maybe we will need to also require our map be open...).
+%wow. (yes, please forgive me later) - I have never noticed you being a goose (maybe in time (looking forwrad to it))
+% Oh trust me you will :D
+% I am perfectly capable of making typos - I really appreciate that you're checking my work :) (I can be a silly billy goose sometimes)
+
+We illustrate this using a simple counterexample.
+
+\begin{boxcexample}[A Continuous Bijection that is NOT a Homeomorphism]
+    % Counterexample environment :D
+    Let $X$ be a set of cardinality at least $2$. Consider the spaces $\parenth{X, \tau_1}$ and $\parenth{X, \tau_2}$, with $\tau_1$ being the discrete topology and $\tau_2$ being the indiscrete topology. Then, the identity function $\id_X$ is a bijection from $\parenth{X, \tau_1}$ to $\parenth{X, \tau_2}$; moreover, it is continuous because every function out of $\parenth{X, \tau_1}$ is continuous. However, its inverse (which is also the identity) is \textit{not} continuous.
+\end{boxcexample}
+% We need to move this to a different section - this technically comes *before* connectedness (due to my arrangement of things here (which might be flawed))
+% Yeah - look where we are in the repo
