@@ -1,6 +1,6 @@
 \section{Connectedness}
 
-Again, fix a topological space $X$. In this subsection, we discuss different notions of connectedness of a toplogical space.
+Again, fix a topological space $X$. In this section, we discuss different notions of connectedness of a toplogical space.
 
 \begin{boxdefinition}[Disconnectedness]
     We say $X$ is \textbf{disconnected} if there exist disjoint open sets $U, V \subsetneq X$ with $U \cup V = X$. If $U$ and $V$ are disjoint ant cover $X$, we say that they \textbf{disconnect $X$}.
@@ -99,4 +99,70 @@ However, it turns out the \textit{image} of a connected set in a continuous func
     If not, let $U, V \ssq Y$ be open with $f[A]$ \sorry
 \end{proof}
 
-% TODO: Split this gigantic section into smaller subsections.
+This allows us to construct many examples of connected spaces.
+
+\begin{boxexample}[Connectedness of the Unit Interval]
+    Consider $\brac{0, 1}$ along with the subspace topology inherited from the Euclidean topology on $\R$. We show that $\brac{0, 1}$ is connected. \\
+    
+    Indeed, suppose $\brac{0, 1}$ is \textit{not} connected. Then, there exist open sets $U, V \ssq \brac{0, 1}$ such that $U \cup V = \brac{0, 1}$ and $U \cap V = \emptyset$. Thus, $0 \in U$ or $U \in V$. WLOG, say $0 \in U$. Define
+    \begin{align*}
+        S = \setst{a \in \brac{0, 1}}{\brac{0, a} \ssq U}
+    \end{align*}
+    Observe that $S$ has the following properties.
+    \begin{enumerate}
+        \item $0 \in S$, so $S$ is non-empty.
+        \item $S$ is bounded above (by $1$, for instance)
+    \end{enumerate}
+    Therefore, $S$ has a finite supremum (indeed, a supremum in $\brac{0, 1}$). Denote this $b$.
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=4]
+            \draw[black, thick] (-1, 0) -- (1, 0);
+
+            % S
+            \draw[orange] (-1, 0) -- (-0.2, 0);
+            \node[label={[shift={(0,-0.8)}, orange]S}] at (-0.6, 0) {};
+
+            % Endpoints
+            \labelledpoint{-1}{0}{0}{-1}{$0$};
+            \labelledpoint{1}{0}{0}{-1}{$1$};
+
+            % b
+            \labelledpoint{-0.2}{0}{0}{-1}{$b$};
+        \end{tikzpicture}
+        % \caption{Caption}
+        % \label{fig:placeholder}
+    \end{figure}
+    Now, observe that $b$ has the following properties.
+    \begin{enumerate}
+        \item \underline{$b > 0$.} The reason for this is that since $0 \in U$ and $U$ is open, there is some $\eps > 0$ such that $\co{0, \eps} \ssq S$. Thus, $b \geq \eps > 0$.
+
+        \item \underline{$\co{0, b} \ssq U$.} This is true by definition of $b$ and $S$.
+
+        \item \underline{$b \in U$.} Otherwise, certainly $b \in V$, and therefore, by openness, there is some $\eps > 0$ such that $\oc{b - \eps, b} \ssq V$, but for all $\eps > 0$, we must have that $b - \eps \in U$ by definition of $b$ (and $S$), and $U$ and $V$ are disjoint.
+    \end{enumerate}
+    The idea is to show that $b \in U \cap V$ or $b = 1$, a contradiction. \sorry
+\end{boxexample}
+
+
+\subsection{Path Connectedness}
+
+\begin{boxdefinition}[Path]
+    Given $X$ a space, let $a,b\in X$. We say that a \textbf{path} in $X$ is a continuous function $\gamma:[0,1]\to X$ satisfying $\gamma(0)=a, \gamma(1)=b$.
+\end{boxdefinition}
+
+% No need of `\\` in my repos because paragraph spacing is automatic.
+% of course it is (thank you) :)))
+\begin{remark}
+    You may have many paths, be unable to use sub or super-scripts, but still need to name them all. Professor Cummings is here to help: $\alpha, \beta, \gamma, \delta, \epsilon,\zeta, \eta, \theta, \iota, \kappa, \lambda, \mu, \nu, \xi, \pi, \phi, \rho,$ etc.
+\end{remark}
+
+As a preliminary, we note that we can compose paths to obtain new paths. (\sorry)
+
+\begin{boxdefinition}[Path-Connected Space]
+    We say that $X$ is \textbf{path-connected} iff for all $a,b\in X$ there is a path from $a$ to $b$.
+\end{boxdefinition}
+
+% Btw - keyboard shortcuts from word processors for bold/italics do work here (eg. ctrl + B encloses stuff in \textbf{})
+
+It is possible to show that every path-connected space is connected (\sorry), but not the other way round (\sorry).

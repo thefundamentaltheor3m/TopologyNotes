@@ -21,6 +21,10 @@
       mark=at position #1 with {\arrow{>}}},postaction={decorate}
 }}
 
+\newcommand{\labelledpoint}[5]{ % Takes x coord, y coord, label x-position relative to point, label y-position relative to point, label text as arguments
+    \node [label={[shift={(#3,#4)}]#5}] at (#1, #2) {$\bullet$};
+}
+
 \newenvironment{cd}{
     \begin{equation} \begin{tikzcd}
 }{
@@ -177,8 +181,8 @@
 
 % Intervals
 
-\newcommand{\oc}[2]{\left(#1, #2\right]}
-\newcommand{\co}[2]{\left[#1, #2\right)}
+\newcommand{\oc}[1]{\left(#1\right]}
+\newcommand{\co}[1]{\left[#1\right)}
 
 % GROUPS/ALGEBRA IN GENERAL:
 
