@@ -1,0 +1,216 @@
+\section{Compactness and Completeness}
+
+\subsection{Compactness}
+Recall that last time (when we were learning about Monsters) we showed the following facts: 
+\begin{itemize}
+    \item $[a,b]$ is compact.
+    \item A closed subset of a compact space is compact.
+    \item If $C\ssq\R$ (in the usual topology is closed and bounded, then $C$ is compact.
+\end{itemize}
+Generally speaking, when we consider some new property of a topological space, it is worthwhile to think about whether it passes to subspaces.
+
+\begin{boxlemma}
+    Any continuous image of a compact set is compact.
+\end{boxlemma}
+\begin{proof}
+    Let $C\ssq X$ be compact with $f:X\rightarrow Y$ a continuous function. Letting $F$ denote an open cover of $f[C]$ (i.e. a collection of open sets covering $f[C]$) , the collection of sets $\{f^{-1}[U]: U\in F\}$ will give an open covering of $C$, and now the finite subcover of $f[C]$ can be seen to follow from the existence of our finite subcover of $C$ (select finitely many $U$ such that $f^{-1}[U]$ cover $C$). 
+\end{proof}
+\begin{boxlemma}
+    Given $X$ a Hausdorff space with $C\ssq X$ a compact subset of $X$, necessarily $C$ is closed in $X$.
+\end{boxlemma}
+\begin{proof}
+    Given $y\notin C$, for each $x\in C$ we let $N(x)$ denote an open neighborhood of $x$ disjoint from some open neighborhood $N_x(y)$ of $y$. Noting that $\{N(x):x\in C\}$ forms an open cover of $C$, as $C$ is a compact set it follows that there exist finitely many $x_i\in C$ such that $\{N(x_i):i<n\}$ forms an open cover of $C$. 
+    
+    But then we observe that $\cap_{i<n}N_{x_i}(y)=\mathcal{N}_C(y)$ is a finite intersection of open sets containing $y$ which is disjoint from $C$. In particular, $\mathcal{N}(y)\ssq X\setminus C$. It follows that such an open neighborhood must exist for every $y\in X\setminus C\implies X\setminus C$ is open $\implies C$ must be closed.
+\end{proof}
+\begin{remark}
+    ``This is just logic, in its most pejorative sense."
+\end{remark}
+
+Before moving on, we pause here for a brief interlude which will allow us to proceed in more generality (oh yay!).
+\begin{boxdefinition}[Bounded Subset]
+    Let $Y$ be a metric space, $B\ssq Y$. Then we say that $B$ is ``bounded'' if and only if there exists some $y\in Y, C>0$ such that $d(y,b)<C$ holds for all $b \in B$.
+\end{boxdefinition}
+Let's get on the straight and narrow:
+\begin{boxlemma}
+    If $B$ is a compact subset of a nonempty metric space $Y$, then $B$ is bounded.
+\end{boxlemma}
+\begin{proof}
+    We can choose $y \in Y$ and let $U_n=B_n(y)=\{x\in Y: d(x,y)<n\}$. Then $B\ssq X=\bigcup_{n\in \N}U_n$, and as $B$ is compact and $U_n\ssq U_{n+1}$, it follows that there must exist some $N\in \N$ such that $B\ssq U_N$ (so by definition of a bounded subset, $B$ is bounded).
+\end{proof}
+And now with all these lemmas at our disposal, it's time for another lemma (a ``fact''):
+\begin{boxlemma}
+    Let $X$ be a compact space, and let $f:X\rightarrow \R$ denote a continuous function. Then if $f$ is bounded, it must attain its bounds. 
+\end{boxlemma}
+\begin{proof}
+    Let $C=f[X]$. As continuous images of compact sets are compact, $f[X]$ must be compact, and further as a compact subset of $\R$ it must be closed and bounded. If we now let $M=\sup(C)$ and $m=\inf(C)$ then $m\leq f(x)\leq M$ for all $x\in X$. As $C$ is closed, we must have $m, M\in C=f[X]$ (and hence $f$ must attain its bounds).
+\end{proof}
+\begin{remark}
+    $C\ssq \R$ is in fact compact \textit{if and only if } $C$ is closed and bounded.
+\end{remark}
+
+Another brief digression - there are several ``phrase-ologies'' in use to compare various topologies:
+
+\begin{remark}
+    Given topologies $\sigma, \tau$ both topologies on some space $Z$, we say that $\sigma$ is smaller (i.e. weaker, coarser) than $\tau$ is $\sigma\ssq \tau$, and correspondingly $\tau$ is larger (i.e. stronger, finer).
+\end{remark}
+
+\begin{remark}
+    $X$ is compact if and only if, given any open cover $\mathcal{O}$ of $X$ by basis elements, there exists a finite subcover $\mathcal{O'}\ssq\mathcal{O}$ which covers $X$.
+\end{remark}
+
+\subsection{Completions in a Metric Space}
+
+For context, we have been speaking about completeness, and we are now going to build a new complete metric space out of the Cauchy sequences in our metric space $(X,d)$:
+\begin{itemize}
+    \item Let $(X,d)$ be a metric space, and let $Z=\{(x_n)_{n\in \N}:(x_n)_n \text{ is a Cauchy sequence in }X\}$.
+    \item We first claim (1) that If $(x_n)_n, (y_n)_n\in Z$, then $(d(x_n, y_n))_n$ is a Cauchy sequence in $\R$ - so in particular, it has a limit $d^*((x_n)_n, (y_n)_n)=d^*(x,y)$.
+    \item We next claim (2) that the set of $[x]=\{y\in Z: d^*(x,y)=0\}$ for $x\in Z$ will partition $Z$, or in other words, that $R$ defined such that $xRy\leftrightarrow d^*(x,y)$ forms an equivalence relation on $Z$.
+    \item Now we claim (3) that $d^*(x,y)$ depends only on the classes of $x=(x_n)_n, y=(y_n)_n\in Z$, and we then define $\Bar{d}([x], [y])=d^*(x,y)$.
+    \item And then we claim (4) that $\Bar{d}$ is a metric on the set of equivalence classes $\Bar{X}$.
+    \item Jumping off from here, we let $i:X\rightarrow \Bar{X}$ such that $i(x)=[(x_n)_n]$, where $(x_n)_n=(x,x,x,\ldots)$.
+    \item We would claim (5) that $\Bar{d}(i(x), i(y))=d(x,y)$ (i.e. that $i$ is an ``isometric embedding'').
+    \item Then we clam that $i[X]$ is dense in $\Bar{X}$, and that every point in $\Bar{X}$ is the limit of a sequence of points in $i[X]$.
+    \item (7) * We claim that $(\Bar{X}, \bar{d})$ is complete. *
+    \item (Then to finish, once can identify $x\in X$ with $i(x)\in \Bar{X}$ and viola.)
+\end{itemize}
+So now that we have a way to construct a completion of $X$, then we have the following fact:
+\begin{boxlemma}
+    If $X$ is a metric space and $Y$ is a complete metric space with $f:X\rightarrow Y$ an isometric embedding, then there is a unique $\Bar{f}:\Bar{X}\rightarrow \Bar{Y}$ which is an isometric embedding with $\Bar{f}\restriction X=f$.
+\end{boxlemma}
+\begin{proof}
+    Exercise! Or rather, ``just do what comes naturally.'' ``I'm obviously being very glib. But this is not the main topic of this course.''
+\end{proof}
+\begin{remark}
+    As an exercise, use the above to show that any 2 completions of $X$ must be isomorphic.
+\end{remark}
+
+Now is where the instructor exercises his freedom in determining the order of topics to cover...
+
+\begin{boxdefinition}[Subsequence]
+    An infinite subsequence of an infinite sequence $(x_n)_{n \in \N}$ is a sequence $(x_{i_n})_{n \in \N}$ where $i_{k}<i_{k+1}$ holds for all $k\in \N$.
+\end{boxdefinition}
+\begin{boxdefinition}[Sequentially Compact]
+    We say that $X$ is ``sequentially compact'' if and only if every infinite sequence has a convergent subsequence.
+\end{boxdefinition}
+``I keep on saying this, then it keeps on being true.''\\
+
+We now digress briefly to recall that convergence can be defined topologically (without reference to a metric). We also have this fact that in a metric space $X$, for any $A\ssq X$ we will have $$\text{cl}(A)=\{x\in X: \text{ there is some }(x)n)_{n\in \N}\text{ such that }x_n\in A\text{ and }x_n\rightarrow x\}$$ and the proof of this \textbf{fact} is ``a proof by extreme obviousness'' that involves ``ridiculously clear contradictions'' - in other words, the proof is an exercise. However
+\begin{boxwarning}
+    This \textbf{fact} about metric spaces is very not true in general spaces! In a general space, all convergent sequences consisting of points in $A$ converge to a point of $\text{cl}(A)$, but this may not give all points of $\text{cl}(A)$.
+\end{boxwarning}
+Next week, we will introduce the concept of ``nets'' to deal with this.
+\begin{boxdefinition}[Limit Point]
+    Given a space $X$ and $A\ssq X$ with $x\in X$, we say that $x$ is a ``limit point for A'' to mean that, for every open neighborhood $U$ of $x$, there is some $z\in A\cap U$ such that $z\neq x$.
+\end{boxdefinition}
+The following is ``a kind of logical truism'' (which maybe seems less obvious than some of our other obvious facts):
+\begin{boxlemma}
+    cl$(A)=A\cup \{x\in X: x\text{ is a limit point of }A\}$.
+\end{boxlemma}
+
+In general topological spaces, sequential compactness and compactness are \textbf{not} the same (as perhaps is to be expected) - however, in a metric space, the two notions do coincide.
+
+\subsection{The Relationship between Compactness and Completeness}
+
+\begin{boxdefinition}[Totally Bounded]
+    A metric space $X$ is \textbf{totally bounded} iff for all $\ve>0$, $X$ is a finite union of open $\ve$-balls.
+\end{boxdefinition}
+
+The reason we define total boundedness is that it connects compactnss and completeness. Before we can establish that connection, we need an intermediate lemma.
+
+\begin{boxlemma}\label{Ch1:Lemma:Intermediate_compact_seq_compact_TFAE}
+    Let $X$ be a metric space, and let $\parenth{x_n}_{n \in \N}$ be a sequence with no repetitions. For all $x \in X$, there is some $\eps > 0$ such that there is no $n \in \N$ with $x_n = x$ and $x_n \in B\of{x, \eps}$.
+\end{boxlemma}
+\begin{proof}
+    We argue by contradiction. Assume it does not hold. That is, assume there is some $x \in X$ such that for all $\eps > 0$, there is $n \in \N$ with $x_n \neq x$ and $x_n \in B\of{x, \eps}$. Now, perform the following steps.
+    \begin{itemize}
+        \item Let $\eps_0 = 1$. There is some $x_{n_0} \neq x$ with $x_{n_0} \in B\of{x, \eps_0}$.
+        \item Let $\eps_1 := \min\of{2^{-1}}, d\of{x, x_{n_0}}$. There is some $x_{n_1} \neq x$ with $x_{n_1} \in B\of{x, \eps_1}$.
+        \item Let $\eps_2 := \min\of{2^{-2}}, d\of{x, x_{n_0}}$. There is some $x_{n_1} \neq x$ with $x_{n_1} \in B\of{x, \eps_2}$.
+        \item ... and so on.
+    \end{itemize}
+    
+    Then, one can show that each $x_{n_k}$ satisfies $d\of{x_{n_k}, x} < 2^{-k}$. One can then take an increasing subsequence of these $x_{n_k}$ and this gives us what we need.
+\end{proof}
+
+We prove another intermediate result, sometimes referred to as the `existence of a Lebesgue number for open covers' when viewed in the context of metric spaces. % (?)
+
+\begin{boxlemma}\label{Ch1:Lemma:Lebesgue_number_aux}
+    Let $X$ be a sequentially compact space, and let $\parenth{U_i}_{i \in \I}$ be an open cover of $X$. There is some $\eps > 0$ such that for all $x \in X$, there is $i \in \I$ such that $B\of{x, \eps} \ssq U_i$.
+\end{boxlemma}
+\begin{proof}
+    \sorry % To be covered next lecture
+\end{proof}
+
+\begin{boxtheorem}\label{Ch1:Thm:compact_seq_compact_TFAE}
+    Let $X$ be a metric space. The following are equivalent:
+    \begin{enumerate}[label = (\arabic*)]
+        \item $X$ is compact
+        \item $X$ is sequentially compact
+        \item $X$ is complete and totally bounded
+    \end{enumerate}
+\end{boxtheorem}
+\begin{proof}
+    \begin{description}
+        \item[\underline{$(1) \implies (2)$.}] Say $X$ is compact, $(x_n)_n$ with $x\in X$. If $\setst{x_n}{n \in \N}$ is finite then, by the infinite pigeonhole principle there must exist some infinite constant  subsequence (and then we're done). Else, if $\$\setst{x_n}{n \in \N}$ is infinite, we must be able to replace it with a subsequence with no repetitions. Abuse notation and call this $\parenth{x_n}_{n \in \N}$ as well.
+
+        Towards contradiction, assume that $\parenth{x_n}$ has no convergent subsequences. We claim that for all $x \in X$, there is some $\eps > 0$ such that there is no $n \in \N$ with $x_n = x$ and $x_n \in B\of{x, \eps}$.
+        
+        \Cref{Ch1:Lemma:Intermediate_compact_seq_compact_TFAE} effectively tells us that there are balls $B\of{x, \eps_x}$ for every $x \in X$, with $\eps_x > 0$, such that for no $n \in \N$ is $x_n = x$ and $x_n \in B\of{x, \eps_x}$. In particular, these balls form an open cover of $X$, and the assumption that $x$ is compact tells us that this open cover has a finite subcover. Enumerate this subcover
+        \begin{align*}
+            B\of{y_1, \eps_{y_1}}, \ldots, B\of{y_s, \eps_{y_s}}
+        \end{align*}
+        Since $\parenth{x_n}_{n \in \N}$ has been trimmed down to have no repetitions, find now some $n \in \N$ such that $x_n \neq x$ and $x_n \neq y_1, \ldots, y_s$. But there is some $1 \leq i \leq s$ such that $x_n \in B\of{y_i, \eps_{y_i}}$. Thus, we have a contradiciton, meaning that $\parenth{x_n}$ must have a convergent subsequence.
+
+        %``here is a cute, but sleazy trick'' lmao
+        %``here is a more careful proof - it's going to have \ve's in it and everything!''
+        %as usual, proof by picture is very bad - so here we're going to do it again anyway :)
+        %that also sounds quite interesting (there is certainly much to be said....(I think it is made more permissible in this case given that he is drawing on a board which is in fact a compact metrizable space)
+        % (Incidentally, there were some philosophical, historical and epistemological perspectives on the concept of proof by picture discussed in Leiden. It was a very interesting conference - very interdisciplinary
+        % It was very cool!
+        \item[\underline{$(2) \implies (3)$.}] Assume $X$ is sequentially compact.
+        \begin{itemize}
+            \item \underline{$X$ is totally bounded.} Fix $\eps > 0$. Assume, for contradiction, that $X$ is not a union of finitely many open $\eps$-balls. Choose, by induction, some $\parenth{x_n}_{n \in \N}$ such that
+            \begin{align*}
+                x_n \notin \bigcup_{i < n} B\of{x_i, \eps}
+            \end{align*}
+            Then, $\parenth{x_n}_{n \in \N}$ couldn't possibly have a convergent subsequence, a contradiction. Thus, $X$ must be totally bounded.
+
+            \item \underline{$X$ is complete.} Let $\parenth{x_n}_{n \in \N}$ be a Cauchy sequence. As $X$ is sequentially compact, there is some subsequence $\parenth{x_{n_k}}_{k \in \N}$ such that $x_{n_i} \to x$ for some $x \in X$. We show that $x_n \to x$.
+
+            Fix $\eps > 0$. Choose $N_1 \in \N$ so large that for all $i, j \geq N_1$, we have $d\of{x_i, x_j} < \frac{\eps}{2}$. Choose $N_2$ so large that for all $k \geq N_2$, we have $d\of{x_{n_k}} < \frac{\eps}{2}$. Then, choose $N = \max\of{N_1, N_2}$. By the triangle inequality, for all $n \geq N$, we have that $d\of{x_n, x} < \eps$.
+        \end{itemize}
+
+        \item[\underline{$(3) \implies (2)$.}] Suppose that $X$ is totally bounded and complete. Fix a sequence $\parenth{x_n}_{n \in \N}$. To show that $\parenth{x_n}$ has a convergent subsequence, it is enough to show that $\parenth{x_n}_{n \in \N}$ has a \textit{Cauchy} subsequence.
+
+        Letting $A_0 \ssq X$ be a finite set such that we can cover $X$ with balls of radius $2^{-0}(=1)$ such that
+        \begin{align*}
+            X = \bigcup_{y \in A_0} B\of{y, 2^{-0}} % Consistent with the notation used earlier
+            %mhm (sorry to be so slow, getting to the assumption and yup I can)
+            % No problem!
+        \end{align*}
+        We can do this because we know, by assumption, that $X$ is totally bounded. Then it follows by the infinite pigeonhole principle that there must exist some $y\in A_0$ such that $B_1(y)$ contains infinitely many points in our sequence - we now choose $y=y_0$.
+
+        Next, we consider a covering of $X$ by balls of radius $2^{-1}$. As there are infinitely many points in $B_1(y_0)$, it follows that there must exist some $y_1$ such that $B_{2^{-1}}(y_1)\ssq B_1(y_0)$ with infinitely many points contained in $B_{2^{-1}}(y_1)$. It follows by similar argument that we can choose some $y_2$ with $B_{2^{-2}}(y_2)\ssq B_{2^{-1}}(y_1)\ssq B_1(y_0)$ with infinitely many points contained in $B_{2^{-2}}(y_2)$, and similarly for $y_3, y_4, \ldots$.
+        %because that's how I set up this whole joke''
+        % Can you continue here? I'm not sure what's next exactly
+
+        After continuing in this manner, we claim that we have defined a Cauchy subsequence of $\parenth{x_n}$: define $x_{n_i} = y_i$. To show it is Cauchy, fix $\eps > 0$. Observe that given $k < i$, with $n_k < n_i$, we know that $n_k \in Y_k$ and $n_i \in Y_i \sse Y_k$, giving us that $n_i \in Y_k$. \sorry
+        % Think about it for ``no more than a minute''
+
+        \item[\underline{$(2) \implies (1)$.}] Assume that $X$ is sequentially compact. Let $\parenth{U_i}_{i \in \I}$ be an open cover.
+    \end{description}
+\end{proof}%very nice 
+% That's alsy why I use \parenth and \brac - they all resize automatically. And \cycl for angle bracs, and \set for a set, and \setst for a set with the bar in the middle resizing automatically/ 
+%(!!) (also good to know, thank you)
+% Also I'm sorry for kinda cutting you off mid-TeXing, I'm happy to take over but if you'd like to then please go ahead... (sorry)
+%not at all, and also sorry I just saw this (of course - I've been very lazy today, thank you very much for the notes)
+%``I did exactly the notational sin I said I was going to avoid in the previous joke'' - oh yes :)
+% This guy is so great I love him fr
+
+% Hey did you get what the definition of $A_0$ is? In particular, what is $B_{2^{-0}}$? Is that really 0 in the exponent? I didn't quite catch that.
+
+%for the first instance, yes- then will continue to choose balls of the form 2^{-k} - sure
+
+% Ok can you write it?
+% Ah i see

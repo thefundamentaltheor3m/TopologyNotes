@@ -19,7 +19,11 @@
 \contentsline {subsection}{\numberline {1.5.1}Connected Components}{23}{subsection.1.5.1}%
 \contentsline {subsection}{\numberline {1.5.2}Preserving Connectedness}{23}{subsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.5.3}Path Connectedness}{25}{subsection.1.5.3}%
-\contentsline {chapter}{\numberline {2}Another Chapter}{26}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducing the Main Object of Study in this Chapter}{26}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Another Section}{26}{section.2.2}%
-\contentsline {chapter}{Bibliography}{27}{section.2.2}%
+\contentsline {section}{\numberline {1.6}Compactness and Completeness}{25}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Compactness}{25}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Completions in a Metric Space}{27}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}The Relationship between Compactness and Completeness}{29}{subsection.1.6.3}%
+\contentsline {chapter}{\numberline {2}Another Chapter}{33}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducing the Main Object of Study in this Chapter}{33}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Another Section}{33}{section.2.2}%
+\contentsline {chapter}{Bibliography}{34}{section.2.2}%
