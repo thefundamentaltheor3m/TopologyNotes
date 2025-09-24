@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.23)  23 SEP 2025 07:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.24)  24 SEP 2025 03:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -45,9 +45,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language22). Reported on input line 105.
+(babel)             (\language49). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language22). Reported on input line 108.
+(babel)             (\language49). Reported on input line 108.
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
 Package babel Info: Importing font and identification data for english
@@ -1950,7 +1950,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.25 ...ss and Completeness}{28}{subsection.1.6.3}
+l.25 ...ss and Completeness}{29}{subsection.1.6.3}
                                                   % [1
 
 ])
@@ -2116,15 +2116,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [18]
-LaTeX Font Info:    Trying to load font information for TS1+xcmss on input line
- 289.
-LaTeX Font Info:    No file TS1xcmss.fd. on input line 289.
-
-
-LaTeX Font Warning: Font shape `TS1/xcmss/m/n' undefined
-(Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textbullet' on input line 289.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2134,6 +2125,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [19]
+LaTeX Font Info:    Trying to load font information for TS1+xcmss on input line
+ 310.
+LaTeX Font Info:    No file TS1xcmss.fd. on input line 310.
+
+
+LaTeX Font Warning: Font shape `TS1/xcmss/m/n' undefined
+(Font)              using `TS1/cmr/m/n' instead
+(Font)              for symbol `textbullet' on input line 310.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2186,7 +2186,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[24]) (./Chapters/1_Intro/1_5_Compactness_and_Completeness.tex
+[24]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2195,7 +2195,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25]
+[25]) (./Chapters/1_Intro/1_5_Compactness_and_Completeness.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2214,10 +2214,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2227,6 +2223,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [28]
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2253,7 +2253,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[31])) (./Chapters/2_Another Chapter/2_Another_Chapter.tex
+[31]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2262,16 +2262,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32]
+[32])) (./Chapters/2_Another Chapter/2_Another_Chapter.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[33]
 Chapter 2.
 (./Chapters/2_Another Chapter/2_1_Intro.tex)
-(./Chapters/2_Another Chapter/2_2_Another_Section.tex)) [33
+(./Chapters/2_Another Chapter/2_2_Another_Section.tex)) [34
 
 ]
 
 LaTeX Warning: Empty bibliography on input line 54.
 
-[34] 
+[35] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./main.aux)
  ***********
@@ -2300,45 +2309,51 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57322 strings out of 474222
- 1302986 string characters out of 5748733
- 2321791 words of memory out of 5000000
- 78401 multiletter control sequences out of 15000+600000
- 592601 words of font info for 131 fonts, out of 8000000 for 9000
+ 57328 strings out of 474222
+ 1303036 string characters out of 5748733
+ 2325792 words of memory out of 5000000
+ 78400 multiletter control sequences out of 15000+600000
+ 593380 words of font info for 135 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  106i,17n,110p,777b,2284s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/sansmathfonts/cmsmfIPiXi12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/sansmathfonts/cmssex10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/sansmathfonts/cmssmi10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/sansmathfonts/cmssmi6.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/sansmathfonts/cmssmi8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/sansmathfonts/cmsssy10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/sansmathfonts/cmsssy6.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/sansmathfonts/cmsssy8.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sfit1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.
-pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1200.pfb></usr/share/texm
-f/fonts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf/fonts/type1/public
-/cm-super/sfss0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf
-/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1/public/
-cm-super/sfss2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.pf
-b></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf/
-fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/sansmathfonts/ssmsam10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/sansmathfonts/ssmsbm10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (35 pages, 448020 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/sansmathfonts/cmssex10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/sansmathfonts/cmssmi10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/sansmathfonts/cmssmi6.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/sansmathfonts/cmssmi7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/sansmathfonts/cmssmi8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/sansmathfonts/cmsssy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/sansmathfonts/cmsssy6.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/sansmathfonts/cmsssy8.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sfit1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfsi1200.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfss0700.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfss0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfss2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.pfb></usr/s
+hare/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
+fsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/sansmathfonts/ssmsam10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/sansmathfonts/ssmsbm10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
+Output written on main.pdf (36 pages, 472097 bytes).
 PDF statistics:
- 675 PDF objects out of 1000 (max. 8388607)
- 552 compressed objects within 6 object streams
- 186 named destinations out of 1000 (max. 500000)
+ 693 PDF objects out of 1000 (max. 8388607)
+ 565 compressed objects within 6 object streams
+ 189 named destinations out of 1000 (max. 500000)
  381 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -12,18 +12,18 @@
 \contentsline {subsection}{\numberline {1.3.1}Bases and Sub-Bases}{12}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}New Topologies from Old Ones}{13}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.3.3}Separation Properties}{17}{subsection.1.3.3}%
-\contentsline {section}{\numberline {1.4}A Closer Look at Continuity}{18}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Neighbourhoods and Neighbourhood Bases}{18}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Homeomorphisms}{19}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.4}A Closer Look at Continuity}{19}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Neighbourhoods and Neighbourhood Bases}{19}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Homeomorphisms}{20}{subsection.1.4.2}%
 \contentsline {section}{\numberline {1.5}Connectedness}{21}{section.1.5}%
 \contentsline {subsection}{\numberline {1.5.1}Connected Components}{23}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}Preserving Connectedness}{23}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.2}Preserving Connectedness}{24}{subsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.5.3}Path Connectedness}{25}{subsection.1.5.3}%
-\contentsline {section}{\numberline {1.6}Compactness and Completeness}{25}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Compactness}{25}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}Completions in a Metric Space}{27}{subsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.6.3}The Relationship between Compactness and Completeness}{29}{subsection.1.6.3}%
-\contentsline {chapter}{\numberline {2}Another Chapter}{33}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducing the Main Object of Study in this Chapter}{33}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Another Section}{33}{section.2.2}%
-\contentsline {chapter}{Bibliography}{34}{section.2.2}%
+\contentsline {section}{\numberline {1.6}Compactness and Completeness}{26}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Compactness}{26}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Completions in a Metric Space}{28}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}The Relationship between Compactness and Completeness}{30}{subsection.1.6.3}%
+\contentsline {chapter}{\numberline {2}Another Chapter}{34}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducing the Main Object of Study in this Chapter}{34}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Another Section}{34}{section.2.2}%
+\contentsline {chapter}{Bibliography}{35}{section.2.2}%
