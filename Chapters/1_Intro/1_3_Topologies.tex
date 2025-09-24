@@ -189,7 +189,28 @@ There is also a (weaker) notion of separation called the $T_1$ property.
 
 \begin{boxdefinition}[$T_1$ property]
     We say that $X$ is a \textbf{$T_1$ space} if for all \textit{distinct} $x, y \in X$, there is an open set $U \subseteq X$ with $x \in U$ and $y \notin U$.
-\end{boxdefinition} 
+\end{boxdefinition}
+
+We can give an equivalent characterisation of the $T_1$ property.
+
+\begin{boxproposition}
+    $X$ is $T_1$ if and only if every singleton in $X$ is closed.
+\end{boxproposition}
+\begin{proof}
+    First, notice that in the trivial cases where $\abs{X} = 0$ or $\abs{X} = 1$, we are done. So, going forward, assume that $X$ contains at least two distinct elements.
+    \begin{description}
+        \item[$\parenth{\implies}$] 
+        Assume that $X$ is $T_1$. If $\abs{X} = 1$, then we are done. Fix $x \in X$ and consider the singleton $\set{x}$. We know that for any $y \in X \setminus \set{x}$, there exists some open $U_y \ssq X$ such that $y \in U_y$ and $x \notin U_y$.\footnote{Define a pairing $\parenth{y, U_y}$ from the definition of $X$ being $T_1$ using the Axiom of Choice.} Then, it is easy to see that
+        \begin{align*}
+            X \setminus \set{x} = \bigcup_{y \in X \setminus \set{x}} U_y
+        \end{align*}
+        Indeed, the $\ssq$ inclusion is obvious, since $y \in U_y$ for all $y \in X \setminus \set{x}$, and the $\supseteq$ inclusion is also clear because $x$ does not lie in any of the $U_y$. Since each $U_y$ is open, so is the union of all of them, making $X \setminus \set{x}$ a union of open sets, hence open. Thus, $\set{x}$ is closed.
+
+        \item[$\parenth{\impliedby}$]
+        Assume that every singleton $\set{x} \ssq X$ is closed. Then, fix $x, y \in X$ and assume $x \neq y$. Since $\set{x}$ is closed, $X \setminus \set{x}$ is open, and since $x$ and $y$ are distinct, $y \in X \setminus \set{x}$. Thus, $X \setminus \set{x}$ is an open subset of $X$ containing $y$ but not $x$.
+    \end{description}
+    Therefore, the condition that $X$ is $T_1$ is equivalent to the condition that every singleton is closed.
+\end{proof}
 
 There is a notion that is weaker still.
 
