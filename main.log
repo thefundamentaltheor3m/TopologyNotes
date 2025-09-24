@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.24)  24 SEP 2025 03:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.24)  24 SEP 2025 03:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -45,9 +45,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language49). Reported on input line 105.
+(babel)             (\language68). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language49). Reported on input line 108.
+(babel)             (\language68). Reported on input line 108.
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
 Package babel Info: Importing font and identification data for english
@@ -2350,7 +2350,7 @@ fsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/sansmathfonts/ssmsam10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/sansmathfonts/ssmsbm10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (36 pages, 472097 bytes).
+Output written on main.pdf (36 pages, 472133 bytes).
 PDF statistics:
  693 PDF objects out of 1000 (max. 8388607)
  565 compressed objects within 6 object streams
