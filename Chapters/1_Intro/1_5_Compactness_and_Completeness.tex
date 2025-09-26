@@ -136,14 +136,30 @@ The reason we define total boundedness is that it connects compactnss and comple
 We prove another intermediate result, sometimes referred to as the `existence of a Lebesgue number for open covers' when viewed in the context of metric spaces. % (?)
 
 \begin{boxlemma}\label{Ch1:Lemma:Lebesgue_number_aux}
-    Let $X$ be a sequentially compact space, and let $\parenth{U_i}_{i \in \I}$ be an open cover of $X$. There is some $\eps > 0$ such that for all $x \in X$, there is $i \in \I$ such that $B\of{x, \eps} \ssq U_i$.
+    Let $\parenth{X, d}$ be a sequentially compact metric space, and let $\parenth{U_i}_{i \in \I}$ be an open cover of $X$. There is some $\eps > 0$ such that for all $x \in X$, there is $i \in \I$ such that $B\of{x, \eps} \ssq U_i$.
 \end{boxlemma}
 \begin{proof}
-    \sorry % To be covered next lecture
+    Suppose that this is not true. That is, suppose that $\forall \eps > 0$, $\exists x \in X$ such that $\forall i \in \I$, $B\of{x, \eps} \not\ssq U_i$.
+    
+    We consider a discrete sequence of $\eps$s tending to $0$, such as the sequence $\parenth{2^{-n}}_{n \in \N}$. That is, for all $n \in \N$, we know that there exists some $x_n \in X$ such that $\forall i \in \I$, $B\of{x, 2^{-n}} \not\ssq U_i$.
+    
+    Since $X$ is sequentially compact, we can find a subsequence $\parenth{x_{n_j}}_{j \in \N}$ such that $x_{n_j} \to x$ for some $x \in X$. Since $\parenth{U_i}_{i \in \I}$ is an open covering, we know that there is some $i_0 \in \I$ such that $x \in U_{i_0}$. Since $U_{i_0}$ is open, there is some $\eps > 0$ such that $B\of{x, \eps} \ssq U_i$.
+
+    We choose $k \in \N$ so large that both the following inequalities hold:
+    \begin{align*}
+        d\of{x_{n_k}, x} < \frac{\eps}{2}
+        \qquad \qquad
+        2^{-n_k} < \frac{\eps}{2}
+    \end{align*}
+    Then,
+    \begin{align*}
+        B\of{x_{n_k}, 2^{-n_k}} \ssq B\of{x, \eps} \ssq U_i
+    \end{align*}
+    which contradicts the choice of subsequence $x_{n_k}$. % "Did I say something crazy? Or... well, maybe no more than usual."
 \end{proof}
 
 \begin{boxtheorem}\label{Ch1:Thm:compact_seq_compact_TFAE}
-    Let $X$ be a metric space. The following are equivalent:
+    Let $\parenth{X, d}$ be a metric space. The following are equivalent:
     \begin{enumerate}[label = (\arabic*)]
         \item $X$ is compact
         \item $X$ is sequentially compact
@@ -198,7 +214,16 @@ We prove another intermediate result, sometimes referred to as the `existence of
         After continuing in this manner, we claim that we have defined a Cauchy subsequence of $\parenth{x_n}$: define $x_{n_i} = y_i$. To show it is Cauchy, fix $\eps > 0$. Observe that given $k < i$, with $n_k < n_i$, we know that $n_k \in Y_k$ and $n_i \in Y_i \sse Y_k$, giving us that $n_i \in Y_k$. \sorry
         % Think about it for ``no more than a minute''
 
-        \item[\underline{$(2) \implies (1)$.}] Assume that $X$ is sequentially compact. Let $\parenth{U_i}_{i \in \I}$ be an open cover.
+        \item[\underline{$(2) \implies (1)$.}] Assume that $X$ is sequentially compact. Since $(2) \implies (3)$, we know that $X$ is complete and totally bounded. Now, fix an open cover $\parenth{U_i}_{i \in \I}$ of $X$. Since $X$ is totally bounded, $X$ is a finite union of $\eps$-balls; that is, we can write
+        \begin{align*}
+            X = \bigcup_{s=1}^{t} B\of{y_s, \eps}
+        \end{align*}
+        By the choice of $\eps$, % Something to do with lemma
+        for all $s$, there is $s \in I$ such that $B\of{y_s, \eps} \ssq U_{i_s}$. So
+        \begin{align*}
+            X = \bigcup_{s=1}^{t} U_{i_s}
+        \end{align*}
+        proving that $\parenth{U_i}_{i \in \I}$ has a finite subcover. Thus, $X$ is compact.
     \end{description}
 \end{proof}%very nice 
 % That's alsy why I use \parenth and \brac - they all resize automatically. And \cycl for angle bracs, and \set for a set, and \setst for a set with the bar in the middle resizing automatically/ 
