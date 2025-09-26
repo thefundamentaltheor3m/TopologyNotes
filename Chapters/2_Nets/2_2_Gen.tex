@@ -1,0 +1,96 @@
+\section{Generalising Properties of Metric Spaces}
+
+To set the stage, recall that in a metric space $X$ with $A \ssq X$, we have
+\begin{align*}
+    \cl(A) = \setst{x \in X}{\exists \parenth{a_n}_{n \in \N} \st a_n \in A \text{ and } a_n \to x \text{ as } n \to \infty}
+\end{align*}
+Moreover, recall that a metric space $X$ is compact if and only if $X$ is sequentially compact, in the sense that every sequence has a convergent subsequence.
+
+We will show that in an arbitrary topological space, we can replace sequences with nets and subnets and show that they still hold.
+
+\subsection{Compactness and Sequantial Compactness}
+
+While we know that compactness and sequential compactness are not equal in general topological spaces, we show that they \textit{are} if we use nets instead.
+
+\begin{boxtheorem}
+    Let $X$ be a topological space. The following are equivalent.
+    \begin{enumerate}[label = (\arabic*)]
+        \item $X$ is compact.
+        \item Ever net has a convergent subnet.
+    \end{enumerate}
+\end{boxtheorem}
+\begin{proof} \hfill
+    \begin{description}
+        \item[\underline{$(2) \implies (1)$.}]
+        Suppose that every net has a convergent subnet. Define an open cover $\setst{U_i}{i \in I}$ and define \sorry % Fill in deets of directed poset and desired sequence
+
+        Let $\parenth{x_a}_{a \in \D}$ be such that
+        \begin{align*}
+            x_a \in \bigcap_{i \in a} F_i
+        \end{align*}
+        We know a convergent subnet exists. Let $\parenth{y_b}_{b \in \E}$ be such a subnet, with associated map $\phi : \E \to \D$, and say that $\parenth{y_b}_{b \in \E}$ converges to $y \in X$. We claim that
+        \begin{align*}
+            y \in \bigcap_{i \in I} F_i
+        \end{align*}
+        Indeed, if this is not true, then there is some $i \in I$ such that $y \notin F_i$. That is, $y \in X \setminus F_i$, which is open because $F_i$ is closed. Moreover, we know that $y_b \to y$. By the definition of convergence, there is some $c \in \E$ such that for all $c' \in \E$, if $c' \geq c$ then $y_{c'} \in X \setminus F_i$.
+
+        Our setup essentially tells us that for all $i \in I$ and $a \in \D$,
+        \begin{align}
+            a \geq \set{i} \iff i \in a \iff x_a \in F_i
+            \label{Ch2:Eq:Subnets_seq_compact_setup_mem_order}
+        \end{align}
+        Since $\phi$ is cofinal, there is some index $\bar{c} \in \E$ such that $\phi\of{\bar{c}} \geq \set{i}$ (that is, $i \in \phi\of{\bar{c}}$). Let $e \in \E$ be such that $e \geq c, \bar{c}$ (such an $e$ exists by directedness). Then,
+        \begin{align*}
+            x_{\phi(e)} = y_e \in X \setminus F_i
+        \end{align*}
+        Indeed, $\phi(e) \geq \phi\of{\bar{c}} \geq \set{i}$, with the ordering being inclusion. Therefore, $i \in \phi(e)$. But \eqref{Ch2:Eq:Subnets_seq_compact_setup_mem_order} tells us that this is equivalent to $x_{\phi(e)} \in F_i$, which is a contradiction.
+
+        \underline{$(1) \implies (2)$.}
+        Let $X$ be compact. Let $\parenth{x_a}_{a \in \D}$ be a net. For each $a \in \D$, define
+        \begin{align*}
+            F_a := \cl\of{\setst{x_b}{b \geq a}}
+        \end{align*}
+        We claim that this family $\setst{F_a}{a \in \D}$ of closed sets has the finite intersection property.
+
+        Indeed, fix $a_1, \ldots, a_n \in \D$. Find, by directedness, some $a \in A$ such that
+        \begin{align*}
+            a \geq a_1, \ldots, a_n
+        \end{align*}
+        Then, $x_a \in F_{a_i}$ for all $1 \leq i \leq n$, just by unfolding definitions. Thus,
+        \begin{align*}
+            x_a \in \bigcap_{i=1}^{n} F_{a_i}
+        \end{align*}
+        Since $X$ is compact, we can produce, by ``dubious magic'', some
+        \begin{align*}
+            x \in \bigcap_{a \in \D} F_a
+        \end{align*}
+        We construct a subnet of $\parenth{x_a}_{a \in \D}$ which converges to $x$.
+
+        Define the following set:
+        \begin{align*}
+            \E = \setst{\parenth{a, U}}{a \in \D\text{, } U \text{ is an open nbhd of $x$, and } x_a \in U}
+        \end{align*}
+        We order $\E$ by the ordering $\parenth{a, U} \leq \parenth{b, V}$ iff $a \leq_{\D} b$ and $V \ssq U$. It is possible to show that under this ordering, $\E$ is directed.
+
+        To define a subnet, we need first a map $\phi : \E \to \D$ satisfying the desired conditions. Define
+        \begin{align*}
+            \phi : \E \to \D : \parenth{a, U} \mapsto a
+        \end{align*}
+        Define the net $\parenth{y_{\parenth{a, U}}}_{\parenth{a, U} \in \E}$ by $y_{\parenth{a, U}} = x_a$. Then,
+        \begin{enumerate}
+            \item $\phi$ is order-preserving because for all $\parenth{a, U}, \parenth{b, V} \in \D$, if $\parenth{a, U} \leq \parenth{b, V}$ then $a \leq b$.
+            \item $\phi$ is cofinal because for all $a \in \D$, we can see that $\parenth{a, X} \in \E$ has the property that $a \leq \phi\of{\parenth{a, X}} = a$.
+            \item For all $\parenth{a, U} \in \E$, clearly $y_{\parenth{a, U}} = x_a$ by definition.
+        \end{enumerate}
+        Lastly, we show that $\parenth{y_{\parenth{a, U}}}_{\parenth{a, U} \in \E}$ converges to $x$.
+        \sorry
+    \end{description}
+\end{proof}
+%``going back to my habitual heavy-handed hints''?
+%``seeing as this is the afternoon of the heavy-handed hint''
+%when defining a subnet, make sure the index set is directed. then need to define values in subnet, and specify the values of the function \phi, and then make sure that \phi is a vlid map
+\begin{boxwarning}
+    When defining a subnet, always first make sure the index set is in fact directed. Then one needs to  specify the values of the function $\phi$, and then make sure that $\phi$ is a valid map (``as advertised'').
+\end{boxwarning}
+
+% Willard book general topology has things about nets

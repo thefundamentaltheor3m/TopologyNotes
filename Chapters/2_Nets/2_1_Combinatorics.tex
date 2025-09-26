@@ -1,0 +1,114 @@
+\section{Some ``Completely Trivial Combinatorics''}
+
+Fix a topological space $X$.
+
+\subsection{Directed Sets and Nets}
+
+We recall the definition of a poset from earlier in the course (\Cref{Ch1:Def:Poset}). We begin with a generalisation of this concept.
+
+\begin{boxdefinition}[Directed Set]
+    A \textbf{directed set} is a poset $\parenth{\D, \leq}$ such that for all $x, y \in \D$, there is some $z \in \D$ such that $x, y \leq z$.
+\end{boxdefinition}
+
+It is easy to extend the definition, by induction, to show that for any directed set $\parenth{\D, \leq}$ and $n \in \N$, for all $x_1, \ldots, x_n \in \D$, there is some $z \in \D$ such that $x_1, \ldots, x_n \leq z$.
+
+\begin{boxexample}[Familiar Examples of Directed Sets]\label{Ch2:Eg:Dir_Sets}
+    \hfill
+    \begin{enumerate}
+        \item $\parenth{\N, \leq}$ is a directed set.
+
+        \item If $X$ is any infinite set, then the set
+        \begin{align*}
+            \D = \setst{a \ssq X}{\abs{a} < \omega}
+        \end{align*}
+        ordered by inclusion is a directed set.
+
+        \item Let $X$ be a topological space and $x \in X$ a point. Define
+        \begin{align*}
+            \D \setst{U \ssq X}{U \text{ is open and } x \in U}
+        \end{align*}
+        $\D$ is ordered by the relation $U \leq V \iff V \ssq U$, and with this ordering, forms a directed set.
+    \end{enumerate}
+\end{boxexample}
+
+Recall that at the start of the section, we fixed a topological space $X$. We define a \textbf{net in $X$} to be a \textit{sequence in $X$ indexed by a directed set}.
+
+\begin{boxdefinition}[Net]\label{Ch2:Def:Net}
+    A \textbf{net in $X$} is a function $\D \to X$, where $\D$ is a nonempty directed set. We denote a net by $\parenth{x_a}_{a \in \D}$, just as we would any sequence.
+\end{boxdefinition}
+
+It is clear that every sequence $\N \to X$ is a net $\parenth{\N, \leq} \to X$.
+
+\subsection{Convergence of Nets}
+
+What do we mean when we use words like ``eventually'' and ``frequently''? Let's find out.
+
+\begin{boxdefinition}[Eventuality of Occurrence]
+    Let $P(x)$ be a property of points $x \in X$. Let $\parenth{x_a}_{a \in \D}$ be a net. We say \textbf{$P$ occurs eventually} if there is some $a \in \D$ such that for all $b \in \D$, if $b \geq a$ then $P\of{x_b}$ holds in $X$.
+\end{boxdefinition}
+
+\begin{boxdefinition}[Frequency of Occurrence]
+    \sorry
+\end{boxdefinition}
+
+Next, we state what it means for a net to converge.
+
+\begin{boxdefinition}[Convergence]
+    \sorry
+\end{boxdefinition}
+
+We can say something about \sorry.
+
+\begin{boxproposition}
+    Consider a subspace $A \ssq X$ and a point $x \in X$. TFAE:
+    \begin{enumerate}[label = (\arabic*)]
+        \item There is some directed set $\D$ and some net $\parenth{x_a}_{a \in \D}$ such that the following both hold:
+        \begin{itemize}
+            \item $x_a \in A$ for all $a \in D$
+            \item $\parenth{x_a}_{a \in \D}$ converges to $x$
+        \end{itemize}
+
+        \item $x \in \closure{A}$
+    \end{enumerate}
+\end{boxproposition}
+\begin{proof}\hfill
+    \begin{description}
+        \item[\underline{$(1) \implies (2)$.}]
+        \sorry % "Essentially just definitions"
+
+        \item[\underline{$(2) \implies (1)$.}]
+        Consider the directed set
+        \begin{align*}
+            \D \setst{U \ssq X}{U \text{ is open and } x \in U}
+        \end{align*}
+        ordered by the relation $U \leq V \iff V \subseteq U$ (the third example in \Cref{Ch2:Eg:Dir_Sets}). We claim we can find a net $\parenth{x_U}_{U \in \D}$ such that $x_U \in U \cap A$. \sorry
+    \end{description}
+\end{proof}
+%``there is fly in the ointment''
+%``I'll tell you this for free''
+%``it's good to know the actual definition of a subnet if you want to take the topology basic exam''
+It is an ``amusing (if not very useful) fact'' that a space is Hausdorff if and only if nets have limits.
+
+\subsection{Subnets}
+%thanks, sorry about that - (haha) if you say so
+% sure! I had \interior because \int means something else, so I made \closure, but that's horrible so this was an excuse to fix it (or rather add a more convenient macro)
+%``being me, how am I going to prove ___ contradiction!''
+% [...] :DD
+Before we define what a subnet is, we define a property of maps between directed posets.
+
+\begin{boxdefinition}[Cofinality]
+    Let $\E, \D$ be directed posets. We say a function $\phi : \E \to \D$ is \textbf{cofinal} if for all $d \in \D$, there is some $e \in \E$ such that $d \leq \phi(e)$.
+\end{boxdefinition}
+
+For the Topology Basic Exam, it is ``good to know what the actual definition of a subnet is.'' Sounds like sage advice!(!!)
+
+\begin{boxdefinition}[Subnet]\label{Ch2:Def:Subnet}
+    Let $\parenth{x_d}_{d \in \D}$ be a net in $X$. A \textbf{subnet} of this is some net $\parenth{y_e}_{e \in \E}$ together with a map $\phi : \E \to \D$ such that
+    \begin{enumerate}
+        \item $\phi$ is order-preserving.
+        \item $\phi$ is cofinal.
+        \item $y_e = x_{\phi(e)}$ for all $e \in \E$.
+    \end{enumerate}
+\end{boxdefinition}
+
+Now that we have the right definition of a subnet, we define a very tempting mistake to make. It is tempting to define the property of being a subnet to be a specialisation of the definintion given in \Cref{Ch2:Def:Subnet} to the case where $\E \ssq \D$ and $\phi$ is the inclusion. While there do exist subnets of this form, not every subnet takes this form.
