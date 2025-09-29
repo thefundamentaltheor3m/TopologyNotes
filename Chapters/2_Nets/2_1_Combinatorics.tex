@@ -112,3 +112,28 @@ For the Topology Basic Exam, it is ``good to know what the actual definition of 
 \end{boxdefinition}
 
 Now that we have the right definition of a subnet, we define a very tempting mistake to make. It is tempting to define the property of being a subnet to be a specialisation of the definintion given in \Cref{Ch2:Def:Subnet} to the case where $\E \ssq \D$ and $\phi$ is the inclusion. While there do exist subnets of this form, not every subnet takes this form.
+
+\subsection{Ultranets}
+
+This closely resembles the theory of filters and ultrafilters from set theory (or from Bourbaki, or from the topological corners of \mathlib).
+
+\begin{boxdefinition}[Ultranet]\label{Ch2:Def:Ultranet}
+    Let $X$ be a topological space and let $\parenth{x_d}_{d \in \D}$ be a net. We say that $\parenth{x_d}_{d \in \D}$ is an \textbf{ultranet} if for all $Y \ssq X$, \textit{at least one} of the following holds:
+    \begin{enumerate}
+        \item There is some $a \in \D$ such that for all $b \geq a$, we have $x_b \in Y$
+        \item There is some $a \in \D$ such that for all $b \geq a$, we have $x_b \notin Y$
+    \end{enumerate}
+\end{boxdefinition}
+
+The reason we said \textit{at least one} of the conditions should hold is that the two are not mutually exclusive. \sorry\todo{Give example where both hold}
+
+This is related to the concept of locales in Grothendieck topology.
+
+Professor Cummings leaves us with the following ``utterly trivial remark''.
+
+\begin{boxexercise}\label{Ch2:Exo:Ultranet_comp}
+    Let $X$ and $Y$ be topological spaces. If $\parenth{x_a}_{a \in \D}$ is an ultranet in $X$ and $f : X \to Y$ is any function, then $\parenth{f\of{x_d}}_{d \in \D}$ is an ultranet in $Y$.
+\end{boxexercise}
+\begin{remark}
+    ``Inverse images play very nicely with complements in set theory...and I'm done, with a little bit of fast talking.''
+\end{remark}
