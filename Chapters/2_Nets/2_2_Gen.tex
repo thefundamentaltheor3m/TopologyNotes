@@ -70,7 +70,15 @@ While we know that compactness and sequential compactness are not equal in gener
         \begin{align*}
             \E = \setst{\parenth{a, U}}{a \in \D\text{, } U \text{ is an open nbhd of $x$, and } x_a \in U}
         \end{align*}
-        We order $\E$ by the ordering $\parenth{a, U} \leq \parenth{b, V}$ iff $a \leq_{\D} b$ and $V \ssq U$. It is possible to show that under this ordering, $\E$ is directed.
+        We order $\E$ by the ordering $\parenth{a, U} \leq \parenth{b, V}$ iff $a \leq_{\D} b$ and $V \ssq U$. We show that under this ordering, $\E$ is directed. That is, we show that for all $\parenth{a_1, U_1}, \parenth{a_2, U_2} \in \E$, there exists some $\parenth{c, V}$ such that $\parenth{a_1, U_1}, \parenth{a_2, U_2} \leq_{\E} \parenth{c, V}$. Indeed, for all $\parenth{a_1, U_1}, \parenth{a_2, U_2} \in \E$, we can find some $b \in \D$ such that $b \geq a_1, a_2$, because $\D$ is directed. Moreover, $U_1 \cap U_2$ is an open neighbourhood of $x$. Indeed, if we take
+        \begin{align*}
+            F_b := \cl\of{\setst{x_c \in X}{c \geq b}}
+        \end{align*}
+        then we have $x \in F_b$, so the triple intersection
+        \begin{align*}
+            \setst{x_c \in c}{c \geq b} \cap U_1 \cap U_2
+        \end{align*}
+        is nonempty. Find $c \geq b$ such that $x_c \in U_1 \cap U)2$. Then, we have $\parenth{c, U_1 \cap U_2} \in \E$. Moreover, $c \geq b \geq a_1, a_2$ and $U_1 \cap U_2 \subseteq U_1, U_2$. Thus, $\parenth{a_1, U_1}, \parenth{a_2, U_2} \leq_{\E} \parenth{c, U_1 \cap U_2}$.
 
         To define a subnet, we need first a map $\phi : \E \to \D$ satisfying the desired conditions. Define
         \begin{align*}
@@ -94,3 +102,107 @@ While we know that compactness and sequential compactness are not equal in gener
 \end{boxwarning}
 
 % Willard book general topology has things about nets
+
+\subsection{Cluster Points}
+
+Before we describe how the concept of closures being defined by sequences is generalised to arbitrary topological spaces using nets, we will find it useful to ask (and answer) the following question:
+\begin{quote}
+    \centering
+    A subset of a subset is a subset. Is a subnet of a subnet also a subnet? 
+\end{quote}
+\begin{remark}
+    The answer is ``yes it is'', and you get no prizes for showing so (let $\psi:\mathbb{F}\rightarrow \mathbb{E}$ and $\phi:\mathbb{E}\rightarrow \mathbb{D}$ define a subnet and a subnet of that subnet respectively - then consider the map $\phi\circ \psi$, and show that this defines a subnet of $\D$).
+    %thanks
+    % You can use \E, \F and \D for \mathbb{D} etc. Also, you can use \to instead of \rightarrow. 
+    % sure
+\end{remark}
+
+For the remainder of this subsection,
+\begin{itemize}
+    \item A topological space $X$
+    \item Directed posets $\D, \E, \F$
+    \item Nets $\parenth{x_d}_{d \in \D}$, $\parenth{y_e}_{e \in \E}$, $\parenth{z_f}_{f \in \F}$ in $X$
+    \item Cofinal and order-preserving maps $\phi : \E \to \D$ and $\psi : \F \to \E$
+\end{itemize}
+
+We define the notion of a cluster point.
+
+\begin{boxdefinition}[Cluster Points]\label{Ch2:Def:ClusterPt}
+    Fix $x \in X$. We say that $x$ is a \textbf{cluster point of $\parenth{x_d}_{d \in \D}$} if and only if for all open sets $U \ni x$ and $a \in \D$, there is some $b \geq a$ such that $x_b \in U$.
+\end{boxdefinition}
+
+There is an equivalent characterisation of cluster points in terms of subnets. The proof is ``one of those proofs where you follow your nose, and just do some stenography with the definitions.''  %%  Ahh yes indeed, thank you!!
+%``This is completely in the wrong typeface'' (while writing on the board)
+
+\begin{boxproposition}[An Equivalent Characterisation of Cluster Points]\label{Ch2:Prop:ClusterPt_iff}
+    The following are equivalent.
+    \begin{enumerate}[label = (\arabic*)]
+        \item $x \in X$ is a cluster point of $\parenth{x_d}_{d \in \D}$
+        \item $\parenth{x_a}_{a \in \D}$ has a subnet which converges to $x$
+    \end{enumerate}
+\end{boxproposition}
+\begin{proof}
+    We begin the process of nose-following and definitional stenography. Yay - fun!
+    \begin{description}
+        \item[\underline{$(2) \implies (1)$.}]
+        Let $\parenth{y_e}_{e \in \E}$ and $\phi : \E \to \D$ together form a subnet of $\parenth{x_d}_{d \in \D}$. We show that $y_e \to x$.
+
+        Let $U \ni x$ be open. Fix $d \in \D$. Let $e \in \E$ be such that for all $e' \geq e$, $y_{e'} \in U$. Let $e_1 \in \E$ be such that $\phi\of{e_1} \geq_{\D} d$. Since $\E$ is directed, we can find some $e' \in \E$ that simultaneously satisfies $e' \geq_{\D} e, e_1$.
+
+        Since $\phi$ is order-preserving, we have that
+        \begin{align*}
+            \phi\of{e'} \geq \phi\of{e_1} \geq \phi(d)
+        \end{align*}
+        Since $e' \geq e$, we know that
+        \begin{align*}
+            x_{\phi\of{e'}} = y_{e'} \in U
+        \end{align*}
+        Thus, $x$ is a cluster point. As Professor Cummings said, ``At this point, e have ``won the game.'' Yippee!!
+
+        \item[\underline{$(2) \implies (1)$.}]
+        ``As you may have guessed, that was the less painful part of the proof.''
+        
+        Let $x$ be a cluster point of $\parenth{x_d}_{d \in \D}$. We are going to cook [up a convergent subnet of $x$]. Define
+        \begin{align*}
+            \E := \setst{\parenth{a, U}}{a \in \D, \, U \ni x, \, U \text{ is open}, \, x_a \in U}
+        \end{align*}
+        Define the ordering
+        \begin{align*}
+            \parenth{a, U} \leq_{\E} \parenth{b, V} \iff a \leq_{\D} b \text{ and } V \ssq U
+        \end{align*}
+        Define the map
+        \begin{align*}
+            \phi : \E \to \D : \phi\of{\parenth{a, U}} = a
+        \end{align*}
+        We now need to verify that $\phi$ is order-preserving and cofinal. The former is ``just a joke'' (i.e. follows by definition). The latter is true for the ``dumbest possible reason'': for all $d \in \D$, $\parenth{d, X} \in \E$ satisfies the property that $\phi\of{d, X} = d$.
+        
+        Next, we need to show that $\E$ is directed - which is pretty much immediate from the observation that $x$ is a cluster point. In particular, given $(a_1, U_1), (a_2, U_2)\in \E$ with $b\geq a_1\cap a_2, U_1\cap U_2$ open, as $x$ is a cluster point of the net we can find $c\geq b$ such that $x_c\in U_1\cup U_2$, and then $(c, U_1\cap U_2)\geq (a_1, U_1), (a_2, U_2)$.
+
+        We can now define a subnet $y_{\parenth{a, U}} := x_a$. All that remains is to show that $\parenth{y_e}_{e \in \E}$ actually \textit{converges} to $x$. Fix $V \ni x$ an open neighbourhood of $x$. Find any old $b \in \D$ such that $x_b \in V$. Take $e = \parenth{b, V}$. Then, for all $e' = \parenth{b', V'} \geq_{\E} \parenth{b, V}$, we have
+        \begin{align*}
+            y_{e'} = x_{b'} \in V' \ssq V
+        \end{align*}
+
+        % I'm doing this earlier - follow me
+        %sorry (of course feel free to delete anything)
+        %no apologies ever needed
+        % I just like reordering things. Sorry about that, it is a bit disruptive (even to my own live-TeXing, so I can't imagine how it is for someone else...
+    \end{description}``I've told this joke before in a slightly different context.'' Also, verifying the subnet criteria is
+    ``as fun as watching paint dry - but it's good to be thorough.''
+\end{proof}
+``We are kind of compelled to turn things upside down.''
+%:)) (thank you once again) 
+% sure!!  wouldn't miss pure gold like that :DDD
+
+We now state an important fact that relates cluster points to ultranets
+
+\begin{boxproposition}
+    Let $X$ be a topological space, $x$ a point in $X$, and $\parenth{x_d}_{d \in \D}$ an ultranet in $X$ (cf. \Cref{Ch2:Def:Ultranet}). The following are equivalent.
+    \begin{enumerate}[label = (\arabic*)]
+        \item $x$ is a cluster point
+        \item $x_d \to x$
+    \end{enumerate}
+\end{boxproposition}
+\begin{proof}
+    \sorry
+\end{proof}
