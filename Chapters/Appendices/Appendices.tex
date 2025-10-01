@@ -1,6 +1,14 @@
 \chapter*{Appendices}
 \addcontentsline{toc}{chapter}{Appendices}
+\thispagestyle{empty}
 
 In this chapter, we add a few appendices that are relevant to the main text.
 
-\input{Chapters/Appendices/A_First_Appendix.tex}
+\renewcommand{\thesection}{\Alph{section}}
+\stepcounter{chapter}
+\setcounter{section}{0}
+
+% \begin{subappendices}
+\input{Chapters/Appendices/A_Cat_Thy.tex}
+\input{Chapters/Appendices/B_Gen_Tips.tex}
+% \end{subappendices}
