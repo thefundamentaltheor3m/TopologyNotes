@@ -1,0 +1,43 @@
+\section{Filters and Ultrafilters}
+
+Yayy, now we learn informally what we learnt formally to do Lean parce que Patrick Massot adore Bourbaki! (Actually, was that the reason? I'm not even sure... mais probablement...)
+%oh my...
+\subsection{First Definitions}
+
+According to Professor Cummings, this is ``just pure set theory''---nothing to do with topology. At least... \textit{not yet...}
+
+Throughout this subsection, fix a \textbf{nonempty} set $X$.
+
+% ci-mer (slightly outdated French slang for merci)
+\begin{boxdefinition}[Filter]
+    A \textbf{filter on $X$} is a family $F$s of $X$ satisfying the properties
+    \begin{enumerate}[label = \textbf{F\arabic*.}]
+        \item $\emptyset \notin F$ but we always have $X\in F$
+        \item For all $A\in F$ and all $B\ssq X$ which satisfy $A\ssq B \ssq X$ we have $B\in F$
+        \item For all $A,B\in F$ we will have $A\cap B \in F$
+    \end{enumerate} 
+\end{boxdefinition}
+%for some reason I can't see this section in my viewer...(can you?)
+
+We can think of a filter as a ``notion of largeness'' we can think of a filter as specifying exactly which subsets of a set have this property. Indeed, the empty set shouldn't be large, but we would expect the ambient set to be considered large. We would also like to think about being able to \textit{enlarge} large things, which is why we want upwards closure. Finally, we can understand the intersection property by thinking complementarily: if we have two small sets, we'd want their union to be small (bigger than them, yes, but not so big as to actually be \textit{big}). Thus, if we have two large sets, it's reasonable to think we'd want their intersection to be small.
+
+\begin{boxdefinition}[Ultrafilter]
+    An \textbf{ultrafilter on $X$} is a filter $U$ satisfying the additional property
+    \begin{enumerate}[start = 4, label = \textbf{F\arabic*.}]
+        \item For all $A \ssq X$, either $A \in U$ or $X \setminus A \in U$
+    \end{enumerate}
+\end{boxdefinition}
+
+Not every filter is an ultrafilter.
+
+\begin{boxcexample}[A Filter that is \underline{not} an Ultrafilter]
+    We define the following filter on $\N$:
+    \begin{align*}
+        F = \setst{A \ssq \N}{\N \setminus A \text{ is finite}}
+    \end{align*}
+    We call this the \textbf{cofinite filter} or the \textbf{Fréchet filter}. While $F$ is a filter, it is certainly \textbf{not} an ultrafilter. For instance, neither the evens nor their complement (the odds) live in $F$ because they are both infinite.
+\end{boxcexample}
+
+We can show, however, that every filter can be \textit{extended} to an ultrafilter. This is similar in spirit to how we extend ideals to maximal ideals in commutative rings. We will do it using Zorn's Lemma.
+
+(Incidentally, there is also a notion of an \textit{ideal} of sets, which is essentially complementary to the notion of a filter. Lots of similarities!)
