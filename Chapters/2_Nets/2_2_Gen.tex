@@ -196,13 +196,96 @@ There is an equivalent characterisation of cluster points in terms of subnets. T
 
 We now state an important fact that relates cluster points to ultranets
 
-\begin{boxproposition}
+\begin{boxproposition}\label{Ch2:Prop:ofUltraNet_clusterPt_iff_tendsTo}
     Let $X$ be a topological space, $x$ a point in $X$, and $\parenth{x_d}_{d \in \D}$ an ultranet in $X$ (cf. \Cref{Ch2:Def:Ultranet}). The following are equivalent.
     \begin{enumerate}[label = (\arabic*)]
-        \item $x$ is a cluster point
+        \item $x$ is a cluster point of $\parenth{x_d}_{d \in \D}$
         \item $x_d \to x$
     \end{enumerate}
 \end{boxproposition}
 \begin{proof}
     \sorry
 \end{proof}
+
+\begin{boxcorollary}\label{Ch2:Cor:Ultranet_tendsTo_in_compact}
+    If $X$ is compact and $\parenth{x_a}_{a \in \D}$ is an ultranet, then $\parenth{x_a}_{a \in \D}$ converges to some point.
+\end{boxcorollary}
+\begin{proof}
+    Since $X$ is compact and $\parenth{x_a}_{a \in \D}$ is a net, we know that $\parenth{x_a}_{a \in \D}$ has a convergent subnet converging to some $x$. This makes $x$ a cluster point of $\parenth{x_a}_{a \in \D}$. Thus, by $(2) \implies (1)$ in \Cref{Ch2:Prop:ofUltraNet_clusterPt_iff_tendsTo}, $x_a \to x$.
+\end{proof}
+
+Next, we state ``Fact 4 in [Professor Cummings's] litany of facts'' (the first two being the points in \Cref{Ch2:Prop:ofUltraNet_clusterPt_iff_tendsTo} and the third being \Cref{Ch2:Cor:Ultranet_tendsTo_in_compact}).
+
+\begin{boxcorollary}\label{Ch2:Cor:Func_comp_Ultranet_is_Ultranet}
+    If $X$ and $Y$ are topological spaces and $\parenth{x_a}_{a \in \D}$ is an ultranet in $X$ and $f : X \to Y$ is any function, then $\parenth{f\of{x_a}}_{a \in \D}$ is an ultranet in $Y$.
+\end{boxcorollary}
+\begin{proof}[Proof sketch]
+    Let $B \ssq Y$ be arbitrary. Define $A := f\inv\!\brac{B} \ssq X$. Use ultranet properties.
+\end{proof}
+
+Finally, we state a powerful theorem about ultranet (ultrasubnet? subultranet?) existence.
+
+\begin{boxproposition}\label{Ch2:Prop:Subnet_Ultranet_Existence}
+    Every net has a subnet which is an ultranet.
+\end{boxproposition}
+\begin{proof}
+    \sorry
+\end{proof}
+
+Professor Cummings shall now cheat us in a somewhat innocuous way by using ultranets to prove Tychonoff's Theorem.
+
+\subsection{Tychonoff's Theorem} % incredible theorem
+
+% Hey Dang! Thanks for joining us!!
+% Hellooooo I'm here!
+% for emotional support obviously
+
+We are now ready to prove the main result of this chapter (indeed, the result that motivated our development of the theory of nets, subnets and ultranets).
+
+\begin{boxtheorem}[Tychonoff's Theorem]
+    An \textit{arbitrary} product of compact spaces is compact.
+\end{boxtheorem}
+\begin{proof}
+    Let $\parenth{X_i}_{i \in \I}$ be a family of compact spaces. Let $X := \prod_{i \in \I} X_i$. We will show that $X$ is compact by showing that every net in $X$ has a convergent subnet. Then, \sorry\todo{Add reference} will tell us that $X$ is compact.
+
+    Let $\parenth{x_a}_{a \in \D}$ be a net in $X$. We doubly index $\parenth{x_a}_{a \in \D}$ in the following manner: for each $a \in \D$, we write
+    \begin{align*}
+        x_a = \parenth{x_{a, i}}_{i \in \I}
+    \end{align*}
+    That is, we denote by $x_{a, i}$ the $i$th component of $x_a$.
+    
+    Let $\parenth{y_b}_{b \in \E}$ be a subnet of $\parenth{x_a}_{a \in \D}$ such that $\parenth{y_b}_{b \in \E}$ is an ultranet in $X$ (as given by \Cref{Ch2:Prop:Subnet_Ultranet_Existence}). We again doubly index $\parenth{y_b}_{b \in \E}$ by writing the $i$th component of every $y_b$ as $y_{b, i}$. We will show that $\parenth{y_b}_{b \in \E}$ converges.
+
+    For each $i \in \I$, let $\pi_i : X \to X_i$ be the canonical projection map sending $z \in X$ to its $i$th component, denoted $z_i$. By Fact 4 in the ``litany of facts'' (\Cref{Ch2:Cor:Func_comp_Ultranet_is_Ultranet}), since $\parenth{y_b}_{b \in \E}$ is an ultranet, so is $\parenth{\pi_i\of{y_b}}_{b \in \E}$. Indeed, observe that for all $i \in \I$ and $b \in \E$, $\pi_i\of{y_b} = y_{b, i}$. Thus, for all $i \in \I$, the ultranet $\parenth{\pi_i\of{y_b}}_{b \in \E}$ is exactly equal to $\parenth{y_{b, i}}_{b \in \E}$.
+
+    Fix $i \in \I$. Since $X_i$ is compact, Fact 3 in the ``litany'' (\Cref{Ch2:Cor:Ultranet_tendsTo_in_compact}), there is some $y_i \in X_i$ such that $\parenth{y_{b, i}}_{b \in \E}$ converges to $y_i$. This gives us an element $y \in X$ defined to be the tuple $\parenth{y_i}_{i \in \I}$.
+
+    We now claim that $\parenth{y_b}_{b \in \E}$ converges to $y$. If we can prove this claim, we will be done with the proof, as it will establish that $\parenth{y_b}_{b \in \E}$ is indeed a convergent subnet of $\parenth{x_a}_{a \in \D}$.
+
+    Recall that there is an inherent \textit{finiteness} built into the product topology. In particular, the product topology is \textbf{strictly contained} in the box topology, because we require the box topology to be a product object in the category of topological spaces (see \Cref{APP:Subsec:Products} for more). This will be absolutely crucial in establishing the claim that $\parenth{y_b}_{b \in \E}$ converges to $y$.
+
+    Fix a neighbourhood $U \ni y$ that is open with respect to the product topology on $X$. Fix a basic open set $\prod_{i \in \I} U_i$ containing $y$ such that $\prod_{i \in \I} U_i \ssq U$. We know there are finitely many indices $\set{i_1, \ldots, i_n} \ssq \I$ such that for $1 \leq s \leq n$, $U_{i_s} \subsetneq X_{i_s}$.
+
+    For each $1 \leq s \leq n$, the net $\parenth{y_{b, i_s}}_{b \in \E}$ converges to $y_{i_s}$ in $X_{i_s}$. Indeed, $y_{i_s} \in U_{i_s}$, and $U_{i_s}$ is open in $X_{i_s}$, so there is some index $b_s \in \E$ such that for all $c \in \E$, if $c \geq_{\E} b_s$, then ${y_{c, i_s}} \in U_{i_s}$ Thus, we get a finite set of indices $b_1, \ldots, b_n \in \E$ such that each $b_s$ gives the threshold in \textit{that $X_{i_s}$} beyond which elements of $\parenth{y_{b, i_s}}_{b \in \E}$ all lie in $U_{i_s}$.
+
+    Since $\E$ is directed, we know there exists some $b \in \E$ such that $b \geq b_1, \ldots, b_n$. We claim that for all $c \geq b$, $y_c \in U$.
+
+    Fix some $c \geq b$. We show that for all $i \in \I$, $y_{c, i} \in U_i$ for all $i \in \I$. This would then imply that $y_c \in \prod_{i \in \I} U_i$, and we know that $ \prod_{i \in \I} U_i \ssq U$, so we would be done.
+
+    So, fix $i \in \I$. Either $i = i_s$ for some $1 \leq s \leq n$ or not.
+    \begin{description}
+        \item[\underline{Case 1: $i = i_s$ for some $1 \leq s \leq n$.}]
+        In this case, $y_{c, i_s} \in U_{i_s}$ because $c \geq b \geq b_s$.
+
+        \item[\underline{Case 2: $i \neq i_s$ for any $1 \leq s \leq n$.}]
+        In this case, $U_i = X_i$. Thus, $y_{c, i} \in X_i = U_i$.
+    \end{description}
+    Either way, each component of $y_c$ is contained in each $U_i$. Therefore, $y_c \in \prod_{i \in \I} U_i$, and since $\prod_{i \in \I} U_i \ssq U$, we can conclude that $y_c \in U$, and we are done.
+\end{proof}
+
+\begin{boxwarning}
+    The distinction between the product and box topologies is \textbf{absolutely critical} for Tychonoff's Theorem! In fact, the conclusion typically \textbf{fails} when we take a box product.
+\end{boxwarning}
+%``interesting and fun to look at'' in topology is (perhaps often) equivalent to ``badly behaved'' - the box topology is ``interesting and fun to look at''
+
+A detailed discussion on the difference between 
