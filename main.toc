@@ -34,5 +34,5 @@
 \contentsline {subsection}{\numberline {2.2.2}Cluster Points}{41}{subsection.2.2.2}%
 \contentsline {chapter}{Appendices}{44}{chapter*.5}%
 \contentsline {section}{\numberline {A}A Categorical Perspective}{44}{section.3.1}%
-\contentsline {section}{\numberline {B}Professor Cummings's Top Tips}{44}{section.3.2}%
+\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{44}{section.3.2}%
 \contentsline {chapter}{Bibliography}{45}{Item.65}%
