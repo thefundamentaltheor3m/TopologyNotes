@@ -1,0 +1,40 @@
+\section{Relating Filters to Nets}
+
+We begin with an ``irritating and bafflingly slick proof'' that essentially boils down to a clever choice of index set. Let $X$ be a topological space.
+
+\begin{boxtheorem}
+    Let $\parenth{x_a}_{a \in \D}$ be a net in $X$. There exists an ultranet in $X$ that is a subnet of $\parenth{x_a}_{a \in \D}$.
+\end{boxtheorem}
+\begin{proof}
+    Our argument will essentially be an application of \Cref{Ch2:Cor:Filter_extn_ultrafilter}.
+
+    Define the following collection of subsets of $\D$:
+    \begin{align*}
+        F := \setst{A \ssq \D}{\exists a \in \D \st \setst{b \in \D}{a \leq b} \ssq A}
+    \end{align*}
+    That is, we define $F$ to be the set of all subsets of $\D$ containing some nonempty cone. We claim that $F$ is a filter on $\D$. According to Professor Cummings, the only ``tinily nontrivial'' thing to show there is showing that $F$ is closed under intersections. The point is that by directedness, the intersection of two cones contains a another cone.
+
+    Apply \Cref{Ch2:Cor:Filter_extn_ultrafilter} to obtain an ultrafilter $\U \supseteq F$ on $\D$. We are now ready to define the index set and maps giving a subnet of $\parenth{x_a}_{a \in \D}$. Define
+    \begin{align*}
+        E := \setst{\parenth{a, A}}{a \in \D,\, a \in A,\, A \in \U}
+    \end{align*}
+    Define the following ordering on $\E$:
+    \begin{align*}
+        \parenth{a_1, A_1} \leq_{\E} \parenth{a_2, A_2}
+        \iff
+        a_1 \leq_{\D} a_2
+        \text{ and }
+        A_2 \subseteq A_1
+    \end{align*}
+    It is not difficult to show that $\E$ is a poset (Professor Cummings would give ``no points'' for that). ``The point really is to show it is directed.'' To that end, fix $\parenth{a_1, A_1}, \parenth{a_2, A_2} \in \E$. Since $\D$ is directed, we can find $b \in \D$ such that $b \geq_{\D} a_1, a_2$. Now define $B = A_1 \cap A_2 \cap \setst{b \in \D}{b \geq_{\D} a}$. It is not difficult to see that $\parenth{a_1, A_1}, \parenth{a_2, A_2} \leq_{\E} \parenth{b, B}$.
+
+    We now find an order-preserving and cofinal map from $\E$ to $\D$. Define $\phi : \E \to \D$ by $\phi\of{\parenth{a, A}} = a$. It is immediate that $\phi$ is order-preserving. Moreover, since $\phi\of{\parenth{a, \D}} = a$, we can see that $\phi$ is cofinal.
+
+    Thus, for all $\parenth{a, A} \in \E$, if we define
+    \begin{align*}
+        y_{\parenth{a, E}} = x_{\phi\of{\parenth{a, A}}} = x_a
+    \end{align*}
+    then $\parenth{y_{e}}_{e \in \E}$ is a subnet of $\parenth{x_a}_{a \in \D}$.
+
+    All that remains is to show that $\parenth{y_e}_{e \in \E}$ is an ultranet. \sorry
+\end{proof}
