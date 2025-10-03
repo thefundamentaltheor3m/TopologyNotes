@@ -41,3 +41,97 @@ Not every filter is an ultrafilter.
 We can show, however, that every filter can be \textit{extended} to an ultrafilter. This is similar in spirit to how we extend ideals to maximal ideals in commutative rings. We will do it using Zorn's Lemma.
 
 (Incidentally, there is also a notion of an \textit{ideal} of sets, which is essentially complementary to the notion of a filter. Lots of similarities!)
+
+\subsection{Zorn's Lemma: A Quick Recap}
+
+Throughout this subsection, let $\parenth{\P, \leq}$ be a poset.
+
+We begin by defining notions of maximality in a poset.
+
+\begin{boxdefinition}[Maximum and Maximal Elements]
+    We say a point $p \in \P$ is
+    \begin{itemize}
+        \item \textbf{maxim\textit{um}} iff for all $q \in \P$, $q \leq \P$.
+        \item \textbf{maxim\textit{al}} iff there is no $q \in \P$ such that $p < q$
+    \end{itemize}
+\end{boxdefinition}
+
+Next, we define the notion of a chain.
+
+\begin{boxdefinition}[Chain in a Poset]
+    A \textbf{chain in $\P$} is some subset $C \ssq \P$ which is linearly ordered, ie, where for all $c, d \in C$, either $c \leq d$ or $d \leq c$.
+\end{boxdefinition}
+
+Indeed, a chain is bounded (above) by $q \in \P$ if and only if for all $p \in C$, $p \leq q$.
+
+We are now ready to state the famous Zorn's Lemma.
+
+\begin{boxtheorem}[Zorn's Lemma]\label{SP:Zorn}
+    If every chain in $\P$ is bounded, then for all $p \in \P$, there is some $q \geq p$ such that $q$ is maximal.
+\end{boxtheorem}
+
+As the saying goes,
+\begin{quote}
+    ``The Axiom of Choice is obviously true; the Well-Ordering Principle is obviously false; and as for Zorn's Lemma, who can say?''
+\end{quote}
+More seriously, though, it is possible to show that the Zermelo-Fraenkel axioms imply an equivalence between Zorn's Lemma and the Axiom of Choice. The rough idea of this proof is that if you allow larger and larger things, you keep taking greater and greater ordinals, until you need to take a limit ordinal, and then you take greater and greater ordinals, and then you take a limit ordinal, and you just keep going, until you hit a limit ordinal beyond which you will not need to go.
+
+\subsection{Extending Filters to Ultrafilters}
+
+The reason why we took that Zorny detour is because we need to apply \Cref{SP:Zorn} to extend filters to ultrafilters.
+
+Throughout this subsection, fix a set $X \neq \emptyset$. We can show that the set
+\begin{align*}
+    \P = \setst{F \ssq \Powset{X}}{F \text{ is a filter on } X}
+\end{align*}
+is partially ordered by inclusions of sets. This allows us to make the following characterisation.
+
+\begin{boxlemma}\label{Ch2:Lemma:Filter_ultrafilter_iff_maxl}
+    A filter $F$ on $X$ is an ultrafilter if and only if $F$ is maximal in $\P$.
+\end{boxlemma}
+\begin{proof}\hfill
+    \begin{description}
+        \item[$\parenth{\implies}$] 
+        Let $F$ be an ultrafilter. Towards contradiction, suppose that $F$ is not maximal in $\P$. Then there must be some filter $F' \in \P$  such that $F \subsetneq F'$. So, there exists some $A \in F' \setminus F$.
+
+        Since $F$ is an ultrafilter, either $A \in F$ or $X \setminus A \in F$. Since $A \notin F$, $X \setminus A \in F$. Since $F \subseteq F'$, $X \setminus A \in F'$. But then, since filters are closed under intersections, we get
+        \begin{align*}
+            \emptyset = A \cap \parenth{X \setminus A} \in F'
+        \end{align*}
+        which is impossible, because $F'$ is a filter and filters cannot contain the empty set.
+
+        \item[$\parenth{\impliedby}$]
+        Let $X$ be maximal. Towards contradiction, suppose that $F$ is not an ultrafilter. Then, there must be some $A \ssq X$ such that $A \notin F$ and $X \setminus A \notin F$. Define
+        \begin{align*}
+            F' := \setst{X \ssq A}{\exists C \in F \st A \cap C \ssq B}
+        \end{align*}
+        One can show that $F'$ is a filter that strictly contains $F$, which would contradict the maximality of $F$. Professor Cummings leaves this as an exercise.\todo{Do exercise.}
+    \end{description}
+\end{proof}
+
+This allows us to prove the following important result, which has the flavour of extending ideals to maximal ideals in commutative algebra.
+
+\begin{boxproposition}\label{Ch2:Prop:Filter_extn_maxl}
+    Any filter on $X$ extends to a filter which is maximal in $\P$.
+\end{boxproposition}
+\begin{proof}
+    By \Cref{SP:Zorn}, it is enough to show that every chain in $\P$ has an upper-bound in $\P$. So, fix a chain $C$ in $\P$. If $C = \emptyset$, then the trivial filter $\set{X}$ is an upper-bound of $C$ (thus, the ``empty set brigade'', led by the almighty Lean kernel, can be satisfied that this proof is valid). We now treat the case where $C$ is nonempty.
+
+    Define the subset $S \ssq \Powset{X}$ by
+    \begin{align*}
+        S := \bigcup C = \setst{A \ssq X}{\exists F \in C \st A \in F}
+    \end{align*}
+    $S$ clearly contains every element of $C$, making it an upper-bound for $C$. All we need to show is that $S$ is a filter. This will show that $S \in \P$, meaning that $C$ has an upper-bound in $\P$.
+
+    First, we need to show that $S$ is nonempty. But this is clear, because $X \in S$: $X$ is contained in every filter in $C$.
+
+    \sorry % The remaining points are easy to prove
+\end{proof}
+
+Combining \Cref{Ch2:Lemma:Filter_ultrafilter_iff_maxl} and \Cref{Ch2:Prop:Filter_extn_maxl} gives us the following.
+
+\begin{boxcorollary}\label{Ch2:Cor:Filter_extn_ultrafilter}
+    Any filter on $F$ extends to an ultrafilter on $X$.
+\end{boxcorollary}
+
+Youpie!

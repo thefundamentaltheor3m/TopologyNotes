@@ -33,8 +33,13 @@
 \contentsline {subsection}{\numberline {2.2.1}Compactness and Sequantial Compactness}{38}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Cluster Points}{41}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Tychonoff's Theorem}{44}{subsection.2.2.3}%
-\contentsline {chapter}{Appendices}{47}{chapter*.6}%
-\contentsline {section}{\numberline {A}A Categorical Perspective}{47}{section.3.1}%
-\contentsline {subsection}{\numberline {A.1}Product Spaces}{47}{subsection.3.1.1}%
-\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{47}{section.3.2}%
-\contentsline {chapter}{Bibliography}{48}{Item.65}%
+\contentsline {section}{\numberline {2.3}Filters and Ultrafilters}{46}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}First Definitions}{46}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Zorn's Lemma: A Quick Recap}{47}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Extending Filters to Ultrafilters}{48}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Relating Filters to Nets}{50}{section.2.4}%
+\contentsline {chapter}{Appendices}{52}{chapter*.7}%
+\contentsline {section}{\numberline {A}A Categorical Perspective}{52}{section.3.1}%
+\contentsline {subsection}{\numberline {A.1}Product Spaces}{52}{subsection.3.1.1}%
+\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{52}{section.3.2}%
+\contentsline {chapter}{Bibliography}{53}{Item.69}%
