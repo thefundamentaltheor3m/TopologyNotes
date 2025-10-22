@@ -36,5 +36,16 @@ We begin with an ``irritating and bafflingly slick proof'' that essentially boil
     \end{align*}
     then $\parenth{y_{e}}_{e \in \E}$ is a subnet of $\parenth{x_a}_{a \in \D}$.
 
-    All that remains is to show that $\parenth{y_e}_{e \in \E}$ is an ultranet. \sorry
+    All that remains is to show that $\parenth{y_e}_{e \in \E}$ is an ultranet.
+    
+    One must remember what is the decisive property of ultranets - we either want to find a point where all the indices above that point hit $Y\ssq X$, or all indices above this point hit $X\setminus Y$.
+
+    Let $A=\{a\in \mathbb{D}:x_a\in Y\}$, as $\mathcal{U}$ is an ultrafilter, either $A\in \mathcal{U}$ or $\mathbb{D}\setminus A\in \mathcal{U}$. Now supposing that $A\in \mathcal{U}$, we can choose $a\in A$ and let $e=(a,A)$. Then for all $f\geq e$, $f=(b, B)$ where $a\leq b, B\ssq A$ we have $b\in B\ssq A\implies x_b\in Y \implies y_d=y_{(b,B)}=x_b$.
+
+    Hopefully you can see that ``rest, similar.''
+    \sorry
 \end{proof}
+
+And now we've reached a bit of a high-point in the course - we have proved Tychnoff's Theorem!\\
+
+You knew we were not done with the definitions - in fact we have only just begun.
