@@ -1,0 +1,302 @@
+\section{Countability Properties}
+
+\begin{boxdefinition}[1st, 2nd Countability]
+    Let $X$ be a space, then
+    \begin{enumerate}
+        \item we say that $X$ is 1st countable to say that every point in $X$ has a countable neighbourhood basis (and...)
+        \item we say that $X$ is second countable to say that $X$ has a countable basis.
+    \end{enumerate}
+\end{boxdefinition}
+``one whose relationship with the first two might remain a little questionable for now...''
+
+``those of you who took field theory might hate the name of this next one...''
+\begin{boxdefinition}[Separable (``ohhhhhhhhhh...'' insert disappointment)]
+We say that $X$ is ``separable'' to say that $X$ has a countable dense subset.
+    
+\end{boxdefinition}
+\begin{boxdefinition}[Lindelof (``Poor Man's Subcover'')]
+    We say that $X$ is Lindelof to say that every open covering of $X$ has a countable subcover.
+\end{boxdefinition}
+Now another definition, to get some feel for the ``geometry'' of a metric space
+\begin{boxdefinition}[distance from a point to a set in a metric space]
+    Let $(X,d)$ be a metric space, $A\ssq X, A\neq \emptyset$ (to pre-emptively take care of the empty set police) and $x\in X$. Then $d(x, A)=\inf\{d(x,a):a\in A\}$.
+\end{boxdefinition}
+\begin{boxtheorem}
+    $d(x,A)$ is a continuous function of $x$.
+\end{boxtheorem}
+\begin{proof}
+    Let $x,y\in X$ and $a\in A$, then $d(x, A)\leq d(x,a)\leq d(x,y)+d(y,a)\implies d(y,a)\geq d(x, A)-d(x,y)$ for all $a\in A\implies d(y,A)\geq d(x,A)-d(x,y)$. Now one can fill in the details at their leisure.
+\end{proof}
+
+With this, we can show that $X$ a metric space implies $X$ is $T_4$:
+\begin{proof}
+    Let $C,D\ssq X$ with $(X,d)$ is a metric space with $C,D$ closed and $C\cap D=\emptyset$. If we then let $g(x)=d(x,C)-d(x,D)$ [we NEED that $C,D$ are closed and disjoint!], then $g$ is continuous as a difference of two continuous functions. Let $X=g^{-1}[(-\infty, 0)]$ and $V=g^{-1}[(0, \infty)]$ - then maybe we're basically done \sorry.
+\end{proof}
+
+\begin{boxdefinition}[Embedding]
+    We say $f:X\rightarrow Y$ is an ``embedding'' of $X$ into $Y$ if $f$ is an injective map with the additional constraint that $f$ is a homeomorphism from $X$ to $f[X]$ (where $f[X]\ssq Y$ is endowed with the subspace topology).
+\end{boxdefinition}
+\begin{boxwarning}
+    Crucially, note $f[U]$ need not be open in $Y$ for $U$ open in $X$ - we only require $f[U]$ open in subspace topology of $f[X]\ssq Y$.
+\end{boxwarning}
+Recall that for spaces $X, Y_i$ ($i\in I$) that $F:X\rightarrow \prod_{i\in I}Y_i$ is continuous iff for all $i$, $\pi_i\circ F$ is continuous. In what follows, we let $f_i:=\pi_i\circ F$ given some $F(x)=(f_i(x))_{i\in I}$.
+
+Our goal now is to find conditions on $f_i:X\rightarrow Y_i$ to ensure that $F$ is an embedding of $X$ in $\prod_{i\in I}Y_i$. To ensure that $F$ is continuous, each $f_i$ needs to be continuous. To be sure $F$ is injective, we need that for all $x,x'\in X$ that $x\neq x'\implies \exists i \in I$ such that $f_i(x)\neq f_i(x')$.
+
+``and you're going to groan when I give you the next definition...''
+\begin{boxdefinition}[Separating Points from Closed Sets]
+    Given $X, (Y_i)_{i\in I}$ and continuous functions $f_i:X\rightarrow Y_i$ we say that $(f_i)_{i\in I}$ ``separates points from closed sets'' iff for all closed $C\ssq X$ with $x\in X, x\notin C$ here is some $i\in I$ such that $f_i(x)\notin \text{cl}(f_i[C])$.
+\end{boxdefinition}
+\begin{boxtheorem}
+    If $f_i:X\rightarrow Y_i$ with $i\in I$ are such that each $f_i$ separates points, separates points on closed sets with $i\in I$ and is continuous, then $F$ is an embedding.
+\end{boxtheorem}
+Here is the proof, but ``you're not going to like it'' - is there set-theoretic nonsense??
+\begin{proof}
+    Given $U\ssq X$ open, we show $F[U]$ is relatively open in $F[X]$. In fact, we will show that for all $x\in U$ that there is $V\ssq \prod_i Y_i$, $F(x)\in V$, with $V$ open and $V\cap F[X]\ssq F[U]$. However observing that $x\notin X\setminus U$ a closed set, as $(f_i)_{i\in I}$ separates points from closed sets, there is $i$ such that $f_i(x)\notin \text{cl}(f_i[X\setminus U])$. 
+    
+    We now let $E=\text{cl}(f_i[X\setminus U])\ssq Y_i$ with $E$ closed. But then $f_i(x)\in Y_i\setminus E$ (an open set in $Y_i$). If we now let $V=\pi^{-1}[Y_i\setminus E]$, we can find that $V$ is open in $\prod_i Y_i$, and $F(x)\in V$ - we are left only to substantiate this claim.
+
+    Finally then, we let $F(z)=V\cap F[X]$. As $F(z)\in V$, we have that $f_i(z)=\pi_i\circ F(z)\in Y_i\setminus E$. Now ``chasing through definitions'' we claim $z\in U$ and then proceed to observe that $z\notin X\setminus U \implies f_i(z)\in f_i[X\setminus U]$ and $f_i(z)\in \text{cl}(f_i[X\setminus U])=E$.
+\end{proof}
+So to ensure you get a topological embedding, ensure you separate points from points, then separate points from closed sets.
+
+\section{Regularity}
+
+Throughout this subsection, fix a topological space $X$.
+
+We recall the definition of a regular space.
+
+\begin{boxdefinition}[Regular Space]
+    We say that $X$ is \textbf{regular} if for all closed $F \ssq X$ and $x \in X \setminus F$, there are $U, V \ssq X$ that are open and contain $x$ such that $F \ssq V$ and $U \cap V = \emptyset$.
+\end{boxdefinition}
+
+There is a strictly stronger notion as well.
+
+\begin{boxdefinition}[Complete Regularity]
+    We say $X$ is \textbf{completely regular} if for all $F \ssq X$ closed and $x \in X \setminus F$, there is a continuous function $f : X \to [0, 1]$ such that $f(x) = 0$ and $f[F] = \ssq \set{1}$.
+\end{boxdefinition}
+
+It makes complete sense for complete regularity to strictly generalise regularity. (See what I did there?) We do not show this here, but we reassure the reader that it is true.
+
+In this section, we will explore how regularity and complete regularity interact with topological constructions.
+
+\subsection{Regularity and Subspaces}
+
+Fix a subset $A$ of $X$, and consider it as a topological space, endowed with the subspace topology inherited from $X$. Recall that $B \ssq A$ is closed with respect to the subspace topology if and only if $B = A \cap F$ for some $F \ssq X$ closed.
+
+It turns out that subspaces of regular spaces are themselves regular.
+
+\begin{boxlemma}
+    If $X$ is regular, then so is $A$.
+\end{boxlemma}
+\begin{proof}
+    Fix $B \ssq A$ closed and fix $a \in A \setminus B$. We know that $B = A \cap F$ for some closed $F \ssq X$. Since $a \notin B$, we must also have $a \notin F$. Then, since $X$ is regular, we can find $U, V \ssq X$ that are open and contain $a$ such that $F \ssq V$ and $U \cap V = \emptyset$. Then, $U \cap A$ and $V \cap A$ are relatively open subsets of $A$ that also contain $a$ and satisfy the properties that $B \ssq V \cap A$ and $\parenth{U \cap A} \cap \parenth{V \cap A} = \emptyset$.
+\end{proof}
+% Check out Appendix B
+%haha, was goinf to put it there (many thanks) - most indeed :DDD
+% I think we NEED an appendix dedicated to these kinds of quotes
+
+We can say something analogous about complete regularity.
+
+\begin{boxlemma}
+    If $X$ is completely regular then so is $A$.
+\end{boxlemma}
+\begin{proof}
+    Fix $B \ssq A$ relatively closed and $a \in A \setminus B$. We know $B = A \cap F$ for some $F \ssq X$ closed. We know there is some continuous $f : X \to [0, 1]$ such that $f(a) = 0$ and $f[F] = \set{1}$. Consider its restriction $g = f \restriction A$. Obviously $g(a) = 0$ because $a \in A$. Moreover, since $g$ agrees with $f$ on $A$, it is also clear that $g[A] = f[A] \ssq f[F] = \set{1}$.\footnote{I suppose the `empty set brigade' might have some objections but honestly who even cares about such people... (I kinda do but I am choosing to ignore my feelings in the interest of convenience!)}
+\end{proof}
+
+\begin{boxproposition}\label{Ch3:Prop:Regular_TFAE}
+    The following are equivalent.
+    \begin{enumerate}[label = (\arabic*)]
+        \item $X$ is regular.
+        \item for all $x \in X$ and all open $U \ni x$, there exists an open $V \ni x$ such that $\cl{V} \ssq U$.
+    \end{enumerate}
+\end{boxproposition}
+\begin{proof}
+    The picture we want to have in mind is given in \Cref{Ch3:Fig:Regular_TFAE}. \sorry\todo{Finish!}
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \draw (-2,-2) rectangle (4, 4); % TODO: Finish
+        \end{tikzpicture}
+        \caption{The picture we want to have in mind for \Cref{Ch3:Prop:Regular_TFAE}.}
+        \label{Ch3:Fig:Regular_TFAE}
+    \end{figure}
+
+    \begin{description}
+        \item[\underline{$(1) \implies (2)$.}]
+        Fix $x \in X$ and some open $U \ni x$. Evidently, $x \notin X \setminus U$, and since $X \setminus U$ is closed and $X$ is regular, we can find some open $V, W \ssq X$ such that $x \in W$, $X \setminus U \ssq W$, and $W \cap V = \emptyset$. Then, the closure $\cl{V} \ssq X \setminus W$, and this is contained in $U$.
+
+        \item[\underline{$(2) \implies (1)$.}]
+        Exercise. \sorry \todo{Finish!}
+    \end{description}
+\end{proof}
+
+\subsection{Regularity and Products}
+
+Our eventual goal in this subsection will be to show that products of regular spaces are regular.
+
+Throughout this subsection, fix topological spaces $\parenth{X_i}_{i \in I}$. Denote by $X$ the product $\prod_{i \in I} X_i$.
+
+\begin{boxlemma}
+    If $\parenth{B_i}_{i \in I}$ are basic open sets of the $X_i$, then
+    \begin{align*}
+        \prod_{i \in I} \cl{B_i} = \cl{\prod_{i \in I} B_i}
+    \end{align*}
+\end{boxlemma}
+\begin{proof}
+    \sorry % I'm usually quick with these proofs - but unfortunately I didn't quite get this one... briefly zoned out and looked at some other things (sorry)
+\end{proof}
+
+We can now show that a product of regular spaces is regular.
+
+\begin{boxtheorem}
+    If each $X_i$ is regular, then so is $X$.
+\end{boxtheorem}
+\begin{proof}
+    Fix $x = \parenth{x_i}_{i \in I}$ lie in some open set $U \ssq X$. We can write $U_i$ as a product of open sets $U_i$, with only finitely many $U_i$ being \textit{properly} contained in $X_i$. \sorry
+\end{proof}
+
+We will continue next time with similar results on \textit{complete} regularity.
+
+\section{Urysohn's Lemma}
+
+In this section, we develop the tools needed to prove Urysohn's Lemma, which (according to Professor Cummings) should really be a \textit{theorem}.
+
+It goes as follows.
+
+\begin{boxtheorem}[Urysohn's Lemma]\label{SP:Urysohn}
+    If $X$ is a normal topological space, for all closed $C, D \ssq X$, if $C \cap D = \emptyset$ then there is a continuous $f : X \to [0, 1]$ such that $f[C] \ssq \set{0}$ and $f[D] \ssq \set{1}$.
+\end{boxtheorem}
+
+In some sense, normality tells us we can `separate closed sets using open sets', and Urysohn's Lemma says that if we can do that, then we can also `separate closed sets using continuous functions'.
+
+For the remainder of this section, fix a normal topological space $X$. Our proof will be \textit{constructive}: we will give an explicit function.
+
+%as you wish of course - as you saw, when I was note-taking (for that brief brief period) I made no new subsections, and also last I checked there is more missing on the separation properties front
+
+% I think this should be a subsection inside the more on separation properties section. I also think there should be more subsections of that section.
+
+\begin{boxlemma}\label{Ch3:Lemma:Urysohn_helper}
+    Let $F$ be a closed subset of $X$ and $O$ an open subset of $X$. If $F \ssq O$, then there exist $O_1, F_1 \ssq X$ such that $O_1$ is open, $F_1$ is closed, and
+    \begin{align*}
+        F \ssq O_1 \ssq F_1 \ssq O
+    \end{align*}
+\end{boxlemma}
+% The picture we want to have in mind is the following:
+% \begin{figure}
+%     \centering
+%     \begin{tikzpicture}
+        
+%     \end{tikzpicture}
+%     \caption{Caption}
+%     \label{fig:placeholder}
+% \end{figure}
+\begin{proof}
+    The proof is just an ``irritating game involving naïve set theory''.
+
+    If $F \ssq O$, then $F \cap \parenth{X \setminus O} = \emptyset$. Normality then tells us that we have disjoint open sets $U, V \ssq X$ such that $F \ssq U$ and $X \setminus O \ssq V$. Simply take $O_1 = U$ and $F_1 = X \setminus V$.
+\end{proof}
+
+We will also briefly explain what the dyadic rationals are.
+
+\begin{boxdefinition}[Dyadic Rational]
+    We say $q \in \Q$ is \textbf{dyadic} if there is some $c \in \Z$ and $i \in \N$ such that $q = \frac{c}{2^i}$.
+\end{boxdefinition}
+
+The dyadic rationals are dense in $\R$: indeed, this is why real numbers admit binary expansions.
+
+\begin{boxlnotation}
+    Denote by $D$ the set of all dyadic rationals contained in $(0, 1)$.
+\end{boxlnotation} % Local notation :DD
+
+We are now ready to prove Urysohn's Lemma.
+
+\begin{proof}[Proof of Urysohn's Lemma (\Cref{SP:Urysohn}).]
+    We will proceed by constructing sets $\setst{U_q}{q \in D}$ such that
+    \begin{enumerate}[noitemsep]
+        \item $C \ssq U_q \ssq X \setminus D$ for all $q \in D$.
+        \item If $p, q \in D$ and $p < q$ then $\cl{U_p} \ssq U_q$.
+    \end{enumerate}
+    To do this, we will actually build $\setst{U_q, V_q}{q \in D}$ such that for all $q \in D$,
+    \begin{enumerate}[noitemsep]
+        \item $U_q$ is open
+        \item $V_q$ is closed
+        \item $V_q \ssq U_r$ for some $r > q$
+    \end{enumerate}
+    At this stage, it will be useful to draw a picture.
+    % Can I live-TeX a picture? Let's find out...
+    % as per usual, incredibly impressive
+    % Well it would've been if it had worked...
+    % quite honestly, nonetheless...
+    % \begin{figure}[H]
+    %     \centering
+    %     % TODO: Translate this left
+    %     \begin{tikzpicture}
+    %         \draw (0, 0) circle (5pt); % C
+    %         \draw (1, 0) circle (5pt); % D
+
+    %         % U 1/4, V 1/4
+    %         \draw [blue,thin,domain=-30:30] plot (0.2 * {cos(\x)}, 0.2 * {sin(\x)});
+    %         \draw [blue,thin,domain=-30:30] plot (0.3 * {cos(\x)}, 0.3 * {sin(\x)});
+            
+    %         % U 1/2, V 1/2
+    %         \draw [blue,thin,domain=-30:30] plot ({0.4 * cos(\x)}, {0.4 * sin(\x)});
+    %         \draw [blue,thin,domain=-30:30] plot ({0.6 * cos(\x)}, {0.6 * sin(\x)});
+    %     \end{tikzpicture}
+    %     \caption{Caption}
+    %     \label{fig:placeholder}
+    % \end{figure}
+    Here's a more formal way of describing the construction.
+    \begin{enumerate}
+        \item By \Cref{Ch3:Lemma:Urysohn_helper}, we can \sorry
+        \item Then, given $C \ssq U_{\frac{1}{2}}$, we can apply \Cref{Ch3:Lemma:Urysohn_helper} to get $U_{\frac{1}{4}}$ open and $V_{\frac{1}{4}}$ closed such that
+        \begin{align*}
+            C \ssq U_{\frac{1}{4}} \ssq V_{\frac{1}{4}} \ssq U_{\frac{1}{2}}
+        \end{align*}
+        Similarly, since $V_{\frac{1}{2}} \ssq X \setminus D$, we can again apply \Cref{Ch3:Lemma:Urysohn_helper} to get $U_{\frac{3}{4}}$ open and $V_{\frac{3}{4}}$ such that
+        \begin{align*}
+            V_{\frac{1}{2}} \ssq U_{\frac{3}{4}} \ssq V_{\frac{3}{4}} \ssq X \setminus D
+        \end{align*}
+    \end{enumerate}
+    It will be incredibly useful to bear in mind that for all dyadic rationals $p < q$, we get
+    \begin{align*}
+        C \ssq U_p \ssq X \setminus D
+        \qquad \text{ and } \qquad
+        \cl{U_p} \ssq U_{q^2}
+    \end{align*}
+    % Muchas gracias senora
+    %por supuesto
+    We will now get on to the construction of our continuous function. To do so, we define $f:X \to [0,1]$ such that, if there us no $r\in D$ with $x\in U_r$, then we let $f(x) := 1$ - otherwise, we define $f(x) := \inf\!\setst{r\in D}{x\in U_r}$.
+
+    It is ``easy'' to see that if $x\in D$, then $f(x)=1$, as $x\in C\implies f(x)=\inf(D)=0$. However we must now get on to the trickier part...we claim that for all $x \in X$ and $p \in D$,
+    \begin{enumerate}[label = (\alph*), noitemsep]
+        \item If $x \in \cl{U_p}$, $f(x) \leq p$
+        \item If $x \notin \cl{U_p}$, $f(x) \geq p$
+    \end{enumerate}
+    Indeed, if $x \in \cl{U_p}$, then $x \in U_q$ for all $q \in D$ with $q > p$, so $f(x) \leq p$. On the other hand, if $x \notin \cl{U_p}$, then assume, for contradiction, that $f(x) < p$. Then we can easily see that there must be some $r < p$ and $x \in U_r$ such that $f(x) \leq r < p$. \sorry
+
+    Taking the contrapositives of the above claims, we see that for all $x \in X$ and $p \in D$,
+    \begin{enumerate}[label = (\alph*), noitemsep]
+        \item If $f(x) > p$ then $x \notin \cl{U_p}$ (and thus $x \notin U_p$, so $f(x) \geq p$).
+        \item If $f(x) < p$ then $x \in U_p$ (and thus $f(x) \leq p$).
+    \end{enumerate}
+
+    Consider the following basis for the Euclidean (subspace) topology on $[0,1]$:
+    \begin{align*}
+        \setst{[0, a)]}{0 < a} \cup
+        \setst{(a, b)}{0 \leq a < b \leq 1} \cup
+        \setst{(b, 1]}{b < 1}
+    \end{align*}
+    We show $f$ is continuous by showing that the pre-image in $f$ of every basic open subset of $[0, 1]$ is open.
+    
+    We begin by showing that $f\inv\!\brac{(a, b)}$ is open. We do this by showing every point has an open neighbourhood. Fix $x \in f\inv\!\brac{(a, b)}$. We know that $a < f(x) < b$. Find $p, q \in D$ such that $a < p < f(x) < q < b$. Then $f(x) > p$, so $x \notin \cl{U_p}$. Similarly, $f(x) < q$, so $x \in U_q$. Now, let $V = U_q \setminus \cl{U_p}$. Observe that $x \in V$. Moreover, for all $y \in V$, $y \in U_q$, so $f(y) \leq q$, and $y \notin U_p$, so $f(y) \geq p$. Then, we can see that $f[V] \ssq [p, q] \ssq (a, b)$.
+    % I'm still on the left board, please feel free to type away
+
+    %sure - this was bottom of the left board - once I can see again, haha
+    
+    So for $f\inv [[0,a)]$ we let $f(x)<a$ and find $p\in D$ with $f(x)<p<a$, $x\in U_p$ and $f[U_p]\ssq [0,p]\ssq [0,a)$. Meanwhile, for $f\inv [(b,1]]$ we let $f(x)>b$ we find $q\in D$ such that $b<q<f(x)$ and the $x\notin \cl{U_q}$ and $y\in X\setminus \cl{U_q}$ then $y\notin U_q\implies f(y)\geq q>b$. 
+\end{proof}
+
+The good news is that we have a very rich supply of normal spaces. Indeed, we know that Metric spaces are Hausdorff and normal ($T_4$). 

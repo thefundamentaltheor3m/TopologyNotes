@@ -38,8 +38,15 @@
 \contentsline {subsection}{\numberline {2.3.2}Zorn's Lemma: A Quick Recap}{47}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Extending Filters to Ultrafilters}{48}{subsection.2.3.3}%
 \contentsline {section}{\numberline {2.4}Relating Filters to Nets}{50}{section.2.4}%
-\contentsline {chapter}{Appendices}{52}{chapter*.7}%
-\contentsline {section}{\numberline {A}A Categorical Perspective}{52}{section.3.1}%
-\contentsline {subsection}{\numberline {A.1}Product Spaces}{52}{subsection.3.1.1}%
-\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{52}{section.3.2}%
-\contentsline {chapter}{Bibliography}{53}{Item.69}%
+\contentsline {chapter}{\numberline {3}More Topological Properties}{53}{chapter.3}%
+\contentsline {section}{\numberline {3.1}(More) Separation Properties}{53}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Countability Properties}{54}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Regularity}{56}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Regularity and Subspaces}{57}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Regularity and Products}{58}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Urysohn's Lemma}{59}{section.3.4}%
+\contentsline {chapter}{Appendices}{63}{chapter*.10}%
+\contentsline {section}{\numberline {A}A Categorical Perspective}{63}{section.4.1}%
+\contentsline {subsection}{\numberline {A.1}Product Spaces}{63}{subsection.4.1.1}%
+\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{63}{section.4.2}%
+\contentsline {chapter}{Bibliography}{64}{Item.89}%

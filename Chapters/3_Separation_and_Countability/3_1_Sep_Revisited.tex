@@ -1,0 +1,28 @@
+\section{(More) Separation Properties}
+
+Now where were we...
+\begin{itemize}
+    \item $T_0$: Given any $x,y\in X$, either there exists some open $U$ with $x\in U$, $y\notin U$.
+    \item $T_1$: Singleton sets (not ``points'' ``because this is a picky and pedantic discipline'') are closed.
+    \item $T_2$: Hausdorff!
+    
+\end{itemize}
+
+It is now time to prepare ourselves for the metrization theorems to come. One may notice that the following has a slightly different flavour than our previous separation properties:
+\begin{boxdefinition}[Regular Space]
+    $X$ a space is ``regular'' if for all $x\in X$, $C\ssq X$ with $C$ closed and $x\notin C$, there are open $U$ with $x\in U$ and $V\supseteq C$ such that $U\cap V=\emptyset$.
+\end{boxdefinition}
+\begin{boxdefinition}[Normal Space]
+    We say that our space $X$ is ``normal'' if for all closed $C,D\ssq X$ with $C\cap D=\emptyset$, then there are $U\supseteq C, V\supseteq D$ with $U,V$ open subsets of $X$ such that $U\cap V=\emptyset$.
+\end{boxdefinition}
+\begin{boxdefinition}[Completely Regular Space]
+    Our favorite and least favorite space $X$ is ``completely regular'' if for all $x\in X, C\ssq X$ closed with $x\notin C$, there is a continuous $f:X\rightarrow [0,1]$ such that $f(x)=0, f[c]=[1]$.
+\end{boxdefinition}
+\begin{remark}
+    Getting to the idea of separating sets with continuous functions - will be discussed much more after fall break...
+\end{remark}
+\begin{remark}
+    Note also that we do NOT require that ``regular'', ``normal'', or ``completely regular'' spaces are Hausdorff.
+\end{remark}
+[also note that we had lots of $T$ but I spent too long typing and did not have the time to grab any before it was removed from the board :( \sorry]
+% T4 is Hausdorff + Normal
