@@ -158,7 +158,83 @@ We can now show that a product of regular spaces is regular.
     Fix $x = \parenth{x_i}_{i \in I}$ lie in some open set $U \ssq X$. We can write $U_i$ as a product of open sets $U_i$, with only finitely many $U_i$ being \textit{properly} contained in $X_i$. \sorry
 \end{proof}
 
-We will continue next time with similar results on \textit{complete} regularity.
+We can say something analogous for completely regular spaces.
+
+\begin{boxtheorem}
+    If each $X_i$ is completely regular, then so is $X$.
+\end{boxtheorem}
+\begin{proof}
+    Fix $x \in X$ and $F \ssq X$ closed, and assume $x \notin F$. Let $U$ be a basic open set containing $x$ and disjoint from $F$. We know that there are open subsets $U_i \ssq X_i$ for every $i \in I$ such that
+    \begin{align*}
+        U = \prod_{i \in I} U_i
+        \qquad \text{and} \qquad
+        A := \setst{i \in I}{U_i \subsetneq X_i} \text{ is finite}
+    \end{align*}
+    We know that $F \ssq X \setminus U$. Moreover, since $x \in U$, $x \notin X \setminus U$. Finally, note that
+    \begin{align*}
+        y \in U &\iff \text{For all } i \in I,\ y_i \in U_i \\
+        &\iff \text{For all } i \in A,\ y_i \in U_i
+    \end{align*}
+    Since $X_i$ is completely regular, for each $i \in A$, we can find continuous functions $f_i : X_i \to [0, 1]$ such that $f_i\of{x_i} = 0$ and $f_i(z) = 1$ for all $z \in X \setminus U_i$. We can then define
+    \begin{align*}
+        f : X \to [0, 1] : y \mapsto \max_{i \in A} f_i\of{y_i}
+    \end{align*}
+    Observe that $f(x) = 0$. For all $y \in F$, $y \in X \setminus U$, so there is some $i \in A$ such that $y_i \in X_i \setminus U_i$ for all $i$. We then see that $f_i\of{y_i} = 1$, so $f(y) = 1$.
+\end{proof}
+
+\begin{boxdefinition}[Hilbert Cube]
+    Let $I$ be a nonempty set. The ``Hilbert cube'' associated with $I$ (i.e. ``from $I$'') is the space $[0,1]^I$, the product of copies of $[0,1]$ indexed by elements of $I$ endowed with the product topology.
+\end{boxdefinition}
+%thank you for that - was about to get it down :)
+% Sure :DD
+This is `a potentially very large cube-like thingy'.
+
+What properties of the unit interval would we expect the Hilbert Cube to have? Compactness? Hausdorffness? Thus, $T_4$? Thus $T_{3.5}$? All of the above, actually - and purely by results we have seen so far! Cool, eh?
+%wow!
+
+We can ask ourselves what spaces can be embedded in Hilbert cubes. Indeed, we will be asking a lot of questions of this type over the course of this course.
+
+% I have added the definitions of $T_4$ and $T_{3.5}$ to the appropriate previous section.
+
+Certainly we would want such a space to be $T_{3.5}$. Indeed, we know that subspaces of $T_{3.5}$ spaces are $T_{3.5}$. So being $T_{3.5}$ is necessary for being embeddable in the Hilbert Cube.
+
+But astonishingly, it turns out that the converse is also true!
+
+\begin{boxtheorem}
+    If $X$ is a $T_{3.5}$ space, then $X$ is embeddable into some Hilbert cube.
+\end{boxtheorem}
+\begin{proof}
+    Define $I := \setst{f : X \to [0, 1]}{f \text{ is continuous}}$. Since $X$ is $T_{3.5}$, $I$ separates points and $I$ separates points from closed sets---that is, for $x \in X$ and $C \ssq X$ with $x\notin C$, there is some $f \in I$ such that $f(x) \notin \cl{f[C]}$.
+
+    An `old theorem'\todo{Add ref from earlier in course} says that if we define $H : X \to [0, 1]^I : x \mapsto \parenth{f(x)}_{f \in I}$, then $H$ is the desired embedding.
+\end{proof}
+
+\begin{boxdefinition}[Compactification]
+    Given a space $X$, we say that $X$ has the ``compactification'' $Y$ if there is a space $Y$ such that the following hold:
+    \begin{enumerate}
+        \item $X$ is a subspace of $Y$.
+        \item $X$ is dense in $Y$.
+        \item $Y$ is compact.
+    \end{enumerate}
+\end{boxdefinition}
+
+\begin{boxdefinition}[One-Point Compactification]
+    Let $X$ be a locally compact, non-compact Hausdorff space. Let $Y = X \cup \set{\infty}$, where $\infty$ is a formal symbol that does not lie in $X$, endowed with the topology $\tau$ consisting of
+    \begin{enumerate}
+        \item Open subsets of $X$.
+        \item Sets of the form $\infty \cup \parenth{X \setminus K}$, where $K \ssq X$ is compact.
+    \end{enumerate}
+    We call $Y$ the \textbf{one-point compactification of $X$}.
+\end{boxdefinition}
+
+Think of projective space.
+
+Suppose, as before, that $X$ is a $T_{3.6}$ topological space. Define
+\begin{align*}
+    I = \setst{f : X \to [0, 1]}{f \text{ is continuous}}
+\end{align*}
+
+Look up Stone-Čech Compactification...
 
 \section{Urysohn's Lemma}
 
