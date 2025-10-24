@@ -43,10 +43,10 @@
 \contentsline {section}{\numberline {3.2}Countability Properties}{54}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Regularity}{56}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Regularity and Subspaces}{57}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Regularity and Products}{58}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}Urysohn's Lemma}{59}{section.3.4}%
-\contentsline {chapter}{Appendices}{63}{chapter*.10}%
-\contentsline {section}{\numberline {A}A Categorical Perspective}{63}{section.4.1}%
-\contentsline {subsection}{\numberline {A.1}Product Spaces}{63}{subsection.4.1.1}%
-\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{63}{section.4.2}%
-\contentsline {chapter}{Bibliography}{64}{Item.89}%
+\contentsline {subsection}{\numberline {3.3.2}Regularity and Products}{59}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Urysohn's Lemma}{61}{section.3.4}%
+\contentsline {chapter}{Appendices}{65}{chapter*.11}%
+\contentsline {section}{\numberline {A}A Categorical Perspective}{65}{section.4.1}%
+\contentsline {subsection}{\numberline {A.1}Product Spaces}{65}{subsection.4.1.1}%
+\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{65}{section.4.2}%
+\contentsline {chapter}{Bibliography}{66}{Item.94}%
