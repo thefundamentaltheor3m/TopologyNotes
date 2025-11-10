@@ -209,33 +209,6 @@ But astonishingly, it turns out that the converse is also true!
     An `old theorem'\todo{Add ref from earlier in course} says that if we define $H : X \to [0, 1]^I : x \mapsto \parenth{f(x)}_{f \in I}$, then $H$ is the desired embedding.
 \end{proof}
 
-\begin{boxdefinition}[Compactification]
-    Given a space $X$, we say that $X$ has the ``compactification'' $Y$ if there is a space $Y$ such that the following hold:
-    \begin{enumerate}
-        \item $X$ is a subspace of $Y$.
-        \item $X$ is dense in $Y$.
-        \item $Y$ is compact.
-    \end{enumerate}
-\end{boxdefinition}
-
-\begin{boxdefinition}[One-Point Compactification]
-    Let $X$ be a locally compact, non-compact Hausdorff space. Let $Y = X \cup \set{\infty}$, where $\infty$ is a formal symbol that does not lie in $X$, endowed with the topology $\tau$ consisting of
-    \begin{enumerate}
-        \item Open subsets of $X$.
-        \item Sets of the form $\infty \cup \parenth{X \setminus K}$, where $K \ssq X$ is compact.
-    \end{enumerate}
-    We call $Y$ the \textbf{one-point compactification of $X$}.
-\end{boxdefinition}
-
-Think of projective space.
-
-Suppose, as before, that $X$ is a $T_{3.6}$ topological space. Define
-\begin{align*}
-    I = \setst{f : X \to [0, 1]}{f \text{ is continuous}}
-\end{align*}
-
-Look up Stone-Čech Compactification...
-
 \section{Urysohn's Lemma}
 
 In this section, we develop the tools needed to prove Urysohn's Lemma, which (according to Professor Cummings) should really be a \textit{theorem}.
@@ -376,3 +349,245 @@ We are now ready to prove Urysohn's Lemma.
 \end{proof}
 
 The good news is that we have a very rich supply of normal spaces. Indeed, we know that Metric spaces are Hausdorff and normal ($T_4$). 
+
+\section{The Stone-Čech Compactification}
+
+\begin{boxdefinition}[Compactification]
+    Given a space $X$, we say that $X$ has the \textbf{compactification} $Y$ if there is a space $Y$ such that the following hold:
+    \begin{enumerate}
+        \item $X$ is a subspace of $Y$.
+        \item $X$ is dense in $Y$.
+        \item $Y$ is compact.
+    \end{enumerate}
+\end{boxdefinition}
+
+\subsection{One-Point Compactification}
+
+\begin{boxdefinition}[One-Point Compactification]
+    Let $X$ be a locally compact, non-compact Hausdorff space. Let $Y = X \cup \set{\infty}$, where $\infty$ is a formal symbol that does not lie in $X$, endowed with the topology $\tau$ consisting of
+    \begin{enumerate}
+        \item Open subsets of $X$.
+        \item Sets of the form $\infty \cup \parenth{X \setminus K}$, where $K \ssq X$ is compact.
+    \end{enumerate}
+    We call $Y$ the \textbf{one-point compactification of $X$}. We sometimes denote $Y$ by $\alpha X$.
+\end{boxdefinition}
+
+Think of projective space.
+
+Suppose, as before, that $X$ is a $T_{3.6}$ topological space. Define
+\begin{align*}
+    I = \setst{f : X \to [0, 1]}{f \text{ is continuous}}
+\end{align*}
+
+\subsection{Constructing the Stone-Čech Compactification}
+
+Throughout this subsection, let $X$ be a $T_{3.5}$/Tychonoff space. That is, $X$ is Hausdorff and completely regular (cf. \Cref{Ch3:Def:T3.5}). Write
+\begin{align*}
+    \F := \setst{f : X \to [0,1]}{f \text{ is continuous}}
+\end{align*}
+Observe that $\F$ separates points (because $X$ is Hausdorff) and also separates points from closed sets (because $X$ is completely regular).
+
+Let $Y = [0, 1]^{\F}$, endowed with the product topology. We know, by Tychonoff's Theorem (\sorry), that $Y$ is compact. We also know $Y$ is Hausdorff. So $Y$ is $T_{3.5}$ as well.
+
+Consider $H : X \to Y : x \mapsto \parenth{f(x)}_{f \in \F}$. We can show that $H$ is an embedding of topological spaces, ie, that $H$ is continuous and injective.
+
+\begin{boxdefinition}[Stone-Čech Compactification]
+    The \textbf{Stone-Čech Compactification of $X$}, denoted $\beta X$, is the closure in $Y$ of the image of $X$ under $H$, where $H$ is the embedding described above. Ie, %I wasn't sure if I was misreading not at all, yes I see (thanks)
+    \begin{align*} % Better? Haha nw - I just meant the image is in the function $H$. Sure! The equation below is probably clearer
+        \beta X = \cl{H[X]}
+    \end{align*}
+    From a categorical standpoint, the data of the Stone-Čech Compactification consists of both the space $\beta X$ and the embedding $H : X \to \beta X$.
+\end{boxdefinition}
+
+As one would hope from the name, $\beta X$ is indeed compact. Moreover, $\beta X$ contains $H[X]$, which is homeomorphic to $X$. So it does indeed make sense to call $\beta X$ a compactification of $X$. As an added bonus, $\beta X$ is Hausdorff.
+
+It will also be sensible to show that the above compactification process behaves exactly as one would hope on spaces that are already compact: it ``does nothing''.
+
+Let $K$ be compact and Hausdorff. $K$ is $T_4$, so $K$ is $T_{3.5}$, and so one can define its Stone-Čech Compactification $\beta K$. Define
+\begin{align*}
+    G := \setst{f : K \to [0, 1]}{g \text{ is continuous}}
+\end{align*}
+Consider the embedding $\bar{H} : K \to [0, 1]^G : k \mapsto \parenth{g(k)}_{g \in G}$. Then $\beta G = \cl{\bar{H}[K]}$.
+
+Since $K$ is compact and $\bar{H}$ is continuous, $\bar{H}[K]$ is compact. Moreover, $\bar{H}$ is a bijection from $K$ to $\bar{H}[K]$, and $\bar{H}[K]$ is Hausdorff. Thus, the corestriction of $\bar{H}$ to its image is a continuous bijection from a compact space to a Hausdorff space, and thus a homeomorphism. So indeed, $\beta K$ is homeomorphic to $K$.
+
+\subsection{The Universal Property of the Stone-Čech Compactification}
+
+It turns out that we can characterise the Stone-Čech Compactification using a universal property. Indeed, as one might guess, $\beta$ is functorial, so it makes sense that we can do something categorical here...
+
+The desired universal property turns out to be an \textbf{extension property}. What it says is that the Stone-Čech Compactification is universal in the sense of every compactification of $X$ into a compact, Hausdorff space factors uniquely through $\beta X$.
+
+\begin{boxtheorem}[Universal Property of the Stone-Čech Compactification]\label{Ch3:Thm:Stone-Cech-UP}
+    Let $X$ be $T_{3.5}$ and let $H : X \to \beta X$ be the embedding described above. Let $K$ be any compact, Hausdorff space and let $f : X \to K$ be any continuous function. Then there is a unique continuous $g : \beta X \to K$ such that $f = g \circ H$. That is, the following diagram commutes (in the category of topological spaces):
+    \begin{cd*}
+        \beta X \arrow[dr, "\exists! g", dashed] & \\[1em]
+        X \arrow[u, "H", hook] \arrow[r, "f"'] & K
+    \end{cd*}
+\end{boxtheorem}
+\begin{proof}
+    ``I'm not doing this in the \textit{most} bafflingly slick way, but I'm still doing it in a somewhat bafflingly slick way.'' ``I have made everything maximally confusing---it's a gift.''
+    
+    As above, denote
+    \begin{align*}
+        \F := \setst{f : X \to [0, 1]}{f \text{ is continuous}}
+    \end{align*}
+    Then, $\beta X = \cl{H[X]}$ and $H(x) = \parenth{f(x)}_{f \in \F}$.
+
+    \begin{enumerate}
+        \item \underline{Special Case: $K = [0, 1]$.}
+        Fix a continuous map $f : X \to [0, 1]$. We need to show there is a unique $g : \beta X \to [0, 1]$ such that $g \circ H = f$. Since $f \in \F$ and $\beta X \ssq [0, 1]^{\F}$, we can define $g := \pi_f \restriction \beta X$, where $\pi_f$ is the projection from $[0, 1]^{\F}$ to the $f$ coordinate. Obviously $\pi_f$ is continuous and makes the triangle commute.
+
+        It remains to show uniqueness. Indeed, the key is that $H[X]$ is dense in $\cl{H[X]} = \beta X$. So if we had $g' : \beta X \to K$ such that $g' \circ H = g \circ H$, then we would require $g'$ and $g$ to agree on the dense subset $H[X]$ of $\beta X$, so they must agree on all of $\beta X$.
+
+        \item \underline{General case: $K$ is an arbitrary (Hausdorff) compactification of $X$.}
+        Fix a continuous $f : X \to K$. Denote by $\mathcal{G}$ the set of all continuous functions from $K$ to $[0, 1]$. For all $t \in \mathcal{G}$, we know $t \circ f \in \F$.
+
+        Define $G : \beta X \to [0, 1]^{\mathcal{G}} : \parenth{u_f}_{f \in \F} \mapsto \parenth{u_{t \circ f}}_{t \in \mathcal{G}}$.
+        
+        First, we show that $G$ is continuous. Denote by $\pi_t$ the projection from $[0,1]^{\mathcal{G}}$ to the $t$th coordinate. One can show that $\pi_t \circ G = \pi_{t \circ f}$, and it follows readily from this that $G$ is continuous.
+
+        Next, we show that $G[\beta X] \ssq \cl{\bar{H}[K]}$. Fix $u = \parenth{u_s}_{s \in \F} \in \beta X$. We know that $G(u)$ is contained in some basic open subset of $[0, 1]^{\mathcal{G}}$. Such sets are finite intersections of images of projections: that is, there exist $t_1, \ldots, t_n \in \mathcal{G}$ and open sets $V_1, \ldots, V_n \ssq [0, 1]$ such that
+        \begin{align*}
+            G(u) \in \bigcap_{i = 1}^{n} \pi_{t_i\inv}\!\brac{V_i}
+        \end{align*}
+        Then, $u_{t_i \circ f} = \pi_{t_i}\of{G(u)} \in V_i$ for all $1 \leq i \leq n$. Thus,
+        \begin{align*}
+            u \in \bigcap_{i=1}^{n} \pi_{t_i \circ f}\inv\!\brac{V_i}
+        \end{align*}
+        Since $u \in \beta X = \cl{H[X]}$, we can find a point $x \in X$ such that $H(x) \in \bigcap_{i=1}^{n} \pi_{t_i \circ f}\inv\!\brac{V_i}$. So for $1 \leq i \leq n$, $H(x)_{t_i \circ f} = \parenth{t_i \circ f}\of{x} \in V_i$.
+        
+        ``Our suffering is almost over.'' Let $k = f(x) \in K$. Then, $t_i(k) \in V_i$ for $1 \leq i \leq n$, so $\bar{H}(k) \in \bigcap_{i=1}^{n} \pi_{t_i\inv}\!\brac{V_i}$. So $G(u) \in \cl{\bar{H}[K]}$, so $G[\beta X] \ssq \cl{\bar{H}[X]} = \bar{H}[X] = \beta K$. We then find ourselves in the following situation:
+        \begin{cd*}
+            & \beta X \arrow[d, dashed, "g"] \arrow[dr, "G"] & \\
+            X \arrow[ur, "H"] \arrow[r, "f"] & K \arrow[r, "\sim", "\bar{H}"'] & \bar{H}[K]
+        \end{cd*}
+        where for all $u \in \beta X$, we define $g(u)$ to be the unique $k \in H$ such that $\bar{H}(k) = G(k)$.
+        
+        ``Ok, I'm tired of this proof, you're probably also tired of this proof, so let's just check a few more details and move on.''
+        
+        We finish by verifying that $g$ is continuous. \sorry
+    \end{enumerate} %I presume you've gotten that down  B)% Of course, no way I'd miss pure gold like that :DDDD
+\end{proof}
+
+\subsection{Applications of Stone-Čech Compactification}
+
+We already saw how the Stone-Čech Compactification behaves with compact spaces. It turns out to be interesting to explore how it behaves with locally compact spaces.
+
+We begin with a fact (the proof of which is left as an exercise).
+
+\begin{boxexercise}\label{Ch3:Exercise:Stone-Cech-TFAE-aux}
+    If $Y$ is compact and Hausdorff and $X$ is an open subspace of $Y$, then $X$ is locally compact.
+\end{boxexercise}
+\begin{remark}
+    Note that when $X$ is an open subspace of $Y$, then the subspace topology on $X$ consists exactly of those open sets (in the topology on $Y$) which are contained in $X$ (trivially so, but still this may be a helpful fact)...
+\end{remark}
+
+\begin{boxtheorem}
+    Let $X$ be a $T_{3.5}$ space with $H : X \to \beta X$ the Stone-Čech Compactification, then TFAE:
+    \begin{enumerate}[label = (\arabic*)]
+        \item $X$ is locally compact.
+        \item $H[X]$ is open in $\beta X$.
+    \end{enumerate}
+\end{boxtheorem}
+\begin{proof} \hfill
+    \begin{description}
+        \item[\underline{$(2) \implies (1)$}] Follows from \Cref{Ch3:Exercise:Stone-Cech-TFAE-aux}.
+        
+        \item[\underline{$(1) \implies (2)$}] If $X$ is compact, then $H[X] = \beta X$. If $X$ is not compact, let $\alpha X$ denote its one-point compactification, with inclusion $\iota : X \inj \alpha X$. Recall that $\alpha X$ is compact and Hausdorff. The Universal Property (\Cref{Ch3:Thm:Stone-Cech-UP}) then gives us some (uniquely defined) $g : \beta X \to X$ such that $g \circ H = \iota$.
+        \begin{cd*}
+            \beta X \arrow[dr, "\exists! g", dashed] & \\[1em]
+            X \arrow[u, "H", hook] \arrow[r, "\iota"'] & K
+        \end{cd*}
+        One can show that $\beta X \setminus H[X] = g\inv\!\brac{\set{\infty}}$\footnote{``I'd rather put that on the homework than show it in class'' - Professor Cummings}. Since $\alpha X$ is Hausdorff, $\set{\infty}$ is closed, so $\beta X \setminus H[X]$ is closed, thus $H[X]$ is open.
+    \end{description}
+\end{proof}
+
+\section{Urysohn's Metrisation Theorem}
+% Consider merging with Urysohn's Lemma and calling it "Urysohnian Madness: The Amazing Contributions of Pavel Urysohn"
+
+Urysohn's Metrisation Theorem gives conditions under which we can construct a metric on a topological space that induces the same topology on it.
+
+\begin{boxtheorem}[Urysohn's Metrisation Theorem]\label{SP:Urysohn_Metrisation}
+    Let $X$ be a topological space. If $X$ is both $T_3$ and second-countable, then $X$ is metrisable.
+\end{boxtheorem}
+
+The way we will prove this theorem is by embedding $X$ into a metrisable space, namely, $[0, 1]^{\N}$. This is the same sort of object that comes up in the construction of the Stone-Čech Compactification.
+
+It's not obvious that $[0, 1]^{\N}$ really is metrisable - we will 'brush it under the rug' because it is 'a consequence of some nonsense on this week's homework'. The metric we define is
+\begin{align*}
+    d\of{x, y} = \sum_{n \in \N} 2^{-n} \abs{x_n - y_n}
+\end{align*}
+and it isn't hard to show that this sum converges absolutely for all $x, y \in [0, 1]^{\N}$.
+
+We begin by proving some more general facts, which we will later relate to the proof of Urysohn's Metrisation Theorem (\Cref{SP:Urysohn_Metrisation}).
+
+% \subsection{Countability Properties Revisited}
+% Consider moving to countability properties section
+
+Recall the definition of a Lindelöf space.
+\begin{boxdefinition}[Lindelöf Space]
+    A space $X$ is \textbf{Lindelöf} if every open cover has a countable subcover.
+\end{boxdefinition}
+It is not hard to show that any closed subset of a Lindelöf space is Lindelöf (when endowed with the subspace topology).
+
+\begin{boxlemma}\label{Ch3:Lemma:2nd_countable_is_Lindelof}
+    Any 2nd countable space is Lindelöf.
+\end{boxlemma}
+\begin{proof}
+    \sorry
+\end{proof}
+
+\begin{boxlemma}
+    Any space that is both Lindelöf and $T_3$ is $T_4$.
+\end{boxlemma}
+\begin{proof}
+    Let $A, B \ssq X$ be closed and disjoint. Notice that both $A$ and $B$ (as subspaces) are Lindelöf themselves. We will use the hypothesis that $X$ is $T_3$ to cook up open covers of $A$ and $B$.
+
+    For all $a \in A$, we know that $a \notin B$, so $a \in X \setminus 
+    B$, which is an open set. Then there is some open $U_a \ni a$ such that $U \cap B = \emptyset$. This gives us an open cover of $A$, which we know admits a countable subcover $\parenth{U_{a_n}}_{n \in \N}$. In similar fashion, we can construct an open cover $\parenth{V_{b_n}}_{n \in \N}$.
+
+    Observe that for all $n \in \N$,
+    \begin{align*}
+        \cl\of{U_{a_n}} \cap B
+        = \emptyset =
+        \cl\of{V_{b_n}} \cap A
+    \end{align*}
+    Now, define
+    \begin{align*}
+        Y_n &:= U_n \cap \parenth{\bigcap_{k=1}^{n} \parenth{X \setminus \cl\of{V_{b_n}}}} & Y &:= \bigcup_{n \in \N} Y_n \\
+        Z_n &:= V_n \cap \parenth{\bigcap_{k=1}^{n} \parenth{X \setminus \cl\of{U_{a_n}}}} & Z &:= \bigcup_{n \in \N} Z_n
+    \end{align*}
+    The point is that for each $n \in \N$, since $A \cap \cl\of{V_{b_n}}$, we know $A \ssq X \setminus \cl\of{V_{b_n}}$. Similarly,for each $n \in \N$, since $B \cap \cl\of{U_{a_n}}$, we know $B \ssq X \setminus \cl\of{U_{a_n}}$.  Thus, 
+    \begin{align*}
+        A \ssq \bigcap_{n \in \N} \parenth{X \setminus \cl\of{V_{b_n}}}
+        &&
+        B \ssq \bigcap_{n \in \N} \parenth{X \setminus \cl\of{U_{a_n}}}
+    \end{align*}
+    Moreover, it turns out that for all $m, n \in \Z$, $Y_m \cap Z_n = \emptyset$. Indeed, suppose this is not true. Then there are some $m, n \in \N$ (with $m \leq n$ WLoG) such that there is some $x \in Y_m \cap Z_n$. Since $x \in Y_m$, $x \in U_m$, and since $x \in Z_n$ and $m \leq n$, $x \in X \setminus \cl\of{U_m}$. But this is impossible. Thus, for all $m, n \in \Z$, $Y_m \cap Z_n = \emptyset$.
+
+    This implies that $Y \cap Z = \emptyset$. So $X$ is $T_4$.
+\end{proof}
+
+We are now ready to prove Urysohn's Metrisation Theorem.
+
+\begin{proof}[Proof of \Cref{SP:Urysohn_Metrisation}]
+    Let $X$ be a 2nd countable $T_3$ space. We need to show that $X$ is metrisable.
+    
+    By \Cref{Ch3:Lemma:2nd_countable_is_Lindelof}, if $X$ is 2nd countable, then $X$ is Lindelöf. To embed $X$ into $[0, 1]^{\N}$, it will suffice to find a countable set $\F$ of continuous functions from $X$ to $[0, 1]$ that separate points from closed sets.
+
+    \textbf{Why?} Well, first enumerate such a set $\F$ as functions $\set{f_1, f_2, \ldots}$ and define $F : X \to [0, 1]^{\N} : x \mapsto \parenth{f_n(x)}_{n \in \N}$. As $\F$ separates points from closed sets, \sorry. Note that it is crucial that $\F$ is countable for this\todo{What?} to work.
+
+    So now let's get to work and actually find such a family!
+
+    We will make use of the fact that $X$ is second countable. This means precisely that the topology of $X$ has a countable basis $B$. For all pairs $\parenth{U, V}$ with $U, V \in B$ and $\cl\of{U} \ssq V$, we observe that $\cl\of{U} \cap \parenth{X \setminus V} = \emptyset$\todo{Is this right??} So define $f_{U, V} : X \to [0, 1]$ by \sorry.
+
+    It just remains to show that $\F$ separates points from closed sets. Let $F \ssq X$ be closed. Fix some $x \in X \setminus F$. Clearly $X \setminus F$ is open, so there is some $V \in B$ such that $x \in V$ and $V \ssq X \setminus F$ (meaning $V \cap F = \emptyset$). By regularity\todo{which follows from...?}, we know that there is an open set $U'$ that is a neighbourhood of $x$ whose closure is contained in $V$. Ie, we have $x \in U'$ and $\cl\of{U'} \ssq V$. Indeed, we can find a \textit{basic} $U \in B$ such that $x \in U \ssq U'$ and $\cl\of{U} \ssq \cl\of{U'} \ssq V$.
+
+    \sorry
+\end{proof}
+
+This was a bit of a slog, so let's break it down into its component parts and understand the weird hypotheses.
+
+First, you have a modest separation property, $T_3$, and a strong countability property, 2nd countability. And really the weaker consequence of being Lindelöf is what makes the argument work, because that gives us $T_4$, which is comforting because metric spaces are $T_4$. We then ned to use all our ingredients to construct a clever family of functions that separate points from closed sets, and this allows us to embed our space into $[0, 1]^{\N}$, showing metrisability.
+
+There are even sharper metrisability theorems. This theorem works great, as far as it goes, but the hypotheses are overkill. In particular, they're not \textit{equivalent} to the property of metrisability. A much better theorem is the Nagata-Smirnov theorem, which gives sufficient \textit{and} necessary conditions for metrisability. (Of course, an obvious equivalent condition to metrisability \textit{is just metrisability itself}. We're talking about equivalent conditions that are actually \textit{helpful}/that occur not uncommonly.)
