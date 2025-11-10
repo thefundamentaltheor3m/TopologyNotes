@@ -1,0 +1,156 @@
+\section{Motivation and First Examples}
+
+We begin by asking ourselves what kinds of topologies we can endow sets of functions with. We will be particularly interested in metrisable topologies and even more so in completely metrisable topologies. We have already seen one very natural topology in cases where $X$ is an arbitrary set and $Y$ has a topology. We will investigate this further and study completeness properties in the process.
+
+\subsection{The Topology of Pointwise Convergence}
+
+Let $Y$ be a topological space and $X$ an arbitrary set.
+
+\begin{boxdefinition}[The Topology of Pointwise Convergence]
+    The \textbf{topology of pointwise convergence} on $Y^X$ is defined to be the product topology on $Y^X$.
+\end{boxdefinition}
+
+We can give a characterisation of this topology in terms of nets.
+
+\begin{boxexercise}
+    Let $\parenth{f_a}_{a \in \D}$ be a net in $Y^X$. For all $f \in Y^X$, TFAE:
+    \begin{enumerate}[label = (\arabic*)]
+        \item $f_a \to f$
+        \item For all $x \in X$, $f_a(x) \to f(x)$
+    \end{enumerate}
+    Note that $(2)$ is a sensible statement to make because for all $x \in X$, $\parenth{f_a(x)}_{a \in \D}$ is a net in $Y$.
+\end{boxexercise}
+
+The big advantage of this topology is that it is very general: it does not require $X$ to have any topological structure whatsoever.
+
+But pointwise convergence is not the strongest notion of convergence out there. We can define uniform convergence of nets, and then define a topology of uniform convergence.
+
+\subsection{Topology of Uniform Convergence}
+
+Consider the following setup.
+
+Let $X$ be a set and let $\parenth{Y, d}$ be a metric space. Define a new metric $\bar{d}$ on $Y$ by
+\begin{align*}
+    \bar{d}\of{y_1, y_2} :=
+    \begin{cases}
+        d\of{y_1, y_2} & \text{ if } d\of{y_1, y_2} < 1 \\
+        1 & \text{ if } d\of{y_1, y_2} \geq 1
+    \end{cases}
+    = \min\of{d\of{y_1, y_2}, 1}
+\end{align*}
+One way to view this new metric space is as the original metric space `squashed' to a ball of radius $1$. It is a `trivial exercise' to show that this is a metric.
+
+Note that $\parenth{Y, d}$ and $\parenth{Y, \bar{d}}$ have the same open sets. As a result, one can show they also have the same Cauchy sequences and the same convergent sequences.
+
+Along these lines, we can define a `uniform metric' and `uniform topology' on $Y^X$.
+
+\begin{boxdefinition}[The Uniform Metric/Topology]
+    Let $X$ be a set and $\parenth{Y, d}$ be a metric space. Denote by $\bar{d}$ the metric described above. The \textbf{uniform metric} is defined for all $f_1, f_2 \in Y^X$ by
+    \begin{align*}
+        \dunif\of{f_1, f_2} := \sup \setst{\bar{d}\of{f_1(x), f_2(x)}}{x \in X}
+    \end{align*}
+    We call the induced topology the \textbf{uniform topology}.
+\end{boxdefinition}
+
+The reason for this terminology is that a sequence of functions converges with respect to the uniform metric obtained from $d$ if and only if it converges uniformly with respect to $d$.
+
+It turns out that the uniform metric construction preserves completeness.
+
+\begin{boxproposition}
+    If $\parenth{Y, d}$ is a complete metric space and $X$ is an arbitrary set, then $\parenth{Y^X, \dunif}$.
+\end{boxproposition}
+\begin{proof}
+    Let $\parenth{f_n}_{n \in \N}$ be Cauchy in $\parenth{Y^X, d\unif}$. It is easy to see that for all $x \in X$, the sequence $\parenth{f_n(x)}_{n \in \N}$ is convergent in $\parenth{Y, d}$. Since this metric space is complete, $\parenth{f_n(x)}_{n \in \N}$ converges to some limit. We can therefore define
+    \begin{align*}
+        f : X \to Y : x \mapsto \lim_{n \to \infty} f_n(x)
+    \end{align*}
+    ie, we take $f$ to be the pointwise limit of the $\parenth{f_n}_{n \in \N}$. We will show that in $\parenth{Y, d\unif}$, the (Cauchy) sequence $\parenth{f_n}_{n \in \N}$ converges to $f$.
+
+    Fix $\eps > 0$ and assume that $\eps < 1$\footnote{We don't need to do this right away, but it makes the rest of the argument significantly simpler because $d\unif$ is defined in terms of $\bar{d}$, and $\bar{d}$ always takes values $\leq 1$.}. Since $\parenth{f_n}_{n \in \N}$ is Cauchy, we can find some $N \in \N$ such that for all $n_1, n_2 \geq N$, $d\unif\of{f_{n_1}, f_{n_2}} < \infty$. Then, by definition of the uniform metric, for all $x \in X$, $d\of{f_{n_1}(x) ,  f_{n_2}(x)} < \eps$.
+    
+    Send $n_2 \to \infty$. Then, $f_{n_2}(x) \to f(x)$. Since $d$ is continuous, we can see that $d\of{f_{n_1}(x), f(x)} \leq \eps$. Since this is true for all $x \in X$, it follows that $d\unif\of{f_{n_1}, f} \leq \eps$ for all $n_1 \geq N$. This is enough, because the real numbers ``have lots of room'' - so even if we ``replace the OG epsilon by a smaller one'' we are fine! Yay :)
+\end{proof}
+
+We now move to a slightly different context.
+
+\begin{boxnotation}
+    For all topological (and metric) spaces $X$ and $Y$, denote by $C(X, Y)$ the set of all continuous functions from $X$ to $Y$.
+\end{boxnotation}
+
+For the remainder of this subsection, let $X$ be a topological space and let $(Y, d)$ be a metric space. Since $C(X, Y)$ is a subset of $Y^X$ and $d\unif$ is a metric on $Y^X$, we can restrict $d\unif$ to $C(X, Y)$ and thus view $\parenth{C(X, Y), d\unif}$ as a metric space in its own right.
+
+The following ``is like a really important fact''.
+
+\begin{boxtheorem}\label{Ch4:Thm:Unif_lim_cont_cont}
+    Let $\parenth{f_n}_{n \in \N}$ be a sequence in $C(X, Y)$, and assume that there is some $f \in Y^X$ such that $f_n \to f$ with respect to $d\unif$. Then, $f$ is continuous, that is, we can view $f$ as an element of $C(X, Y)$.
+\end{boxtheorem}
+\begin{proof}
+    To show that $f$ is continuous at all $x\in X$, we let $\eps>0, \eps<1$, and $n$ such that $d_{unif}(f_n, f)<\ve/3$ - note the $\ve/3$ providing evidence that we are thinking ahead! We now know that $f_n$ is continuous at $x$, so we find some open set $U$ containing $x$ for which we have $d(f_n(x), f_n(x'))<\ve/3$, and also $d(f_n(x), f_n(x'))<\ve/3$ for all $x,x'\in U$. Noting now that $d(f(x), f(x'))\leq d(f(x), f_n(x))+d(f_n(x), f_n(x'))+d(f(x'), f_n(x'))\leq 3\cdot \eps/3=\eps$. 
+\end{proof}
+
+The above is best summarised by saying that \textbf{a uniform limit of continuous functions is continuous}.
+
+\begin{boxcorollary}
+    Let $X$ be an arbitrary topological space and let $\parenth{Y, d}$ be a complete metric space. The metric space $\parenth{C(X, Y), d\unif}$ is complete.
+\end{boxcorollary}
+\begin{proof}
+    Let $\parenth{f_n}_{n \in \N}$ be a Cauchy sequence in $C(X, Y)$. As before, if we define
+    \begin{align*}
+        f : X \to Y : x \mapsto \lim_{n \to \infty} f(x)
+    \end{align*}
+    then we know that $f_n \to f$ in $\parenth{Y^X, d\unif}$. \Cref{Ch4:Thm:Unif_lim_cont_cont} then tells us that $f$ is continuous, so $f_n \to f$ in $\parenth{C(X, Y), d\unif}$.
+\end{proof}
+
+% Not quite sure where to put the following
+
+\subsection{An Extension Property for Normal Spaces}
+
+The uniform metric has many applications. In this subsection, we will investigate one of them: an extension property for normal spaces.
+
+\begin{boxtheorem}[Tietze Extension Theorem]\label{SP:Tietze}
+    Let $X$ be a normal space and let $A \ssq X$ be closed. Let $f : A \to \R$ be continuous. There exists some $g : X \to \R$ continuous such that $g \restriction A = f$.
+\end{boxtheorem}
+\begin{quote}
+    \textit{``The zen of the proof is that I'm going to reduce the complexity of the situation just a little bit, and then build, pretty much by hand, a Cauchy sequence of continuous functions that converge with respect to the uniform metric. I'm then going to take a limit and get the function that I want.''}
+\end{quote}
+\begin{proof}
+    Let $h : \R \to \parenth{-1, 1}$ be a homeomorphism. Replacing $f$ by $h \circ f$, we may assume that $f$ is bounded. For any real-valued function $g$, define the following notation:
+    \begin{align*}
+        \norm{g}_A &:= \sup_{a \in A} \abs{g(a)} \\
+        \norm{g}_X &:= \sup_{x \in X} \abs{g(x)} 
+    \end{align*}
+    We construct a sequence of functions $\parenth{f_n}_{n \in \N}$, the limit of which will be our candidate.
+
+    Define $f_0 : X \to \R$ by $f_0 = 0$. Find $c_0 > 0$ such that $\norm{f - f_0}_{A} = \norm{f}_A \leq c_0$. This is something we can do because $f$ is bounded. We will proceed by recursion.
+
+    Suppose we have found a continuous function $f_n : X \to \R$ such that $\norm{f - f_n}_A \leq c_n$. Define the following disjoint subsets of $A$:
+    \begin{align*}
+        A_n^- &:= \setst{a \in A}{f(a) - f_n(a) \in \brac{-c_n, -\frac{c_n}{3}}} \\
+        A_n^+ &:= \setst{a \in A}{f(a) - f_n(a) \in \brac{\frac{c_n}{3}}, c_n}
+    \end{align*}
+    Since $A$ is closed and $f - f_n$ is continuous, $A_n^-$ and $A_n^+$ are both disjoint, closed subsets of $X$. Since $X$ is normal, we can apply Urysohn's Lemma (\Cref{SP:Urysohn}) to find some continuous $\phi_n : X \to \brac{0, 1}$ with $\phi_n \restriction A_n^- = 0$ and $\phi_n \restriction A_n^+ = 1$.
+
+    Define\footnote{This is the sort of thing that would \textit{not} feature in Anand/Tim's database of motivated proofs...}
+    \begin{align*}
+        g_n := \frac{2c_n}{3} \phi_n - \frac{c_n}{3}
+    \end{align*}
+    Observe that on $A_n^-$, $g_n$ is constant with value $-\frac{c_n}{3}$, and on $A_n^+$, $g_n$ is constant with value $\frac{c_n}{3}$. Indeed, $g_n(x) \in \brac{-\frac{c_n}{3}, \frac{c_n}{3}}$ for all $x \in X$. That is, $\norm{g_n} \leq \frac{c_n}{3}$.
+
+    Let $f_{n + 1} := f_n + g_n$. Let's examine how $f - f_{n + 1}$ behaves on $A$. Indeed, $f - f_{n + 1} = \parenth{f - f_{n}} - g_n$. For all $a \in A$, we can see that $\abs{f(a) - f_{n + 1}(a)} \leq \frac{2 c_n}{3}$, so indeed $\norm{f - f_{n + 1}}_A \leq \frac{2 c_n}{3}$.
+
+    We can then perform the recursive construction choosing $c_{n + 1} = \frac{2 c_n}{3}$, so we can see that for all $n \in \N$, $c_n = \parenth{\frac{2}{3}}^n c_0$.
+
+    By an `easy calculation' one can show that $\parenth{f_n}_{n \in \N}$ is Cauchy with respect to the uniform metric. \Cref{Ch4:Thm:Unif_lim_cont_cont} then tells us that this limit, denoted $g : X \to \R$, is indeed continuous. Since $\norm{f - f_n}_A \leq c_n$ for all $n \in \N$ and $c_n \to 0$ as $n \to \infty$, we can conclude that $g \restriction A = f$.
+\end{proof}
+
+Note that it is \textbf{vital} that $A$ be closed in the above theorem. If this is not true, the conclusion is no longer true.
+
+\begin{boxcexample}
+    Let $X = S^1$, the circle. Consider a point $p \in X$ and define $A := X \setminus \set{p}$.
+    % \begin{figure}[H]
+    %     \centering
+    %     \begin{tikzpicture}
+    %         \draw (0, 0) circle 1;
+    %     \end{tikzpicture}
+    % \end{figure}
+\end{boxcexample}
