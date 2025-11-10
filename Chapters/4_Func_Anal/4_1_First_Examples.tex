@@ -6,7 +6,7 @@ We begin by asking ourselves what kinds of topologies we can endow sets of funct
 
 Let $Y$ be a topological space and $X$ an arbitrary set.
 
-\begin{boxdefinition}[The Topology of Pointwise Convergence]
+\begin{boxdefinition}[The Topology of Pointwise Convergence]\label{Ch4:Def:Top_Pointwise_Conv}
     The \textbf{topology of pointwise convergence} on $Y^X$ is defined to be the product topology on $Y^X$.
 \end{boxdefinition}
 
@@ -25,7 +25,7 @@ The big advantage of this topology is that it is very general: it does not requi
 
 But pointwise convergence is not the strongest notion of convergence out there. We can define uniform convergence of nets, and then define a topology of uniform convergence.
 
-\subsection{Topology of Uniform Convergence}
+\subsection{The Topology of Uniform Convergence}
 
 Consider the following setup.
 
@@ -44,12 +44,12 @@ Note that $\parenth{Y, d}$ and $\parenth{Y, \bar{d}}$ have the same open sets. A
 
 Along these lines, we can define a `uniform metric' and `uniform topology' on $Y^X$.
 
-\begin{boxdefinition}[The Uniform Metric/Topology]
+\begin{boxdefinition}[The Topology of Uniform Convergence]\label{Ch4:Def:Top_Unif_Conv}
     Let $X$ be a set and $\parenth{Y, d}$ be a metric space. Denote by $\bar{d}$ the metric described above. The \textbf{uniform metric} is defined for all $f_1, f_2 \in Y^X$ by
     \begin{align*}
         \dunif\of{f_1, f_2} := \sup \setst{\bar{d}\of{f_1(x), f_2(x)}}{x \in X}
     \end{align*}
-    We call the induced topology the \textbf{uniform topology}.
+    We call the induced topology the \textbf{uniform topology} or the \textbf{topology of uniform convergence}.
 \end{boxdefinition}
 
 The reason for this terminology is that a sequence of functions converges with respect to the uniform metric obtained from $d$ if and only if it converges uniformly with respect to $d$.
@@ -154,3 +154,127 @@ Note that it is \textbf{vital} that $A$ be closed in the above theorem. If this 
     %     \end{tikzpicture}
     % \end{figure}
 \end{boxcexample}
+
+% We have most of this already - the minute he starts saying stuff we don't have, I'll start (-sounds good, and hope you have been well this past week - glad to hear it (and indeed, thanks for asking (and back to topology :))))(just to be safe))))))
+
+% I've been great, thanks! Haven't seen you around - hope you've been well too :)
+
+% :D
+
+\section{Families of Functions}
+
+Professor Cummings, in his own words, is about to bore us with a long list of topologies. But I highly doubt they'll be boring... something tells me they'll be quite the opposite!
+
+\subsection{Equicontinuity}
+
+Throughout this subsection, fix a topological space $X$ and a metric space $\parenth{Y, d}$.
+
+\begin{boxdefinition}[Equicontinuity]
+    Fix a family $\F \ssq Y^X$.
+    \begin{enumerate}
+        \item For some point $x_0 \in X$, the family $\F$ is \textbf{equicontinuous at $x_0$} iff for all $\eps > 0$, there is an open neighbourhood $U \ni x_0$ such that for all $f \in \F$ and $x \in U$, $d\of{f\of{x_0}, f(x)} < \eps$.
+        \item $\F$ is \textbf{equicontinuous} if $\F$ is equicontinuous at all points in $X$.
+    \end{enumerate}
+\end{boxdefinition}
+
+Note that equicontinuity is \textbf{not the same notion as uniform continuity}: we are describing a family of functions \textit{collectively} when we talk about equicontinuity. Moreover, they're continuous ``in the same way'' (ie, for the same $\eps$, the same conclusions hold \textit{simultaneously} for \textit{all of them}).
+
+Here is a motivating theorem.
+
+\begin{boxtheorem}\label{Ch4:Thm:Equicontinuous_of_Tot_Unif_Bdd}
+    Fix a family $\F \ssq C\of{X, Y}$ of continuous functions from $X$ to $Y$. If $\F$, viewed as a sub-metric space of the space $\parenth{Y^X, d\unif}$, is totally bounded, then $\F$ is equicontinuous.
+\end{boxtheorem}
+
+One may recall we had ``a rather arduous'' discussion of compactness in metric spaces, which involved discussion of ``total-boundedness'' (which stated that for any fixed $\ve>0$, we could cover our space with finitely many $\ve$-balls - this condition can be seen to capture the idea of finite volume). Now we can view $F\ssq C(X,Y)$ with $C(X,Y)$ considered as a metric space with the uniform metric, and then if $F$ is totally bounded in the uniform metric, our $F$ must be equicontinuous.
+
+\begin{proof}[Proof of \Cref{Ch4:Thm:Equicontinuous_of_Tot_Unif_Bdd}.]
+    ``This is one of those proofs that writes itself as long as you're a bit careful and do things in the right order.''
+
+    Fix $0 < \eps < 1$ (we are working in the uniform metric, so we can take $\eps < 1$). Fix an arbitrary point $x_0 \in X$. We will show that $\F$ is equicontinuous at $x_0$.
+    
+    Let $\delta = \frac{\eps}{3}$. Note that $0 < \delta  < 1$ also. Since $\F$ is totally bounded, $\F$ is expressible as a finite union of $\delta$-balls: there exist $f_1, \ldots, f_n \in \F$ such that
+    \begin{align*}
+        \F \ssq \bigcup_{i = 1}^{n} B_{d\unif}\of{f_i, \delta}
+    \end{align*}
+    The key to uniform boundedness is that we get a finite family that covers $\F$. We can now do the following.
+    
+    For each $i$, $f_i$ is continuous at $x_0$, so we can find open neighbourhoods $U_i \ni x_0$ such that for all $x \in U_i$, $d\of{f_i\of{x_0}, f_i\of{x}} < \delta$, with $d$ being the metric on $Y$.
+    
+    Let $U = \bigcap_{i=1}^{n} U_i$. We know that $U$ is open and that $x_0 \in U$ because $x_0 \in U_i$ for every $i \in \set{1, \ldots, n}$. We're now ready to show that $\F$ is equicontinuous at $x_0$.
+
+    We now consider an arbitrary function $f\in \F$ and an arbitrary $x\in U$, and find $1 \leq i\leq n$ such that $d\unif \of{f, f_i}<\delta$. For our fixed $x\in U$, we know that
+    \begin{align*}
+        d\of{f_i(x), f_i\of{x_0}} &< \delta \\
+        d\of{f(x), f_i\of{x}} &< \delta \\
+        d\of{f\of{x_0}, f_i\of{x_0}} &< \delta
+    \end{align*}
+    Applying the triangle inequality, we can see that
+    \begin{align*}
+        d\of{f(x), f\of{x_0}}
+        \leq d\of{f_i(x), f_i\of{x_0}} + d\of{f(x), f_i\of{x}} + d\of{f\of{x_0}, f_i\of{x_0}}
+        < 3\delta = \eps
+    \end{align*}
+    Since $\eps < 1$, $d\of{f(x), f\of{x_0}} = \bar{d}\of{f(x), f\of{x_0}}$, and we're done. % Maybe fine-tune a bit
+\end{proof}
+
+Recall that the \textit{product topology} on $Y^X$ (where $Y$ is a space and $X$ is a set) is called the \textbf{``topology of pointwise convergence''} (cf. \Cref{Ch4:Def:Top_Pointwise_Conv}). We also recall that the \textit{metric topology} on $Y^X$ (where $Y$ a metric space and $X$ a set) which is induced by the uniform metric is called the \textbf{``topology of uniform convergence''} (cf. \Cref{Ch4:Def:Top_Pointwise_Conv}).
+
+%idk how you want to format these ``recalls'' - sounds good - this is true, idk if it would be nice to have them all listed at some point (i.e. itemized), but you are the creative mind here
+
+% I think just as plain text is fine - with maybe a cross-reference to the original one... might be overkill to have formatting for this too (we don't want to be in a situation where there's no normal text, only boxed text :D)
+
+\subsection{A Study in Compactness}
+
+It's time for another topology! After all, there can never be enough topologies...
+
+As usual, let $X$ be a topological space and let $\parenth{Y, d}$ be a metric space. A word of warning: the following definition is one that'll ``leave a bit of work to you.''
+
+\begin{boxdefinition}[The Topology of Compact Convergence]\label{Ch4:Def:Top_Compact_Conv}
+    The \textbf{topology of compact convergence} on $Y^X$ is the topology generated by the basic open sets
+    \begin{align*}
+        B_C\of{f, \eps} &:=
+        \setst{g \in Y^X}{\sup_{x \in C}\of{d\of{f(x), g(x)}} < \eps}
+    \end{align*}
+    indexed by
+    \begin{itemize}
+        \item Compact sets $C \ssq X$
+        \item Functions $f \in Y^X$
+        \item $\eps > 0$
+    \end{itemize}
+\end{boxdefinition}
+
+The reason this definition requires some work is that we need to show that the above `basic open sets' do, indeed, form a basis for some topology on $Y^X$, by showing the appropriate covering property and the appropriate intersection property. This is an ``amusing little exercise.''
+
+\begin{boxexercise}[An Amusing Little Exercise using Properties of Compact Sets]
+    Show that the sets $B_C\of{f, \eps}$ defined in \Cref{Ch4:Def:Top_Compact_Conv} do, indeed, form the basis of a topology.
+\end{boxexercise}
+
+This is useful because in complex analysis, we know that if sequences of holomorphic functions converge with respect to this topology of compact convergence, their limit is holomorphic too.
+
+\begin{boxdefinition}[Compactly Generated Space]
+    We say that the space $X$ is ``compactly generated'' to mean that for all $A\ssq X$, $A$ is open in $X$ exactly when, for all compact $C\ssq X$ we have $A\cap C$ relatively open in $C$.
+\end{boxdefinition}
+One can think of a compactly generated space as a space in which the topological properties of our space are captured by its compact subspaces.
+
+\begin{boxproposition}
+    If $X$ is locally compact or first-countable, then $X$ is compactly generated.
+\end{boxproposition}
+\begin{proof}
+    We show each case separately.
+    \begin{enumerate}[label = \underline{Case \arabic*:}]
+        \item \underline{$X$ is locally compact.}
+
+        Let $A \ssq X$ be such that $A \cap C$ is relatively open for all compact $C \ssq X$. Fix $x \in A$. Since $X$ is locally compact, there is some compact set $C \ssq X$ and some open set $U \ssq C$ such that $x \in U$. $A \cap C$ is relatively open in $C$, so $A \cap U$ is open. Thus, $A$ is open.
+
+        \item \underline{$X$ is first-countable.}
+
+        Let $B \ssq X$ be such that $B \cap C$ is relatively closed for all compact $C \ssq X$. It will now suffice to show that $B$ is closed. To do so, we let $x\in \cl(B)$, and let $(U_n)_{n\in \N}$ be a countable neighbourhood basis of open sets - by a little topological joke, we observe that $V_n=\cap_{i\leq n}U_i$ will also form a (nested) countable neighbourhood basis for $x$. We now let $x_n\in B\cap V_n$ for each $n\in \N$, and note that the sequence of $(x_n)$ converges to $x$ - finish the proof as an exercise? \sorry %(!) % It's fine - we'll do it another time :D
+    \end{enumerate}
+\end{proof}
+
+% Sorry I just vanished - things a-happening on GitHub, PRs waiting to get merged... anxious contributors... you get the idea. Thank you!!
+
+%not at all
+
+``by an ancient and seemingly pointless homework exercise''
+``I'm getting close to the danger zone here [running out of time] - EASY!''
