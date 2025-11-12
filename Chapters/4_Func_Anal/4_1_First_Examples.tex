@@ -161,11 +161,11 @@ Note that it is \textbf{vital} that $A$ be closed in the above theorem. If this 
 
 % :D
 
-\section{Families of Functions}
+\section{A Study in Compactness}
 
 Professor Cummings, in his own words, is about to bore us with a long list of topologies. But I highly doubt they'll be boring... something tells me they'll be quite the opposite!
 
-\subsection{Equicontinuity}
+\subsection{Equicontinuity} % Where do we put this?
 
 Throughout this subsection, fix a topological space $X$ and a metric space $\parenth{Y, d}$.
 
@@ -223,7 +223,7 @@ Recall that the \textit{product topology} on $Y^X$ (where $Y$ is a space and $X$
 
 % I think just as plain text is fine - with maybe a cross-reference to the original one... might be overkill to have formatting for this too (we don't want to be in a situation where there's no normal text, only boxed text :D)
 
-\subsection{A Study in Compactness}
+\subsection{The Topology of Compact Convergence}
 
 It's time for another topology! After all, there can never be enough topologies...
 
@@ -251,6 +251,8 @@ The reason this definition requires some work is that we need to show that the a
 
 This is useful because in complex analysis, we know that if sequences of holomorphic functions converge with respect to this topology of compact convergence, their limit is holomorphic too.
 
+\subsection{Compactly Generated Spaces}
+
 \begin{boxdefinition}[Compactly Generated Space]
     We say that the space $X$ is ``compactly generated'' to mean that for all $A\ssq X$, $A$ is open in $X$ exactly when, for all compact $C\ssq X$ we have $A\cap C$ relatively open in $C$.
 \end{boxdefinition}
@@ -268,7 +270,7 @@ One can think of a compactly generated space as a space in which the topological
 
         \item \underline{$X$ is first-countable.}
 
-        Let $B \ssq X$ be such that $B \cap C$ is relatively closed for all compact $C \ssq X$. It will now suffice to show that $B$ is closed. To do so, we let $x\in \cl(B)$, and let $(U_n)_{n\in \N}$ be a countable neighbourhood basis of open sets - by a little topological joke, we observe that $V_n=\cap_{i\leq n}U_i$ will also form a (nested) countable neighbourhood basis for $x$. We now let $x_n\in B\cap V_n$ for each $n\in \N$, and note that the sequence of $(x_n)$ converges to $x$ - finish the proof as an exercise? \sorry %(!) % It's fine - we'll do it another time :D
+        Let $B \ssq X$ be such that $B \cap C$ is relatively closed for all compact $C \ssq X$. It will now suffice to show that $B$ is closed. To do so, we let $x\in \cl(B)$, and let $(U_n)_{n\in \N}$ be a countable neighbourhood basis of open sets - by a little topological joke, we observe that $V_n=\cap_{i\leq n}U_i$ will also form a (nested) countable neighbourhood basis for $x$. We now let $x_n\in B\cap V_n$ for each $n\in \N$, and note that the sequence of $(x_n)$ converges to $x$ - finish the proof as an exercise? \sorry %(!)% It's fine - we'll do it another time :D
     \end{enumerate}
 \end{proof}
 
@@ -278,3 +280,123 @@ One can think of a compactly generated space as a space in which the topological
 
 ``by an ancient and seemingly pointless homework exercise''
 ``I'm getting close to the danger zone here [running out of time] - EASY!''
+
+% The following should be moved to the previous subsection
+
+We next discuss the ``topology of compact convergence'':\todo{MOVE TO PREV SUBSEC}
+\begin{boxdefinition}[Topology of Compact Convergence]
+    Given $X$ a space, $(Y,d)$ a metric space, the ``topology of compact convegrence'' has basis consisting of sets $B_c(f, \ve)$ of the form $B_c(f,\ve)=\{g\in Y^X: \sup_{x\in C}d(f(x), g(x))<\ve\}$ for $C\ssq X$ a compact set, $\ve>0$, $f\in Y^X$.
+\end{boxdefinition}
+To see that it is a basis, you can go through the following (``trivial'') exercises:
+\begin{boxexercise}
+    If $g\in B_c(f, ve)$ there is $\ve'>0$ such that $B_c(g, \ve')\ssq B_c(f, \ve)$.
+\end{boxexercise}
+\begin{boxexercise}
+    In any space, the union of two compact sets is compact.
+\end{boxexercise}
+
+
+Note that in this topology,
+\begin{align*}
+    \setst{B_c\of{f, \eps}}{C \text{ is compact and } \eps > 0}
+\end{align*}
+is a basis of open neighborhoods for $f$.
+
+\begin{boxtheorem}
+    Given $X$ is a compactly generated space, $Y$ a metric space, then if (also) $f_n\in C(X,y)$ with $(f_n)_{n\in \N}$ such that $f_n\rightarrow f\in Y^X$ in the compact convergence topology, then $f\in C(X,Y)$.
+\end{boxtheorem}
+ \begin{proof}
+     For all $C$, $f \restriction C \to f \restriction C$ uniformly. so $f \restriction C$ is continuous. Since $X$ is compactly generated, $f$ is continuous.
+ \end{proof}
+ Indeed, $C(X, Y)$ is a closed subspace of $Y^X$ in the topology of compact convergence.
+
+ enter the refrain: ``we can never have too many topologies'' (and the song goes on...) % :DDDD
+
+ \subsection{The Compact-Open Topology}
+
+For this next definition, recall the definition of a \textbf{sub-basis} of a topology (\Cref{Ch1:Def:Sub-Basis}).
+ 
+ \begin{boxdefinition}[Compact Open Topology]
+     If $X,Y$ are both spaces, then the ``compact open topology'' on $C(X,Y)$ is the topology with sub-basis consisting of all sets of the form $S(C,U)=\{f\in C(X,Y): f[C]\ssq U$ for compact $C\ssq X$ and $U$ open in $Y\}$.
+ \end{boxdefinition}
+ ``At least it has a memorable name...''
+
+ Recall that the continuous image of a compact set is compact. So in the setup above, $f[C] \ssq U$ looks like a compact set contained in an open set.
+
+ We can now prove a cool fact that shows that the two topologies we've explored in this subsection coincide in the specific case where we are considering the space of continuous functions from an arbitrary topological space to a metric space.
+
+ We begin with a lemma (where we will abuse notation a bit---after all, isn't that the point of notation?) about compact sets contained in open sets in a metric space.
+
+ \begin{boxlemma}\label{Ch4:Lemma:CO_Top_eq_CC_Top_helper_2}
+    In any metric space $(M, d)$, if $D$ is compact, $V$ is open and $D \ssq V$, then there is some $\eps > 0$ such that the set
+    \begin{align*}
+        B\of{D, \eps} = \bigcup_{x \in D} B\of{x, \eps}
+    \end{align*}
+    is contained in $V$.
+ \end{boxlemma}
+ \begin{proof}
+     Consider the distance function
+     \begin{align*}
+         d\of{\ph, M \setminus V} : D \to \R_{\geq 0} : a \mapsto \inf_{x \in M \setminus V} d\of{a, x}
+     \end{align*}
+     We know that this function is continuous. Moreover, since $D$ is compact, the image of $D$ in this function is compact, thus closed and bounded. So it takes a minimum value $\eps$. It's easy to check that this $\eps$ has the desired property.
+ \end{proof}
+ 
+ % Thanks
+ We now introduce ``a highly ad-hoc lemma, whose proof I [Professor Cummings] will leave as a lemma, as it is not particularly edifying.''
+ 
+\begin{boxlemma}\label{Ch4:Lemma:CO_Top_eq_CC_Top_helper}
+ Let $Z$ be an arbitrary topological space and $M$ a metric space. Let $h : Z \to M$ be continuous. Then for all $z\in Z$ and $\eps > 0$, there exists an open neighborhood $U_z$ of $z$ such that $h[\cl(U_z)]\ssq B\of{h(z), \frac{\ve}{3}}$.
+\end{boxlemma}
+
+The trick is to consider the dynamic between the image of the closure and the closure of the image. ``It's not very interesting.''
+ 
+ We now come to the main result. Admittedly we're saying the following in a cagey way, but let's go with it...
+
+\begin{boxtheorem}\label{Ch4:Thm:CO_Top_eq_CC_Top}
+ If $X$ is an arbitrary topological space and $Y$ is a metric space, then on $C(X, Y)$, the compact-open topology is equal to the topology of compact convergence.
+\end{boxtheorem}
+\begin{quote}
+ \centering
+ \textit{``This is one of those proofs where you kind of just have to grit your teeth and go through it.''}
+\end{quote}
+\begin{proof}
+    We show that the two topologies contain each other.
+    \begin{description}
+        \item[\underline{Compact-Open $\ssq$ Compact Convergence.}]
+        
+        It is enough to show that $S(C, U)$\todo{was ist das?} is open in the compact convergence topology. Let $f \in S(C, U)$. Observe that $f[C] \ssq U$ is an inclusion of a compact set in an open subset of a metric space. This means we can apply \Cref{Ch4:Lemma:CO_Top_eq_CC_Top_helper} to conclude that there is some $\eps > 0$ such that $B\of{f[C], \eps} \ssq U$.
+
+        We now show that $C(X, Y) \cap B_C(1, \eps) \ssq S(C, U)$. Fix $g \in C(X, Y) \cap B_C(1, \eps)$ and fix $x \in C$. Notice that $d\of{g(x), f(x)} < \eps$, so $g(x) \in B\of{f[C], \eps} \ssq U$.
+
+        \item[\underline{Compact Convergence $\ssq$ Compact-Open.}]
+
+        Consider some basic open neighbourhood $B_C\of{f, \eps} \cap C(X, Y)$ of some $f \in C(X, Y)$. It will suffice to find an open neighbourhood of $f$ in the compact-open topology contained in $B_C\of{f, \eps} \cap C(X, Y)$. We will do it using \Cref{Ch4:Lemma:CO_Top_eq_CC_Top_helper_2}, combining two steps into one because ``life is short'' (and class is even shorter).
+
+        Appealing to \Cref{Ch4:Lemma:CO_Top_eq_CC_Top_helper_2}, for all $x \in X$, we can find an open neighbourhood $U_x \ni x$ such that
+        \begin{align*}
+            f\!\brac{\cl\of{U_x}} \ssq B\of{f(x), \frac{\eps}{3}}
+        \end{align*}
+        Since $C$ is compact, we get $x_1, \ldots, x_n$ such that
+        \begin{align*}
+            C \ssq \bigcup_{i=1}^{n} U_{x_i}
+        \end{align*}
+        Let $C_{x_i} = C \cap \cl\of{U_{x_i}}$. This is an intersection of closed subsets, so it is closed; moreover, it is contained in a compact set, so it is compact.
+
+        We claim that
+        \begin{align*}
+            f \in \bigcap_{i=1}^{n} S\of{C_{x_i}, B\of{f\of{x_i}, \frac{\eps}{3}}} \ssq B_C\of{f, \eps} \cap C(X, Y)
+        \end{align*}
+        There are a couple of things that we have to check that are quite annoying, so we've done something rather naughty in our mathematics: we've stated two facts in one statement.
+
+        First, observe that the containment of $f$ in the first set above is clear from the fact that $f\!\brac{C_{x_i}} \ssq f\!\brac{\cl\of{U_{x_i}}} \ssq B\of{f\of{x_i}, \frac{\eps}{3}}$. So now we need to show the containment of the first set in the other.
+
+        Fix $g \in \bigcap_{i=1}^{n} S\of{C_{x_i}, B\of{f\of{x_i}, \frac{\eps}{3}}}$. Then, fix $x \in C$. We know that $x \in U_{x_i}$ for some $i$. Since $x \in C_{x_i}$, $f(x) \in B\of{f\of{x_i}, \frac{\eps}{3}}$, so $g(x) \in B\of{f\of{x_i}, \frac{\eps}{3}}$. Moreover, the triangle inequality tells us that $d\of{f(x), g(x)} < 2\eps$, so
+        \begin{align*}
+            \sup_{x \in C} d\of{g(x), f(x)} \leq 2\frac{\eps}{3} < \eps
+        \end{align*}
+        which shows that $g \in B_C(f, \eps)$.
+    \end{description}
+\end{proof}%``because life is short'' and class is even shorter :( 
+
+Next time we will see Arzelà-Ascoli. Bellissimo!
