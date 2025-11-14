@@ -57,12 +57,16 @@
 \contentsline {subsection}{\numberline {4.1.2}The Topology of Uniform Convergence}{75}{subsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.1.3}An Extension Property for Normal Spaces}{78}{subsection.4.1.3}%
 \contentsline {section}{\numberline {4.2}A Study in Compactness}{80}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Equicontinuity}{80}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}The Topology of Compact Convergence}{82}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Compactly Generated Spaces}{82}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}The Compact-Open Topology}{84}{subsection.4.2.4}%
-\contentsline {chapter}{Appendices}{88}{chapter*.16}%
-\contentsline {section}{\numberline {A}A Categorical Perspective}{88}{section.5.1}%
-\contentsline {subsection}{\numberline {A.1}Product Spaces}{88}{subsection.5.1.1}%
-\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{88}{section.5.2}%
-\contentsline {chapter}{Bibliography}{90}{Item.109}%
+\contentsline {subsection}{\numberline {4.2.1}The Topology of Compact Convergence}{80}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Compactly Generated Spaces}{81}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}The Compact-Open Topology}{82}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Families of Functions}{85}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Equicontinuity}{86}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Pre-Compactness}{88}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Evaluation Maps}{88}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}The Arzelà-Ascoli Theorem}{89}{subsection.4.3.4}%
+\contentsline {chapter}{Appendices}{92}{chapter*.19}%
+\contentsline {section}{\numberline {A}A Categorical Perspective}{92}{section.5.1}%
+\contentsline {subsection}{\numberline {A.1}Product Spaces}{92}{subsection.5.1.1}%
+\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{92}{section.5.2}%
+\contentsline {chapter}{Bibliography}{94}{Item.111}%
