@@ -1,0 +1,156 @@
+\section{Families of Functions}
+
+In this subsection, we will investigate convergence properties of sequences of functions in specific families.
+
+We have introduced a number of topologies so far, and we have investigated inclusions and other relationships between them. A useful fact to bear in mind is that in general, the finer the topology, the fewer the number of convergent sequences. For instance, in the discrete topology, only sequences that are eventually constant are convergent. At the same time, topologies that are too coarse admit too \textit{many} convergent sequences, to the point where it stops being insightful to study convergence in these spaces. It turns out the topologies we have studied so far fall somewhere in the middle.
+
+\subsection{Equicontinuity}
+
+Throughout this subsection, fix a topological space $X$ and a metric space $\parenth{Y, d}$.
+
+\begin{boxdefinition}[Equicontinuity]
+    Fix a family $\F \ssq Y^X$.
+    \begin{enumerate}
+        \item For some point $x_0 \in X$, the family $\F$ is \textbf{equicontinuous at $x_0$} iff for all $\eps > 0$, there is an open neighbourhood $U \ni x_0$ such that for all $f \in \F$ and $x \in U$, $d\of{f\of{x_0}, f(x)} < \eps$.
+        \item $\F$ is \textbf{equicontinuous} if $\F$ is equicontinuous at all points in $X$.
+    \end{enumerate}
+\end{boxdefinition}
+
+Note that equicontinuity is \textbf{not the same notion as uniform continuity}: we are describing a family of functions \textit{collectively} when we talk about equicontinuity. Moreover, they're continuous ``in the same way'' (ie, for the same $\eps$, the same conclusions hold \textit{simultaneously} for \textit{all of them}).
+
+Here is a motivating theorem.
+
+\begin{boxtheorem}\label{Ch4:Thm:Equicontinuous_of_Tot_Unif_Bdd}
+    Fix a family $\F \ssq C\of{X, Y}$ of continuous functions from $X$ to $Y$. If $\F$, viewed as a sub-metric space of the space $\parenth{Y^X, d\unif}$, is totally bounded, then $\F$ is equicontinuous.
+\end{boxtheorem}
+
+One may recall we had ``a rather arduous'' discussion of compactness in metric spaces, which involved discussion of ``total-boundedness'' (which stated that for any fixed $\ve>0$, we could cover our space with finitely many $\ve$-balls - this condition can be seen to capture the idea of finite volume). Now we can view $F\ssq C(X,Y)$ with $C(X,Y)$ considered as a metric space with the uniform metric, and then if $F$ is totally bounded in the uniform metric, our $F$ must be equicontinuous.
+
+\begin{proof}[Proof of \Cref{Ch4:Thm:Equicontinuous_of_Tot_Unif_Bdd}.]
+    ``This is one of those proofs that writes itself as long as you're a bit careful and do things in the right order.''
+
+    Fix $0 < \eps < 1$ (we are working in the uniform metric, so we can take $\eps < 1$). Fix an arbitrary point $x_0 \in X$. We will show that $\F$ is equicontinuous at $x_0$.
+    
+    Let $\delta = \frac{\eps}{3}$. Note that $0 < \delta  < 1$ also. Since $\F$ is totally bounded, $\F$ is expressible as a finite union of $\delta$-balls: there exist $f_1, \ldots, f_n \in \F$ such that
+    \begin{align*}
+        \F \ssq \bigcup_{i = 1}^{n} B_{d\unif}\of{f_i, \delta}
+    \end{align*}
+    The key to uniform boundedness is that we get a finite family that covers $\F$. We can now do the following.
+    
+    For each $i$, $f_i$ is continuous at $x_0$, so we can find open neighbourhoods $U_i \ni x_0$ such that for all $x \in U_i$, $d\of{f_i\of{x_0}, f_i\of{x}} < \delta$, with $d$ being the metric on $Y$.
+    
+    Let $U = \bigcap_{i=1}^{n} U_i$. We know that $U$ is open and that $x_0 \in U$ because $x_0 \in U_i$ for every $i \in \set{1, \ldots, n}$. We're now ready to show that $\F$ is equicontinuous at $x_0$.
+
+    We now consider an arbitrary function $f\in \F$ and an arbitrary $x\in U$, and find $1 \leq i\leq n$ such that $d\unif \of{f, f_i}<\delta$. For our fixed $x\in U$, we know that
+    \begin{align*}
+        d\of{f_i(x), f_i\of{x_0}} &< \delta \\
+        d\of{f(x), f_i\of{x}} &< \delta \\
+        d\of{f\of{x_0}, f_i\of{x_0}} &< \delta
+    \end{align*}
+    Applying the triangle inequality, we can see that
+    \begin{align*}
+        d\of{f(x), f\of{x_0}}
+        \leq d\of{f_i(x), f_i\of{x_0}} + d\of{f(x), f_i\of{x}} + d\of{f\of{x_0}, f_i\of{x_0}}
+        < 3\delta = \eps
+    \end{align*}
+    Since $\eps < 1$, $d\of{f(x), f\of{x_0}} = \bar{d}\of{f(x), f\of{x_0}}$, and we're done. % Maybe fine-tune a bit
+\end{proof}
+
+Recall that the \textit{product topology} on $Y^X$ (where $Y$ is a space and $X$ is a set) is called the \textbf{``topology of pointwise convergence''} (cf. \Cref{Ch4:Def:Top_Pointwise_Conv}). We also recall that the \textit{metric topology} on $Y^X$ (where $Y$ a metric space and $X$ a set) which is induced by the uniform metric is called the \textbf{``topology of uniform convergence''} (cf. \Cref{Ch4:Def:Top_Pointwise_Conv}).
+
+%idk how you want to format these ``recalls'' - sounds good - this is true, idk if it would be nice to have them all listed at some point (i.e. itemized), but you are the creative mind here
+
+% I think just as plain text is fine - with maybe a cross-reference to the original one... might be overkill to have formatting for this too (we don't want to be in a situation where there's no normal text, only boxed text :D)
+
+\subsection{Pre-Compactness}
+
+\begin{boxdefinition}[Pre-Compact Sets]
+    Let $X$ be a topological space. We say that $A \ssq X$ is \textbf{pre-compact} if $\cl\of{A}$ is compact in $X$.
+\end{boxdefinition}
+
+It is easy to show the following.
+
+\begin{boxlemma}
+    If $X$ is Hausdorff, for all $A \ssq X$, $A$ is pre-compact if and only if there is a compact $K \ssq X$ such that $A \ssq K$.
+\end{boxlemma}
+
+Next, we will introduce the notion of an evaluation map, which has connections to category theory.
+
+\subsection{Evaluation Maps}
+
+\begin{boxdefinition}[Evaluation Map]
+    Let $X$ and $Y$ be topological spaces. The \textbf{evaluation map} $e : C(X, Y) \times X \to Y$ is the map sending any pair $\parenth{f, x}$ to $f(x)$.
+\end{boxdefinition}
+
+This is clearly just uncurrying in disguise. (Is it even in disguise?)
+
+Given that both $X$ and $C(X, Y)$ can be viewed as topological spaces (the latter in many, many ways, as we have seen so far), it is natural to ask ourselves when this map is continuous.
+
+\begin{boxproposition}
+    If $X$ is a locally compact Hausdorff space and $C(X, Y)$ is endowed with the compact-open topology, then the evaluation map $e : C(X, Y) \times X \to Y$ is continuous.
+\end{boxproposition}
+\begin{proof}
+    Fix $(f, x) \in C(X, Y) \times X$, so that $e(f, x) = f(x)$. Fix an open neighbourhood $V \ssq Y$ of $e(f, x) = f(x)$. Since $X$ is locally compact and Hausdorff and $f$ is continuous, we can find open neighbourhoods $U \ni x$ such that $\cl(U)$ is compact and $f\!\brac{\cl\of{U}} \ssq V$.
+
+    Consider $S\of{\cl\of{U}, V} \times U$. It is clear that $(f, x) \in S\of{\cl\of{U}, V} \times U$. If $\parenth{f', x'} \in S\of{\cl\of{U}, V} \times U$, then $e\of{f', x'} = f'(x) \in V$.
+\end{proof}
+
+\subsection{The Arzelà-Ascoli Theorem}
+
+\begin{boxtheorem}[Arzelà-Ascoli]
+    Let $X$ be a topological space, let $(Y, d)$ be a metric space, and let $\F$ be a family of functions from $X$ to $Y$ such that
+    \begin{enumerate}
+        \item $\F$ is equicontinuous (in particular, $\F \ssq C(X, Y)$)
+        \item For all $a \in X$, the set $\F_a = \setst{f(a) \in Y}{f \in \F}$ is pre-compact in $Y$.
+    \end{enumerate}
+    Then, $\F$ is precompact with respect to the topology of compact convergence on $C(X, Y)$.
+\end{boxtheorem}
+\begin{quote}
+    % \centering
+    \textit{``The proof is not that long, but it is \emph{sneaky}: it's going to involve topologies other than the compact convergence topology. We're going to use the topology of \textbf{pointwise} convergence on the set of \textbf{all} functions from $X$ to $Y$, but we're going to use the topology of \textbf{compact} convergence on the set of \textbf{continuous} functions. So hold your hats, everyone, because this might get confusing!''}
+\end{quote}
+\begin{proof}
+    Let $\G \ssq Y^X$ be the closure of $\F$ in $Y^X$ (with respect to the \textbf{pointwise convergence topology}) - we can think of this as including all pointwise limits of subsequences of functions ins $C(X,Y)$ (right?).
+
+    We begin by showing that $\G$ is compact with respect to the pointwise convergence topology. In fact, this is where we use the pre-compactness hypothesis.
+
+    Observe, first, that $\G \ssq \prod_{a \in X} \cl\of{\F_a}$. Tychonoff's Theorem (\sorry)\todo{add CR} tells us that $\cl\of{\F_a}$ is compact, so $\G$, which is closed, is compact.
+
+    \textbf{All of this is closure and compactness with respect to the topology of pointwise convergence (and the corresponding product topology).}
+
+    Next, we will show that $\G$ is equicontinuous. In particular, this will show that $\G$ is actually contained in $C(X, Y)$.
+
+    Fix $\eps > 0$ and $x_0 \in X$. As $\F$ is equicontinuous at $x_0$, we can find $U \ssq X$ with $x_0 \in U$ and for all $f \in \F$ and $x \in U$, $d\of{f(x), f\of{x_0}} < \frac{\eps}{3}$. It turns out that this same $U$ is precisely the magic $U$ that works for $\G$ with constant $\eps$!
+
+    Fix $x \in U$ and $g \in \G$. Consider the open-neighbourhood (\textbf{pointwise convergence topology})
+    \begin{align*}
+        \setst{h \in Y^X}{d\of{h(x), g(x)} < \frac{\eps}{3} \text{ and } d\of{h\of{x_0}, g\of{x_0}} < \frac{\eps}{3}} \ni g
+    \end{align*}
+    Since we also have $g \in \G = \cl\of{\F}$, we can find some $f \in \F$ such that $d\of{f(x), g(x)} < \frac{\eps}{3}$ and $d\of{f\of{x_0}, g\of{x_0}} < \frac{\eps}{3}$. Thus, we get
+    \begin{align*}
+        d\of{g(x), g\of{x_0}}
+        \leq d\of{g(x), f(x)} + d\of{f(x), f\of{x_0}} + d\of{f\of{x_0}, g\of{x_0}}
+        < \frac{\eps}{3} + \frac{\eps}{3} + \frac{\eps}{3}
+        = \eps
+    \end{align*}
+
+    Finally, we will show, remarkably, astonishingly, that on $\G$, the topologies of compact convergence and pointwise convergence actually agree! If we can show this crazy fact, we will effectively be done. The reason is that we already know $\G$ is compact with respect to the compact convergence topology, so this would make $\F$ is pre-compact in that topology. \todo{why... think}
+
+    It is easy to show that the topology of compact convergence is contained in the topology of pointwise convergence.\todo{have we alr shown maybe?} Let $g \in \G$. Consider $B_C\of{g, \eps} \cap \G$ for some $C$ compact and $\eps > 0$. Since $\G$ is equicontinuous, for every $x \in X$, there is some $U_x \ni x$ such that for all $g \in \G$ and $x' \in U_x$, $d\of{g(x), g\of{x'}} < \frac{\eps}{4}$. As $C$ is compact, we can find $x_1, \ldots, x_n \in C$ such that
+    \begin{align*}
+        C \ssq \bigcup_{i=1}^{n} U_{x_i}
+    \end{align*}
+    ie, we obtain a finite subcover from the open cover of all of the $U_x$s. Consider the set
+    \begin{align*}
+        N = \setst{h \in \G}{d\of{h\of{x_i}, g\of{x_i}} < \frac{\eps}{4} \text{ for all } 1 \leq i \leq n}
+    \end{align*}
+    This is a basic open neighbourhood of $g$ with respect to the \textbf{pointwise convergence topology} on $\G$. It turns out that $N \ssq B_C\of{f, \eps} \cap \G$. Indeed, for all $h \in N$, let $x \in C$. We know that there is some $1 \leq i \leq n$ such that $x \in U_{x_i}$ because $\setst{U_{x_i} \ssq X}{1 \leq i \leq n}$ an open cover of $C$. Now, since $g, h \in \G$ and $x, x_i \in U_{x_i}$, we have
+    \begin{align*}
+        d\of{g(x), h(x)}
+        \leq d\of{g(x), g\of{x_i}} + d\of{g\of{x_i}, h\of{x_i}} + d\of{h\of{x_i}, h\of{x}}
+        < \frac{3\eps}{4}
+    \end{align*}
+    \sorry (wrap up the overall proof)
+\end{proof} % Thank you
+\textbf{main points to remember for (let us say) the topology basic exam:} the interplay between different topologies is key. there is a devious little argument to show that the topologies of pointwise convergence and compact convergence coincide on $\G$. [Also seems important to remember to remember this proof for the basic exam...]
+%for nothing, sorry I was not helpful today (thank you!)
