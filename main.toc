@@ -65,4 +65,4 @@
 \contentsline {section}{\numberline {A}A Categorical Perspective}{88}{section.5.1}%
 \contentsline {subsection}{\numberline {A.1}Product Spaces}{88}{subsection.5.1.1}%
 \contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{88}{section.5.2}%
-\contentsline {chapter}{Bibliography}{90}{Item.107}%
+\contentsline {chapter}{Bibliography}{90}{Item.109}%
