@@ -1,0 +1,44 @@
+\section{Paths}
+
+Next, we take our first step on the path to defining the fundamental group(oid): defining paths!
+
+Throughout this section, let $X$ be a topological space.
+
+\begin{boxdefinition}[Path]
+    Fix points $x_0, x_1 \in X$. A \textbf{path in $X$ from $x_0$ to $x_1$} is a continuous function $\gamma : [0, 1] \to X$ such that $\gamma(0) = x_0$ and $\gamma(1) = x_1$.
+\end{boxdefinition}
+
+\subsection{Composing Paths}
+
+It turns out that paths can be composed, provided they are `compatible'.
+
+\begin{proposition}[Composing Paths]
+    Fix points $x_0, x_1, x_2 \in X$. If $\gamma$ is a path from $x_0$ to $x_1$ and $\delta$ is a path from $x_1$ to $x_2$, then the function
+    \begin{align*}
+        \eps : [0, 1] \to X : t \mapsto
+        \begin{cases}
+            \gamma\of{2t} & \text{ if } 0 \leq t \leq \frac{1}{2} \\
+            \delta\of{2t - 1} & \text{ if } \frac{1}{2} \leq t \leq 1
+        \end{cases}
+    \end{align*}
+    is a path between $x_0$ and $x_2$.
+\end{proposition}
+\begin{proof}
+    It is clear that $\eps$ is a well-defined function: at the point $t = \frac{1}{2}$,
+    \begin{align*}
+        \gamma\of{2t} = \gamma\of{1} = x_1 = \delta\of{0} = \delta\of{2t - 1}
+    \end{align*}
+    So indeed the function is well-defined.
+
+    All we need to show is that $\eps$ is continuous. But this is true because of a homework exercise\todo{Add sth here} in which we showed that if we have a space that is a union of two closed sets then we can continuous `glue' together continuous functions that agree on the overlap of these closed sets. So $\eps$ is the `gluing' of $\gamma$ of $\delta$, and is hence continuous.
+\end{proof}
+
+\begin{boxdefinition}[Composition of Paths]
+    Fix points $x_0, x_1, x_2 \in X$. If $\gamma$ is a path from $x_0$ to $x_1$ and $\delta$ is a path from $x_1$ to $x_2$, then the function $\eps : [0, 1] \to X$ defined as above is called the \textbf{composition} of $\gamma$ and $\delta$. We denote it $\delta \gamma$.
+\end{boxdefinition}
+
+The problem with this notion of composition, though, is that it is not associative: given paths $\gamma, \delta, \eps : [0, 1] \to X$ that are compatible, the compositions $\eps\of{\delta \gamma}$ and $\parenth{\eps \delta} \gamma$ have the same range, but they go at different speeds! So they're not quite the same function. Nevertheless, they are \textbf{homotopic}: a notion we will explore in the next subsection.
+
+\subsection{Path Homotopies}
+
+Next time!

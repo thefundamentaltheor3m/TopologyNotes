@@ -1,0 +1,178 @@
+\section{A Word on Category Theory}
+
+There is a so-called `structuralist' view of mathematics, which deems that structure-preserving maps between objects are just as important as the objects themselves. It is this that motivates our study of the theory of categories.
+
+\subsection{Objects and Morphisms}
+
+% The following is copied and pasted from Chapter 1 of HomAlgNotes (the Algebra 4 notes we decided not to live-TeX at some point). See  https://thefundamentaltheor3m.github.io/HomAlgNotes/main.pdf
+
+We begin by defining a category.
+
+\begin{boxdefinition}[Category]
+    A \textbf{category} consists of the following data.
+    \begin{enumerate}
+        \item A \textbf{class} of \textbf{objects}, usually denoted $\Obj{\CC}$.
+        \item For each pair of objects $A, B \in \Obj{\CC}$, a \textbf{class} of \textbf{morphisms} from $A$ to $B$, denoted $\HomC{A, B}$. This class can be empty.
+        \item For each object $A \in \Obj{\CC}$, a \textbf{distinguished morphism} $\id_A \in \HomC{A, A}$, known as the \textbf{identity morphism on $A$}.
+        \item For each ordered triple of objects $A, B, C \in \Obj{\CC}$, a \textbf{composition map}
+        \begin{align*}
+            \circ : \HomC{A, B} \times \HomC{B, C} &\to \HomC{A, C} : (f, g) \mapsto g \circ f
+        \end{align*}
+        such that
+        \begin{enumerate}[noitemsep, label = (\roman*)]
+            \item $\circ$ is associative, ie, for all objects $A, B, C, D \in \Obj{\CC}$, $f \in \HomC{A, B}$, $g \in \HomC{B, C}$, and $h \in \HomC{C, D}$, we have $(h \circ g) \circ f = h \circ (g \circ f)$.
+            \item For all objects $A, B \in \Obj{\CC}$ and morphisms $f \in \HomC{A, B}$, we have $f \circ \id_A = f$ and $\id_B \circ f = f$.
+        \end{enumerate}
+    \end{enumerate}
+\end{boxdefinition}
+
+We now introduce a wee bit o' notation before goin' forward.
+
+\begin{boxnotation}
+    We denote by $\Mor{\CC}$ the class of \textbf{all} morphisms in a category $\CC$. Moreover, for any $f \in \Mor{\CC}$, we denote by $\dom{f}$ its \textbf{domain} and by $\cod{f}$ its \textbf{codomain}.
+\end{boxnotation}
+
+There are numerous examples of categories, some familiar and some unfamiliar.
+
+\begin{boxexample}[Sets]
+    We can define a category $\Set$ whose objects are sets, whose morphisms are maps between sets, and in which the composition map is the standard composition of funtions.
+\end{boxexample}
+
+There is a slightly less familiar example that is of a computer scientific flavour.
+
+\begin{boxexample}[Pre-Orders]\label{Ch5:Eg:Pre-Order} % Nick Wu's talk
+    Let $X$ be any set. Let $\leq$ be a pre-order on $X$, ie, a binary relation that is reflexive, antisymmetric and transitive. We can define a category $\cycl{X, \le}$ such that
+    \begin{enumerate}
+        \item The objects of $\cycl{X, \le}$ are single-element sets containing the elements of $X$. Ie, if $X = \N$, then $\Obj{X} = \set{\set{0}, \set{1}, \set{2}, \ldots}$. In particular, $\Obj{X}$ is a \underline{set}---in fact, a set that is in bijection with $X$.
+        \item For any $\set{x}, \set{y} \in \Obj{X}$, there can be a unique function $f : \set{x} \to \set{y}$ (in the category of sets). In the category $\cycl{X, \le}$, we say define
+        \begin{align*}
+            \Hom_{\cycl{X, \le}}\!\parenth{\set{x}, \set{y}} =
+            \begin{cases}
+                \text{the sole function } \set{x} \to \set{y} & \text{if } x \le y \\
+                \emptyset & \text{otherwise}
+            \end{cases}
+        \end{align*}
+
+        \item We know that $\le$ is reflexive, so we have the identity morphism from any $\set{x}$ to itself.
+        \item Composition of functions is the standard set-theoretic composition of functions:
+        \begin{enumerate}[label = (\roman*)]
+            \item This is sensible because composition of functions and pre-orders are both transitive.
+            \item This is associative because the set-theoretic composition of functions is associative.
+            \item There does exist an identity on every object with respect to this composition operation because the pre-order is reflexive.
+        \end{enumerate}
+    \end{enumerate}
+\end{boxexample}
+
+Next, a more abstract example.
+
+\begin{boxexample}[Monoids]\label{Ch5:Eg:Monoids} % Nick Wu's talk
+    Let $M$ be a monoid with with operation $\times$ and identity $e$. We can view $M$ as a category $\CC$ with the following data.
+    \begin{enumerate}
+        \item There is only one object in this category. This object can be anything. We denote it $\star$. Ie, we have $\Obj{\CC} = \set{\star}$.
+        \item We can allow $M$ to act on $\star$ \underline{syntactically}. This means that we associate to any $x \in M$ a map $\star \to \star$, which we denote by an arrow from $\star$ to itself. When we say this action is \underline{syntactic}, we mean that we do not distinguish actions by their \textit{effects}, ie, we do not view these actions of elements of $M$ as maps from $\star$ to $\star$ (because in that case, we would need there to be enough maps from $\star$ to $\star$ to account for all elements of $M$). Instead, we view these actions as \textit{labels} on the arrows from $\star$ to itself.
+        \item The identity morphism on $\star$ is the action of the identity element $e \in M$.
+        \item Composition of morphisms is given by the monoid operation $\times$. This is associative because the monoid operation is associative, and the identity morphism is an identity with respect to this composition because it is associated with the identity element of the monoid.
+    \end{enumerate}
+    A specific thing that we can take $\star$ to be is the monoid $M$ itself (ie, $\Obj{\CC} = \set{M}$). Then, the morphisms in $\CC$ correspond to the monoid homomorphisms $M \to M$ by (left-)multiplication by elements of $M$. In other words, we describe $\CC$ by the standard action of $M$ on itself.
+\end{boxexample}
+
+Finally, the prototypical example that we will care about in this course.
+
+\begin{boxexample}[Topological Spaces]
+    We denote by $\Top$ the \textbf{category of topological spaces}, consisting of the following data:
+    \begin{align*}
+        \Obj{\Top} &= \text{The class of all topological spaces} \\
+        \HomC{A, B} &= C(A, B)
+    \end{align*}
+    for all objects $A, B \in \Top$. We know that this does, indeed, form a category because a composition of continuous functions is continuous, and moreover, the identity function from a topological space to itself is continuous.
+\end{boxexample}
+
+At first, it seems odd to say that the identity is a continuous function, because that is a standard example of a continuous bijection that \textit{isn't} a homeomorphism. We can reconcile this tension via the following observation (more like warning).
+
+\begin{boxwarning}
+    If $X$ is a set with topologies $\tau_1$ and $\tau_2$, then $\parenth{X, \tau_1}$ and $\parenth{X, \tau_2}$ are \textbf{distinct} objects in $\Top$.
+\end{boxwarning}
+
+Indeed, the set function $\id_X : X \to X$ may not be continuous, but this does not violate the requirement that the identity be a morphism, because such a function would not be an identity morphism \textit{in the category $\Top$}. Even if it \textit{is} continuous, it would be a non-identity morphism because its domain and codomain objects are distinct.
+
+Amongst the above examples, the category $\Set$ stands out as being the `largest': in the other two examples, the class of objects was actually a set. This is not true in $\Set$. That being said, in all our examples, the morphisms between any two objects formed a set. We make two definitions here to capture this idea.
+
+\begin{boxdefinition}[Locally Small Categories]
+    A category is \textbf{locally small} if the class of morphisms between any two objects is a set.
+\end{boxdefinition}
+
+In this module, we will not study any categories that are not locally small. We next define a category that is even more restrictive.
+
+\begin{boxdefinition}[Small Category]
+    A category is \textbf{small} if it is locally small and the class of objects is a set.
+\end{boxdefinition}
+
+All the examples we have discussed so far are of locally small categories. $\Set$, however, is not a small category, whereas pre-ordered sets and monoids are small categories.
+
+Finally, we define a construction that flips arrows in a category.
+
+\begin{boxdefinition}[The Opposite Category]
+    Given a category $\CC$, the \textbf{opposite category} $\CC\op$ is defined as follows.
+    \begin{enumerate}
+        \item The objects of $\CC\op$ are the same as the objects of $\CC$.
+        \item For each pair of objects $A, B \in \Obj{\CC}$, we define $\Hom_{\CC\op}(A, B) = \HomC{B, A}$.
+        \item For each object $A \in \Obj{\CC}$, the identity morphism in $\CC\op$ is the same as the identity morphism in $\CC$, i.e., $\id_A$.
+        \item For each ordered triple of objects $A, B, C \in \Obj{\CC}$, the composition map in $\CC\op$ is defined by reversing the order of composition in $\CC$, i.e., for $f \in \Hom_{\CC\op}(A, B)$ and $g \in \Hom_{\CC\op}(B, C)$, we define $g \circ f$ in $\CC\op$ to be $f \circ g$ in $\CC$.
+    \end{enumerate}
+    One can show that the above data does, indeed, form a category.
+\end{boxdefinition}
+
+\subsection{Functors}
+
+% Again, copied and pasted from Algebra 4 notes Chapter 1. See https://thefundamentaltheor3m.github.io/HomAlgNotes/main.pdf
+
+It turns out that we can define a meaningful notion of mapping categories to categories. We call such maps \textbf{functors}. There are two notions of functors: covariant functors and contravariant functors. When we don't specify whether a functor we're defining is covariant or contravariant, we will assume it to be covariant.
+
+\begin{boxdefinition}[Covariant Functor]
+    Given categories $\CC$ and $\DD$, a \textbf{covariant functor} $F : \CC \to \DD$ associates
+    \begin{enumerate}
+        \item To each object $A \in \abs{\CC}$, an object $F(A) \in \abs{\DD}$.
+        \item To each pair of objects $A, B \in \abs{\CC}$, a map $F : \HomC{A, B} \to \HomD{F(A), F(B)}$ such that
+        \begin{enumerate}[noitemsep, label = (\roman*)]
+            \item For all objects $A \in \abs{\CC}$, $F(\id_A) = \id_{F(A)}$.
+            \item For all objects $A, B, C \in \abs{\CC}$ and morphisms $f \in \HomC{A, B}$ and $g \in \HomC{B, C}$, $F(g \circ f) = F(g) \circ F(f)$.
+        \end{enumerate}
+    \end{enumerate}
+\end{boxdefinition}
+
+A \textbf{functor} is essentially something that associates objects to objects and arrows to arrows in a manner that preserves composition. Covariance means that the directions of the arrows are preserved. We also have a notion of functors that reverse arrows.
+
+\begin{boxdefinition}[Contravariant Functor]
+    Given categories $\CC$ and $\DD$, a \textbf{contravariant functor} $F : \CC \to \DD$ is a covariant functor $F : \CC\op \to \DD$.
+\end{boxdefinition}
+
+To some degree, we can view functors as `structure-preserving maps' between categories, ie, as `morphisms' between categories.
+
+\begin{boxexample}[The Category of Small Categories]
+    We denote by $\Cat$ the category whose objects are small categories and whose morphisms are functors between small categories. The identity morphism on a small category $\CC$ is the identity functor $\id_\CC : \CC \to \CC$. The composition operation on morphisms is the composition operation on functors.
+\end{boxexample}
+
+There are many examples of functors with which we are familiar.
+
+\begin{boxexample}[Exponential Functors]
+    Recall from \Cref{Ch1:Eg:Monoids} that monoids can be viewed as categories. Consider the monoids $\parenth{\N, 0, +}$ and $\parenth{\N, 1, \times}$. We can define a functor $F : \parenth{\N, 0, +} \to \parenth{\N, 1, \times}$ by $F(+) = \times$ and $F(n) = 2^n$. This is a functor because it preserves the monoid structure.
+\end{boxexample}
+
+It turns out we can say something about \textit{all} functors from posets to arbitrary categories (noting that a poset can be turned into a category via its pre-order structure, as shown in \Cref{Ch5:Eg:Pre-Order}).
+
+\begin{boxexample}
+    Let $\parenth{\P, \leq}$ be the poset $\set{p_1, p_2, p_3}$ with ordering $p_1 \leq p_2 \leq p_3$ and $p_1 \leq p_3$. The following commutative diagram represents all of $\parenth{\P, \leq}$:
+    \begin{cd*}
+        & p_2 \arrow[dr, "\leq"] & \\[1em]
+        p_1 \arrow[ur, "\leq"] \arrow[rr, "\leq"'] && p_3
+    \end{cd*}
+    A functor $F : \parenth{P, \leq} \to \CC$ for \textit{any} category $\CC$ is then just a commutative diagram of the above shape in $\CC$.
+\end{boxexample}
+
+% No worries - today was the best possible lecture for you not to write anything because I've barely written anything myself (I've copied and pasted from a hom alg course I did last year :DDDD)
+
+%my apologies for being so late (and very not helpful, though I imagine these notes yes indeed lmao are enjoyable for you to write - lovely (ie they are lovely notes) - also he said functors can be...viewed as commutative diagrams? ...that is interesting 
+
+% Yes indeed! In fact that is exactly how some authors define commutative diagrams to begin with. You define a category which is purely formal, whose objects and morphisms are arranged in exactly the way you want your commutative diagram to look. Then any functor from that to your category will correspond precisely to a commutative diagram of the desired shape
+
+Functors will be very important for the remainder of this course. Indeed, our objective, going forward, will be to define a nice functor $\pi_1$ from the category $\Top_*$ of pointed topological spaces to the category $\Grp$ of groups.

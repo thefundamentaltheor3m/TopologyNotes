@@ -65,8 +65,15 @@
 \contentsline {subsection}{\numberline {4.3.2}Pre-Compactness}{88}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Evaluation Maps}{88}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}The Arzelà-Ascoli Theorem}{89}{subsection.4.3.4}%
-\contentsline {chapter}{Appendices}{92}{chapter*.19}%
-\contentsline {section}{\numberline {A}A Categorical Perspective}{92}{section.5.1}%
-\contentsline {subsection}{\numberline {A.1}Product Spaces}{92}{subsection.5.1.1}%
-\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{92}{section.5.2}%
-\contentsline {chapter}{Bibliography}{94}{Item.111}%
+\contentsline {chapter}{\numberline {5}An Introduction to Algebraic Topology}{92}{chapter.5}%
+\contentsline {section}{\numberline {5.1}A Word on Category Theory}{92}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Objects and Morphisms}{92}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Functors}{96}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Paths}{98}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Composing Paths}{98}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Path Homotopies}{99}{subsection.5.2.2}%
+\contentsline {chapter}{Appendices}{100}{chapter*.20}%
+\contentsline {section}{\numberline {A}A Categorical Perspective}{100}{section.6.1}%
+\contentsline {subsection}{\numberline {A.1}Product Spaces}{100}{subsection.6.1.1}%
+\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{100}{section.6.2}%
+\contentsline {chapter}{Bibliography}{102}{Item.136}%
