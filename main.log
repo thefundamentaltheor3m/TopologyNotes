@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.17)  17 NOV 2025 21:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.18)  18 NOV 2025 02:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -45,9 +45,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language84). Reported on input line 105.
+(babel)             (\language85). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language84). Reported on input line 108.
+(babel)             (\language85). Reported on input line 108.
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
 Package babel Info: Importing font and identification data for english
@@ -2938,7 +2938,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [96]
 
-LaTeX Warning: Reference `Ch1:Eg:Monoids' on page 1 undefined on input line 158
+LaTeX Warning: Reference `Ch1:Eg:Monoids' on page 1 undefined on input line 160
 .
 
 
@@ -3014,7 +3014,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  58546 strings out of 474222
  1326832 string characters out of 5748732
- 2346407 words of memory out of 5000000
+ 2346406 words of memory out of 5000000
  79222 multiletter control sequences out of 15000+600000
  596285 words of font info for 142 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3072,7 +3072,7 @@ public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 sansmathfonts/ssmsam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sa
 nsmathfonts/ssmsbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/yhma
 th/yhcmex.pfb>
-Output written on main.pdf (103 pages, 761813 bytes).
+Output written on main.pdf (103 pages, 762333 bytes).
 PDF statistics:
  1586 PDF objects out of 1728 (max. 8388607)
  1376 compressed objects within 14 object streams

@@ -68,7 +68,7 @@
 \contentsline {chapter}{\numberline {5}An Introduction to Algebraic Topology}{92}{chapter.5}%
 \contentsline {section}{\numberline {5.1}A Word on Category Theory}{92}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Objects and Morphisms}{92}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Functors}{96}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.2}Functors}{97}{subsection.5.1.2}%
 \contentsline {section}{\numberline {5.2}Paths}{98}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Composing Paths}{98}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Path Homotopies}{99}{subsection.5.2.2}%
