@@ -1,14 +1,20 @@
-\section{Paths}
+\section{Homotopy}
 
 Next, we take our first step on the path to defining the fundamental group(oid): defining paths!
 
-Throughout this section, let $X$ be a topological space.
+Throughout this section, let $X$ be a topological space. A path is exactly what one would think.
 
 \begin{boxdefinition}[Path]
     Fix points $x_0, x_1 \in X$. A \textbf{path in $X$ from $x_0$ to $x_1$} is a continuous function $\gamma : [0, 1] \to X$ such that $\gamma(0) = x_0$ and $\gamma(1) = x_1$.
 \end{boxdefinition}
 
-\subsection{Composing Paths}
+A loop is also exactly what one would think.
+
+\begin{boxdefinition}[Loop]
+    Fix a point $x \in X$. A \textbf{loop in $X$ centred at $x$} is a path from $x$ to $x$.
+\end{boxdefinition}
+
+\subsection{A Word on Paths}
 
 It turns out that paths can be composed, provided they are `compatible'.
 
@@ -34,11 +40,192 @@ It turns out that paths can be composed, provided they are `compatible'.
 \end{proof}
 
 \begin{boxdefinition}[Composition of Paths]
-    Fix points $x_0, x_1, x_2 \in X$. If $\gamma$ is a path from $x_0$ to $x_1$ and $\delta$ is a path from $x_1$ to $x_2$, then the function $\eps : [0, 1] \to X$ defined as above is called the \textbf{composition} of $\gamma$ and $\delta$. We denote it $\delta \gamma$.
+    Fix points $x_0, x_1, x_2 \in X$. If $\gamma$ is a path from $x_0$ to $x_1$ and $\delta$ is a path from $x_1$ to $x_2$, then the function $\eps : [0, 1] \to X$ defined as above is called the \textbf{composition} of $\gamma$ and $\delta$. We denote it $\delta \star \gamma$ or simply $\delta \gamma$.
 \end{boxdefinition}
 
 The problem with this notion of composition, though, is that it is not associative: given paths $\gamma, \delta, \eps : [0, 1] \to X$ that are compatible, the compositions $\eps\of{\delta \gamma}$ and $\parenth{\eps \delta} \gamma$ have the same range, but they go at different speeds! So they're not quite the same function. Nevertheless, they are \textbf{homotopic}: a notion we will explore in the next subsection.
 
-\subsection{Path Homotopies}
+\subsection{Homotopies between Functions}
 
-Next time!
+For the remainder of this chapter, we use the following notation for a `rather nice' topological space with which we are already quite familiar.
+
+\begin{boxnotation}
+    Denote by $I$ the unit interval $[0, 1]$ endowed with the Euclidean topology.
+\end{boxnotation}
+
+for the remainder of this subsection, denote by $X$ and $Y$ two topological spaces. We now define a homotopy of two functions between topological space.
+
+\begin{boxdefinition}[Homotopy between Functions]
+    Let $f, g : X \to Y$ be continuous. A \textbf{homotopy from $f$ to $g$} is a continuous function $F : X \times I \to Y$ such that $F(x, 0) = f(x)$ and $F(x, 1) = g(x)$ for all $x \in X$.
+\end{boxdefinition}
+
+The picture we want to have in mind is the following.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=5]
+        \draw[->] (0, 0) -- (0, 1);
+        \node[left] at (0, 0.5) {$I$};
+        % \draw[->] (0, 0) -- (1, 0);
+        % \node[below] at (0.5, 0) {$X$};
+        \draw[dashed, blue] (0, 0) -- (1, 0);
+        \node[above, blue] at (0.5, 0) {$f$};
+        \draw[dashed, blue] (0, 1) -- (1, 1);
+        \node[below, blue] at (0.5, 1) {$g$};
+    \end{tikzpicture}
+    \caption{Homotopy of Functions}
+\end{figure}
+
+Recall that we previously sketched that a ``path from $x$ to $x'$ in $X$ is some continuous function $\gamma:I\rightarrow X$ satisfying $y(0)=x, y(1)=x'$. But now it's time for another definition:
+\begin{boxdefinition}[Path Homotopy]
+    Given $\gamma, \delta$ paths from $x$ to $x'$ points in $X$, we say that a ``path homotopy from $\gamma$ to $\delta$'' is a continuous $F:I\times I\rightarrow X$ satisfying $F(s,0)=y(s), F(s,1)=\delta(s)$ for all $s\in X$, and $F(0,t)=x, F(1,t)=x'$ for all $t\in I$. 
+\end{boxdefinition}
+Note that ``it is annoying'' both indices of the homotopy $F(s,t)$ take value in $I$, but remember what homotopy is.
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{tikzpicture}[scale=5]
+%         \draw[thick,  domain=-3:3] plot ({\x}, {0.3 \x^2 - 1});
+%         \draw[thick,  domain=-3:3] plot ({\x}, {-0.3 \x^2 + 1});
+%     \end{tikzpicture}
+%     \caption{Homotopy of Paths}
+% \end{figure}
+Recall the apparition last class which presented to us that for $\gamma$ a path from $x$ to $y$, $\delta$ a path from $y$ to $z$, then we could \textit{compose the paths} to get $\gamma\circ \delta(t)=\begin{cases}
+    &\gamma(2t)\text{ for }t\in [0,1/2]\\
+    &\delta(2t-1)\text{ for }t\in [1/2,1]
+\end{cases}$
+
+The following is an easy exercise. (``there will be a lot of these...'')
+
+\begin{boxexercise}
+    If $\gamma$ is a path homotopic to $\gamma'$, then for all `compatible' paths $\delta$, $\gamma \star \delta$ is homotopic to $\gamma' \star \delta$.
+\end{boxexercise}
+
+The homotopy in question is particularly nice, because the bit of the path corresponding to $\delta$ (which corresponds to ``time indices'' ranging from $0$ to $1$) is held constant.
+
+We also now go back to an example we saw earlier, where we said that $\gamma \star \parenth{\delta \star \eps}$ and $\parenth{\gamma \star \delta} \star \eps$ are not necessarily equal (where $\gamma, \delta, \eps$ are composable paths). However, these paths are, as it turns out, homotopic.
+
+\begin{boxexercise}\label{Ch5:Exo:Path_comp_assoc_up_to_homotopy}
+    Let $X$ be a space and let $\gamma, \delta, \eps : [0, 1] \to X$ be composable paths. The paths
+    \begin{align*}
+        \gamma \star \parenth{\delta \star \eps}
+        \quad \text{and} \quad
+        \parenth{\gamma \star \delta} \star \eps
+    \end{align*}
+    are homotopic.
+\end{boxexercise}
+
+It is also possible to show that homotopy is an equivalence relation on the space of paths from one point to another.
+
+\begin{boxproposition}\label{Ch5:Prop:Homotopy_equiv_rel}
+    Given points $x, y \in X$, the relation $\sim$ on the set of all paths between $x$ and $y$ expressed by path homotopy is an equivalence relation.
+\end{boxproposition}
+\begin{proof}[Proof sketch]
+    We don't give a full proof because ``life is too short''...
+    \begin{enumerate}
+        \item \underline{Reflexivity.}
+        The identity is a homotopy.
+
+        \item \underline{Symmetry.}
+        Run the clock backwards.
+
+        \item \underline{Transitivity.}
+        You can do some trickery...
+    \end{enumerate}
+\end{proof}
+
+How sneakily he defined the ``homotopy groupoid.''
+
+\subsection{The Homotopy Groupoid and the Fundamental Group}
+
+Something that \Cref{Ch5:Prop:Homotopy_equiv_rel} allows us to conclude is that the operation $\star$ of composition of paths is really an operation on the space of equivalence classes of paths, up to homotopy.
+
+Suppose now that we have paths $\gamma, \delta, \epsilon$ with $\gamma$ from $x_0$ to $x_1$ and $\epsilon$ from $x_2$ to $x_3$, and $\delta$ from $x_1$ to $x_2$, it is also ``easy'' to show (``I keep saying that 'this is easy', but that's because it is") that $\gamma \star (\delta \star \epsilon)$ is homotopic to $(\gamma \star \delta)\star \epsilon$.
+
+\begin{boxdefinition}[The Fundamental Group]
+    Let $(X, x)$ be a pointed space. We define the \textbf{fundamental group of $X$ based at $x$} to be
+    \begin{align*}
+        \quotient{\set{\text{Loops in $X$ centred at $x$}}}{\text{homotopy}}
+    \end{align*}
+    That is, $\pi_1(X, x)$ is the set of path homotopy classes of loops at $x$.
+\end{boxdefinition}
+
+We can, in fact, think of $\star$ as a binary operation on the fundamental group.
+
+\begin{boxproposition}
+    The fundamental group of a pointed space $(X, x)$ is indeed a group under $\star$.
+\end{boxproposition}
+\begin{proof}
+    The usual litany of properties...
+    \begin{enumerate}
+        \item \underline{Associativity.}
+        \Cref{Ch5:Exo:Path_comp_assoc_up_to_homotopy}
+
+        \item \underline{Identity.} Just pick the ``stupidest possible loop'': the homotoy class of the loop $\id_x : I \to X : t \mapsto x$. This is indeed a two-sided identity of this binary operation (because you're thinking about things up to homotopy).
+
+        \item \underline{Inverses.} Let $\gamma$ be a loop at $x$. Define $\gamma\inv : I \to X : t \mapsto \gamma(1 - t)$. Let $[\gamma]$ be the path homotopy class of $\gamma$. It is not hard to show that $[\gamma] \star \brac{\gamma\inv} = \brac{\id_x}$. Composition the other way works identically.
+    \end{enumerate}
+\end{proof}
+
+Moreover, we have machinery that allows us to be basepoint-independent in path-connected spaces.
+
+\begin{boxexercise}
+    Fix points $x, y \in X$. If there is a path from $x$ to $y$, then $\pi_1(X, x) \cong \pi_1(X, y)$.
+\end{boxexercise}
+
+\begin{boxlemma}
+    Let $\gamma : I \to X$ be a path from $x$ to $x'$ be a path from $x$ to $x'$ in $X$, and let $f : X \to Y$ be continuous. Then,
+    \begin{enumerate}
+        \item $f \circ \gamma : I \to Y$ is a path from $f(x)$ to $f\of{x'}$ in $Y$.
+        \item If $\gamma$ is path-homotopic to another path $\delta$ from $x$ to $x'$, then $f \circ \gamma$ and $f \circ \delta$ are path-homotopic in $Y$.
+    \end{enumerate}
+\end{boxlemma}
+``Honestly, it's a work of a moment to...just do it! It makes perfect sense if you think about the types.
+
+Now here's the fun really getting started.''
+
+\subsection{Functoriality of $\pi_1$}
+
+In this subsection, we show that $\pi_1$ is, in fact, a functor from the category of pointed topological spaces to the category of groups.
+
+First, we recall that a morphism in the category of pointed topological spaces is a continuous function that preserves basepoints. If we can show that such functions induce group homomorphisms in some `natural' sense, then we can use that as a candidate for how $\pi_1$ should behave on morphisms.
+
+\begin{boxproposition}[Behaviour of $\pi_1$ on Morphisms]
+    Let $x, y$ be distinguished points in $X$ and $Y$. Consider a morphism $f : (X, x) \to (Y, y)$ in the category of pointed topological spaces. $f$ induces a group homomorphism
+    \begin{align*}
+        \pi_1(f) : \pi_1(X, x) \to \pi_1(Y, y) : \brac{\gamma} \mapsto \brac{f \circ \gamma}
+    \end{align*}
+\end{boxproposition}
+\begin{proof}
+    
+\end{proof}
+
+We are now ready to show that $\pi_1$ respects the composition structure of $\Top_*$.
+
+\begin{boxtheorem}[Functoriality of $\pi_1$] \hfill
+    \begin{enumerate}
+        \item For all $(X, x) \in \Top_*$,
+        \begin{align*}
+            \pi_1\of{\id_{(X, x)}} = \id_{\pi_1(X, x)}
+        \end{align*}
+
+        \item For all $(X, x), (Y, y), (Z, z) \in \Top_*$ and morphisms $f : (X, x) \to (Y, y)$ and $g : (Y, y) \to (Z, z)$,
+        \begin{align*}
+            \pi_1\of{g \circ f} = \pi_1(g) \circ \pi_1(f)
+        \end{align*}
+    \end{enumerate}
+\end{boxtheorem}
+
+\subsection{First Examples of Fundamental Groups}
+
+In this subsection, we give a few first examples of the fundamental groups of common spaces.
+
+\begin{boxexample}[Disc]
+    Since the disc is contractible, its fundamental group is trivial.
+\end{boxexample}
+
+\begin{boxexample}[Circle]
+    $\pi_1\of{S^1} \cong \Z$. The choice of basepoint is immaterial because $S^1$ is path-connected.
+\end{boxexample}
+
+Incidentally, we can use the above two facts to prove Brouwer's Fixed Point Theorem in a very pleasant way!
