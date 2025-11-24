@@ -1,0 +1,110 @@
+\section{Covering Spaces}
+
+Throughout this section, let $X$ and $E$ be topological spaces, and let $\pi : E \to X$ be a continuous, surjective function.
+
+\subsection{Definitions and First Examples}
+
+We begin by defining what it means for $E$ to be a covering space and for $\pi$ to be a covering map.
+
+\begin{boxdefinition}[Covering]\label{Ch5:Def:Covering}
+    We say that $\pi$ is a \textbf{covering map} if for every $x \in X$ and every open set $U \ssq X$ containing $x$, there exist disjoint, open subsets $\parenth{V_i}_{i \in I}$ of $E$ such that
+    \begin{enumerate}
+        \item $\pi\inv[U] = \bigcup_{i \in I} V_i$
+        \item $\pi \restriction V_i$ is a homemorphism between $V_i$ and $U$
+    \end{enumerate}
+    If $\pi$ is a covering map, we call $E$ a \textbf{covering space}. Together, a covering map and a covering space are often just called a \textbf{covering}.
+\end{boxdefinition}
+
+The picture we want to have in mind is the following.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \foreach \y in {3, 4, 5, 6, 7} {
+            \draw (-1, \y) -- (1, \y);
+            \labelledpoint{0}{\y}{0}{0}{};
+        }
+        \draw (0, 5) circle (2.5);
+    \end{tikzpicture}
+    \caption{Caption}
+\end{figure}
+
+A classic example of a covering space is the helix as a covering space of the circle.
+
+\begin{boxexample}[The Helix and the Circle]
+    \sorry
+\end{boxexample}
+
+\subsection{Path Lifting}
+
+In this subsection, we show that we can lift paths in a space to paths in a covering space.
+
+First, we say, in more precise terms, what it means to be a \textit{lifting}. There is, in algebraic topology (or rather, in category theory), the notion of a \textbf{lifting problem}. Such a problem asks, given objects and morphisms as follows, with $\pi$ being epic, to find a morphism $\delta$ making the following diagram commute:
+\begin{cd*}
+	& E \\
+	I & X
+	\arrow["\pi", two heads, from=1-2, to=2-2]
+	\arrow["{\exists \delta}", dashed, from=2-1, to=1-2]
+	\arrow["\gamma"', from=2-1, to=2-2]
+\end{cd*}
+These suggestively named objects and morphisms correspond exactly to the following property about covering spaces. In fact, the following theorem is even stronger, as it guarantees \textit{uniqueness} of $\delta$, with the notation $I$ corresponding to $[0, 1]$ endowed with the Euclidean topology.
+
+\begin{boxtheorem}[Path Lifting Theorem]\label{Ch5:Thm:Path_Lifting}
+    Let $\pi : E \to X$ be a covering map. Fix points $x, y \in X$, and let $\gamma : I \to X$ be a path from $x$ to $y$ in $X$. Let $x' \in E$ be some point such that $\pi\of{x'} = x$. Then there is a unique lifting $\delta$ of $\gamma$ such that $\delta(0) = x'$.
+\end{boxtheorem}
+\begin{proof}
+    For each $t \in I$, we will apply the definition of being a covering map (\Cref{Ch5:Def:Covering}): denote by $U_t \ni \gamma(t)$ an open neighbourhood of $\gamma(t)$ such that $U(t)$ is uniformly covered (which we know exists). Observe that
+    \begin{align*}
+        \setst{\gamma\inv\!\brac{U_t} \ssq [0, 1]}{t \in [0, 1]}
+    \end{align*}
+    forms an open covering of $[0, 1]$. Since $[0, 1]$ is compact, it is easy to find $t_0 = 0 < t_1 < \cdots < t_n = 1$ such that for all $0 \leq i \leq n$, $\gamma\!\brac{\brac{t_i, t_{i + 1}}}$ is contained in an ope subset of $X$ which is uniformly covered. Call such a subset $W_i$
+
+    We now construct the desired path $\delta$ in the covering space $E$. Define $\delta(0) = e$, $p\of{\delta(0)} = p(e) = x = \gamma(0) = \gamma\of{t_0}$. Then, $\gamma\!\brac{\brac{t_0, t_1}} \ssq W_0$.
+
+    As $W_0$ is uniformly covered, we can find an open set $W_0^* \ssq E$ such that $e \in W_0^*$ and $p \restriction W_0^*$ is a homeomorphism between $W_0^*$ and $W_0$.
+
+    To define $\delta(t)$ for $t \in \brac{t_0, t}$, let $\delta(t)$ be the unique $z \in W_0^*$ such that $p(z) = \gamma(t)$. That is, $\delta$, on the interval $\brac{t_0, t}$, really looks like a composition of $p\inv$ and $\gamma$:
+    \begin{align*}
+        \delta \restriction \brac{t_0, t}
+        &= \parenth{p \restriction W_0^*}\inv \circ \parenth{\gamma \restriction \brac{t_0, t}}
+    \end{align*}
+
+    And since that was so much fun, we'll do it again. Suppose that $i<n$, and we have defined $\delta\restriction\brac{t_0, t_i}$ such that $\delta$ is continuous and $p(\delta (t))=\gamma(t)$ for all $t\in \brac{t_0, t_i}$ - in particular, $p(\delta(t_i))=\gamma(t_i)$ and $\gamma\!\brac{\brac{t_i, t_{i + 1}}} \ssq W_i$ is open and uniformly covered. Therefore, we can find $W_i^*$ so that $\delta\of{t_i} \in W_i^*$ and $p \restriction W_i^*$ is a homeomorphism from $W_i^*$ to $W_i$. In particular,
+    \begin{align*}
+        \delta \restriction \brac{t_i, t_{i + 1}}
+        &= \parenth{p \restriction W_i^*}\inv \circ \parenth{\gamma \restriction \brac{t_i, t_{i + 1}}}
+    \end{align*}
+    Thus, we have shown that a lifting of $\delta$, with $p \circ \delta = \gamma$ and $\delta(0) = e$, \textbf{exists}. % I think he swapped delta and gamma again
+
+    % I'm denoting delta old by delta and delta by delta'
+    To show that $\delta$ is unique, we will show that for each $i$, $\delta \restriction \brac{t_0, t_i}$ is unique. Let $\delta'$ denote a lifting that isn't necessarily equal to the lifting $\delta$ constructed above. We will show that $\delta' \restriction \brac{t_0, t_i = \delta \restriction \brac{t_0, t_i}}$ for all $i$.
+
+    We will show this for $i = 1$ and then wave our hands around and claim that this is enough.
+
+    Observe that $\delta(t) \in W_0^*$ for all $t \in \brac{t_0, t_1}$. Moreover, $\delta'(0) = e \in W_0^*$. If we can show that $\delta'(t) \in W_0^*$ for all $t \in \brac{t_0, t_1}$, then $\delta \restriction \brac{t_0, t_1} = \delta' \restriction \brac{t_0, t_1}$.
+    
+    We will do this with a connectedness argument: as $W_0$ is uniformly covered, $p^{-1}[W_0]\setminus W_0^*$ is an open set. Now, if there exists some $t\in [1+0, t_1]$ such that $\delta(t)\notin W_0^*$, then $\delta^{-1}[W_0^*]$ and $\delta^{-1}[p^{-1}[W_0]\setminus W_0^*]$ will disconnect $[t_0, t_1]$ (and hence we reach contradiction).
+\end{proof}
+
+\subsection{Homotopy Lifting}
+
+It turns out we can do the same thing as above, except with homotopies rather then paths. The idea is to do exactly what we did above, except \textit{inside a space of paths}, whatever that means...
+
+\begin{boxdefinition}
+    Let $p:E\rightarrow X$ be a covering map, and let $\gamma, \delta$ be paths in $X$ which are path homotopic (i.e. $\gamma(0)=\delta(0)=x, \gamma(1)=\delta(1)=y$) via a path homotopy $F:[0,1]\times [0,1]\rightarrow X$, and let $e\in E$ be such that $p(e)=x$. We then let $\gamma', \delta$ be the unique lifts...
+\end{boxdefinition}
+
+We are not going to get a careful proof of homotopy lifting because it is extremely lifting - we are just going to wave our hands and say we will do something similar to the proof of path lifting. % In this manner, Professor Cummings has decided he will `cheat [us] in the most beningn possible way.'
+
+\subsection{Simply-Connected Spaces}
+
+One interesting thing we can do using fundamental groups is describe homotopy properties of a space.
+
+\begin{boxdefinition}[Simply-Connected Spaces]
+    We say $X$ is \textbf{simply-connected} if $X$ is path-connected and $\pi_1\of{X, x} = 0$ for all (any) $x \in X$.
+\end{boxdefinition}
+
+Recall, from \Cref{Ch5:Def:Covering}, that $p:E\rightarrow X$ is a ``covering map'' if $p$ is a continuous and surjective map such that for all $x\in X$ there exists an open neighborhood $U$ of $x$ satisfying $p^{-1}[U]=\cup_{i\in I}V_i$ with the $V_i$ disjoint open sets such that $p\restriction_{V_i}$ a homomorphism between $V_i$ and $U$ for all $i\in I$.
+
+Additionally, we have seen, in \Cref{Ch5:Thm:Path_Lifting}, that paths in spaces lift uniquely to paths in covering.
+
