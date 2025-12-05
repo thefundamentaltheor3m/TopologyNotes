@@ -96,6 +96,10 @@ It turns out we can do the same thing as above, except with homotopies rather th
 
 We are not going to get a careful proof of homotopy lifting because it is extremely lifting - we are just going to wave our hands and say we will do something similar to the proof of path lifting. % In this manner, Professor Cummings has decided he will `cheat [us] in the most beningn possible way.'
 
+\section{Spaces with Convenient Homotopy Properties}
+
+The material in this section will be more relevant to the basic exam than the course final.
+
 \subsection{Simply-Connected Spaces}
 
 One interesting thing we can do using fundamental groups is describe homotopy properties of a space.
@@ -108,3 +112,321 @@ Recall, from \Cref{Ch5:Def:Covering}, that $p:E\rightarrow X$ is a ``covering ma
 
 Additionally, we have seen, in \Cref{Ch5:Thm:Path_Lifting}, that paths in spaces lift uniquely to paths in covering.
 
+We now define the notion of homotopy equivalence of \textit{spaces}.
+
+\begin{boxdefinition}[Homotopy Equivalence of Spaces]
+    We say that topological spaces $X$ and $Y$ are \textbf{homotopy equivalent} or \textbf{homotopic} if there are continuous functions $f : X \to Y$ and $g : Y \to X$ such that $f \circ g$ is homotopic to $\id_Y$ and $g \circ f$ is homotopic to $\id_X$.
+\end{boxdefinition}
+
+Recall the path lifting theorem (\Cref{Ch5:Thm:Path_Lifting}), which tells us that if $\pi:E\rightarrow X$ is a covering map and $\gamma:I\rightarrow X$ is a path from $x$ to $y$ in $X$ and we have $x'\in E$, then there is a unique(!) path $\delta:I\rightarrow E$ such that $\delta(0)=x'$ and $p\circ \delta=\gamma$.
+
+We now also recall the covering space we have for the circle $S=\{(x,y):x^2+y^2=1\}$, which is the helical structure $H=\{(\cos(2\pi t), \sin(2\pi t), t):t\in \R\}$ - we can see that $H$ is a pretty nice space, in that $H$ is homeomorphic to $\R$ and simply-connected.
+
+\begin{boxdefinition}[Homotopy Lifting]
+    Let $X$ be a topological space and let $\pi : E \to X$ be a covering. If $\alpha, \beta : I \to X$ are both paths from $x$ to $y$ in $X$, homotopic via some $H : I \times I \to X$, 
+\end{boxdefinition}
+We now let $x'\in E$ such that $\pi(x')=x$, and $\alpha':I\rightarrow X$ its unique $\alpha'(0)=x'$ with $p\circ \alpha'=\alpha$ and $\beta':I\rightarrow X$ such that $\beta'(0)=x'$ and $p\circ \beta'=\beta$.
+
+Here is a theorem we will prove by a picture (which ``you may find suggestive'').
+
+\begin{boxtheorem}
+    In the notation above, $\alpha'$ is path homotopic to $\beta'$ via the unique path homotopy $H'$, with $p \circ H' = H$.
+\end{boxtheorem}
+\begin{proof}[Proof by picture]
+    Consider the following:
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \draw (-2, -2) rectangle (4, 4);
+            % \node[]{$H'$} at (0, 0);
+        \end{tikzpicture}
+        \caption{Caption}
+        \label{fig:placeholder}
+    \end{figure}
+\end{proof}
+
+This is called \textbf{monodromy}.
+
+It turns out that there is an equivalent characterisation of simply-connected spaces.
+
+\begin{boxproposition}
+    A topological space $X$ is simply-connected if and only if for any two points $x, y \in X$, any two paths from $x$ to $y$ are homotopic.
+\end{boxproposition}
+\begin{proof}
+    \sorry
+\end{proof}
+
+Finally, we define a weaker version of simply-connectedness.
+
+\begin{boxdefinition}[Local Simply-Connectedness]
+    A topological space $X$ is \textbf{locally simply-connected} if every point in $X$ has a simply-connected neighbourhood.
+\end{boxdefinition}
+
+Next, we discuss another nice (and related) class of spaces, known as contractible spaces.
+
+\subsection{Contractible Spaces}
+
+Fix a topological space $X$.
+
+\begin{boxdefinition}[Contractibility]
+    We say $X$ is \textbf{contractible} if $\id_X$ is homotopic to a constant map, ie, if there exists some $x_0 \in X$ such that $\id_X$ is homotopic to $f : X \to X : x \mapsto x_0$).
+\end{boxdefinition}
+
+It is easy to show that this is a stronger property than simply-connectedness.
+
+\begin{boxproposition}
+    If $X$ is contractible then $X$ is simply-connected.
+\end{boxproposition}
+\begin{proof}
+    \sorry
+\end{proof}
+
+However, the converse is not true.
+
+\begin{boxcexample}[A Simply-Connected but \underline{Non}-Contractible Space]
+    The space
+    \begin{align*}
+        S^2 := \setst{(x, y, z) \in \R^3}{x^2 + y^2 + z^2 = 1}
+    \end{align*}
+    is simply-connected but not contractible. \newline
+
+    The idea is to show that the closed ball
+    \begin{align*}
+        B = \setst{(x, y, z) \in \R^3}{x^2 + y^2 + z^2 \leq 1}
+    \end{align*}
+    satisfies the Brouwer Fixed-Point property. The reason for this is that there is no retraction from $B$ to $S^2$---really, we can use the same technique we used for the disc in $\R^2$. This will then show that $S^2$ is not contractible.
+\end{boxcexample}
+
+This is quite related to the broader theory of retractions.
+
+\subsection{Retractions and Homotopy Retractions}
+
+Let $X$ be a topological space and $A$ a subspace of $X$. Recall the following definition (which appeared in HW 10, Question 4).
+
+\begin{boxdefinition}[Retraction]
+    A \textbf{retraction from $X$ to $A$} is a continuous function $f : X \to A$ such that $f \restriction A = \id_A$. If such a retraction exists, we call $A$ a \textbf{retract of $X$}.
+\end{boxdefinition}
+
+Note that for any point $x_0 \in X$, the singleton $A = \set{x_0}$ is a retract because the constant map with value $x_0$ is a retraction.
+
+We can define a more general type of retraction called a homotopy retraction.
+
+\begin{boxdefinition}[Homotopy Retraction]
+    We say that a function $H : X \times [0, 1] \to X$ is a \textbf{homotopy retraction of $X$ to $A$} if
+    \begin{enumerate}[label = HR \arabic*.]
+        \item $H$ is continuous
+        \item $H(x, 0) = x$ for all $x \in X$
+        \item $H(x, 1) \in A$ for all $x \in X$
+        \item $H(a, 1) = a$ for all $a \in A$
+    \end{enumerate}
+    ie, if $H$ is a homotopy between $\id_X$ and a retraction from $X$ to $A$. In this case, we say that $A$ is a \textbf{homotopy retract of $X$}.
+\end{boxdefinition}
+
+We noted that a singleton of $X$ is always a retract of $X$. However, it is not always a homotopy retract of $X$.
+
+\begin{boxproposition}
+    A singleton of $X$ is a homotopy retract of $X$ only if $X$ is contractible.
+\end{boxproposition}
+\begin{proof}
+    \sorry
+\end{proof}
+
+We can make an even stronger definition (literally).
+
+\begin{boxdefinition}[Strong Homotopy Retraction]
+    We say that a function $H : X \times [0, 1] \to X$ is a \textbf{strong homotopy retraction from $X$ to $A$} if $H$ is a homotopy retraction and satisfies the additional property that
+    \begin{enumerate}[label = HR \arabic*., start=5]
+        \item $H(a, t) = a$ for all $a \in A$ and $t \in [0, 1]$
+    \end{enumerate}
+\end{boxdefinition}
+
+It turns out homotopy retracts have some intuitive properties that we can use to understand them better.
+
+\begin{boxlemma}
+    If $A$ is a homotopy retract of $X$, then $X$ and $A$ are homotopy equivalent.
+\end{boxlemma}
+\begin{proof}
+    Let $H : X \times [0, 1] \to X$ be a homotopy retraction. Let $i_A : A \to X$ be the inclusion map and let $j_A : X \to A$ be defined so that $j_A(x) = H(x, 1)$. Observe that
+    \begin{align*}
+        j_A \circ i_A = \id_A \qquad \qquad i_A \circ j_A = H(\ph, 1)
+    \end{align*}
+    just by unfolding definitions. Thus, $H$ can be viewed as a homotopy from $\id_X$ to $i_A \circ j_A = \id_A$, which tells us that $H$ is a homotopy from $X$ to $A$.
+\end{proof}
+
+\section{Universal Covers}
+
+Throughout this section, let $X$ be a \underline{path-connected} space.
+
+\begin{boxdefinition}[Universal Cover]
+    A \textbf{universal cover} for $X$ is a simply-connected covering space $E$.
+\end{boxdefinition}
+
+\begin{boxexample}[A Universal Cover]
+    The helix is a universal cover of the circle.
+\end{boxexample}
+
+Recall the definition of a locally simply-connected space (\sorry).
+
+\begin{boxlemma}
+    Recall that $X$ is path-connected. If $X$ is additionally locally simply-connected, then $X$ has a universal cover.
+\end{boxlemma}
+\begin{proof}[Proof sketch]
+    The idea of the proof is that if $\pi : E \to X$ is a covering map with $E$ simply-connected, then for all $x \in X$, there is a bijection between $E$ and the set of path-homotopy classes of paths $\gamma$ beginning at $x$. Remember that we do have homotopy lifting. The way this bijection is going to work is the following: we will forget about homotopy for a minute, and imagine that we have a path $\gamma$ living downstairs in $X$. We will fix upstairs some $x'$ in the fibre of $x$ and lift the destination of $\gamma$ to some $y'$. $y'$ depends only on the path homotopy class of $\gamma$. Moreover, $E$ is path-connected, which implies that we have a surjection. Since $E$ is simply-connected, any two paths in $X$ from $x'$ to $y'$ are path-homotopic. Thus, we have a bijection.
+\end{proof}
+
+This result (and its proof) are included more ``for [our] culture'' than anything else.
+
+We are now in a position to talk about ``winding numbers''...
+%very nice
+\section{The Fundamental Group of the Circle}
+
+In this section, we compute the fundamental group of the circle in a `roundabout' or `longwinded' way using the concept of winding numbers. (See what I did there?)
+
+\subsection{Winding Numbers}
+
+We begin by fixing some notation for the remainder of this subsection.
+
+\begin{boxlnotation}
+    Throughout this subsection, denote
+    \begin{align*}
+        S &= \setst{(x, y) \in \R^2}{x^2 + y^2 = 1} \\
+        H &= \setst{\parenth{\cos\of{2\pi t}, \sin\of{2 \pi t}, t} \in \R^3}{t \in \R}
+    \end{align*}
+\end{boxlnotation}
+
+We view the helix $H$ as a covering space of $S$ via the covering map that forgets the third coordinate. We fix a basepoint $q = (1, 0, 0) \in H$.
+
+``It's the last week of class now'' (can you believe it?) ``so I may start saying `this is easy' when talking about things which maybe aren't so easy."
+
+\begin{boxdefinition}[Winding Number of a Loop]
+    To begin, it is \textbf{easy} to see that, via the homotopy lifting theorem, that the map from $\pi_1(S, p)$ defined such that $[\alpha]\mapsto$ (the winding number of $\alpha$) is well-defined.
+\end{boxdefinition}
+This can be seen by homotopy lifting (sure). It is then also \textbf{easy} to see that this map is a homomorphism from $\pi_1(S,p)$ to $(\Z, +)$. Now ``algebra is easy'', so presumably it won't be too much trouble in this instance to go from a homomorphism to an isomorphism - we just have to show that this map is injective and surjective.
+
+It is easy to see that this map is surjective - in particular, it will suffice to find a path with winding number $n$, and the obvious choice of $a_n(s)=(\cos(2\pi ns),\sin(2\pi n s))$ with lift $a_n'(s)=(\cos(2\pi ns),\sin(2\pi n s), ns)$ works very fine.
+
+To show that this homomorphism is also injective, we show that its kernel is trivial. Let $[a] \in \pi_1(S, p)$ be in the kernal. That is, assume its winding number is zero. Then, if $\alpha'$ is a lift of this loop, then $\alpha'(1) = 0$. <Moreover, $\alpha'$ is a loop in $H$. $H$ is simply connected, so $\alpha'$ is path homotopic to a trivial loop. We have $a = \pi \circ \alpha'$, so $\alpha$ is path homotopic to $\pi \alpha'$. 
+
+``We can now do something `fun', for rather small values of `fun'" - in particular, we consider two copies of the circle $S$ joined at a point (i.e. the wedge of two copies of $S$). Now that we have the one (nontrivial) fundamental group of $S$, we can find another! Here we have the free group on two generators!
+
+Notice that wedges and amalgamated products are both pushouts. $\pi_1$ preserves pushouts (under the right conditions)! That's essentially the Seifert-van Kampen Theorem.
+
+% Wed 3 Dec - this material won't be on the final but MIGHT be on the basic exam.
+
+Recall that a space is simply connected if and only if it is path connected and its fundamental group (at any basepoint) is trivial. Indeed, path-connectedness means that the choice of basepoint does not matter.
+
+\section{Group Actions}
+
+In this section, we explore what group actions have to do with algebraic topology. This is perhaps the most sophisticated bit of algebra we will see in this course, and it's in the very last lecture. While it isn't quite relevant for the final, it is relevant for the basic exam. Yippie!
+
+% \subsection{A Recap on Group Actions}
+
+Recall the definition of a group action.
+
+\begin{boxdefinition}[Group Action]
+    Let $G$ be a group and $X$ be a set. An \textbf{action of $G$ on $X$} is a group homomorphism from $G$ to the automorphism group of $X$.
+\end{boxdefinition}
+
+We use the word automorphism here \underline{quite deliberately}: we mean automorphisms in an appropriate category. So if a group is acting on a set, then the automorphism group is the group of permutations. If the group is acting on a vector space, the automorphism group is the group of linear automorphisms.
+
+Let $G$ be a group acting on a set $X$. We know that the orbits of $G$ partition $X$ into equivalence classes. That is, we have the following equivalence relation on $X$.
+
+\begin{boxlemma}
+    The relation $\sim$ defined on $X$, where we say $x \sim y$ iff there is some $g \in G$ such that $g(x) = y$, is an equivalence relation on $X$.
+\end{boxlemma}
+
+We call the equivalence classes of $X$ under $\sim$ the \textbf{orbits} of the action.
+
+\begin{boxnotation}
+    We will denote the set of orbits on $X$ by $\quotient{X}{G}$. For any $x \in X$, we will denote its orbit by $G(x)$ or $[x]$.
+\end{boxnotation}
+
+\subsection{Groups Acting on Topological Spaces}
+
+The kind of group actions which are \textit{most relevant to us today} concern the case where $G$ is a group acting on a topological space $X$. In this case, the appropriate choice of automorphism group is the homeomorphism group, and we consider actions of the form $\rho:G\rightarrow \Homeo{X}$ - where $\Homeo{X}$ is the group of homeomorphisms $X\rightarrow X$.
+
+Now for a definition which may initially seem rather strange:
+\begin{boxdefinition}[Properly Discontinuous Action]
+    We say that $\rho$ is ``properly discontinuous'' to mean that for every $x\in X$, there is an open $U$ containing $x$ such that we have $U\cap \rho(g)[U]=\emptyset$ for all $g\neq 1_G$ (the identity of $G$).
+\end{boxdefinition}
+%One fact we will now take (as fact) is that if $\rho$ is properly discontinuous and we have some $\pi:X\rightarrow \quotient{X}{G}$ with $\pi:x\mapsto[x]$
+ % sorry, thanks - never be, you rarely do
+% Nws - thank you :) 
+% Thank you for getting properly discontinuous - and sorry for cutting you off in the middle - just didn't want you doing more work than needed :D
+We have an interesting fact about properly discontinuous group actions.
+
+\begin{boxlemma}
+    If $\rho$ is a properly discontinuous group action, then $\pi : X \to \quotient{X}{G} : x \mapsto G(x)$ is a covering map, where we endow $\quotient{X}{G}$ with the quotient topology, then $\pi$ is a covering map and $X$ is a covering space.
+\end{boxlemma}
+\begin{proof}
+    
+\end{proof}
+
+\subsection{Groups Acting on Simply-Connected Spaces}
+
+We will be interested in an important special case of this.
+
+\begin{boxtheorem}
+    Let $X$ be a simply-connected space and let $G$ be a group. Let $\rho : G \to \Homeo{X}$ be an action of $G$ on $X$. In this case,
+    \begin{enumerate}
+        \item $\rho$ is properly discontinuous.
+        \item $\quotient{X}{G}$ is path-connected.
+        \item $\pi : X \surj \quotient{X}{G}$ is a universal cover.
+        \item $\pi_1\of{\quotient{X}{G}} \cong G$. \cite[Chapitre 5, Corollaire 11.3, p. 117]{EPFLTopologie}
+    \end{enumerate}
+\end{boxtheorem}
+
+We will not prove these facts.\todo{ADD REFS TO THESE FACTS FROM EPFL TOPOLOGIE}
+
+\begin{proof}[Proof sketch of 4th point]
+    For each $g \in G$ and $x \in X$, we have $g(x) \in X$. Let $\gamma_g$ be a path from $x$ to $g(x)$, and we know such a path exists because $X$ is simply-connected (and thus path-connected). Indeed, the choice of path doesn't matter, because $X$ is simply-connected, so any two paths we choose will be homotopic to each other (and we really only care about homotopy classes of paths). %sorry about that % Not at all! Thank you for helping out
+
+    Observe that $\pi \circ \gamma_g$ is a loop based at $\pi(x) = \pi\of{g(x)}$. Define $\phi(g) := \brac{\pi \circ \gamma_g} \in \pi_1\of{\quotient{X}{G}, [x]}$. This is well-defined.
+
+    \begin{itemize}
+        \item \underline{$\phi$ is a group homomorphism.}
+        Let $g, h \in G$. fix a path $\gamma_g$ from $x$ to $g(x)$ and a path $\gamma_h$ from $x$ to $h(x)$. By literal ``on-the-nose composition'', we can conclude that $\rho(g) \circ \gamma_h$ is a path from $g(x)$ to $g\of{h(x)}$. So $\gamma_g \star \parenth{\rho(g) \circ \gamma_h}$ is a path from $x$ to $g\of{h(x)} = (gh)(x)$.
+
+        We can use this path to compute $\phi(gh)$. Indeed,
+        \begin{align*}
+            \phi\of{gh} = \brac{\pi \circ \parenth{\gamma_g \star \parenth{\rho(g) \circ \gamma_h}}}
+        \end{align*}
+        This looks moderately terrible, but it's not as bad as you might think, because $\pi$ is the map that takes any path upstairs to its equivalence class downstairs. So the above is just equal to the equivalence class of $\brac{\parenth{\pi \circ \gamma_g} \star \parenth{\pi \circ \gamma_h}}$. And this is just $\phi(g) \phi(h)$.
+
+        Indeed, the key point that makes this all work is that
+        \begin{align*}
+            \pi\of{g\of{\gamma_h(t)}} = \pi\of{\gamma_h(t)}
+        \end{align*}
+        for all $t \in [0, 1]$.
+
+        \item \underline{$\phi$ is surjective.}
+        We should be ok by path-lifting.
+
+        Any loop based at $[x] = \pi(x) \in \quotient{X}{G}$ lifts uniquely to a path from $x$ to some $y \in X$ satisfying $\pi(y) = \pi(x)$. Choose $g \in G$ so that $g(x) = y$.
+
+        \item \underline{$\pi$ is injective.}
+        Here we would use the fact that $\rho$ is properly discontinuous :  To sketch some remnants left on the board, we have $\gamma_g(0)=\gamma_g(1)$ with $\gamma_g(0)=x$ and $\gamma_g(1)=g\cdot x$, and then the proper discontinuity of $\rho$ would somehow imply the triviality of the kernel? \sorry  (fill in details for exercise!)
+        
+    \end{itemize}
+\end{proof}
+
+\begin{boxexample}[The Fundamental Group of the Circle]
+    Let $X = \R$ and let $G = \Z$. Consider the action of $G$ on $\R$ by translation. Consider the map $\pi : \R \to \quotient{\R}{\Z}$, and view it as being from the reals to $S^1$. (It is not hard to show that the natural topology on $S^1$ is indeed the quotient topology induced by $\pi$ on $\quotient{\R}{\Z}$.) We can then apply the previous result to conclude, immediately, that $\pi_1\of{S^1} \cong \Z$.
+\end{boxexample}
+
+We have time for only one more thing, which won't even be on the basic exam.
+
+\subsection{Deck Transformations}
+
+In complete generality, we have the following.
+
+\begin{boxdefinition}[Deck Transformation]
+    Let $\pi : E \to X$ be a covering map. A \textbf{deck transformation} of $\pi$ is an element $\psi \in \Homeo{E}$ such that $\pi(e) = \pi\of{\psi(e)}$ for all $e \in E$.
+\end{boxdefinition}
+The picture we want to have in mind is that $\psi$ is a homeomorphism that permutes the fibres of $\pi$.
+
+\begin{boxlemma}
+    If $X$ is simply connected and $\rho : G \to \Homeo{X}$ is a properly discontinuous action, with $\pi : X \surj \quotient{X}{G}$ being the associated universal cover, the group of deck transformations on $X$ is isomorphic to $G$ (which is isomorphic to $\pi_1\of{\quotient{X}{G}}$).
+\end{boxlemma}
+
+The point is that $\rho$ itself sets up a deck transformation.

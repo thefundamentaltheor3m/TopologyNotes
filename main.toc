@@ -81,9 +81,19 @@
 \contentsline {subsection}{\numberline {5.4.1}Definitions and First Examples}{108}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Path Lifting}{109}{subsection.5.4.2}%
 \contentsline {subsection}{\numberline {5.4.3}Homotopy Lifting}{110}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Simply-Connected Spaces}{111}{subsection.5.4.4}%
-\contentsline {chapter}{Appendices}{112}{chapter*.23}%
-\contentsline {section}{\numberline {A}A Categorical Perspective}{112}{section.6.1}%
-\contentsline {subsection}{\numberline {A.1}Product Spaces}{112}{subsection.6.1.1}%
-\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{112}{section.6.2}%
-\contentsline {chapter}{Bibliography}{114}{Item.155}%
+\contentsline {section}{\numberline {5.5}Spaces with Convenient Homotopy Properties}{111}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Simply-Connected Spaces}{111}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Contractible Spaces}{113}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Retractions and Homotopy Retractions}{114}{subsection.5.5.3}%
+\contentsline {section}{\numberline {5.6}Universal Covers}{115}{section.5.6}%
+\contentsline {section}{\numberline {5.7}The Fundamental Group of the Circle}{116}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Winding Numbers}{116}{subsection.5.7.1}%
+\contentsline {section}{\numberline {5.8}Group Actions}{118}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Groups Acting on Topological Spaces}{118}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Groups Acting on Simply-Connected Spaces}{119}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Deck Transformations}{121}{subsection.5.8.3}%
+\contentsline {chapter}{Appendices}{122}{chapter*.25}%
+\contentsline {section}{\numberline {A}A Categorical Perspective}{122}{section.6.1}%
+\contentsline {subsection}{\numberline {A.1}Product Spaces}{122}{subsection.6.1.1}%
+\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{122}{section.6.2}%
+\contentsline {chapter}{Bibliography}{124}{Item.165}%

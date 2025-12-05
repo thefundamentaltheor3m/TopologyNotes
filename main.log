@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.24)  24 NOV 2025 21:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  5 DEC 2025 21:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -45,9 +45,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language22). Reported on input line 105.
+(babel)             (\language77). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language22). Reported on input line 108.
+(babel)             (\language77). Reported on input line 108.
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
 Package babel Info: Importing font and identification data for english
@@ -3089,7 +3089,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[110])) (./Chapters/Appendices/Appendices.tex
+[110]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3098,10 +3098,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[111] (./Chapters/Appendices/A_Cat_Thy.tex)
-(./Chapters/Appendices/B_Gen_Tips.tex [112
+[111]
 
-]))
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[112]
+Underfull \hbox (badness 10000) in paragraph at lines 190--192
+
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3112,9 +3122,137 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [113]
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[114]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[115]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[116]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[117]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[118]
+
+LaTeX Warning: Citation 'EPFLTopologie' on page 119 undefined on input line 375
+.
+
+
+Overfull \hbox (8.30006pt too wide) in paragraph at lines 379--379
+\T1/xcmss/m/n/12 THESE 
+ []
+
+
+Overfull \hbox (6.70322pt too wide) in paragraph at lines 379--379
+\T1/xcmss/m/n/12 FACTS 
+ []
+
+
+Overfull \hbox (4.62042pt too wide) in paragraph at lines 379--379
+\T1/xcmss/m/n/12 FROM 
+ []
+
+
+Overfull \hbox (23.2686pt too wide) in paragraph at lines 379--379
+\T1/xcmss/m/n/12 TOPOLO- 
+ []
+
+
+Overfull \hbox (8.30006pt too wide) in paragraph at lines 379--379
+\T1/xcmss/m/n/12 THESE 
+ []
+
+
+Overfull \hbox (6.70322pt too wide) in paragraph at lines 379--379
+\T1/xcmss/m/n/12 FACTS 
+ []
+
+
+Overfull \hbox (4.62042pt too wide) in paragraph at lines 379--379
+\T1/xcmss/m/n/12 FROM 
+ []
+
+
+Overfull \hbox (23.2686pt too wide) in paragraph at lines 379--379
+\T1/xcmss/m/n/12 TOPOLO- 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[119]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[120])) (./Chapters/Appendices/Appendices.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[121] (./Chapters/Appendices/A_Cat_Thy.tex)
+(./Chapters/Appendices/B_Gen_Tips.tex [122
+
+]))
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[123]
+
 LaTeX Warning: Empty bibliography on input line 57.
 
-[114] 
+[124] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./main.aux)
  ***********
@@ -3132,7 +3270,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2FF35C26C6663F6410707D20083FF6F2;17001.
+(rerunfilecheck)             Checksum: 84AEF51DA053C438CF9F54F3D5DB8496;19023.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -3143,13 +3281,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58840 strings out of 474222
- 1332937 string characters out of 5748732
- 2345743 words of memory out of 5000000
- 79444 multiletter control sequences out of 15000+600000
+ 59134 strings out of 474222
+ 1338194 string characters out of 5748733
+ 2346027 words of memory out of 5000000
+ 79680 multiletter control sequences out of 15000+600000
  600505 words of font info for 157 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 106i,19n,110p,808b,2307s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 106i,19n,110p,945b,2307s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
 , replaced by a fixed one
@@ -3204,10 +3342,10 @@ sansmathfonts/ssmsam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sa
 nsmathfonts/ssmsbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sans
 mathfonts/ssmsbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/yhmath/
 yhcmex.pfb>
-Output written on main.pdf (115 pages, 810206 bytes).
+Output written on main.pdf (125 pages, 846729 bytes).
 PDF statistics:
- 1755 PDF objects out of 2073 (max. 8388607)
- 1529 compressed objects within 16 object streams
- 592 named destinations out of 1000 (max. 500000)
- 861 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1899 PDF objects out of 2073 (max. 8388607)
+ 1662 compressed objects within 17 object streams
+ 650 named destinations out of 1000 (max. 500000)
+ 941 words of extra memory for PDF output out of 10000 (max. 10000000)
 
