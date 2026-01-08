@@ -1,6 +1,6 @@
 \section{Some ``Completely Trivial Combinatorics''}
 
-Fix a topological space $X$.
+Fix a topological space $X$ (as per usual) and get ready to do some fishing.
 
 \subsection{Directed Sets and Nets}
 
@@ -25,13 +25,13 @@ It is easy to extend the definition, by induction, to show that for any directed
 
         \item Let $X$ be a topological space and $x \in X$ a point. Define
         \begin{align*}
-            \D \setst{U \ssq X}{U \text{ is open and } x \in U}
+            \D =\setst{U \ssq X}{U \text{ is open and } x \in U}
         \end{align*}
         $\D$ is ordered by the relation $U \leq V \iff V \ssq U$, and with this ordering, forms a directed set.
     \end{enumerate}
 \end{boxexample}
 
-Recall that at the start of the section, we fixed a topological space $X$. We define a \textbf{net in $X$} to be a \textit{sequence in $X$ indexed by a directed set}.
+Recall that at the start of the section, we fixed a topological space $X$. We define a \textbf{net in $X$} to be a ``sequence'' in $X$ indexed by a directed set.
 
 \begin{boxdefinition}[Net]\label{Ch2:Def:Net}
     A \textbf{net in $X$} is a function $\D \to X$, where $\D$ is a nonempty directed set. We denote a net by $\parenth{x_a}_{a \in \D}$, just as we would any sequence.
@@ -48,16 +48,15 @@ What do we mean when we use words like ``eventually'' and ``frequently''? Let's 
 \end{boxdefinition}
 
 \begin{boxdefinition}[Frequency of Occurrence]
-    \sorry
+   With the same notion as above, we say that $P$ \textbf{occurs frequently} if for all $a\in \D$ there exists some $b\in \D$ such that $P(X_b)$ holds in $X$.
 \end{boxdefinition}
 
 Next, we state what it means for a net to converge.
 
 \begin{boxdefinition}[Convergence]
-    \sorry
-\end{boxdefinition}
+    We say that the net $(X_a)_{a\in \D}$ \textbf{converges to }$x\in X $ if for all open $U$ containing $x$, the net is eventually in $U$ (i.e. for each $U$ there exists some $a_U\in \D$ such that $b\geq a_U\implies x_b\in U$). \end{boxdefinition}
 
-We can say something about \sorry.
+We can say something so many ways...
 
 \begin{boxproposition}
     Consider a subspace $A \ssq X$ and a point $x \in X$. TFAE:
@@ -74,20 +73,22 @@ We can say something about \sorry.
 \begin{proof}\hfill
     \begin{description}
         \item[\underline{$(1) \implies (2)$.}]
-        \sorry % "Essentially just definitions"
+        This is essentially just definitions. If we have a net $(x_a)_{a\in \D}$ with all its points in $A$ which converges to $x\in X$, then every neighbourhood of $x$ mus have nonempty intersection with $A$ - and this just so happens to be one of our favourite equivalent characterizations of when $x\in \cl \of{A}$.
 
         \item[\underline{$(2) \implies (1)$.}]
         Consider the directed set
         \begin{align*}
-            \D \setst{U \ssq X}{U \text{ is open and } x \in U}
+            \D =\setst{U \ssq X}{U \text{ is open and } x \in U}
         \end{align*}
-        ordered by the relation $U \leq V \iff V \subseteq U$ (the third example in \Cref{Ch2:Eg:Dir_Sets}). We claim we can find a net $\parenth{x_U}_{U \in \D}$ such that $x_U \in U \cap A$. \sorry
+        ordered by the relation $U \leq V \iff V \subseteq U$ (the third example in \Cref{Ch2:Eg:Dir_Sets}). We claim we can find a net $\parenth{x_U}_{U \in \D}$ such that $x_U \in U \cap A$. 
+        
+        Indeed, if $x\in \cl \of{A}$ then (as stated above) every neighbourhood of $x$ has nonempty intersection with $A\implies U\cap A\neq \emptyset$ for every open $U$ with $x\in U$. So, for each $U$ we can choose some $x_U$, and given any fixed $U\in \D$, if $V\geq U$ then $x_V\in V\cap A\ssq U\cap A\ssq U$ - so indeed this net converges to $x$, and every point of the net is in $A$ (and we're done).
     \end{description}
 \end{proof}
 %``there is fly in the ointment''
 %``I'll tell you this for free''
 %``it's good to know the actual definition of a subnet if you want to take the topology basic exam''
-It is an ``amusing (if not very useful) fact'' that a space is Hausdorff if and only if nets have limits.
+It is an ``amusing (if not very useful)[and somewhat obvious] fact'' that a space is Hausdorff if and only if convergent nets have unique limits.
 
 \subsection{Subnets}
 %thanks, sorry about that - (haha) if you say so
@@ -100,7 +101,7 @@ Before we define what a subnet is, we define a property of maps between directed
     Let $\E, \D$ be directed posets. We say a function $\phi : \E \to \D$ is \textbf{cofinal} if for all $d \in \D$, there is some $e \in \E$ such that $d \leq \phi(e)$.
 \end{boxdefinition}
 
-For the Topology Basic Exam, it is ``good to know what the actual definition of a subnet is.'' Sounds like sage advice!(!!)
+For the Topology Basic Exam, it is ``\textbf{good to know what the actual definition of a subnet is.}'' Sounds like sage advice!(!!) 
 
 \begin{boxdefinition}[Subnet]\label{Ch2:Def:Subnet}
     Let $\parenth{x_d}_{d \in \D}$ be a net in $X$. A \textbf{subnet} of this is some net $\parenth{y_e}_{e \in \E}$ together with a map $\phi : \E \to \D$ such that
@@ -111,23 +112,26 @@ For the Topology Basic Exam, it is ``good to know what the actual definition of 
     \end{enumerate}
 \end{boxdefinition}
 
-Now that we have the right definition of a subnet, we define a very tempting mistake to make. It is tempting to define the property of being a subnet to be a specialisation of the definintion given in \Cref{Ch2:Def:Subnet} to the case where $\E \ssq \D$ and $\phi$ is the inclusion. While there do exist subnets of this form, not every subnet takes this form.
+Now that we have the right definition of a subnet, we define a very tempting mistake to make. It is tempting to define the property of being a subnet to be a specialisation of the definintion given in \Cref{Ch2:Def:Subnet} to the case where $\E \ssq \D$ and $\phi$ is the inclusion. While there do exist subnets of this form, not every subnet takes this form - we will see a few note-worthy examples soon.
 
 \subsection{Ultranets}
 
 This closely resembles the theory of filters and ultrafilters from set theory (or from Bourbaki, or from the topological corners of \mathlib).
 
 \begin{boxdefinition}[Ultranet]\label{Ch2:Def:Ultranet}
-    Let $X$ be a topological space and let $\parenth{x_d}_{d \in \D}$ be a net. We say that $\parenth{x_d}_{d \in \D}$ is an \textbf{ultranet} if for all $Y \ssq X$, \textit{at least one} of the following holds:
+    Let $X$ be a topological space and let $\parenth{x_d}_{d \in \D}$ be a net. We say that $\parenth{x_d}_{d \in \D}$ is an \textbf{ultranet} if for all $Y \ssq X$, \textit{one} of the following holds:
     \begin{enumerate}
-        \item There is some $a \in \D$ such that for all $b \geq a$, we have $x_b \in Y$
-        \item There is some $a \in \D$ such that for all $b \geq a$, we have $x_b \notin Y$
+        \item There is some $a \in \D$ such that for all $b \geq a$, we have $x_b \in Y$.
+        \item There is some $a \in \D$ such that for all $b \geq a$, we have $x_b \notin Y$.
     \end{enumerate}
+    In other words, $\parenth{x_d}_{d \in \D}$ either eventually lies in $Y$ or eventually lies in the complement of $Y$.
 \end{boxdefinition}
 
-The reason we said \textit{at least one} of the conditions should hold is that the two are not mutually exclusive. \sorry\todo{Give example where both hold}
+Note that the notions of eventually lying in $Y$ and eventually lying in the complement of $Y$ are mutually exclusive. The sole reason for this is that $\D$ is directed: if all points with index above $a$ lie in $Y$ and all points with index above $a'$ lie in $X \setminus Y$, we get a contradiction when we consider an index greater than both $a$ and $a'$ (which exists because $\D$ is directed). If $\D$ is not directed, then it is possible for the above conditions to not be mutually exclusive.
 
-This is related to the concept of locales in Grothendieck topology.
+% The reason we said \textit{at least one} of the conditions should hold is that the two are not mutually exclusive \textcolor{red}{ - or aren't they actually (mutually exclusive)? isn't} $\D$ \textcolor{red}{a directed set? teresa is suspicious...}. \sorry\todo{Give example where both hold}  % Teresa is right to be suspicious, this is nonsense - directedness means the notions are mutually exclusive. Unless the definition of an ultranet is wrong. But I don't think it is because it agrees with the Wikipedia definition - https://en.wikipedia.org/wiki/Net_(mathematics)#Ultranets
+
+It turns out the notion of ultranets is related to the concept of locales in Grothendieck topology. This is not something we will explore here.
 
 Professor Cummings leaves us with the following ``utterly trivial remark''.
 

@@ -4,13 +4,13 @@ To set the stage, recall that in a metric space $X$ with $A \ssq X$, we have
 \begin{align*}
     \cl(A) = \setst{x \in X}{\exists \parenth{a_n}_{n \in \N} \st a_n \in A \text{ and } a_n \to x \text{ as } n \to \infty}
 \end{align*}
-Moreover, recall that a metric space $X$ is compact if and only if $X$ is sequentially compact, in the sense that every sequence has a convergent subsequence.
+Moreover, recall that a metric space $X$ is compact if and only if $X$ is sequentially compact, in the sense that every sequence has a convergent subsequence - however in a general topological space, the two notions are not necesarily equivalent.
 
-We will show that in an arbitrary topological space, we can replace sequences with nets and subnets and show that they still hold.
+However, we will show that in an arbitrary topological space - replacing sequences and subsequences with nets and subnets - every net having a convergent subnet is indeed equivalent to compactness.
 
 \subsection{Compactness and Sequantial Compactness}
 
-While we know that compactness and sequential compactness are not equal in general topological spaces, we show that they \textit{are} if we use nets instead.
+So in case you thought all this was too general to be of any importance (which of course you did not), here's a reason to care about nets:
 
 \begin{boxtheorem}
     Let $X$ be a topological space. The following are equivalent.
@@ -22,28 +22,40 @@ While we know that compactness and sequential compactness are not equal in gener
 \begin{proof} \hfill
     \begin{description}
         \item[\underline{$(2) \implies (1)$.}]
-        Suppose that every net has a convergent subnet. Define an open cover $\setst{U_i}{i \in I}$ and define \sorry % Fill in deets of directed poset and desired sequence
+        Suppose that every net has a convergent subnet. If we assume, towards contradiction, that $X$ is not compact, then there must exist some open cover $\setst{U_i}{i \in I}$ with no finite subcover - equivalently, for all $a\in \D:=\{A\ssq I: |A|<\aleph_0\}$, we have that  $\bigcup_{i\in a}U_i\neq X$.
+        
+        As you may have guessed from our suggestive definition of $$\D:=\{A\ssq I: |A|<\aleph_0\}$$ we can make this set (the set of all finite subcollections $A$ of indices in $I$) into a directed set by letting $a\leq b$ exactly when $a\ssq b$. As the union of any two finite sets is finite, given $a,b\in \D$ we have $a\cup b\in \D$ with $a,b\leq a\cup b$, so indeed $\D$ is a directed set.
 
-        Let $\parenth{x_a}_{a \in \D}$ be such that
-        \begin{align*}
-            x_a \in \bigcap_{i \in a} F_i
-        \end{align*}
-        We know a convergent subnet exists. Let $\parenth{y_b}_{b \in \E}$ be such a subnet, with associated map $\phi : \E \to \D$, and say that $\parenth{y_b}_{b \in \E}$ converges to $y \in X$. We claim that
+        Letting $F_i=X\setminus U_i$ for each $i\in I$, it follows from $\bigcup_{i\in a}U_i\neq X$ that for all $a\in \D$ we must have $X\setminus \left(\bigcup_{i\in a}U_i\right)=\bigcap_{i\in a}F_i\neq \emptyset$. (Given choice, as per usual) we now construct a net, indexed by $\D$, by choosing some
+            $x_a \in \bigcap_{i \in a} F_i$
+        for all $a\in \D$.
+
+        
+        We now (supposedly) have a net $(x_a)_{a\in \D}$ in $X$, and we know that if we have a net then a convergent subnet exists. Let $\parenth{y_b}_{b \in \E}$ be such a subnet, with associated map $\phi : \E \to \D$, and say that $\parenth{y_b}_{b \in \E}$ converges to $y \in X$. We claim that
         \begin{align*}
             y \in \bigcap_{i \in I} F_i
         \end{align*}
-        Indeed, if this is not true, then there is some $i \in I$ such that $y \notin F_i$. That is, $y \in X \setminus F_i$, which is open because $F_i$ is closed. Moreover, we know that $y_b \to y$. By the definition of convergence, there is some $c \in \E$ such that for all $c' \in \E$, if $c' \geq c$ then $y_{c'} \in X \setminus F_i$.
+        (which would contradict the fact that $\bigcap_{i\in I}F_i=X\setminus \left(\bigcup_{i\in I}U_i\right)=\emptyset$ by construction). 
+        
+        So (to get our bearings) if we can show that the limit of our subnet $(y_b)_{b\in \E}$ of the net $(x_a)_{a\in \D}$ is indeed in $\bigcap_{i\in I}F_i$ we will have arrived at contradiction, and we will be done. This is then our new goal, and we will show that this must be the case (i.e. that if the subnet converges to $y$, then we must have $y\in\bigcap_{i\in I}F_i$) with contradiction - a contradiction inside a contradiction!.
+
+        
+        Proceeding, suppose for (our little) contradiction (to arrive at our grand contradiction) that the limit of our subnet $y$ is not in $\bigcap_{i\in I}F_i$, in which case there is some $i \in I$ such that $y \notin F_i$. That is, $y \in X \setminus F_i$, which is open because $F_i$ is closed. Moreover, by the definition of convergence (of our subnet $(y_b)_{b\in \E}$ to $y$), there is some $c \in \E$ such that for all $c' \in \E$, if $c' \geq c$ then $y_{c'} \in X \setminus F_i$.
 
         Our setup essentially tells us that for all $i \in I$ and $a \in \D$,
         \begin{align}
             a \geq \set{i} \iff i \in a \iff x_a \in F_i
             \label{Ch2:Eq:Subnets_seq_compact_setup_mem_order}
         \end{align}
-        Since $\phi$ is cofinal, there is some index $\bar{c} \in \E$ such that $\phi\of{\bar{c}} \geq \set{i}$ (that is, $i \in \phi\of{\bar{c}}$). Let $e \in \E$ be such that $e \geq c, \bar{c}$ (such an $e$ exists by directedness). Then,
+        Since $\phi$ is cofinal, there is some index $\bar{c} \in \E$ such that $\phi\of{\bar{c}} \geq \set{i}$ (that is, $i \in \phi\of{\bar{c}}$). Let $e \in \E$ be such that $e \geq c, \bar{c}$ (such an $e$ exists by directedness). Then, since $\phi(e)\geq c'$ and $y_b\rightarrow y$, we must have
         \begin{align*}
             x_{\phi(e)} = y_e \in X \setminus F_i
         \end{align*}
-        Indeed, $\phi(e) \geq \phi\of{\bar{c}} \geq \set{i}$, with the ordering being inclusion. Therefore, $i \in \phi(e)$. But \eqref{Ch2:Eq:Subnets_seq_compact_setup_mem_order} tells us that this is equivalent to $x_{\phi(e)} \in F_i$, which is a contradiction.
+        However, since $\phi(e) \geq \phi\of{\bar{c}} \geq \set{i}$, it follows also that we must have $i \in \phi(e)$ such that
+        \begin{align*}
+            x_{\phi(e)}=y_e\in \bigcap_{j\in \phi(e)}F_j=F_i\cap \left(\bigcap_{j\in \phi(e)}F_j\right)\ssq F_i
+        \end{align*}
+        So we reach our (little) contradiction, and conclude of the limit of our subnet that $y\in \bigcap_{i\in I}F_i$, from which we reach our initial (grand) contradiction (completing this direction).
 
         \underline{$(1) \implies (2)$.}
         Let $X$ be compact. Let $\parenth{x_a}_{a \in \D}$ be a net. For each $a \in \D$, define
@@ -60,7 +72,7 @@ While we know that compactness and sequential compactness are not equal in gener
         \begin{align*}
             x_a \in \bigcap_{i=1}^{n} F_{a_i}
         \end{align*}
-        Since $X$ is compact, we can produce, by ``dubious magic'', some
+        Since $X$ is compact (i.e. using the characterization of compactness in terms of families of closed sets with FIP, as was essentially used and could hopefully easily be proved by one who understands our proof of the previous direction) we can produce, by ``dubious magic'', some
         \begin{align*}
             x \in \bigcap_{a \in \D} F_a
         \end{align*}
@@ -74,13 +86,19 @@ While we know that compactness and sequential compactness are not equal in gener
         \begin{align*}
             F_b := \cl\of{\setst{x_c \in X}{c \geq b}}
         \end{align*}
-        then we have $x \in F_b$, so the triple intersection
+        then we have $x \in F_b$ (by a popular characterization of what it means to have $x\in \cl \of{A}$), so we must also have the triple intersection
         \begin{align*}
             \setst{x_c \in c}{c \geq b} \cap U_1 \cap U_2
         \end{align*}
-        is nonempty. Find $c \geq b$ such that $x_c \in U_1 \cap U)2$. Then, we have $\parenth{c, U_1 \cap U_2} \in \E$. Moreover, $c \geq b \geq a_1, a_2$ and $U_1 \cap U_2 \subseteq U_1, U_2$. Thus, $\parenth{a_1, U_1}, \parenth{a_2, U_2} \leq_{\E} \parenth{c, U_1 \cap U_2}$.
+         nonempty, in which case we can find a $c \geq b$ such that $x_c \in U_1 \cap U_2$. Then, we have $\parenth{c, U_1 \cap U_2} \in \E$. Moreover, $c \geq b \geq a_1, a_2$ and $U_1 \cap U_2 \subseteq U_1, U_2$. Thus, $\parenth{a_1, U_1}, \parenth{a_2, U_2} \leq_{\E} \parenth{c, U_1 \cap U_2}$.\\
 
-        To define a subnet, we need first a map $\phi : \E \to \D$ satisfying the desired conditions. Define
+         \begin{boxwarning}
+    When defining a subnet, always first make sure the index set is in fact directed. Then one needs to  specify the values of the function $\phi$, and then make sure that $\phi$ is a valid map (``as advertised'').
+\end{boxwarning}
+
+    Having already taken heed of the first part of the warning, we must remember also to take care of the second part - in other words, to have actually found a subnet, we need to find a map $\phi : \E \to \D$ satisfying the desired conditions. 
+        
+        (Note here an example of a subnet with an indexing set $\E$ which is, in some sense larger that that of our net! Remember it, as it will come back to haunt you.) We define
         \begin{align*}
             \phi : \E \to \D : \parenth{a, U} \mapsto a
         \end{align*}
@@ -90,13 +108,13 @@ While we know that compactness and sequential compactness are not equal in gener
             \item $\phi$ is cofinal because for all $a \in \D$, we can see that $\parenth{a, X} \in \E$ has the property that $a \leq \phi\of{\parenth{a, X}} = a$.
             \item For all $\parenth{a, U} \in \E$, clearly $y_{\parenth{a, U}} = x_a$ by definition.
         \end{enumerate}
-        Lastly, we show that $\parenth{y_{\parenth{a, U}}}_{\parenth{a, U} \in \E}$ converges to $x$.
-        \sorry
+        Lastly, we show that $\parenth{y_{\parenth{a, U}}}_{\parenth{a, U} \in \E}$ converges to $x$. This is easy, since if we have some $U$ an open neighborhood of $x$ and we want an index $c$ such that $y_b\in U$ for all $b\geq c$, then any index of the form $(a,U)$ will suffice - so we're done.
     \end{description}
 \end{proof}
 %``going back to my habitual heavy-handed hints''?
 %``seeing as this is the afternoon of the heavy-handed hint''
 %when defining a subnet, make sure the index set is directed. then need to define values in subnet, and specify the values of the function \phi, and then make sure that \phi is a vlid map
+Remember again the warning to be careful with subnets:
 \begin{boxwarning}
     When defining a subnet, always first make sure the index set is in fact directed. Then one needs to  specify the values of the function $\phi$, and then make sure that $\phi$ is a valid map (``as advertised'').
 \end{boxwarning}
@@ -117,7 +135,7 @@ Before we describe how the concept of closures being defined by sequences is gen
     % sure
 \end{remark}
 
-For the remainder of this subsection,
+For the remainder of this subsection, we fix
 \begin{itemize}
     \item A topological space $X$
     \item Directed posets $\D, \E, \F$
@@ -162,7 +180,7 @@ There is an equivalent characterisation of cluster points in terms of subnets. T
         \item[\underline{$(2) \implies (1)$.}]
         ``As you may have guessed, that was the less painful part of the proof.''
         
-        Let $x$ be a cluster point of $\parenth{x_d}_{d \in \D}$. We are going to cook [up a convergent subnet of $x$]. Define
+        Let $x$ be a cluster point of $\parenth{x_d}_{d \in \D}$. We are going to cook [up a convergent subnet of $x$]. Define (an index set which should look familiar)
         \begin{align*}
             \E := \setst{\parenth{a, U}}{a \in \D, \, U \ni x, \, U \text{ is open}, \, x_a \in U}
         \end{align*}
@@ -176,7 +194,7 @@ There is an equivalent characterisation of cluster points in terms of subnets. T
         \end{align*}
         We now need to verify that $\phi$ is order-preserving and cofinal. The former is ``just a joke'' (i.e. follows by definition). The latter is true for the ``dumbest possible reason'': for all $d \in \D$, $\parenth{d, X} \in \E$ satisfies the property that $\phi\of{d, X} = d$.
         
-        Next, we need to show that $\E$ is directed - which is pretty much immediate from the observation that $x$ is a cluster point. In particular, given $(a_1, U_1), (a_2, U_2)\in \E$ with $b\geq a_1\cap a_2, U_1\cap U_2$ open, as $x$ is a cluster point of the net we can find $c\geq b$ such that $x_c\in U_1\cup U_2$, and then $(c, U_1\cap U_2)\geq (a_1, U_1), (a_2, U_2)$.
+        Next, we need to show that $\E$ is directed - which is pretty much immediate from the observation that $x$ is a cluster point. In particular, given $(a_1, U_1), (a_2, U_2)\in \E$ with $b\geq a_1,a_2$ and $U_1\cap U_2$ open, as $x$ is a cluster point of the net we can find $c\geq b$ such that $x_c\in U_1\cap U_2$, and then $(c, U_1\cap U_2)\geq (a_1, U_1), (a_2, U_2)$.
 
         We can now define a subnet $y_{\parenth{a, U}} := x_a$. All that remains is to show that $\parenth{y_e}_{e \in \E}$ actually \textit{converges} to $x$. Fix $V \ni x$ an open neighbourhood of $x$. Find any old $b \in \D$ such that $x_b \in V$. Take $e = \parenth{b, V}$. Then, for all $e' = \parenth{b', V'} \geq_{\E} \parenth{b, V}$, we have
         \begin{align*}
@@ -204,7 +222,15 @@ We now state an important fact that relates cluster points to ultranets
     \end{enumerate}
 \end{boxproposition}
 \begin{proof}
-    \sorry
+    This follows from the fact that if a subnet of an ultranet converges to $x$, then the ultranet must also converge to $x$. [Details included below.]
+    
+    To see this, say there is some $U$ with $x\in U$, and a subnet $(y_e)_{e\in \E}$ (with associated $\phi:\E\rightarrow \D$) converging to $x$ - this means there is an index $u\in \E$ such that $e\geq u \implies y_e=x_{\phi(e)}\in U$, and in particular it follows from the cofinality of $\phi$ that the ultranet must be frequently in $U$.
+    
+   Recalling the definition of an ultranet, it follows that there exists $a\in D$ such that $b\geq a\implies x_b\in U$ (there can't exist some $c\in \D$ such that $b\geq c\implies x_b\in X\setminus U$, since by cofinality of $\phi$ there exists an $e\in E$ such that $\phi(e)\geq c, \phi(u)\implies x_{\phi(i)}\in U$ for all $u\geq e$ with $u\in \E$).
+
+   In other words, the ultranet being frequently in $U$ means the ultranet must eventually be in $U$ - so, if a subnet converges to $x$, then the ultranet must eventually be in every open neighborhood of $x$, from which we conclude that the whole ultranet must converge to $x$. 
+   
+    [The proposition now follows as a corollary of the previous proposition.]
 \end{proof}
 
 \begin{boxcorollary}\label{Ch2:Cor:Ultranet_tendsTo_in_compact}
@@ -229,7 +255,7 @@ Finally, we state a powerful theorem about ultranet (ultrasubnet? subultranet?) 
     Every net has a subnet which is an ultranet.
 \end{boxproposition}
 \begin{proof}
-    \sorry
+    [We postpone the proof of this proposition until after discussion of filters and ultrafilters.] \sorry
 \end{proof}
 
 Professor Cummings shall now cheat us in a somewhat innocuous way by using ultranets to prove Tychonoff's Theorem.
@@ -262,7 +288,7 @@ We are now ready to prove the main result of this chapter (indeed, the result th
 
     We now claim that $\parenth{y_b}_{b \in \E}$ converges to $y$. If we can prove this claim, we will be done with the proof, as it will establish that $\parenth{y_b}_{b \in \E}$ is indeed a convergent subnet of $\parenth{x_a}_{a \in \D}$.
 
-    Recall that there is an inherent \textit{finiteness} built into the product topology. In particular, the product topology is \textbf{strictly contained} in the box topology, because we require the box topology to be a product object in the category of topological spaces (see Appendix~\ref{APP:Subsec:Products} for more). This will be absolutely crucial in establishing the claim that $\parenth{y_b}_{b \in \E}$ converges to $y$.
+    Recall that there is an inherent \textit{finiteness} built into the product topology. In particular, the product topology is \textbf{strictly contained} in the box topology, because we require the product topology to be a product object in the category of topological spaces (see Appendix~\ref{APP:Subsec:Products} for more). This will be absolutely crucial in establishing the claim that $\parenth{y_b}_{b \in \E}$ converges to $y$.
 
     Fix a neighbourhood $U \ni y$ that is open with respect to the product topology on $X$. Fix a basic open set $\prod_{i \in \I} U_i$ containing $y$ such that $\prod_{i \in \I} U_i \ssq U$. We know there are finitely many indices $\set{i_1, \ldots, i_n} \ssq \I$ such that for $1 \leq s \leq n$, $U_{i_s} \subsetneq X_{i_s}$.
 

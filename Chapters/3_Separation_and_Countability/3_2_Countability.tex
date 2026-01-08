@@ -272,7 +272,7 @@ We are now ready to prove Urysohn's Lemma.
     \begin{enumerate}[noitemsep]
         \item $U_q$ is open
         \item $V_q$ is closed
-        \item $V_q \ssq U_r$ for some $r > q$
+        \item $V_q \ssq U_r$ for $r > q$
     \end{enumerate}
     At this stage, it will be useful to draw a picture.
     % Can I live-TeX a picture? Let's find out...
@@ -299,21 +299,23 @@ We are now ready to prove Urysohn's Lemma.
     % \end{figure}
     Here's a more formal way of describing the construction.
     \begin{enumerate}
-        \item By \Cref{Ch3:Lemma:Urysohn_helper}, we can \sorry
+        \item By \Cref{Ch3:Lemma:Urysohn_helper}, we can choose an open set $U_{\frac{1}{2}}$ and a closed set $V_{\frac{1}{2}}$ with $$C\ssq U_{\frac{1}{2}}\ssq V_{\frac{1}{2}}\ssq X\setminus D$$
         \item Then, given $C \ssq U_{\frac{1}{2}}$, we can apply \Cref{Ch3:Lemma:Urysohn_helper} to get $U_{\frac{1}{4}}$ open and $V_{\frac{1}{4}}$ closed such that
         \begin{align*}
             C \ssq U_{\frac{1}{4}} \ssq V_{\frac{1}{4}} \ssq U_{\frac{1}{2}}
         \end{align*}
-        Similarly, since $V_{\frac{1}{2}} \ssq X \setminus D$, we can again apply \Cref{Ch3:Lemma:Urysohn_helper} to get $U_{\frac{3}{4}}$ open and $V_{\frac{3}{4}}$ such that
+        Similarly, since $V_{\frac{1}{2}} \ssq X \setminus D$, we can again apply \Cref{Ch3:Lemma:Urysohn_helper} to get $U_{\frac{3}{4}}$ open and $V_{\frac{3}{4}}$ with
         \begin{align*}
             V_{\frac{1}{2}} \ssq U_{\frac{3}{4}} \ssq V_{\frac{3}{4}} \ssq X \setminus D
         \end{align*}
+        \item At this point it should be clear what all the steps (which we will not enumerate) are going to look like...in any case, we now have all our $U_q, V_q$. 
+        %In case it is not, say we have constructed $U_q, V_q$ for $q_1, q_2, \ldots, q_{2^{n+1}-2}\in D\cap \{\frac{a}{2^k}: k<n\}$ (where $i<j\implies q_i<q_j$). If $q_i=\frac{a}{2^n}$ (i.e. for some $a\in (0, 2^n)$) then between $V_{q_i}$ and $U_{q_{i+1}}$ we can find an open $U_{q_i+\frac{1}{2^{n+1}}}$ and a closed $V_{q_i+\frac{1}{2^{n+1}}}$ with 
     \end{enumerate}
     It will be incredibly useful to bear in mind that for all dyadic rationals $p < q$, we get
     \begin{align*}
         C \ssq U_p \ssq X \setminus D
-        \qquad \text{ and } \qquad
-        \cl{U_p} \ssq U_{q^2}
+        \qquad \text{ and } \qquad U_p\ssq V_p\ssq U_q \implies
+        \cl{U_p} \ssq U_{q}
     \end{align*}
     % Muchas gracias senora
     %por supuesto
@@ -324,21 +326,21 @@ We are now ready to prove Urysohn's Lemma.
         \item If $x \in \cl{U_p}$, $f(x) \leq p$
         \item If $x \notin \cl{U_p}$, $f(x) \geq p$
     \end{enumerate}
-    Indeed, if $x \in \cl{U_p}$, then $x \in U_q$ for all $q \in D$ with $q > p$, so $f(x) \leq p$. On the other hand, if $x \notin \cl{U_p}$, then assume, for contradiction, that $f(x) < p$. Then we can easily see that there must be some $r < p$ and $x \in U_r$ such that $f(x) \leq r < p$. \sorry
+    Indeed, if $x \in \cl{U_p}$, then $x \in U_q$ for all $q \in D$ with $q > p$, so $f(x) \leq p$. On the other hand, if $x \notin \cl{U_p}$, then assume, for contradiction, that $f(x) < p$. Then we can easily see that there must be some $r < p$ and $x \in U_r$ such that $f(x) \leq r < p$. But we know that $r<p$ and $x\in U_r\implies x\in U_p\ssq \cl{U_p}$ - a contradiction! So indeed, things are just as we wanted.%\sorry
 
-    Taking the contrapositives of the above claims, we see that for all $x \in X$ and $p \in D$,
+    Now that we know our claims are true, taking the contrapositive of each claim we have that for all $x \in X$ and $p \in D$,
     \begin{enumerate}[label = (\alph*), noitemsep]
         \item If $f(x) > p$ then $x \notin \cl{U_p}$ (and thus $x \notin U_p$, so $f(x) \geq p$).
         \item If $f(x) < p$ then $x \in U_p$ (and thus $f(x) \leq p$).
     \end{enumerate}
 
-    Consider the following basis for the Euclidean (subspace) topology on $[0,1]$:
+    Consider the following (very natural) basis for the Euclidean (subspace) topology on $[0,1]$:
     \begin{align*}
         \setst{[0, a)]}{0 < a} \cup
         \setst{(a, b)}{0 \leq a < b \leq 1} \cup
         \setst{(b, 1]}{b < 1}
     \end{align*}
-    We show $f$ is continuous by showing that the pre-image in $f$ of every basic open subset of $[0, 1]$ is open.
+    We can now complete our proof by showing that $f$ is continuous - to do so, it suffices to show that the pre-image in $f$ of every basic open subset of $[0, 1]$ is open.
     
     We begin by showing that $f\inv\!\brac{(a, b)}$ is open. We do this by showing every point has an open neighbourhood. Fix $x \in f\inv\!\brac{(a, b)}$. We know that $a < f(x) < b$. Find $p, q \in D$ such that $a < p < f(x) < q < b$. Then $f(x) > p$, so $x \notin \cl{U_p}$. Similarly, $f(x) < q$, so $x \in U_q$. Now, let $V = U_q \setminus \cl{U_p}$. Observe that $x \in V$. Moreover, for all $y \in V$, $y \in U_q$, so $f(y) \leq q$, and $y \notin U_p$, so $f(y) \geq p$. Then, we can see that $f[V] \ssq [p, q] \ssq (a, b)$.
     % I'm still on the left board, please feel free to type away
@@ -534,7 +536,9 @@ It is not hard to show that any closed subset of a Lindelöf space is Lindelöf 
     Any 2nd countable space is Lindelöf.
 \end{boxlemma}
 \begin{proof}
-    \sorry
+    If you remember what a 2nd countable space is, you can probably prove this yourself.
+    
+    If not, recall that a 2nd countable space is defined as having a countable basis. We can express every open set $O_i$ in an arbitrary open cover $X=\bigcup_{i\in I}O_i$ as a union of basis elements. For each basis element $B$ we can choose some $O_i$ in our open cover with $B\ssq O_i$ - evidently the union of all such $O_i$ will cover $X$, and just as evidently there will be only countably many of them (so here we have our countable subcover).
 \end{proof}
 
 \begin{boxlemma}
@@ -543,39 +547,33 @@ It is not hard to show that any closed subset of a Lindelöf space is Lindelöf 
 \begin{proof}
     Let $A, B \ssq X$ be closed and disjoint. Notice that both $A$ and $B$ (as subspaces) are Lindelöf themselves. We will use the hypothesis that $X$ is $T_3$ to cook up open covers of $A$ and $B$.
 
-    For all $a \in A$, we know that $a \notin B$, so $a \in X \setminus 
-    B$, which is an open set. Then there is some open $U_a \ni a$ such that $U \cap B = \emptyset$. This gives us an open cover of $A$, which we know admits a countable subcover $\parenth{U_{a_n}}_{n \in \N}$. In similar fashion, we can construct an open cover $\parenth{V_{b_n}}_{n \in \N}$.
+    Since $X$ is $T_3$ and $A,B$ are closed, for each $a\in A$ we can find disjoint open sets $U_a, O_a$ with $a\in U_a, B\ssq O_a$. Note that $U_a\cap O_a=\emptyset \implies U_a\ssq X\setminus O_a\ssq X\setminus B$ - in particular, since $X\setminus O_a$ is closed, we must have $\cl\of{U_a}\cap B=\emptyset$. We now find some such open $U_a$ for all $a\in A$, and we similarly find an open $V_b$ for all $b\in B$ satisfying $b\in V_b$ and $\cl\of{V_b}\cap A=\emptyset$ for all $b\in B$.
 
-    Observe that for all $n \in \N$,
+    Now since $A,B$ are both Lindelöf, we can find countably many $a_n\in A, b_n\in B$ to obtain (countable) subcovers with the form $\{U_{a_n}:n\in \N\}, \{V_{b_n}:n\in \N\}$ covering $A,B$.
+    
+   Remember that we need to find disjoint open sets containing $A,B$. We do this by constructing countably many disjoint open sets $Y_n, Z_n$, where each $Y_n$ covers part of $A$ and each $Z_n$ covers part of $B$ - the sets $Y_n, Z_n$ will be constructed using the sets in our countable open covers of $A,B$ (respectively). We define the sets $Y_n, Z_n$ as follows:
     \begin{align*}
-        \cl\of{U_{a_n}} \cap B
-        = \emptyset =
-        \cl\of{V_{b_n}} \cap A
+        Y_n &:= U_{a_n} \cap \parenth{\bigcap_{k=1}^{n} \parenth{X \setminus \cl\of{V_{b_n}}}} & Y &:= \bigcup_{n \in \N} Y_n \\
+        Z_n &:= V_{a_n} \cap \parenth{\bigcap_{k=1}^{n} \parenth{X \setminus \cl\of{U_{a_n}}}} & Z &:= \bigcup_{n \in \N} Z_n
     \end{align*}
-    Now, define
-    \begin{align*}
-        Y_n &:= U_n \cap \parenth{\bigcap_{k=1}^{n} \parenth{X \setminus \cl\of{V_{b_n}}}} & Y &:= \bigcup_{n \in \N} Y_n \\
-        Z_n &:= V_n \cap \parenth{\bigcap_{k=1}^{n} \parenth{X \setminus \cl\of{U_{a_n}}}} & Z &:= \bigcup_{n \in \N} Z_n
-    \end{align*}
-    The point is that for each $n \in \N$, since $A \cap \cl\of{V_{b_n}}$, we know $A \ssq X \setminus \cl\of{V_{b_n}}$. Similarly,for each $n \in \N$, since $B \cap \cl\of{U_{a_n}}$, we know $B \ssq X \setminus \cl\of{U_{a_n}}$.  Thus, 
-    \begin{align*}
-        A \ssq \bigcap_{n \in \N} \parenth{X \setminus \cl\of{V_{b_n}}}
-        &&
-        B \ssq \bigcap_{n \in \N} \parenth{X \setminus \cl\of{U_{a_n}}}
-    \end{align*}
-    Moreover, it turns out that for all $m, n \in \Z$, $Y_m \cap Z_n = \emptyset$. Indeed, suppose this is not true. Then there are some $m, n \in \N$ (with $m \leq n$ WLoG) such that there is some $x \in Y_m \cap Z_n$. Since $x \in Y_m$, $x \in U_m$, and since $x \in Z_n$ and $m \leq n$, $x \in X \setminus \cl\of{U_m}$. But this is impossible. Thus, for all $m, n \in \Z$, $Y_m \cap Z_n = \emptyset$.
 
-    This implies that $Y \cap Z = \emptyset$. So $X$ is $T_4$.
+     Recall that we have $A\ssq X\setminus\cl\of{V_{b_n}}$ and $B\ssq X\setminus \cl\of{U_{a_n}}$ holding for all $n\in \N$ - this is because $V_{b_n}$ was chosen such that $\cl\of{V_b}\cap A=\emptyset=\cl\of{U_a}\cap B$, which was done using the normality of $X$. Now since the $U_{a_n}$ cover $A$, for each $a\in A$ there is some $n\in \N$ with $a\in U_{a_n}$, and since $A \ssq \bigcap_{n \in \N} \parenth{X \setminus \cl\of{V_{b_n}}}$, we know then that $a\in Y_n$. This holds for every $a\in A$, so we know that indeed $A\ssq Y$, and essentially the same argument shows that $B\ssq Z$.
+
+    We now show that for all $m, n \in \Z$, $Y_m \cap Z_n = \emptyset$, which will imply that $Y\cap Z=\emptyset$. To see this, assume for contradiction that there exist some $m, n \in \N$ such that $Y_m\cap Z_n\neq \emptyset \implies \exists x \in Y_m \cap Z_n$ - WLOG we let $m\leq n$. Since $x \in Y_m$ we must have $x \in U_m$, but if $x \in Z_n$ and $m \leq n$, then we must have $x \in X \setminus \cl\of{U_m}\ssq X\setminus \cl\of{U_m}\implies x\notin U_m$. Having reached contradiction, we conclude that for all $m, n \in \Z$, $Y_m \cap Z_n = \emptyset$.
+
+    And now that we have our $Y,Z$ disjoint open sets covering $A,B$ respectively, we can conclude that if $X$ is Lindelöf and $T_3$ then (indeed) $X$ must be $T_4$.
 \end{proof}
 
-We are now ready to prove Urysohn's Metrisation Theorem.
+We are now ready to prove Urysohn's Metrisation Theorem (i.e. that if $X$ is 2nd countable and $T_3$, then $X$ must be metrisable). Remember that (to do so) our plan is to find a homeomorphic copy of $X$ in $[0,1]^{\N}$, which is sufficient because $[0,1]^{\N}$ is metrisable.
 
 \begin{proof}[Proof of \Cref{SP:Urysohn_Metrisation}]
-    Let $X$ be a 2nd countable $T_3$ space. We need to show that $X$ is metrisable.
-    
-    By \Cref{Ch3:Lemma:2nd_countable_is_Lindelof}, if $X$ is 2nd countable, then $X$ is Lindelöf. To embed $X$ into $[0, 1]^{\N}$, it will suffice to find a countable set $\F$ of continuous functions from $X$ to $[0, 1]$ that separate points from closed sets.
+    Let $X$ be a 2nd countable $T_3$ space. By \Cref{Ch3:Lemma:2nd_countable_is_Lindelof}, since $X$ is 2nd countable, we have that $X$ is Lindelöf. To embed $X$ into $[0, 1]^{\N}$, it will suffice to find a countable set $\F$ of continuous functions from $X$ to $[0, 1]$ that separate points from closed sets.
 
-    \textbf{Why?} Well, first enumerate such a set $\F$ as functions $\set{f_1, f_2, \ldots}$ and define $F : X \to [0, 1]^{\N} : x \mapsto \parenth{f_n(x)}_{n \in \N}$. As $\F$ separates points from closed sets, \sorry. Note that it is crucial that $\F$ is countable for this\todo{What?} to work.
+    \textbf{Why?} Well, first enumerate such a set $\F$ as functions $\set{f_1, f_2, \ldots}$ and define $F : X \to [0, 1]^{\N} : x \mapsto \parenth{f_n(x)}_{n \in \N}$. If $\F$ separates points from closed sets, 
+    
+    \textcolor{red}{teresa pick up here!}
+    
+    \sorry. Note that it is crucial that $\F$ is countable for this\todo{What?} to work.
 
     So now let's get to work and actually find such a family!
 
@@ -586,8 +584,8 @@ We are now ready to prove Urysohn's Metrisation Theorem.
     \sorry
 \end{proof}
 
-This was a bit of a slog, so let's break it down into its component parts and understand the weird hypotheses.
+This was a bit of a slog, so let's break it down into parts and understand the weird hypotheses.
 
-First, you have a modest separation property, $T_3$, and a strong countability property, 2nd countability. And really the weaker consequence of being Lindelöf is what makes the argument work, because that gives us $T_4$, which is comforting because metric spaces are $T_4$. We then ned to use all our ingredients to construct a clever family of functions that separate points from closed sets, and this allows us to embed our space into $[0, 1]^{\N}$, showing metrisability.
+First, you have a modest separation property, $T_3$, and a strong countability property, 2nd countability. And really the weaker consequence of being Lindelöf is what makes the argument work, because that gives us $T_4$, which is comforting because metric spaces are $T_4$. We then need to use all our ingredients to construct a clever family of functions that separate points from closed sets, and this allows us to embed our space into $[0, 1]^{\N}$, showing metrisability.
 
 There are even sharper metrisability theorems. This theorem works great, as far as it goes, but the hypotheses are overkill. In particular, they're not \textit{equivalent} to the property of metrisability. A much better theorem is the Nagata-Smirnov theorem, which gives sufficient \textit{and} necessary conditions for metrisability. (Of course, an obvious equivalent condition to metrisability \textit{is just metrisability itself}. We're talking about equivalent conditions that are actually \textit{helpful}/that occur not uncommonly.)
