@@ -3,11 +3,16 @@
 Again, fix a topological space $X$. In this section, we discuss different notions of connectedness of a toplogical space.
 
 \begin{boxdefinition}[Disconnectedness]
-    We say $X$ is \textbf{disconnected} if there exist disjoint open sets $U, V \subsetneq X$ with $U \cup V = X$. If $U$ and $V$ are disjoint ant cover $X$, we say that they \textbf{disconnect $X$}.
+    We say a space $X$ is \textbf{disconnected} if there exist disjoint (nonempty) open sets $U, V \subset X$ with $U \cup V = X$. If $U$ and $V$ are disjoint and cover $X$, we say that they \textbf{disconnect $X$}.
 \end{boxdefinition}
-\begin{remark}
-    One must be very careful when disconnecting sets: when you have a disconnected set $X$, it is not at all obvious that the sets you use to disconnect $X$ (namely, $U$ and $V$) are actually disjoint in the rest of $X$. (Remember this for your General Topology basic exam!)
-\end{remark}
+
+We similarly say that $A\ssq X$ is disconnected if $A$ is disconnected as a space endowed with the subspace topology inherited from $X$.
+
+\begin{boxwarning}
+     One must be very careful when disconnecting sets: \textbf{when you have a disconnected set} $A\ssq X$, it is not at all obvious that the sets you use to disconnect $A$ (namely, $U$ and $V$) are actually disjoint in the rest of $X$.\\
+     
+     Remember this for your General Topology basic exam!
+\end{boxwarning}
 
 We can use this definition to define connectedness in the obvious way.
 
@@ -40,11 +45,9 @@ It turns out we can use the definition of connectedness to say something about t
     \begin{align*}
         A_i \subseteq A = \parenth{A \cap U} \cup \parenth{A \cap V}
     \end{align*}
-    Since the $A_i$ are all connected, we know that for all $i \in \I$, either $A_i \ssq U$ or $A_i \ssq V$. It turns out that we can do better: either every $A_i$ is contained in $U$ or every $A_i$ is contained in $V$. Indeed, if this were not the case, then there would be $i, j \in \I$ with $A_i \in U$ and $A_j \in V$. Then, we would have $A_i \cap A_j \ssq U \cap V$. Moreover, $A_i \cap A_j \ssq A$, since $A_i \ssq A$ and $A_j \ssq A$. Thus,
-    \begin{align*}
-        A_i \cap V_j \ssq A \cap \cap{U \cap V} = \parenth{A \cap U} \cap \parenth{A \cap V}
-    \end{align*}
-    Finally, we assumed, in our setup, that $A_i \cap A_j \neq \emptyset$, meaning that there is an element living in the disjoint set $A \cap U$ and $A \cap V$, which is obviously a contradiction. Hence, either every $A_i$ is contained in $U$ or every $A_i$ is contained in $V$.
+    Since the $A_i$ are all connected, we know that for all $i \in \I$, either $A_i \ssq U$ or $A_i \ssq V$. It turns out that we can do better: either every $A_i$ is contained in $U$ or every $A_i$ is contained in $V$. Indeed, if this were not the case, then there would be $i, j \in \I$ with $A_i \in U\cap A$ and $A_j \in V\cap A$. 
+    
+    Since $U\cap A, V\cap A$ are disjoint this would imply $A_i\cap A_j=\emptyset$ (a contradiction), from which it follows that we must have either every $A_i$ is contained in $U$ or every $A_i$ is contained in $V$.
 
     Without loss of generality, say that every $A_i$ is contained in $U$. Then, $A \ssq U$ also, meaning that $A \cap U = A$. Hence, $A \cap V = \emptyset$, which contradicts the assumption that $A$ is disconnected, because disconnecting subsets must be proper.
 \end{proof}
@@ -53,7 +56,7 @@ It turns out we can use the definition of connectedness to say something about t
 
  \subsection{Connected Components}
 
- Define the binary relation $\sim$ on $X$ such that $a \sim b\iff \exists A\subseteq X$ with $A$ connected and $a,b \in A$. We then claim that $\sim$ is an equivalence relation, and (having shown this) we let the equivalence classes of $\sim$ partition $X$ into sets $X_i$.
+ Define the binary relation $\sim$ on $X$ such that $a \sim b\iff \exists A\subseteq X$ with $A$ connected and $a,b \in A$. We then claim that $\sim$ is an equivalence relation, and (having shown this with reference to the previous lemma) we let the equivalence classes of $\sim$ partition $X$ into sets $X_i$.
  %probably don't want this as the definition, feel free to delete
  % Isn't this what we'd want as the definition? hmm
  %or as maximal connected components, idk - yes, as the maximal connected sets of the sapce X (anything works?)
@@ -72,7 +75,7 @@ The $\ssq$ inclusion is clear, because $\brac{x}$ is itself connected, meaning t
     If $A \ssq X$ and $A$ is connected, then $\closure{A}$ is also connected.
 \end{boxlemma}
 \begin{proof} % This is actually not really a true proof by contradiction. In fact, even in the most constructive of type theories, I am quite sure that the definition you'd want to implement for connected is "not disconnected". The definition of "not P" is always "P implies False", which you can prove (constructively) by assuming P and deducing False (ie, "proof by contradiction"). A true proof by contradiction uses LEM in the way that it's set up, which this does not.
-    Suppose that $\closure{A}$ is not connected. then, there are open sets $u, V \ssq X$ such that $\closure{A} \ssq U \cup V$, $\closure{A} \cap \closure{B} = \emptyset$, and $\closure{A} \cap U, \closure{A} \cap V \neq \emptyset$.  We can see, since $A \ssq \closure{A}$, that $A = \parenth{A \cap U} \cup \parenth{A \cap V}$, with $A \cap U \cap V = \emptyset$. Since $A$ is connected, we need either $A \cap U = \emptyset$ or $A \cap V = \emptyset$. Assume it is the former. \sorry % Simply show containment in complement
+    Suppose that $\closure{A}$ is not connected. then, there are open sets $U, V \ssq X$ such that $\closure{A} \ssq U \cup V$, $(\closure{A} \cap U)\cap (\closure{A}\cap V) = \emptyset$, and $\closure{A} \cap U, \closure{A} \cap V \neq \emptyset$.  We can see, since $A \ssq \closure{A}$, that $A = \parenth{A \cap U} \cup \parenth{A \cap V}$, with $A \cap U \cap V = \emptyset$. It follows that $A\cap U, A\cap V$ disconnect $A$ (and the result now follows either from contrapositive or contradiction depending on what you're feeling today). %\sorry % Simply show containment in complement
 \end{proof}
 
 \begin{boxcorollary}
@@ -96,7 +99,7 @@ However, it turns out the \textit{image} of a connected set in a continuous func
     Let $X$ and $Y$ be topological spaces. Let $A \ssq X$ be connected and let $f : X \to Y$ be continuous. Then, $f[A]$ is connected.
 \end{boxlemma}
 \begin{proof}
-    If not, let $U, V \ssq Y$ be open with $f[A]$ \sorry
+    If not, let $U, V \ssq Y$ be open with $f[A]$ disconnected by $U,V$. Then we would have $A$ disconnected by $f^{-1}[U], f^{-1}[V]$ (as these sets are open and disjoint, and their union contains $A$), contradicting our assumption that $A$ is connected.
 \end{proof}
 
 This allows us to construct many examples of connected spaces.
@@ -141,7 +144,9 @@ This allows us to construct many examples of connected spaces.
 
         \item \underline{$b \in U$.} Otherwise, certainly $b \in V$, and therefore, by openness, there is some $\eps > 0$ such that $\oc{b - \eps, b} \ssq V$, but for all $\eps > 0$, we must have that $b - \eps \in U$ by definition of $b$ (and $S$), and $U$ and $V$ are disjoint.
     \end{enumerate}
-    The idea is to show that $b \in U \cap V$ or $b = 1$, a contradiction. \sorry
+    Now we note that either $b=1$ or $b\neq 1$ (by the law of excluded middle?): 
+    
+    If $b\neq 1$, since $U$ is open, then there exists some $\ve>0$ such that $(b-\ve, b+\ve)\ssq U$, contradicting our assumption that $b$ is the supremum of $U$. If $b=1$, but then $[0,1]\ssq U$ (by points 2 and 3) so $V$ must be empty - having reached contradiction in this instance as well, it follows that $[0,1]$
 \end{boxexample}
 
 
@@ -157,7 +162,12 @@ This allows us to construct many examples of connected spaces.
     You may have many paths, be unable to use sub or super-scripts, but still need to name them all. Professor Cummings is here to help: $\alpha, \beta, \gamma, \delta, \epsilon,\zeta, \eta, \theta, \iota, \kappa, \lambda, \mu, \nu, \xi, \pi, \phi, \rho,$ etc.
 \end{remark}
 
-As a preliminary, we note that we can compose paths to obtain new paths. (\sorry)
+As a preliminary, we note that we can compose paths to obtain new paths - in other words, it can be shown that if we have a path $\alpha$ from $a$ to $b$ and a path $\beta$ from $b$ to $c$, then there is $$\gamma(t):=\begin{cases}
+    &\alpha(2t):t\in [0,1/2)\\
+    &\beta(2t-1):t\in [1/2, 1]
+    
+\end{cases}$$
+forming a path from $a$ to $c$.
 
 \begin{boxdefinition}[Path-Connected Space]
     We say that $X$ is \textbf{path-connected} iff for all $a,b\in X$ there is a path from $a$ to $b$.
@@ -165,4 +175,4 @@ As a preliminary, we note that we can compose paths to obtain new paths. (\sorry
 
 % Btw - keyboard shortcuts from word processors for bold/italics do work here (eg. ctrl + B encloses stuff in \textbf{})
 
-It is possible to show that every path-connected space is connected (\sorry), but not the other way round (\sorry).
+It is possible to show that every path-connected space is connected (note that if we have nonempty $U,V$ disconnected $X$ with $a\in U, b\in V$ that there can be no path from $a$ to $b$ since $[0,1]$ is connected), but not the other way round (there's this modern art piece called the ``topologist's since curve'' you may want to look at).

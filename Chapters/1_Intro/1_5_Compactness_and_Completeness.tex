@@ -65,7 +65,7 @@ For context, we have been speaking about completeness, and we are now going to b
 \begin{itemize}
     \item Let $(X,d)$ be a metric space, and let $Z=\{(x_n)_{n\in \N}:(x_n)_n \text{ is a Cauchy sequence in }X\}$.
     \item We first claim (1) that If $(x_n)_n, (y_n)_n\in Z$, then $(d(x_n, y_n))_n$ is a Cauchy sequence in $\R$ - so in particular, it has a limit $d^*((x_n)_n, (y_n)_n)=d^*(x,y)$.
-    \item We next claim (2) that the set of $[x]=\{y\in Z: d^*(x,y)=0\}$ for $x\in Z$ will partition $Z$, or in other words, that $R$ defined such that $xRy\leftrightarrow d^*(x,y)$ forms an equivalence relation on $Z$.
+    \item We next claim (2) that the set of $[x]=\{y\in Z: d^*(x,y)=0\}$ for $x\in Z$ will partition $Z$, or in other words, that $R$ defined by $xRy\leftrightarrow d^*(x,y)$ forms an equivalence relation on $Z$.
     \item Now we claim (3) that $d^*(x,y)$ depends only on the classes of $x=(x_n)_n, y=(y_n)_n\in Z$, and we then define $\Bar{d}([x], [y])=d^*(x,y)$.
     \item And then we claim (4) that $\Bar{d}$ is a metric on the set of equivalence classes $\Bar{X}$.
     \item Jumping off from here, we let $i:X\rightarrow \Bar{X}$ such that $i(x)=[(x_n)_n]$, where $(x_n)_n=(x,x,x,\ldots)$.
@@ -79,7 +79,7 @@ So now that we have a way to construct a completion of $X$, then we have the fol
     If $X$ is a metric space and $Y$ is a complete metric space with $f:X\rightarrow Y$ an isometric embedding, then there is a unique $\Bar{f}:\Bar{X}\rightarrow \Bar{Y}$ which is an isometric embedding with $\Bar{f}\restriction X=f$.
 \end{boxlemma}
 \begin{proof}
-    Exercise! Or rather, ``just do what comes naturally.'' ``I'm obviously being very glib. But this is not the main topic of this course.''
+    Exercise! Or rather, ``just do what comes naturally.'' ``I'm obviously being very glib. But this is not the main topic of this course.'' (you may want to use the facts that (1) there is a unique continuous extension of an function from a dense subset of $X$ to a Hausdorff space $Y$ and (2) isometries are continuous...)
 \end{proof}
 \begin{remark}
     As an exercise, use the above to show that any 2 completions of $X$ must be isomorphic.
@@ -95,7 +95,7 @@ Now is where the instructor exercises his freedom in determining the order of to
 \end{boxdefinition}
 ``I keep on saying this, then it keeps on being true.''\\
 
-We now digress briefly to recall that convergence can be defined topologically (without reference to a metric). We also have this fact that in a metric space $X$, for any $A\ssq X$ we will have $$\text{cl}(A)=\{x\in X: \text{ there is some }(x)n)_{n\in \N}\text{ such that }x_n\in A\text{ and }x_n\rightarrow x\}$$ and the proof of this \textbf{fact} is ``a proof by extreme obviousness'' that involves ``ridiculously clear contradictions'' - in other words, the proof is an exercise. However
+We now digress briefly to recall that convergence can be defined topologically (without reference to a metric). We also have this fact that in a metric space $X$, for any $A\ssq X$ we will have $$\text{cl}(A)=\{x\in X: \text{ there is some }(x_n)_{n\in \N}\text{ such that }x_n\in A\text{ and }x_n\rightarrow x\}$$ and the proof of this \textbf{fact} is ``a proof by extreme obviousness'' that involves ``ridiculously clear contradictions'' - in other words, the proof is an exercise. However
 \begin{boxwarning}
     This \textbf{fact} about metric spaces is very not true in general spaces! In a general space, all convergent sequences consisting of points in $A$ converge to a point of $\text{cl}(A)$, but this may not give all points of $\text{cl}(A)$.
 \end{boxwarning}
@@ -116,8 +116,9 @@ In general topological spaces, sequential compactness and compactness are \textb
     A metric space $X$ is \textbf{totally bounded} iff for all $\ve>0$, $X$ is a finite union of open $\ve$-balls.
 \end{boxdefinition}
 
-The reason we define total boundedness is that it connects compactnss and completeness. Before we can establish that connection, we need an intermediate lemma.
+The reason we define total boundedness is that it connects compactness and completeness. Before we can establish that connection, we need an intermediate lemma.\\
 
+\textcolor{red}{[teresa]...what is this lemma supposed to say? what if $x$ is an element of the sequence? what if the sequence converges to $x$? doesn't $x_n=x\implies x_n\in B(x, \ve),\forall \ve>0$??}
 \begin{boxlemma}\label{Ch1:Lemma:Intermediate_compact_seq_compact_TFAE}
     Let $X$ be a metric space, and let $\parenth{x_n}_{n \in \N}$ be a sequence with no repetitions. For all $x \in X$, there is some $\eps > 0$ such that there is no $n \in \N$ with $x_n = x$ and $x_n \in B\of{x, \eps}$.
 \end{boxlemma}
@@ -168,7 +169,7 @@ We prove another intermediate result, sometimes referred to as the `existence of
 \end{boxtheorem}
 \begin{proof}
     \begin{description}
-        \item[\underline{$(1) \implies (2)$.}] Say $X$ is compact, $(x_n)_n$ with $x\in X$. If $\setst{x_n}{n \in \N}$ is finite then, by the infinite pigeonhole principle there must exist some infinite constant  subsequence (and then we're done). Else, if $\$\setst{x_n}{n \in \N}$ is infinite, we must be able to replace it with a subsequence with no repetitions. Abuse notation and call this $\parenth{x_n}_{n \in \N}$ as well.
+        \item[\underline{$(1) \implies (2)$.}] Say $X$ is compact, $(x_n)_n$ with $x\in X$. If $\setst{x_n}{n \in \N}$ is finite then, by the infinite pigeonhole principle there must exist some infinite constant  subsequence (and then we're done). Else, if $\setst{x_n}{n \in \N}$ is infinite, we must be able to replace it with a subsequence with no repetitions. Abuse notation and call this $\parenth{x_n}_{n \in \N}$ as well.
 
         Towards contradiction, assume that $\parenth{x_n}$ has no convergent subsequences. We claim that for all $x \in X$, there is some $\eps > 0$ such that there is no $n \in \N$ with $x_n = x$ and $x_n \in B\of{x, \eps}$.
         

@@ -88,11 +88,15 @@ Note that it is always possible to do this, because at worst, we the discrete to
 Given the definition of continuity (\Cref{Ch1:Def:Continuity_Topological}), it is possible to be explicit about the initial topology.
 
 \begin{boxlemma}
-    Let $X, \I, X_i, f_i$ be as in \Cref{Ch1:Def:Init_Top}. The corresponding initial topology $\tau$ is given by
+    Let $X, \I, X_i, f_i$ be as in \Cref{Ch1:Def:Init_Top}. The corresponding initial topology $\tau=\tau_{init}$ would then have the following as its sub-basis:
     \begin{align*}
-        \tau = \setst{f_i\inv\!\brac{U} \subseteq X}{i \in \I \text{ and } U \subseteq X_i \text{ is open}}
+        \setst{f_i\inv\!\brac{U} \subseteq X}{i \in \I \text{ and } U \subseteq X_i \text{ is open}}=C
     \end{align*}
+    (i.e. $\tau_{init}=\Pi(C)$).
 \end{boxlemma}
+\begin{boxwarning}
+    Remember that $\tau_{init}$ need not equal $C$ if $|\I|>1$ - an example of this is given when we have $f_1, f_2$ maps from $X=(X, \tau)$ into $X_1=(X, \tau_1), X_2=(X, \tau_2)$ when both $X_1, X_2$ have the same underlying set, $f_1, f_2:x\mapsto x$ for all $x\in X$, and $\tau_1, \tau_2$ are included point topologies for different points in $X$. However, by ``trivial'' set algebra we will have $\tau_{init}=C$ when $|\I|=1$, which is not infrequently the case.
+\end{boxwarning}
 
 We give an important example illustrating the notion of an initial topology.
 
@@ -131,7 +135,11 @@ We can give a more explicit description of the product topology.
 
 We do not prove this here.
 
-Dually to how we defined a topology on the Cartesian product of spaces as the initial topology of the projections, we can define a topology on any subset of a space as the initial topology of the inclusion.\todo{Write this out either as an example followed by a definition or as just a definition.}
+Dually to how we defined a topology on the Cartesian product of spaces as the initial topology of the projections, we can define a topology on any subset of a space as the initial topology of the inclusion (i.e. given $A\ssq X$, the subspace topology on $A$ induced by $X$ is exactly the initial topology on $A$ induced by $X$ and the function $f:A\rightarrow X$ with $f:a\mapsto a$ for all $a\in A$).
+\begin{boxexercise}
+    Let $A\ssq X$ and $f:A\rightarrow X$ defined such that $f:a\mapsto a$ for all $a\in A$. Show that the subspace topology on $A$ induced by $X$ is exactly the initial topology on $A$ with respect to $X, f$.
+\end{boxexercise}
+%\todo{Write this out either as an example followed by a definition or as just a definition.}
 
 Finally\footnote{Pun intended}, we define the \textit{final} topology.
 
@@ -144,16 +152,19 @@ Finally\footnote{Pun intended}, we define the \textit{final} topology.
 
 Note that it is always possible to construct a final topology, because at worst, we the indiscrete topology on $X$ renders continuous every function into $X$ from any topological space.
 
-Given the definition of continuity (\Cref{Ch1:Def:Continuity_Topological}), it is possible to be explicit about the initial topology.
+Given the definition of continuity (\Cref{Ch1:Def:Continuity_Topological}), as in the case of the initial topology, it is possible to more explicitly describe  the final topology:
 
 \begin{boxlemma}
-    Let $X, \I, X_i, f_i$ be as in \Cref{Ch1:Def:Final_Top}. The corresponding initial topology $\tau$ is given by
+    Let $X, \I, X_i, f_i$ be as in \Cref{Ch1:Def:Final_Top}. The corresponding final topology $\tau=\tau_{fin}$ is the largest topology which is contained in the following set
     \begin{align*}
-        \tau = \setst{U \subseteq X}{i \in \I \text{ and } f\inv(U) \subseteq X_i \text{ is open}}
+        \setst{U \subseteq X}{i \in \I \text{ and } f\inv(U) \subseteq X_i \text{ is open}}=D
     \end{align*}
 \end{boxlemma}
+\begin{boxwarning}
+    As before, if $|\I|=1$ then (by the same set algebra) we will have $\tau_{fin}=D$. However if $|\I|>1$, then this need not be the case - further, if $|\I|=1$, then the final topology is also \textbf{not necessarily} given by $\Pi(D)$ (as taking intersections of sets may prevent some $f_i$ from being continuous).
+\end{boxwarning}
 
-There are many good examples of final topologies, some of which are likely to be familiar to the reader.
+There are many good examples of final topologies, some of which are likely familiar to the reader.
 
 \begin{boxexample}[Topologies on Quotients]\label{Ch1:Eg:Quot_Top}
     Let $X$ be a topological space and let $\sim$ be an equivalence relation on $X$. Let $q : X \surj \quotient{X}{\sim}$ be the canonical surjection from $X$ to the quotient set. The final topology of $q$ is a topology on $\quotient{X}{\sim}$.
@@ -170,7 +181,7 @@ Note that the above definition really applies to \textit{all} situations where $
 We can express the quotient topology in a more familiar way.
 
 \begin{boxproposition}
-    \sorry % State (no need to prove) that the usual def of the quotient topology is equivalent to the final topology of the quotient map
+    Let $X, \sim, q$ be as above. Then the quotient topology on $\quotient{X}{\sim}$ is exactly the final topology on $X$ with respect to $q, \quotient{X}{\sim}$. % State (no need to prove) that the usual def of the quotient topology is equivalent to the final topology of the quotient map
 \end{boxproposition}
 
 \subsection{Separation Properties}
@@ -181,10 +192,10 @@ Throughout this subsection, let $X$ denote a topological space.
 
 We recall the definition of $T_2$ spaces from \Cref{Ch1:Def:Hausdorff}.
 % no no no uncomment it you're fine :D
-\Cref{Ch1:Def:Hausdorff} already exists btw - just link to it or smth if you want
-\begin{boxdefinition}[$T_2$ (i.e. the Hausdorff condition)]
-    We say that a topological space is \textbf{$T_2$}, or \textbf{Hausdorff}, if $\forall x\neq y$ there exist open sets $U, V$ such that $x\in U, y \in V$ that we have $U\cap V=\emptyset$
-\end{boxdefinition}
+%\Cref{Ch1:Def:Hausdorff} already exists btw - just link to it or smth if you want
+%\begin{boxdefinition}[$T_2$ (i.e. the Hausdorff condition)]
+    %We say that a topological space is \textbf{$T_2$}, or \textbf{Hausdorff}, if $\forall x\neq y$ there exist open sets $U, V$ such that $x\in U, y \in V$ that we have $U\cap V=\emptyset$
+%\end{boxdefinition}
 
 There is also a (weaker) notion of separation called the $T_1$ property.
 
@@ -247,7 +258,7 @@ There is also a ``converse'' relationship between posets and topology: we can de
 \begin{boxexample}[A $T_0$ Topology on a Poset]\label{Ch1:Eg:Poset_Downward_Cone}
     Let $\parenth{P, \leq}$ be a poset. We introduce a topology $\tau$ on $P$ as follows: we deem a set $U \subseteq P$ to be open iff for all $p \in U$,
     \begin{align*}
-        \setst{q \in P}{q \leq P} \subseteq U
+        \setst{q \in P}{q \leq p} \subseteq U
     \end{align*}
     That is, we define the open sets to be precisely those $U$ that contain all downward cones of elements in $U$. We can show that this is, indeed, a topology on $P$.
 \end{boxexample}
@@ -284,7 +295,7 @@ We can talk about neighbourhoods in a collective sense, reminiscent of \verb|Fil
     for all $\eps > 0$. Then, this set all of closed balls at $x$ is a nbhd basis. % Wow - that was a very very quick lecture!!!!!!!!
 \end{boxexample}%indeed (and now we move on from separation, closer to more (i.e. an even greater quantity of) interesting things..) ((I love the (nested) parentheses))
 \begin{remark}
-    It is a ``trivial fact'' that if we have a neighbourhood basis at every point $x\in X$, then we can recover the topology of $X$. (See this as an exercise.)
+    It is a ``trivial fact'' that if we have an  neighbourhood basis at every point $x\in X$, then we can recover the topology of $X$. (See this as an exercise.)
 \end{remark}
 
 Finally, we note that nbhds give us a definition of continuity that more closely resembles the definition to which we are accustomed in metric spaces.
@@ -326,7 +337,7 @@ Next, we define the notion of an isomorphism in the category of topological spac
 We now mention an easy result (that effectively shows that homeomorphisms \underline{are} isomorphisms in the category of topological spaces).
 
 \begin{boxlemma} % I think this is what you meant? (Unless oyu wanted to characterise the example as easy - in whcih case go for it!)
-    For any function $f : X \to Y$, the following are equivalent:
+    For any continuous function $f : X \to Y$, the following are equivalent:
     \begin{enumerate}
         \item $f$ is a homeomorphism
         \item There is $g : Y \to X$ such that
