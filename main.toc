@@ -15,85 +15,85 @@
 \contentsline {section}{\numberline {1.4}A Closer Look at Continuity}{21}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}Neighbourhoods and Neighbourhood Bases}{21}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Homeomorphisms}{22}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Connectedness}{23}{section.1.5}%
-\contentsline {subsection}{\numberline {1.5.1}Connected Components}{25}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}Preserving Connectedness}{26}{subsection.1.5.2}%
-\contentsline {subsection}{\numberline {1.5.3}Path Connectedness}{27}{subsection.1.5.3}%
-\contentsline {section}{\numberline {1.6}Compactness and Completeness}{28}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Compactness}{28}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}Completions in a Metric Space}{30}{subsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.6.3}The Relationship between Compactness and Completeness}{32}{subsection.1.6.3}%
-\contentsline {chapter}{\numberline {2}Nets and Filters}{36}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Some ``Completely Trivial Combinatorics''}{36}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Directed Sets and Nets}{36}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Convergence of Nets}{37}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Subnets}{39}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}Ultranets}{39}{subsection.2.1.4}%
-\contentsline {section}{\numberline {2.2}Generalising Properties of Metric Spaces}{40}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Compactness and Sequantial Compactness}{40}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Cluster Points}{45}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Tychonoff's Theorem}{48}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Filters and Ultrafilters}{50}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}First Definitions}{51}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Zorn's Lemma: A Quick Recap}{52}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Extending Filters to Ultrafilters}{53}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Relating Filters to Nets}{54}{section.2.4}%
-\contentsline {chapter}{\numberline {3}More Topological Properties}{57}{chapter.3}%
-\contentsline {section}{\numberline {3.1}(More) Separation Properties}{57}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Countability Properties}{58}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Regularity}{61}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Regularity and Subspaces}{61}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Regularity and Products}{63}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}Urysohn's Lemma}{65}{section.3.4}%
-\contentsline {section}{\numberline {3.5}The Stone-Čech Compactification}{68}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}One-Point Compactification}{68}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Constructing the Stone-Čech Compactification}{69}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}The Universal Property of the Stone-Čech Compactification}{70}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Applications of Stone-Čech Compactification}{72}{subsection.3.5.4}%
-\contentsline {section}{\numberline {3.6}Urysohn's Metrisation Theorem}{73}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Topologies on Sets of Functions}{77}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Motivation and First Examples}{77}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}The Topology of Pointwise Convergence}{78}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}The Topology of Uniform Convergence}{78}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}An Extension Property for Normal Spaces}{81}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}A Study in Compactness}{83}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}The Topology of Compact Convergence}{83}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Compactly Generated Spaces}{84}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}The Compact-Open Topology}{85}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Families of Functions}{88}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Equicontinuity}{89}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Pre-Compactness}{91}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Evaluation Maps}{91}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}The Arzelà-Ascoli Theorem}{92}{subsection.4.3.4}%
-\contentsline {chapter}{\numberline {5}An Introduction to Algebraic Topology}{95}{chapter.5}%
-\contentsline {section}{\numberline {5.1}A Word on Category Theory}{95}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Objects and Morphisms}{95}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Functors}{100}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Homotopy}{101}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}A Word on Paths}{102}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Homotopies between Functions}{103}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}The Fundamental Group}{105}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}The Homotopy Groupoid and the Fundamental Group}{105}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Functoriality of $\pi _1$}{106}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}The Fundamental Group and Path-Connectedness}{107}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Application: A Homotopy Theoretic Proof of Brouwer's Fixed Point Theorem}{108}{subsection.5.3.4}%
-\contentsline {section}{\numberline {5.4}Covering Spaces}{110}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Definitions and First Examples}{110}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Path Lifting}{111}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Homotopy Lifting}{112}{subsection.5.4.3}%
-\contentsline {section}{\numberline {5.5}Spaces with Convenient Homotopy Properties}{113}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Simply-Connected Spaces}{113}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Contractible Spaces}{115}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Retractions and Homotopy Retractions}{116}{subsection.5.5.3}%
-\contentsline {section}{\numberline {5.6}Universal Covers}{117}{section.5.6}%
-\contentsline {section}{\numberline {5.7}The Fundamental Group of the Circle}{118}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Winding Numbers}{118}{subsection.5.7.1}%
-\contentsline {section}{\numberline {5.8}Group Actions}{120}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}Groups Acting on Topological Spaces}{120}{subsection.5.8.1}%
-\contentsline {subsection}{\numberline {5.8.2}Groups Acting on Simply-Connected Spaces}{121}{subsection.5.8.2}%
-\contentsline {subsection}{\numberline {5.8.3}Deck Transformations}{123}{subsection.5.8.3}%
-\contentsline {chapter}{Appendices}{124}{chapter*.24}%
-\contentsline {section}{\numberline {A}A Categorical Perspective}{124}{section.6.1}%
-\contentsline {subsection}{\numberline {A.1}Product Spaces}{124}{subsection.6.1.1}%
-\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{124}{section.6.2}%
-\contentsline {chapter}{Bibliography}{126}{Item.166}%
+\contentsline {section}{\numberline {1.5}Connectedness}{24}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Connected Components}{26}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Preserving Connectedness}{27}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Path Connectedness}{28}{subsection.1.5.3}%
+\contentsline {section}{\numberline {1.6}Compactness and Completeness}{29}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Compactness}{29}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Completions in a Metric Space}{31}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}The Relationship between Compactness and Completeness}{33}{subsection.1.6.3}%
+\contentsline {chapter}{\numberline {2}Nets and Filters}{38}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Some ``Completely Trivial Combinatorics''}{38}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Directed Sets and Nets}{38}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Convergence of Nets}{39}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Subnets}{41}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Ultranets}{41}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Generalising Properties of Metric Spaces}{42}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Compactness and Sequantial Compactness}{42}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Cluster Points}{47}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Tychonoff's Theorem}{50}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Filters and Ultrafilters}{52}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}First Definitions}{53}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Zorn's Lemma: A Quick Recap}{54}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Extending Filters to Ultrafilters}{55}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Relating Filters to Nets}{56}{section.2.4}%
+\contentsline {chapter}{\numberline {3}More Topological Properties}{59}{chapter.3}%
+\contentsline {section}{\numberline {3.1}(More) Separation Properties}{59}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Countability Properties}{60}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Regularity}{63}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Regularity and Subspaces}{63}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Regularity and Products}{65}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Urysohn's Lemma}{67}{section.3.4}%
+\contentsline {section}{\numberline {3.5}The Stone-Čech Compactification}{70}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}One-Point Compactification}{70}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Constructing the Stone-Čech Compactification}{71}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}The Universal Property of the Stone-Čech Compactification}{72}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Applications of Stone-Čech Compactification}{74}{subsection.3.5.4}%
+\contentsline {section}{\numberline {3.6}Urysohn's Metrisation Theorem}{75}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Topologies on Sets of Functions}{79}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Motivation and First Examples}{79}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}The Topology of Pointwise Convergence}{80}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}The Topology of Uniform Convergence}{80}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}An Extension Property for Normal Spaces}{83}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}A Study in Compactness}{85}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}The Topology of Compact Convergence}{85}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Compactly Generated Spaces}{86}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}The Compact-Open Topology}{87}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Families of Functions}{90}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Equicontinuity}{91}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Pre-Compactness}{93}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Evaluation Maps}{93}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}The Arzelà-Ascoli Theorem}{94}{subsection.4.3.4}%
+\contentsline {chapter}{\numberline {5}An Introduction to Algebraic Topology}{97}{chapter.5}%
+\contentsline {section}{\numberline {5.1}A Word on Category Theory}{97}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Objects and Morphisms}{97}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Functors}{102}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Homotopy}{103}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}A Word on Paths}{104}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Homotopies between Functions}{105}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}The Fundamental Group}{107}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}The Homotopy Groupoid and the Fundamental Group}{107}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Functoriality of $\pi _1$}{108}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}The Fundamental Group and Path-Connectedness}{109}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Application: A Homotopy Theoretic Proof of Brouwer's Fixed Point Theorem}{110}{subsection.5.3.4}%
+\contentsline {section}{\numberline {5.4}Covering Spaces}{112}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Definitions and First Examples}{112}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Path Lifting}{113}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Homotopy Lifting}{115}{subsection.5.4.3}%
+\contentsline {section}{\numberline {5.5}Spaces with Convenient Homotopy Properties}{115}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Simply-Connected Spaces}{115}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Contractible Spaces}{117}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Retractions and Homotopy Retractions}{118}{subsection.5.5.3}%
+\contentsline {section}{\numberline {5.6}Universal Covers}{120}{section.5.6}%
+\contentsline {section}{\numberline {5.7}The Fundamental Group of the Circle}{121}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Winding Numbers}{121}{subsection.5.7.1}%
+\contentsline {section}{\numberline {5.8}Group Actions}{122}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Groups Acting on Topological Spaces}{123}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Groups Acting on Simply-Connected Spaces}{123}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Deck Transformations}{125}{subsection.5.8.3}%
+\contentsline {chapter}{Appendices}{126}{chapter*.23}%
+\contentsline {section}{\numberline {A}A Categorical Perspective}{126}{section.6.1}%
+\contentsline {subsection}{\numberline {A.1}Product Spaces}{126}{subsection.6.1.1}%
+\contentsline {section}{\numberline {B}Professor Cummings's Top(ological) Tips}{126}{section.6.2}%
+\contentsline {chapter}{Bibliography}{128}{Item.166}%

@@ -145,17 +145,29 @@ We begin by computing the fundamental groups of these objects.
         \centering
         \begin{tikzpicture}[scale = 3]
             \draw (0,0) circle (1);
-            \labelledpoint{0.3}{0.4}{0}{-0.1}{f(p)};
+            \draw (0.3,0.65) -- (-1,0);
+            \labelledpoint{0.3}{0.65}{0.3}{-1}{f(p)};
             \labelledpoint{-1}{0}{-0.6}{-0.6}{g(p)};
-            % \node[anchor=above]{$p$} at (-0.2, 0.2); % change to labelledpoint
-            % \node[anchor=above]{$f(p)$} at (0.5, 0.2); % change to labelledpoint
+            \labelledpoint{-0.25}{0.375}{0.1}{-0.9}{p};
         \end{tikzpicture}
-        \caption{Caption}
     \end{figure}
-    There are two key points we will show (\sorry):
+    We now show two very important points.
     \begin{enumerate}
-        \item For all $p \in S$, $g(p) = p$.
-        \item $g$ is continuous.
+        \item \underline{For all $p \in S$, $g(p) = p$.}
+
+        This is pretty immediate from the definition of $g$. I mean, \textit{you} try drawing a line from a point not necessarily on the boundary to a point on the boundary and look at the intersection with the boundary. I'll bet you my arm you'll end up at the point on the boundary.
+        
+        \item \underline{$g$ is continuous.}
+
+        % We will faff about a bit and leave it at that. Since $p$ lies on a line segment between $f(p)$ and $g(p)$, it is clear that there is some function $\lambda : D \to [0, 1]$ such that
+        % \begin{align*}
+        %     p = \lambda(p) \cdot g(p) + \parenth{1 - \lambda(p)} \cdot f(p)
+        % \end{align*}
+        % In fact, we even know that $\lambda$ is non-vanishing (because $p \neq f(p)$), so if we can only show that $\lambda$ is continuous, we will be done.
+
+        % We will not do this explicitly, but just wave our hands about and say it's just an exercise in solving polynomial equations. Let's leave it at that.
+
+        Just a matter of solving some polynomial equations.
     \end{enumerate}
     Given these points, the proof becomes quite simple: if $i : S \to D$ denotes the (continuous) inclusion map from $S$ to $D$, then for any $p \in S$, the following diagram commutes in $\Top_*$:
     \begin{cd*}
