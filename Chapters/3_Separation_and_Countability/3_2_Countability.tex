@@ -47,8 +47,12 @@ Our goal now is to find conditions on $f_i:X\rightarrow Y_i$ to ensure that $F$ 
 \begin{boxdefinition}[Separating Points from Closed Sets]
     Given $X, (Y_i)_{i\in I}$ and continuous functions $f_i:X\rightarrow Y_i$ we say that $(f_i)_{i\in I}$ ``separates points from closed sets'' iff for all closed $C\ssq X$ with $x\in X, x\notin C$ here is some $i\in I$ such that $f_i(x)\notin \text{cl}(f_i[C])$.
 \end{boxdefinition}
-\begin{boxtheorem}
-    If $f_i:X\rightarrow Y_i$ with $i\in I$ are such that each $f_i$ separates points, separates points on closed sets with $i\in I$ and is continuous, then $F$ is an embedding.
+\begin{boxtheorem}\label{Ch3:Thm:Embedding_Prod_of_Sep_Points_Cl}
+    If $f_i:X\rightarrow Y_i$ with $i\in I$ are such that each $f_i$ is continuous and separates points from closed sets, then $F : X \to \prod_{i}Y_i$ given by
+    \begin{align*}
+        F(x)=(f_i(x))_{i\in I}
+    \end{align*}
+    is an embedding of $X$ into $\prod_{i}Y_i$.
 \end{boxtheorem}
 Here is the proof, but ``you're not going to like it'' - is there set-theoretic nonsense??
 \begin{proof}
@@ -257,24 +261,24 @@ We will also briefly explain what the dyadic rationals are.
 The dyadic rationals are dense in $\R$: indeed, this is why real numbers admit binary expansions.
 
 \begin{boxlnotation}
-    Denote by $D$ the set of all dyadic rationals contained in $(0, 1)$.
+    Denote by $\Delta$ the set of all dyadic rationals contained in $(0, 1)$.
 \end{boxlnotation} % Local notation :DD
 
 We are now ready to prove Urysohn's Lemma.
 
 \begin{proof}[Proof of Urysohn's Lemma (\Cref{SP:Urysohn}).]
-    We will proceed by constructing sets $\setst{U_q}{q \in D}$ such that
+    We will proceed by constructing sets $\setst{U_q}{q \in \Delta}$ such that
     \begin{enumerate}[noitemsep]
-        \item $C \ssq U_q \ssq X \setminus D$ for all $q \in D$.
-        \item If $p, q \in D$ and $p < q$ then $\cl{U_p} \ssq U_q$.
+        \item $C \ssq U_q \ssq X \setminus D$ for all $q \in \Delta$.
+        \item If $p, q \in \Delta$ and $p < q$ then $\cl{U_p} \ssq U_q$.
     \end{enumerate}
-    To do this, we will actually build $\setst{U_q, V_q}{q \in D}$ such that for all $q \in D$,
+    To do this, we will actually build $\setst{U_q, V_q}{q \in \Delta}$ such that for all $q \in \Delta$,
     \begin{enumerate}[noitemsep]
         \item $U_q$ is open
         \item $V_q$ is closed
         \item $V_q \ssq U_r$ for $r > q$
     \end{enumerate}
-    At this stage, it will be useful to draw a picture.
+    % At this stage, it will be useful to draw a picture.
     % Can I live-TeX a picture? Let's find out...
     % as per usual, incredibly impressive
     % Well it would've been if it had worked...
@@ -287,12 +291,12 @@ We are now ready to prove Urysohn's Lemma.
     %         \draw (1, 0) circle (5pt); % D
 
     %         % U 1/4, V 1/4
-    %         \draw [blue,thin,domain=-30:30] plot (0.2 * {cos(\x)}, 0.2 * {sin(\x)});
-    %         \draw [blue,thin,domain=-30:30] plot (0.3 * {cos(\x)}, 0.3 * {sin(\x)});
+    %         \draw [blue, thin, domain=-30:30, samples=40] plot (0.2 * {\cos{\t}}, 0.2 * {\sin{\t}});
+    %         \draw [blue, thin, domain=-30:30, samples=40] plot (0.3 * {\cos{\x}}, 0.3 * {\sin{\x}});
             
     %         % U 1/2, V 1/2
-    %         \draw [blue,thin,domain=-30:30] plot ({0.4 * cos(\x)}, {0.4 * sin(\x)});
-    %         \draw [blue,thin,domain=-30:30] plot ({0.6 * cos(\x)}, {0.6 * sin(\x)});
+    %         \draw [blue,thin,domain=-30:30, samples=100] plot ({0.4 * cos(\x)}, {0.4 * sin(\x)});
+    %         \draw [blue,thin,domain=-30:30, samples=100] plot ({0.6 * cos(\x)}, {0.6 * sin(\x)});
     %     \end{tikzpicture}
     %     \caption{Caption}
     %     \label{fig:placeholder}
@@ -315,22 +319,24 @@ We are now ready to prove Urysohn's Lemma.
     \begin{align*}
         C \ssq U_p \ssq X \setminus D
         \qquad \text{ and } \qquad U_p\ssq V_p\ssq U_q \implies
-        \cl{U_p} \ssq U_{q}
+        \cl\of{U_p} \ssq U_{q}
     \end{align*}
     % Muchas gracias senora
     %por supuesto
-    We will now get on to the construction of our continuous function. To do so, we define $f:X \to [0,1]$ such that, if there us no $r\in D$ with $x\in U_r$, then we let $f(x) := 1$ - otherwise, we define $f(x) := \inf\!\setst{r\in D}{x\in U_r}$.
+    We will now get on to the construction of our continuous function. To do so, we define $f:X \to [0,1]$ such that, if there us no $r\in \Delta$ with $x\in U_r$, then we let $f(x) := 1$; otherwise, we define $f(x) := \inf\!\setst{r\in \Delta}{x\in U_r}$.
 
-    It is ``easy'' to see that if $x\in D$, then $f(x)=1$, as $x\in C\implies f(x)=\inf(D)=0$. However we must now get on to the trickier part...we claim that for all $x \in X$ and $p \in D$,
+    It is ``easy'' to see that if $x \in D$, then $f(x)=1$ and that if $x\in C$, then $ f(x)=\inf(\Delta)=0$. However we must now get on to the trickier part: showing that $f$ is continuous.
+    
+    We begin by claiming that for all $x \in X$ and $p \in \Delta$,
     \begin{enumerate}[label = (\alph*), noitemsep]
-        \item If $x \in \cl{U_p}$, $f(x) \leq p$
-        \item If $x \notin \cl{U_p}$, $f(x) \geq p$
+        \item If $x \in \cl\of{U_p}$, $f(x) \leq p$
+        \item If $x \notin \cl\of{U_p}$, $f(x) \geq p$
     \end{enumerate}
-    Indeed, if $x \in \cl{U_p}$, then $x \in U_q$ for all $q \in D$ with $q > p$, so $f(x) \leq p$. On the other hand, if $x \notin \cl{U_p}$, then assume, for contradiction, that $f(x) < p$. Then we can easily see that there must be some $r < p$ and $x \in U_r$ such that $f(x) \leq r < p$. But we know that $r<p$ and $x\in U_r\implies x\in U_p\ssq \cl{U_p}$ - a contradiction! So indeed, things are just as we wanted.%\sorry
+    Indeed, if $x \in \cl\of{U_p}$, then $x \in U_q$ for all $q \in \Delta$ with $q > p$, so $f(x) \leq p$. On the other hand, if $x \notin \cl\of{U_p}$, then assume, for contradiction, that $f(x) < p$. Then we can easily see that there must be some $r < p$ and $x \in U_r$ such that $f(x) \leq r < p$. But we know that $r<p$ and $x\in U_r\implies x\in U_p\ssq \cl\of{U_p}$ - a contradiction! So indeed, things are just as we wanted.
 
-    Now that we know our claims are true, taking the contrapositive of each claim we have that for all $x \in X$ and $p \in D$,
+    Now that we know our claims are true, taking the contrapositive of each claim we have that for all $x \in X$ and $p \in \Delta$,
     \begin{enumerate}[label = (\alph*), noitemsep]
-        \item If $f(x) > p$ then $x \notin \cl{U_p}$ (and thus $x \notin U_p$, so $f(x) \geq p$).
+        \item If $f(x) > p$ then $x \notin \cl\of{U_p}$ (and thus $x \notin U_p$, so $f(x) \geq p$).
         \item If $f(x) < p$ then $x \in U_p$ (and thus $f(x) \leq p$).
     \end{enumerate}
 
@@ -342,12 +348,12 @@ We are now ready to prove Urysohn's Lemma.
     \end{align*}
     We can now complete our proof by showing that $f$ is continuous - to do so, it suffices to show that the pre-image in $f$ of every basic open subset of $[0, 1]$ is open.
     
-    We begin by showing that $f\inv\!\brac{(a, b)}$ is open. We do this by showing every point has an open neighbourhood. Fix $x \in f\inv\!\brac{(a, b)}$. We know that $a < f(x) < b$. Find $p, q \in D$ such that $a < p < f(x) < q < b$. Then $f(x) > p$, so $x \notin \cl{U_p}$. Similarly, $f(x) < q$, so $x \in U_q$. Now, let $V = U_q \setminus \cl{U_p}$. Observe that $x \in V$. Moreover, for all $y \in V$, $y \in U_q$, so $f(y) \leq q$, and $y \notin U_p$, so $f(y) \geq p$. Then, we can see that $f[V] \ssq [p, q] \ssq (a, b)$.
+    We begin by showing that $f\inv\!\brac{(a, b)}$ is open. We do this by showing every point has an open neighbourhood. Fix $x \in f\inv\!\brac{(a, b)}$. We know that $a < f(x) < b$. Find $p, q \in \Delta$ such that $a < p < f(x) < q < b$. Then $f(x) > p$, so $x \notin \cl\of{U_p}$. Similarly, $f(x) < q$, so $x \in U_q$. Now, let $V = U_q \setminus \cl{U_p}$. Observe that $x \in V$. Moreover, for all $y \in V$, $y \in U_q$, so $f(y) \leq q$, and $y \notin U_p$, so $f(y) \geq p$. Then, we can see that $f[V] \ssq [p, q] \ssq (a, b)$.
     % I'm still on the left board, please feel free to type away
 
     %sure - this was bottom of the left board - once I can see again, haha
     
-    So for $f\inv [[0,a)]$ we let $f(x)<a$ and find $p\in D$ with $f(x)<p<a$, $x\in U_p$ and $f[U_p]\ssq [0,p]\ssq [0,a)$. Meanwhile, for $f\inv [(b,1]]$ we let $f(x)>b$ we find $q\in D$ such that $b<q<f(x)$ and the $x\notin \cl{U_q}$ and $y\in X\setminus \cl{U_q}$ then $y\notin U_q\implies f(y)\geq q>b$. 
+    So for $f\inv [[0,a)]$ we let $f(x)<a$ and find $p\in \Delta$ with $f(x)<p<a$, $x\in U_p$ and $f[U_p]\ssq [0,p]\ssq [0,a)$. Meanwhile, for $f\inv [(b,1]]$ we let $f(x)>b$ we find $q\in \Delta$ such that $b<q<f(x)$ and the $x\notin \cl{U_q}$ and $y\in X\setminus \cl{U_q}$ then $y\notin U_q\implies f(y)\geq q>b$. 
 \end{proof}
 
 The good news is that we have a very rich supply of normal spaces. Indeed, we know that Metric spaces are Hausdorff and normal ($T_4$). 
@@ -541,7 +547,7 @@ It is not hard to show that any closed subset of a Lindelöf space is Lindelöf 
     If not, recall that a 2nd countable space is defined as having a countable basis. We can express every open set $O_i$ in an arbitrary open cover $X=\bigcup_{i\in I}O_i$ as a union of basis elements. For each basis element $B$ we can choose some $O_i$ in our open cover with $B\ssq O_i$ - evidently the union of all such $O_i$ will cover $X$, and just as evidently there will be only countably many of them (so here we have our countable subcover).
 \end{proof}
 
-\begin{boxlemma}
+\begin{boxlemma}\label{Ch3:Lemma:Lindelof_T3_is_T4}
     Any space that is both Lindelöf and $T_3$ is $T_4$.
 \end{boxlemma}
 \begin{proof}
@@ -567,19 +573,15 @@ It is not hard to show that any closed subset of a Lindelöf space is Lindelöf 
 We are now ready to prove Urysohn's Metrisation Theorem (i.e. that if $X$ is 2nd countable and $T_3$, then $X$ must be metrisable). Remember that (to do so) our plan is to find a homeomorphic copy of $X$ in $[0,1]^{\N}$, which is sufficient because $[0,1]^{\N}$ is metrisable.
 
 \begin{proof}[Proof of \Cref{SP:Urysohn_Metrisation}]
-    Let $X$ be a 2nd countable $T_3$ space. By \Cref{Ch3:Lemma:2nd_countable_is_Lindelof}, since $X$ is 2nd countable, we have that $X$ is Lindelöf. To embed $X$ into $[0, 1]^{\N}$, it will suffice to find a countable set $\F$ of continuous functions from $X$ to $[0, 1]$ that separate points from closed sets.
+    Let $X$ be a 2nd countable $T_3$ space. To embed $X$ into $[0, 1]^{\N}$, it will suffice to find a countable set $\F$ of continuous functions from $X$ to $[0, 1]$ that separate points from closed sets.
 
-    \textbf{Why?} Well, first enumerate such a set $\F$ as functions $\set{f_1, f_2, \ldots}$ and define $F : X \to [0, 1]^{\N} : x \mapsto \parenth{f_n(x)}_{n \in \N}$. If $\F$ separates points from closed sets, 
-    
-    \textcolor{red}{teresa pick up here!}
-    
-    \sorry. Note that it is crucial that $\F$ is countable for this\todo{What?} to work.
+    \textbf{Why?} Since $\F$ is countable, we can enumerate such a set $\F$ as functions $\set{f_1, f_2, \ldots}$ and define $F : X \to [0, 1]^{\N} : x \mapsto \parenth{f_n(x)}_{n \in \N}$. Then, if $\F$ separates points from closed sets, \Cref{Ch3:Thm:Embedding_Prod_of_Sep_Points_Cl} immediately tells us that $F$ is an embedding!
 
     So now let's get to work and actually find such a family!
 
-    We will make use of the fact that $X$ is second countable. This means precisely that the topology of $X$ has a countable basis $B$. For all pairs $\parenth{U, V}$ with $U, V \in B$ and $\cl\of{U} \ssq V$, we observe that $\cl\of{U} \cap \parenth{X \setminus V} = \emptyset$\todo{Is this right??} So define $f_{U, V} : X \to [0, 1]$ by \sorry.
+    We will make use of the fact that $X$ is second countable. This means precisely that the topology of $X$ has a countable basis $B$. For all pairs $\parenth{U, V}$ with $U, V \in B$ and $\cl\of{U} \ssq V$, we observe that $\cl\of{U} \cap \parenth{X \setminus V} = \emptyset$. By \Cref{Ch3:Lemma:2nd_countable_is_Lindelof}, since $X$ is 2nd countable, $X$ must be Lindelöf; thus, by \Cref{Ch3:Lemma:Lindelof_T3_is_T4}, since $X$ is also $T_3$, $X$ is $T_4$. In particular, $X$ is normal. Thus, since $\cl\of{U}$ and $X \setminus V$ are disjoint, closed subsets of $X$, we can apply Urysohn's Lemma (\Cref{SP:Urysohn}) to define a continuous function $f_{U, V} : X \to [0, 1]$ that maps $\cl\of{U}$ to $\set{0}$ and $X \setminus V$ to $\set{1}$. We then define $\F := \setst{f_{U, V}}{U, V \in B}$. Since $B$ is countable, there are countably many pairs $(U, V)$, and thus countably many $f_{U, V}$ in $\F$.
 
-    It just remains to show that $\F$ separates points from closed sets. Let $F \ssq X$ be closed. Fix some $x \in X \setminus F$. Clearly $X \setminus F$ is open, so there is some $V \in B$ such that $x \in V$ and $V \ssq X \setminus F$ (meaning $V \cap F = \emptyset$). By regularity\todo{which follows from...?}, we know that there is an open set $U'$ that is a neighbourhood of $x$ whose closure is contained in $V$. Ie, we have $x \in U'$ and $\cl\of{U'} \ssq V$. Indeed, we can find a \textit{basic} $U \in B$ such that $x \in U \ssq U'$ and $\cl\of{U} \ssq \cl\of{U'} \ssq V$.
+    It just remains to show that $\F$ separates points from closed sets. Let $F \ssq X$ be closed. Fix some $x \in X \setminus F$. Clearly $X \setminus F$ is open, so there is some $V \in B$ such that $x \in V$ and $V \ssq X \setminus F$ (meaning $V \cap F = \emptyset$). Since $X$ is $T_3$, $X$ is regular; thus, we know that there is an open set $U'$ that is a neighbourhood of $x$ whose closure is contained in $V$. Ie, we have $x \in U'$ and $\cl\of{U'} \ssq V$. Indeed, we can find a \textit{basic} $U \in B$ such that $x \in U \ssq U'$ and $\cl\of{U} \ssq \cl\of{U'} \ssq V$.
 
     \sorry
 \end{proof}

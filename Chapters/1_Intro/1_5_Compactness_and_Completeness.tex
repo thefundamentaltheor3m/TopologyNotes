@@ -118,16 +118,16 @@ In general topological spaces, sequential compactness and compactness are \textb
 
 The reason we define total boundedness is that it connects compactness and completeness. Before we can establish that connection, we need an intermediate lemma.\\
 
-\textcolor{red}{[teresa]...what is this lemma supposed to say? what if $x$ is an element of the sequence? what if the sequence converges to $x$? doesn't $x_n=x\implies x_n\in B(x, \ve),\forall \ve>0$??}
+% \textcolor{red}{[teresa]...what is this lemma supposed to say? what if $x$ is an element of the sequence? what if the sequence converges to $x$? doesn't $x_n=x\implies x_n\in B(x, \ve),\forall \ve>0$??}
 \begin{boxlemma}\label{Ch1:Lemma:Intermediate_compact_seq_compact_TFAE}
-    Let $X$ be a metric space, and let $\parenth{x_n}_{n \in \N}$ be a sequence with no repetitions. For all $x \in X$, there is some $\eps > 0$ such that there is no $n \in \N$ with $x_n = x$ and $x_n \in B\of{x, \eps}$.
+    Let $X$ be a metric space, and let $\parenth{x_n}_{n \in \N}$ be a sequence with no repetitions. For all $x \in X$, there is some $\eps > 0$ such that there is no $n \in \N$ with $x_n \neq x$ and $x_n \in B\of{x, \eps}$.
 \end{boxlemma}
 \begin{proof}
     We argue by contradiction. Assume it does not hold. That is, assume there is some $x \in X$ such that for all $\eps > 0$, there is $n \in \N$ with $x_n \neq x$ and $x_n \in B\of{x, \eps}$. Now, perform the following steps.
     \begin{itemize}
         \item Let $\eps_0 = 1$. There is some $x_{n_0} \neq x$ with $x_{n_0} \in B\of{x, \eps_0}$.
-        \item Let $\eps_1 := \min\of{2^{-1}}, d\of{x, x_{n_0}}$. There is some $x_{n_1} \neq x$ with $x_{n_1} \in B\of{x, \eps_1}$.
-        \item Let $\eps_2 := \min\of{2^{-2}}, d\of{x, x_{n_0}}$. There is some $x_{n_1} \neq x$ with $x_{n_1} \in B\of{x, \eps_2}$.
+        \item Let $\eps_1 := \min\of{2^{-1}, d\of{x, x_{n_0}}}$. There is some $x_{n_1} \neq x$ with $x_{n_1} \in B\of{x, \eps_1}$.
+        \item Let $\eps_2 := \min\of{2^{-2}, d\of{x, x_{n_0}}}$. There is some $x_{n_1} \neq x$ with $x_{n_1} \in B\of{x, \eps_2}$.
         \item ... and so on.
     \end{itemize}
     
@@ -169,7 +169,7 @@ We prove another intermediate result, sometimes referred to as the `existence of
 \end{boxtheorem}
 \begin{proof}
     \begin{description}
-        \item[\underline{$(1) \implies (2)$.}] Say $X$ is compact, $(x_n)_n$ with $x\in X$. If $\setst{x_n}{n \in \N}$ is finite then, by the infinite pigeonhole principle there must exist some infinite constant  subsequence (and then we're done). Else, if $\setst{x_n}{n \in \N}$ is infinite, we must be able to replace it with a subsequence with no repetitions. Abuse notation and call this $\parenth{x_n}_{n \in \N}$ as well.
+        \item[\underline{$(1) \implies (2)$.}] Say $X$ is compact, $(x_n)_n$ with $x\in X$. If $\setst{x_n}{n \in \N}$ is finite then, by the infinite pigeonhole principle there must exist some infinite constant  subsequence (and then we're done). Else, if $\setst{x_n}{n \in \N}$ is infinite, we must be able to replace it with a subsequence with no repetitions. Abuse notation and call this $\parenth{x_n}_{n \in \N}$ as well.xr
 
         Towards contradiction, assume that $\parenth{x_n}$ has no convergent subsequences. We claim that for all $x \in X$, there is some $\eps > 0$ such that there is no $n \in \N$ with $x_n = x$ and $x_n \in B\of{x, \eps}$.
         

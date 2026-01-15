@@ -57,7 +57,7 @@ The reason for this terminology is that a sequence of functions converges with r
 It turns out that the uniform metric construction preserves completeness.
 
 \begin{boxproposition}
-    If $\parenth{Y, d}$ is a complete metric space and $X$ is an arbitrary set, then $\parenth{Y^X, \dunif}$.
+    If $\parenth{Y, d}$ is a complete metric space and $X$ is an arbitrary set, then $\parenth{Y^X, \dunif}$ is also a complete metric space.
 \end{boxproposition}
 \begin{proof}
     Let $\parenth{f_n}_{n \in \N}$ be Cauchy in $\parenth{Y^X, d\unif}$. It is easy to see that for all $x \in X$, the sequence $\parenth{f_n(x)}_{n \in \N}$ is convergent in $\parenth{Y, d}$. Since this metric space is complete, $\parenth{f_n(x)}_{n \in \N}$ converges to some limit. We can therefore define
@@ -85,7 +85,7 @@ The following ``is like a really important fact''.
     Let $\parenth{f_n}_{n \in \N}$ be a sequence in $C(X, Y)$, and assume that there is some $f \in Y^X$ such that $f_n \to f$ with respect to $d\unif$. Then, $f$ is continuous, that is, we can view $f$ as an element of $C(X, Y)$.
 \end{boxtheorem}
 \begin{proof}
-    To show that $f$ is continuous at all $x\in X$, we let $\eps>0, \eps<1$, and $n$ such that $d_{unif}(f_n, f)<\ve/3$ - note the $\ve/3$ providing evidence that we are thinking ahead! We now know that $f_n$ is continuous at $x$, so we find some open set $U$ containing $x$ for which we have $d(f_n(x), f_n(x'))<\ve/3$, and also $d(f_n(x), f_n(x'))<\ve/3$ for all $x,x'\in U$. Noting now that $d(f(x), f(x'))\leq d(f(x), f_n(x))+d(f_n(x), f_n(x'))+d(f(x'), f_n(x'))\leq 3\cdot \eps/3=\eps$. 
+    To show that $f$ is continuous at all $x\in X$, we let $\eps>0, \eps<1$, and $n$ such that $d_{unif}(f_n, f)<\ve/3$ - note the $\ve/3$ providing evidence that we are thinking ahead! We now know that $f_n$ is continuous at $x$, so we find some open set $U$ containing $x$ for which we have $d(f_n(x), f_n(x'))<\ve/3$, and also $d(f_n(x), f(x))<\ve/3$ for all $x\in U$ (by the convergence in $d_{unif}$). Noting now that $d(f(x), f(x'))\leq d(f(x), f_n(x))+d(f_n(x), f_n(x'))+d(f(x'), f_n(x'))\leq 3\cdot \eps/3=\eps$. 
 \end{proof}
 
 The above is best summarised by saying that \textbf{a uniform limit of continuous functions is continuous}.
@@ -126,7 +126,7 @@ The uniform metric has many applications. In this subsection, we will investigat
     Suppose we have found a continuous function $f_n : X \to \R$ such that $\norm{f - f_n}_A \leq c_n$. Define the following disjoint subsets of $A$:
     \begin{align*}
         A_n^- &:= \setst{a \in A}{f(a) - f_n(a) \in \brac{-c_n, -\frac{c_n}{3}}} \\
-        A_n^+ &:= \setst{a \in A}{f(a) - f_n(a) \in \brac{\frac{c_n}{3}}, c_n}
+        A_n^+ &:= \setst{a \in A}{f(a) - f_n(a) \in \brac{\frac{c_n}{3}, c_n}}
     \end{align*}
     Since $A$ is closed and $f - f_n$ is continuous, $A_n^-$ and $A_n^+$ are both disjoint, closed subsets of $X$. Since $X$ is normal, we can apply Urysohn's Lemma (\Cref{SP:Urysohn}) to find some continuous $\phi_n : X \to \brac{0, 1}$ with $\phi_n \restriction A_n^- = 0$ and $\phi_n \restriction A_n^+ = 1$.
 
